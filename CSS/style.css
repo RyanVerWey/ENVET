@@ -1,0 +1,180 @@
+body {
+    background-color: white;
+    font-family: Sans-Serif;
+}
+
+:root {
+    /* Primary Colors */
+    --primary-blue: #0b578a;
+    --primary-orange: #549bd4;
+
+    /* Secondary Colors */
+    --secondary-blue: #A8C7DC;
+    --secondary-black: #0B0C25;
+    --secondary-gray: #E7ECF3;
+
+    /* Text Colors */
+    --text-black: #222222;
+    --text-gray: #444444;
+
+    /* Background Colors */
+    --background-gray: #f4fcff;
+    --background-blue: #adb9c0;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Abril Fatface';
+    margin: 0;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4, h5 {
+    font-family: 'Roboto';
+    margin: 0;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-weight: 300;
+    font-size: 0.93rem;
+}
+
+nav {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 1.5rem; /* Reduced to avoid jumps */
+}
+
+p {
+    font-family: 'Roboto';
+    font-size: 1rem;
+}
+
+/* Header Elements */
+.headContainer {
+    background-color: var(--background-gray);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.logo-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 10%;
+}
+
+.logo-header img {
+    max-width: 150px;
+    height: auto;
+}
+
+.headContainer h1 {
+    font-size: 2rem;
+    color: var(--text-black);
+    margin: 0;
+}
+
+.headerText {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10%;
+    gap: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-black);
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-blue);
+}
+
+.callToActionBtn {
+    background-color: var(--primary-orange);
+    font-family: 'Roboto';
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.callToActionBtn:hover {
+    box-shadow: 0 4px 8px var(--secondary-black);
+}
+
+
+/* Hero Section */
+.heroContainer {
+    background-image: url("../IMG/hero-bg.jpg");
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 15%;
+    padding-bottom: 10%;
+    color: white;
+    margin-bottom: 3rem;
+}
+
+.heroContainer h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+/*Hero Section*/
+.heroContainer {
+    background-image: url("../IMG/HomepageBackground.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 15%;
+    padding-bottom: 10%;
+    text-shadow: 2px 2px 4px var(--text-black);
+    margin-bottom: 3rem;
+}
+
+.heroContainer h1 {
+    margin-bottom: 0.5rem;
+}
