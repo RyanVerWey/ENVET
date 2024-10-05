@@ -1,12 +1,12 @@
 # ENVET - Eagles Nest Veterans Equine Therapy
 
 ## Table of Contents
-1. [General Info](#general-info)
-2. [Technologies Used](#technologies-used)
-3. [Features](#features)
-4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
+1. [General Info](#1-general-info)
+2. [Technologies Used](#2-technologies-used)
+3. [Features](#3-features)
+4. [Usage](#4-usage)
+5. [Contributing](#5-contributing)
+6. [License](#6-license)
 
 ## 1. General Info
 **ENVET - Eagles Nest Veterans Equine Therapy** is a non-profit organization dedicated to supporting veterans through the healing power of equine therapy. This project involves the creation of a single-page website designed to introduce ENVET to the world, showcasing their mission, values, and services. The site serves as a digital platform where veterans and supporters can learn more about the organization, its therapeutic programs, and how to get involved. The goal is to provide a professional and impactful online presence to connect with the community and enhance outreach efforts.
