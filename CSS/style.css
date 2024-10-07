@@ -1,6 +1,6 @@
 body {
     background-color: white;
-    font-family: Sans-Serif;
+    font-family: 'Roboto';
 }
 
 :root {
@@ -24,7 +24,7 @@ body {
 
 /* Typography */
 h1, h2, h3 {
-    font-family: 'Abril Fatface';
+    font-family: 'Roboto';
     margin: 0;
 }
 
@@ -63,7 +63,7 @@ nav {
 
 p {
     font-family: 'Roboto';
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 /* Header Elements */
@@ -156,6 +156,7 @@ nav a:hover {
 .heroContainer h1 {
     margin-bottom: 0.5rem;
     font-size: 2.5rem;
+    color: rgb(237, 240, 193);
 }
 
 /*Hero Section*/
@@ -176,5 +177,140 @@ nav a:hover {
 }
 
 .heroContainer h1 {
+    font-size: 5rem;
     margin-bottom: 0.5rem;
+}
+
+/* About Section */
+.aboutContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    background-color: var(--background-gray);
+    margin-bottom: 3rem;
+}
+
+.leftAbout, .rightAbout {
+    flex: 1;
+    margin: 1rem;
+}
+
+.leftAbout h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.leftAbout p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+.rightAbout img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--secondary-black);
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* Services Section */
+.servicesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: var(--background-gray);
+    font-size: 2rem;
+    color: var(--primary-blue);
+    padding: 2rem 10%;
+}
+
+.servicesContainer h2 {
+    font-size: 2rem;
+}
+
+.servicesContainer p {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--secondary-black);
+    overflow: hidden;
+    margin: 1rem;
+    flex: 1 1 calc(33% - 2rem);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover; 
+}
+
+.cardDescription {
+    padding: 1rem;
+    text-align: center;
+}
+
+.cardDescription h3 {
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.cardDescription p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(50% - 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 100%;
+    }
 }
