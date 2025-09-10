@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* optional: CSS custom props that adapt with dark mode */
+:root {
+  --ring: theme(colors.brand.accent, #14b8a6);
+}
+
+html { color-scheme: light dark; }
+
+.container-px { @apply max-w-6xl mx-auto px-4; }
