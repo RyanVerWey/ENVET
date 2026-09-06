@@ -10,8 +10,8 @@ export default function About() {
     <>
       <PageIntro
         eyebrow="Our story"
-        title="GOOD PEOPLE. GOOD HORSES. COMMON GROUND."
-        intro="Eagle’s Nest is a place to begin a connection, with horses, with the outdoors, and with a community that cares."
+        title="A shared purpose. A place to connect."
+        intro="Eagle’s Nest Veterans’ Equine Therapy brings veterans, families, and horses together in Lovettsville, Virginia."
         path="/about"
       />
       <section className="wrap story-split">
@@ -40,14 +40,14 @@ export default function About() {
             We believe the first step should feel simple: a conversation with a
             person who can help you understand what comes next.
           </p>
-          <Action href="/visit">Find your first step</Action>
+          <Action href="/visit">Plan your visit</Action>
         </div>
       </section>
       <section className="wrap values-section">
         <p className="eyebrow">WHAT GUIDES THIS PLACE</p>
         <div className="value-row">
           <span>01</span>
-          <h2>People before paperwork.</h2>
+          <h2>A personal introduction</h2>
           <p>
             Ask questions at your own pace. There is no online medical intake or
             document upload here.
@@ -55,7 +55,7 @@ export default function About() {
         </div>
         <div className="value-row">
           <span>02</span>
-          <h2>Care goes both ways.</h2>
+          <h2>Respect for the horses</h2>
           <p>
             Rescued and donated horses are central to ENVET’s work. Contact the
             team to learn about the horses and appropriate ways to interact.
@@ -63,7 +63,7 @@ export default function About() {
         </div>
         <div className="value-row">
           <span>03</span>
-          <h2>Community keeps us going.</h2>
+          <h2>Community support</h2>
           <p>
             Donations, shared stories, and people willing to help support the
             program. Ask what the team needs most right now.

@@ -11,7 +11,7 @@ export default function Editorial() {
     <>
       <PageIntro
         eyebrow="Editorial standards"
-        title="USEFUL ANSWERS. HONEST LIMITS."
+        title="Our editorial standards"
         intro="The journal helps people understand ENVET, prepare questions, and support the mission. It is not a clinical advice publication."
         path="/editorial-policy"
       />

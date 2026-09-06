@@ -11,7 +11,7 @@ export default function Privacy() {
     <>
       <PageIntro
         eyebrow="Privacy & accessibility"
-        title="YOUR TRUST MATTERS."
+        title="Privacy & accessibility"
         intro="A straightforward explanation of this website, what it stores, and where outside services take over."
         path="/privacy"
       />

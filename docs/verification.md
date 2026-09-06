@@ -1,6 +1,6 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-09-06T03:18:56Z"
+updated: "2026-09-06T04:01:22Z"
 ---
 # ENVET owner-review verification
 
@@ -47,3 +47,18 @@ For browser audits, inject the installed development dependency `axe-core/axe.mi
 ## Final handoff
 
 Ready code-review PR: https://github.com/RyanVerWey/ENVET/pull/45. GitHub CI passed. Nineteen implementation tasks and the M4 initiative are complete; M4 milestone is closed. M1/M2/M3 owner acceptance, M5 launch, and M6 funded implementation remain open. Theme state/persistence, mobile menu expansion and close-on-navigation, and native FAQ keyboard disclosure were manually verified. Next.js smooth-scroll route-transition metadata was added after the development warning; reduced-motion rules remain intact.
+
+## Owner-requested professional visual revision, September 6, 2026
+
+Initial visuals were rejected. This revision replaces typography, layout, photo crops and shared templates; adds requested bounded glass materials and accented CSS motion. DESIGN.md records the superseding direction. It is not an owner-approved design.
+
+- Production build, lint, 10 unit tests, typecheck, formatting and loopback HTTP smoke suite passed.
+- 104 revised template audits: 13 representative routes at 320, 390, 768 and 1440px viewports in mint light/dark. No axe WCAG 2/2.1/2.2 A/AA violations or horizontal overflow after fixes. The in-app browser reserves 15px for the scrollbar; actual document widths were 305, 375, 753 and 1425px, with requested innerWidth verified.
+- After the final CSS prefix fix, eight additional homepage audits passed in both themes at all four widths, with computed header blur(16px) saturate(1.35) and caption blur(16px) saturate(1.25) confirmed on the built artifact.
+- Keyboard: mobile menu opens with Enter; Escape closes and restores trigger focus. First visit FAQ opens with Enter.
+- Reduced-motion emulation: heading/image animation-name none; scroll-behavior auto. Emulation and temporary viewport were reset after checks.
+- Full homepage and mobile visit screenshots inspected; original photography and glass layers render. No real-device frame-rate certification is claimed. Browser checks do not replace owner acceptance or assistive-technology user testing.
+
+Regression fixes: featured blog intrinsic-size tablet overflow; low contrast from offscreen scroll fades (now translation-only); compiler dropped standard backdrop-filter when followed by an explicit WebKit duplicate (use standard source and automatic prefixing).
+
+Review remains loopback-only at http://127.0.0.1:3001/. M3 visual approval #21, M5 owner feedback #33 and launch approval #35 stay open.

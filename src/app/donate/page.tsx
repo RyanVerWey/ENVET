@@ -12,8 +12,8 @@ export default function Donate() {
     <>
       <PageIntro
         eyebrow="Support ENVET"
-        title="HELP KEEP THIS GATE OPEN."
-        intro="The care behind every visit continues long after the day is done. Your generosity helps keep ENVET’s program going."
+        title="Your generosity makes connection possible."
+        intro="Support equine therapy options for veterans and their families. Help sustain the horses, the place, and the program at Eagle’s Nest."
         path="/donate"
       />
       <section className="wrap donation-feature">
@@ -23,11 +23,11 @@ export default function Donate() {
           priority
         />
         <div className="donation-panel">
-          <p className="eyebrow">FOR THE HORSES. FOR OUR HEROES.</p>
+          <p className="eyebrow">Give to Eagle’s Nest</p>
           <h2>
-            A meaningful way
+            Support the work.
             <br />
-            to say, “we’re here.”
+            Sustain the mission.
           </h2>
           <p>
             Support equine therapy options for veterans and their families
@@ -41,17 +41,17 @@ export default function Donate() {
             PayPal. ENVET’s website never receives your card details.
           </p>
           <div className="donation-note">
-            <h3>Give in the way that fits.</h3>
+            <h3>Other ways to contribute</h3>
             <p>
-              No suggested amount. No pressure. Contact the team if you’d like
-              to discuss an in-kind gift or another way to contribute.
+              Contact the team to discuss an in-kind gift, a partnership, or
+              another way to contribute to ENVET’s work.
             </p>
           </div>
         </div>
       </section>
       <section className="wrap support-ways">
         <p className="eyebrow">MORE THAN ONE WAY TO HELP</p>
-        <h2>Bring what you can.</h2>
+        <h2>Be part of the mission.</h2>
         <div className="value-row">
           <span>01</span>
           <h3>Share the mission</h3>

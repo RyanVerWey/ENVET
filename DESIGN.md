@@ -1,39 +1,41 @@
 # ENVET design contract
 
-## Identity and context
+## Direction and acceptance
 
-Brand surface: an approachable digital front gate for veterans, families, and supporters. Physical reference: the clear lettering of a farm entrance sign and the open green space in ENVET’s actual photographs. Mint is an explicit user requirement, not a healthcare-category color inference. Owner design acceptance remains pending.
+The first review candidate was rejected as unprofessional. This revision supersedes its condensed signage typography, decorative stars, slogans and severe photo crops. The user additionally requested accented animation, tasteful glassmorphism, and a premium complete feel, allowing visual freedom beyond Corva basics. This remains a review candidate, not owner acceptance.
 
-Three voice words: grounded, open, steadfast. Reflex fonts Inter, Playfair Display, and Space Grotesk were rejected. Barlow Condensed and Manrope were selected from the Google Fonts catalog: sign-like condensed headings paired with readable human-scale body text. Fonts are self-hosted by Next.js at build time, not fetched from Google by site visitors.
+Brand voice: grounded, welcoming, steadfast. Physical reference: a carefully produced conservation nonprofit field guide, combining readable visitor information with real place-based photography. No magazine-italic affectation, military kitsch, fabricated impact figures, or clinical promises.
 
-## Themes
+## Typography
 
-Actual `@corvaui/tokens` 0.2.1 themes `mint-light` and `mint-dark`, with `@corvaui/react` Button used for the theme control. `data-corva-theme` lives on the root element. Default follows system preference; a user's explicit choice persists locally. Script executes before paint to avoid a theme flash.
+Three reflex fonts Inter, Playfair Display and Space Grotesk were rejected. Source Sans 3 was selected from the Google Fonts catalog (https://fonts.google.com/specimen/Source+Sans+3): humanist, legible, with the character of clear public-facing visitor information. One variable family with deliberate weight and size contrast, self-hosted by Next.js. Sentence-case headings, 17–18px body text, 65–70ch prose, 1240px content width.
 
-Physical scene: a veteran reading on a phone in daylight benefits from mint light; a family member browsing in a quiet, dim room gets mint dark. Both receive the same content and controls.
+## Corva foundation and material
 
-Strategy: committed mint/green identity through natural photos, a mint-tinted feature surface, and a deep-green support section. Base colors use CorvaUI semantics. Additional brand surfaces use OKLCH; original black/white logo is preserved, not recolored.
+Actual @corvaui/tokens 0.2.1 mint-light/mint-dark semantics and @corvaui/react Button remain. Theme defaults to system preference and persists explicit selection locally. The prepaint script prevents a theme flash.
 
-## Typography and layout
+A visitor on a sunny farm reads mint light; someone browsing quietly in a dim room gets mint dark. Both preserve content, contrast and actions. Brand canvas is a mint-tinted OKLCH neutral, with deeper forest-tinted dark surfaces and committed mint participation/giving sections.
 
-- Display: Barlow Condensed 500/600/700; body: Manrope variable.
-- Fluid headings and readable prose capped at 70ch.
-- 1320px content maximum; 48px desktop and 20px mobile outer space.
-- Asymmetric image-led hero, open story section, sequential visit guidance, full-bleed support section, useful journal, native FAQ.
-- Official logo accompanies a readable wordmark. No invented replacement logo.
-- Responsive transitions at 1150, 900, 760, and 380px. Mobile navigation uses an inline expanding region, not an overlay.
+Glass is limited to the sticky navigation and a caption anchored to authentic hero photography. Both have opaque fallbacks. Supported browsers receive bounded backdrop blur, a restrained edge highlight and 88% opaque theme-aware material; no nested glass cards or glass body-copy panels.
 
-## Behavior
+## Layout and photography
 
-- CorvaUI theme control, native disclosure FAQ, semantic links, no fake donation amount selectors or booking forms.
-- Visible focus, skip link, single h1 per page, meaningful landmarks, touch targets, and reduced-motion support.
-- Small hover translations and image scale only; no autoplay, scroll hijacking, entrance delays, or layout animation.
-- Phone/email/social/payment actions remain recognizable links. PayPal is clearly an external checkout.
+Mission-first headline and two clear actions precede a wide photograph. Image framing protects the visible human interaction; caption sits low over the image, not over faces. Mission, visitor guidance, giving, journal, FAQ and contact sections have distinct compositions and purposeful spacing.
 
-## Photography
+Header uses the official logo with the full organization identity, accessible theme control, navigation and donation link. Visit imagery appears before detailed instructions on mobile. Blog index has one featured guide followed by supporting resources. Article pages use readable text, sources, related reading and a desktop contextual sidebar.
 
-Only locally bundled photos observed on ENVET’s official Facebook page. Use `next/image` responsive sizes and AVIF/WebP optimization; hero image is prioritized. Review crops in desktop/mobile layouts so the horse and human interaction remain understandable. Never infer a person's veteran status, diagnosis, name, or testimonial from an image. Identifiable children are excluded from this build. Every public photo needs owner rights/consent clearance.
+Only local official Facebook assets are used. Image optimization and provenance remain unchanged. Do not infer age, veteran status, diagnosis or testimonial from photographs. All people/photo rights require owner clearance before production.
 
-## Acceptance status
+## Motion contract
 
-This is the implemented review direction, not an owner-approved final brand guide. See `docs/verification.md` for measured checks and `docs/launch-runbook.md` for the remaining acceptance gate.
+No animation dependency or extra client-side motion bundle. CSS entrance choreography uses 650–750ms deceleration with at most 140ms stagger; the hero photograph settles from 1.035 scale. Navigation underlines, action arrows, native FAQ opening, menu and theme icons provide short interaction feedback.
+
+Progressive scroll-linked section motion uses translation only, maintaining text contrast throughout the viewport entry. Article reading progress uses a thin navigation-edge indicator when scroll timelines are supported. Unsupported browsers retain the full static experience.
+
+Reduced motion disables every animation/transition and restores normal scrolling. Content and links never depend on animation completion. No looping ambient motion, bounce, autoplay video, cursor tricks or scroll hijacking.
+
+## Verification and gates
+
+Responsive breakpoints: 1150, 960, 760 and 400px. Mobile navigation remains an inline disclosure with Escape and route-close behavior. Static semantic pages retain one h1, skip link, visible focus, native FAQ and verified external links.
+
+See docs/verification.md for measured revision checks. Prior QA was technical evidence, not design acceptance. Owner approval, content/media rights, public deployment and funded-data decisions remain separate gates.

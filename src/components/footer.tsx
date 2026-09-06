@@ -7,11 +7,12 @@ export function Footer() {
       <div className="wrap footer-top">
         <div>
           <Link href="/" className="footer-wordmark">
-            ENVET<span>✦</span>
+            Eagle’s Nest
           </Link>
           <p>
             Eagle’s Nest Veterans’ Equine Therapy.
-            <br />A place for horses. A place for our heroes.
+            <br />
+            Supporting veterans and families through connection with horses.
           </p>
           <p className="footer-location">
             Lovettsville, Virginia
@@ -20,7 +21,7 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h2>Find your way</h2>
+          <h2>Explore ENVET</h2>
           <Link href="/visit">Plan a visit</Link>
           <Link href="/about">Our story</Link>
           <Link href="/gallery">Life at the farm</Link>
@@ -28,7 +29,7 @@ export function Footer() {
           <Link href="/donate">Support ENVET</Link>
         </div>
         <div>
-          <h2>Start a conversation</h2>
+          <h2>Contact & connect</h2>
           <a href={org.phoneHref}>{org.phone}</a>
           <a href={`mailto:${org.email}`}>{org.email}</a>
           <a href={org.facebook}>
@@ -43,7 +44,9 @@ export function Footer() {
         </div>
       </div>
       <div className="wrap footer-bottom">
-        <span>© {new Date().getFullYear()} ENVET. With gratitude.</span>
+        <span>
+          © {new Date().getFullYear()} Eagle’s Nest Veterans’ Equine Therapy.
+        </span>
         <div>
           <Link href="/privacy">Privacy & accessibility</Link>
           <Link href="/editorial-policy">Editorial standards</Link>

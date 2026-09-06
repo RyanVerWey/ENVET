@@ -12,18 +12,14 @@ export default function Visit() {
     <>
       <PageIntro
         eyebrow="Plan a visit"
-        title="YOUR FIRST STEP CAN BE A SIMPLE HELLO."
-        intro="You don’t need to know exactly what to ask. Tell the ENVET team you’re interested, and start there."
+        title="Make time for a different kind of connection."
+        intro="Learn about equine therapy options at Eagle’s Nest, ask your questions, and arrange a visit with the ENVET team."
         path="/visit"
       />
-      <section className="wrap story-split">
+      <section className="wrap story-split visit-story">
         <div>
           <p className="eyebrow">FOR VETERANS & FAMILIES</p>
-          <h2>
-            Let’s find out
-            <br />
-            what’s right for you.
-          </h2>
+          <h2>Let’s plan your first visit.</h2>
           <p>
             ENVET offers equine therapy options with rescued or donated horses.
             Veterans and family members can contact the team to discuss current
@@ -55,11 +51,7 @@ export default function Visit() {
       <section className="wrap visit-planning">
         <div>
           <p className="eyebrow">BEFORE YOU HEAD OUT</p>
-          <h2>
-            A few things
-            <br />
-            to talk through.
-          </h2>
+          <h2>What to discuss before your visit.</h2>
         </div>
         <ol className="steps">
           <li>
@@ -99,12 +91,8 @@ export default function Visit() {
       </section>
       <section className="wrap faq-section">
         <div>
-          <p className="eyebrow">GOOD QUESTIONS</p>
-          <h2>
-            No need to
-            <br />
-            guess.
-          </h2>
+          <p className="eyebrow">Frequently asked questions</p>
+          <h2>Know what to expect.</h2>
         </div>
         <FAQ
           items={[
@@ -154,7 +142,7 @@ export default function Visit() {
       </section>
       <section className="wrap closing-cta">
         <div>
-          <p className="eyebrow">MAKE A PLAN, NOT A GUESS</p>
+          <p className="eyebrow">Contact ENVET</p>
           <h2>We’d be glad to hear from you.</h2>
           <p>
             Read our{" "}

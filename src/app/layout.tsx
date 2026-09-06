@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow_Condensed, Manrope } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "@corvaui/tokens/css";
 import "@corvaui/react/styles.css";
 import "./globals.css";
@@ -13,15 +13,9 @@ import {
   siteUrl,
 } from "@/lib/site";
 
-const body = Manrope({
+const body = Source_Sans_3({
   subsets: ["latin"],
   variable: "--font-body",
-  display: "swap",
-});
-const display = Barlow_Condensed({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-display",
   display: "swap",
 });
 export const metadata: Metadata = {
@@ -51,7 +45,7 @@ export default function RootLayout({
       lang="en"
       data-corva-theme="mint-light"
       data-scroll-behavior="smooth"
-      className={`${body.variable} ${display.variable}`}
+      className={body.variable}
       suppressHydrationWarning
     >
       <head>

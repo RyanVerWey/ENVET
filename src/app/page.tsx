@@ -1,201 +1,180 @@
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 import { Action, FAQ, Photo, PostList } from "@/components/ui";
 import { getPosts } from "@/lib/blog";
 import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+
 export const metadata = pageMetadata(
-  "A place to reconnect",
+  "Equine therapy for veterans & families",
   org.description,
   "/",
 );
+
 export default function Home() {
   return (
     <>
-      <section className="hero wrap">
-        <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="small-star">✦</span> Horses. Hope. A place to
-            belong.
-          </p>
-          <h1>
-            YOU’VE SERVED.
-            <br />
-            THIS SPACE
-            <br />
-            IS <span>FOR YOU.</span>
-          </h1>
-          <p className="lead">
-            A little fresh air. A connection that asks for no words. Equine
-            therapy options for veterans and their families, here at Eagle’s
-            Nest.
-          </p>
-          <div className="actions">
-            <Action href="/visit">Find your first step</Action>
-            <Link href="/about" className="text-link">
-              Meet ENVET <ArrowRight size={17} aria-hidden="true" />
-            </Link>
+      <section className="home-hero">
+        <div className="wrap hero-heading">
+          <div>
+            <p className="eyebrow">Eagle’s Nest Veterans’ Equine Therapy</p>
+            <h1>
+              Equine therapy for veterans <span>and their families.</span>
+            </h1>
           </div>
-          <p className="hero-location">
-            <MapPin size={16} aria-hidden="true" /> Lovettsville, Virginia{" "}
-            <span>·</span> United by service
-          </p>
+          <div className="hero-introduction">
+            <p className="lead">
+              Connection with horses. Support from a community. ENVET brings
+              veterans and their families together with rescued and donated
+              horses in the Virginia countryside.
+            </p>
+            <div className="actions">
+              <Action href="/visit">Plan a visit</Action>
+              <Action href="/donate" secondary>
+                Support ENVET
+              </Action>
+            </div>
+          </div>
         </div>
-        <div className="hero-visual">
+        <figure className="hero-photograph wrap">
           <Photo
             src="/images/connection.jpg"
             alt="A helmeted rider leans toward a paint horse, with a handler beside them at Eagle’s Nest"
             priority
-            sizes="(max-width: 760px) 100vw, 55vw"
+            sizes="(max-width: 1280px) 100vw, 1280px"
           />
-          <div className="photo-note">
-            <span>FROM OUR LITTLE CORNER OF VIRGINIA</span>
-            <strong>
-              A different kind
-              <br />
-              of connection.
-            </strong>
-          </div>
-          <span className="image-index">01 / LIFE AT EAGLE’S NEST</span>
-        </div>
+          <figcaption>
+            <span>
+              <MapPin size={15} aria-hidden="true" /> Eagle’s Nest ·
+              Lovettsville, Virginia
+            </span>
+            <Link href="/gallery">
+              Life at the farm <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </figcaption>
+        </figure>
       </section>
-      <div className="mission-strip">
-        <div className="wrap">
-          <span>For veterans & their families</span>
-          <span aria-hidden="true">✦</span>
-          <span>Rescued & donated horses</span>
-          <span aria-hidden="true">✦</span>
-          <span>Community makes it possible</span>
-        </div>
-      </div>
-      <section className="intro-section wrap">
-        <p className="eyebrow">WELCOME TO EAGLE’S NEST</p>
+
+      <section className="mission-section wrap">
         <div>
+          <p className="eyebrow">Our mission</p>
           <h2>
-            Not another thing to navigate.
-            <br />A place to <span className="accent-text">just begin.</span>
+            Supporting those who served.
+            <br />
+            Building connection through horses.
           </h2>
-          <div className="intro-columns">
-            <p>
-              ENVET is a nonprofit providing equine therapy options for United
-              States veterans and their families. Our work brings people and
-              rescued or donated horses together in Lovettsville, Virginia.
-            </p>
-            <p>
-              You don’t have to have every answer before reaching out. Tell us
-              you’re interested. We’ll talk through the program, your questions,
-              and what a first visit could look like.
-            </p>
-          </div>
+        </div>
+        <div className="mission-copy">
+          <p>
+            ENVET is a nonprofit providing equine therapy options for United
+            States veterans and their families. Here in Lovettsville, rescued
+            and donated horses are at the center of our work.
+          </p>
+          <p>
+            Whether you are exploring a visit, reaching out for a loved one, or
+            looking for a way to give back, our team is here to help you take
+            the next step.
+          </p>
           <Link href="/about" className="text-link">
-            The story behind ENVET <ArrowRight size={18} aria-hidden="true" />
+            Learn about ENVET <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
       </section>
-      <section className="visit-feature wrap">
-        <Photo
-          src="/images/farm.jpg"
-          alt="Two people tending horses beside a black fence, with the Eagle’s Nest farmhouse beyond"
-        />
-        <div className="visit-copy">
-          <p className="eyebrow">COME AS YOU ARE</p>
-          <h2>
-            One conversation.
-            <br />
-            An open gate.
-          </h2>
-          <p>
-            Curious about the horses? Reaching out for a family member? Start
-            with a conversation, not a commitment.
-          </p>
-          <ol className="steps">
-            <li>
-              <span>01</span>
-              <div>
-                <h3>Say hello</h3>
-                <p>Call or message the ENVET team.</p>
-              </div>
-            </li>
-            <li>
-              <span>02</span>
-              <div>
-                <h3>Ask your questions</h3>
-                <p>Discuss eligibility, access, and available visits.</p>
-              </div>
-            </li>
-            <li>
-              <span>03</span>
-              <div>
-                <h3>Make a plan together</h3>
-                <p>Confirm the details before coming to the farm.</p>
-              </div>
-            </li>
-          </ol>
-          <Action href="/visit">Plan a visit</Action>
-        </div>
-      </section>
-      <section className="support-section">
-        <div className="wrap support-inner">
-          <div>
-            <p className="eyebrow">KEEP THE GATE OPEN</p>
-            <h2>
-              THEY SHOWED UP
-              <br />
-              FOR OUR COUNTRY.
-              <br />
-              <span>
-                LET’S SHOW UP
-                <br />
-                FOR THEM.
-              </span>
-            </h2>
-          </div>
-          <div className="support-detail">
-            <span className="large-star" aria-hidden="true">
-              ✦
-            </span>
+
+      <section className="participation-section">
+        <div className="wrap participation-layout">
+          <div className="participation-copy">
+            <p className="eyebrow">For veterans & families</p>
+            <h2>Your visit starts with a conversation.</h2>
             <p>
-              Free access to horses takes a community behind it. Your generosity
-              helps keep ENVET’s program going for veterans and their families.
+              Get to know the program before you come to the farm. Contact ENVET
+              to discuss participation, available activities, and any questions
+              about your visit.
             </p>
-            <Action href="/donate">Support the mission</Action>
-            <p className="small">
-              Give through ENVET’s official PayPal donation page. Every act of
-              support matters.
-            </p>
+            <ol className="steps">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Connect with the team</h3>
+                  <p>Call or message us to introduce yourself.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Discuss what works for you</h3>
+                  <p>
+                    Ask about eligibility, family participation, and access.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Arrange your visit</h3>
+                  <p>Confirm the date and details before traveling.</p>
+                </div>
+              </li>
+            </ol>
+            <Action href="/visit">Explore visiting ENVET</Action>
           </div>
+          <figure className="participation-photo">
+            <Photo
+              src="/images/farm.jpg"
+              alt="Two people tending horses beside a black fence at the Eagle’s Nest farm"
+            />
+            <figcaption>
+              Time with horses, in the open space of the Virginia countryside.
+            </figcaption>
+          </figure>
         </div>
       </section>
+
+      <section className="giving-section wrap">
+        <Photo
+          src="/images/horse.jpg"
+          alt="A horse beside the pasture fence at Eagle’s Nest"
+        />
+        <div className="giving-copy">
+          <p className="eyebrow">A community-supported mission</p>
+          <h2>Help keep equine therapy accessible to veterans.</h2>
+          <p>
+            ENVET’s mission includes free access to rescued and donated horses
+            for veterans. Your generosity helps keep the program going for
+            veterans and their families.
+          </p>
+          <Action href="/donate">Make a donation</Action>
+          <Link href="/contact" className="text-link">
+            Ask about volunteering or in-kind support{" "}
+            <ArrowRight size={18} aria-hidden="true" />
+          </Link>
+          <p className="small">
+            Donations are made through ENVET’s official PayPal page.
+          </p>
+        </div>
+      </section>
+
       <section className="journal-section wrap">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">FROM THE JOURNAL</p>
-            <h2>
-              A little understanding.
-              <br />A good place to start.
-            </h2>
+            <p className="eyebrow">The ENVET journal</p>
+            <h2>Resources for your next step.</h2>
           </div>
           <Link href="/blog" className="text-link">
-            Explore the journal <ArrowRight size={18} aria-hidden="true" />
+            View all resources <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
         <PostList posts={getPosts().slice(0, 3)} />
       </section>
+
       <section className="faq-section wrap">
         <div>
-          <p className="eyebrow">BEFORE YOU REACH OUT</p>
-          <h2>
-            Questions
-            <br />
-            are welcome.
-          </h2>
-          <p>
-            Need something else?
-            <br />
-            <Link className="text-link" href="/contact">
-              Talk with our team <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-          </p>
+          <p className="eyebrow">Frequently asked questions</p>
+          <h2>Before your first visit.</h2>
+          <p>We’re happy to answer your questions directly.</p>
+          <Link className="text-link" href="/contact">
+            Contact the team <ArrowRight size={17} aria-hidden="true" />
+          </Link>
         </div>
         <FAQ
           items={[
@@ -239,7 +218,7 @@ export default function Home() {
               ),
             },
             {
-              question: "How can I help keep the program going?",
+              question: "How can I support the program?",
               answer: (
                 <p>
                   <Link href="/donate">Make a donation</Link> through the
@@ -253,6 +232,20 @@ export default function Home() {
             },
           ]}
         />
+      </section>
+
+      <section className="contact-band">
+        <div className="wrap">
+          <div>
+            <h2>Let’s take the next step together.</h2>
+            <p>
+              Reach out about visiting, supporting, or partnering with ENVET.
+            </p>
+          </div>
+          <a href={org.phoneHref} className="action">
+            Call {org.phone} <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+        </div>
       </section>
     </>
   );

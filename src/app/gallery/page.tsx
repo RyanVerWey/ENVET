@@ -11,7 +11,7 @@ export default function Gallery() {
     <>
       <PageIntro
         eyebrow="Life at the farm"
-        title="THE REAL EAGLE’S NEST."
+        title="The horses. The people. The place."
         intro="A glimpse of the horses and the place behind the mission. Photographs from ENVET’s own community page."
         path="/gallery"
       />
@@ -23,8 +23,7 @@ export default function Gallery() {
             priority
           />
           <figcaption>
-            <strong>A connection starts here.</strong>One of the horses at
-            ENVET.{" "}
+            <strong>At home at Eagle’s Nest</strong>One of the horses at ENVET.{" "}
             <a href="https://www.facebook.com/profile.php?id=100068209587248">
               See the official Facebook page.
             </a>
@@ -36,8 +35,8 @@ export default function Gallery() {
             alt="Open space and fencing at the Eagle’s Nest farm"
           />
           <figcaption>
-            <strong>A little room to breathe.</strong>The outdoor setting in
-            Lovettsville, Virginia.
+            <strong>Around the farm</strong>The outdoor setting in Lovettsville,
+            Virginia.
           </figcaption>
         </figure>
       </section>

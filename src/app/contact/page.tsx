@@ -12,7 +12,7 @@ export default function Contact() {
     <>
       <PageIntro
         eyebrow="Contact"
-        title="A CONVERSATION STARTS HERE."
+        title="We look forward to hearing from you."
         intro="A question about visiting, a way to help, or just an introduction. Reach the ENVET team in the way that works for you."
         path="/contact"
       />
@@ -56,8 +56,8 @@ export default function Contact() {
         </div>
         <aside className="location-panel">
           <MapPin size={32} aria-hidden="true" />
-          <p className="eyebrow">OUR CORNER OF VIRGINIA</p>
-          <h2>Lovettsville.</h2>
+          <p className="eyebrow">Visit by arrangement</p>
+          <h2>Lovettsville, Virginia</h2>
           <address>{org.address}</address>
           <p>
             Visits by arrangement.

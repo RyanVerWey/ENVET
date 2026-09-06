@@ -5,11 +5,12 @@ import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
 import { Button } from "@corvaui/react";
 import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
+import { organization as org } from "@/lib/site";
 
 const nav = [
-  ["Our story", "/about"],
+  ["About ENVET", "/about"],
   ["Plan a visit", "/visit"],
-  ["The journal", "/blog"],
+  ["Resources", "/blog"],
   ["Contact", "/contact"],
 ];
 function subscribeTheme(listener: () => void) {
@@ -43,23 +44,25 @@ export function Header() {
   }
   return (
     <header className="site-header">
+      <div className="utility-bar">
+        <div className="wrap">
+          <span>Serving veterans & families in Lovettsville, Virginia</span>
+          <a href={org.phoneHref}>Call {org.phone}</a>
+        </div>
+      </div>
       <div className="header-inner wrap">
         <Link className="brand" href="/" aria-label="ENVET home">
           <Image
             className="brand-logo"
             src="/images/envet-logo.jpg"
             alt=""
-            width={52}
-            height={52}
+            width={64}
+            height={64}
             priority
           />
           <span>
-            <strong>ENVET</strong>
-            <small>
-              Eagle’s Nest Veterans’
-              <br />
-              Equine Therapy
-            </small>
+            <strong>Eagle’s Nest</strong>
+            <small>Veterans’ Equine Therapy</small>
           </span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">

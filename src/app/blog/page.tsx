@@ -16,8 +16,8 @@ export default function Blog() {
     <>
       <PageIntro
         eyebrow="The journal"
-        title="A GOOD PLACE TO START."
-        intro="Practical answers for veterans, families, and the people who want to help. A little more clarity before your next step."
+        title="Guidance for veterans, families, and supporters."
+        intro="Explore practical resources on visiting Eagle’s Nest, supporting a loved one, and contributing to the mission."
         path="/blog"
       />
       <section className="wrap blog-index">

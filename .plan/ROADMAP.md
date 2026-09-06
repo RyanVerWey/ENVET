@@ -29,3 +29,6 @@ Minimum-data follow-up workflow drafted in docs/data-workflow.md. Database/vendo
 ## Parking lot
 
 Automatic Facebook ingestion, custom payment processing, scheduling integration, donor CRM, volunteer portal, and a CMS without a demonstrated owner need. Blog is no longer parked.
+## Visual revision following owner feedback
+
+Initial design rejected. PR #45 now contains the professional typography/layout rebuild plus requested accented motion and limited glass materials. M3 visual acceptance (#21) and M5 owner-feedback acceptance (#33) remain open pending review. Technical QA does not close owner approval. No public launch or data provisioning.

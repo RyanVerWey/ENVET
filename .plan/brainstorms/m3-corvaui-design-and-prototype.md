@@ -5,7 +5,7 @@ slug: m3-corvaui-design-and-prototype
 status: active
 title: M3 CorvaUI design and prototype
 type: brainstorm
-updated_at: "2026-09-06T02:24:24Z"
+updated_at: "2026-09-06T03:51:03Z"
 ---
 
 # Brainstorm: M3 CorvaUI design and prototype
@@ -43,6 +43,10 @@ Authentic farm imagery, calm confidence, and unmistakable action paths make ENVE
 
 - Define design tokens, responsive layouts, components, accessibility, and motion.
 - Produce prototype only after owner-approved shape brief.
+
+- Owner rejected first review design as unprofessional. Revision: replace condensed all-caps signage, decorative stars, slogan-heavy copy and awkward portrait crops with humanist sentence-case typography, complete organization identity, factual mission-first hierarchy and wide authentic photography. Apply consistently to all routes. This is a revised review candidate, not visual approval; production remains gated.
+
+- Owner expanded revision: accented animations, tasteful glassmorphism, premium finish; retain Corva basics but permit broader art direction. Use bounded glass navigation and photographic captions, restrained entrance/scroll choreography, interaction feedback and reduced-motion alternatives. No new claims, production URL or database.
 ## Raw Notes
 
 ## Refinement
