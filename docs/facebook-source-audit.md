@@ -5,7 +5,7 @@ updated: "2026-09-06T02:27:19Z"
 ---
 # Facebook Source Audit
 
-Captured: 2026-09-05  
+Captured: 2026-09-05
 Source: https://www.facebook.com/profile.php?id=100068209587248
 
 ## Confirmed Page Facts
