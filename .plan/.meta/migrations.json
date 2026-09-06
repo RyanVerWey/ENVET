@@ -1,0 +1,42 @@
+{
+  "schema_version": 3,
+  "known": [],
+  "last_run_at": "2026-09-06T02:13:54Z",
+  "status": "current",
+  "last_operation": "init",
+  "last_created": [
+    ".plan",
+    ".plan/brainstorms",
+    ".plan/ideas",
+    ".plan/specs",
+    ".plan/archive",
+    ".plan/.meta",
+    ".plan/PROJECT.md",
+    ".plan/ROADMAP.md",
+    ".plan/.meta/workspace.json",
+    ".plan/.meta/migrations.json",
+    ".plan/.meta/github.json",
+    ".plan/.meta/guided_sessions.json"
+  ],
+  "history": [
+    {
+      "operation": "init",
+      "at": "2026-09-06T02:13:54Z",
+      "status": "current",
+      "created": [
+        ".plan",
+        ".plan/brainstorms",
+        ".plan/ideas",
+        ".plan/specs",
+        ".plan/archive",
+        ".plan/.meta",
+        ".plan/PROJECT.md",
+        ".plan/ROADMAP.md",
+        ".plan/.meta/workspace.json",
+        ".plan/.meta/migrations.json",
+        ".plan/.meta/github.json",
+        ".plan/.meta/guided_sessions.json"
+      ]
+    }
+  ]
+}

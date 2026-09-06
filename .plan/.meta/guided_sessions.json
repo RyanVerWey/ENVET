@@ -1,0 +1,105 @@
+{
+  "schema_version": 3,
+  "last_active_chain": "brainstorm/m6-funded-data-and-growth-platform",
+  "last_updated_at": "2026-09-06T02:22:59Z",
+  "sessions": {
+    "brainstorm/envet-fresh-start": {
+      "chain_id": "brainstorm/envet-fresh-start",
+      "brainstorm": "envet-fresh-start",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-09-06T02:13:54Z",
+      "updated_at": "2026-09-06T02:13:54Z"
+    },
+    "brainstorm/m1-source-of-truth-and-media-rights": {
+      "chain_id": "brainstorm/m1-source-of-truth-and-media-rights",
+      "brainstorm": "m1-source-of-truth-and-media-rights",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-09-06T02:22:59Z",
+      "updated_at": "2026-09-06T02:22:59Z"
+    },
+    "brainstorm/m2-messaging-and-experience-architecture": {
+      "chain_id": "brainstorm/m2-messaging-and-experience-architecture",
+      "brainstorm": "m2-messaging-and-experience-architecture",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-09-06T02:22:59Z",
+      "updated_at": "2026-09-06T02:22:59Z"
+    },
+    "brainstorm/m3-corvaui-design-and-prototype": {
+      "chain_id": "brainstorm/m3-corvaui-design-and-prototype",
+      "brainstorm": "m3-corvaui-design-and-prototype",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-09-06T02:22:59Z",
+      "updated_at": "2026-09-06T02:22:59Z"
+    },
+    "brainstorm/m4-static-build-and-private-owner-review": {
+      "chain_id": "brainstorm/m4-static-build-and-private-owner-review",
+      "brainstorm": "m4-static-build-and-private-owner-review",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-09-06T02:22:59Z",
+      "updated_at": "2026-09-06T02:22:59Z"
+    },
+    "brainstorm/m5-owner-approved-production-launch": {
+      "chain_id": "brainstorm/m5-owner-approved-production-launch",
+      "brainstorm": "m5-owner-approved-production-launch",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-09-06T02:22:59Z",
+      "updated_at": "2026-09-06T02:22:59Z"
+    },
+    "brainstorm/m6-funded-data-and-growth-platform": {
+      "chain_id": "brainstorm/m6-funded-data-and-growth-platform",
+      "brainstorm": "m6-funded-data-and-growth-platform",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-09-06T02:22:59Z",
+      "updated_at": "2026-09-06T02:22:59Z"
+    }
+  }
+}
