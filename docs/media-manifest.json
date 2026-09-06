@@ -1,0 +1,41 @@
+{
+  "capturedAt": "2026-09-06",
+  "sourcePage": "https://www.facebook.com/profile.php?id=100068209587248",
+  "previewUse": "User authorized crawling and use of official Facebook pictures. Public site publication still requires owner rights/consent approval.",
+  "assets": [
+    {
+      "file": "public/images/envet-logo.jpg",
+      "source": "https://www.facebook.com/photo/?fbid=601391295477851&set=a.401838972099752",
+      "description": "Official ENVET eagle, heart and flag logo.",
+      "risk": "Owner must confirm logo ownership and approved brand file.",
+      "publicApproved": false
+    },
+    {
+      "file": "public/images/horse.jpg",
+      "source": "https://www.facebook.com/photo.php?fbid=1355362113414095&set=pb.100068209587248.-2207520000&type=3",
+      "description": "Light-maned horse by a black fence; a person bends toward a black cat. Green fields and hills behind.",
+      "risk": "Adult present, face not prominent. Do not infer service status or health condition. Owner rights and consent clearance pending.",
+      "publicApproved": false
+    },
+    {
+      "file": "public/images/farm.jpg",
+      "source": "https://www.facebook.com/photo.php?fbid=1355362056747434&set=pb.100068209587248.-2207520000&type=3",
+      "description": "Two people with horses at a black fence; farmhouse and green landscape behind.",
+      "risk": "Identifiable adults. Do not infer service status or health condition. Owner rights and consent clearance pending.",
+      "publicApproved": false
+    },
+    {
+      "file": "public/images/connection.jpg",
+      "source": "https://www.facebook.com/photo/?fbid=401838982099751&set=a.401838965433086",
+      "description": "Official page cover displayed a helmeted rider leaning toward a paint horse, with a handler beside them.",
+      "risk": "Identifiable people; confirm age and all image releases with owner. No public approval inferred from Facebook availability.",
+      "publicApproved": false
+    }
+  ],
+  "excluded": [
+    {
+      "source": "https://www.facebook.com/photo.php?fbid=1377499454533694&set=pb.100068209587248.-2207520000&type=3",
+      "reason": "Facebook automatic alt text said horse, but visual inspection showed an identifiable child. Not copied into the application."
+    }
+  ]
+}

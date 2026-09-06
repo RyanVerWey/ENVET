@@ -1,34 +1,45 @@
 {
-  "name": "envet-site",
+  "name": "envet",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "fetch:fb": "node scripts/fetch-fb-images.mjs",
-    "dev": "vite",
-    "build": "npm run fetch:fb && vite build",
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:preview": "node scripts/check-preview.mjs",
+    "format:check": "prettier --check src tests scripts next.config.ts tsconfig.json vitest.config.mts",
+    "check": "npm run lint && npm test && npm run build && npm run typecheck"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.13",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-router-dom": "^7.8.2"
+    "@corvaui/react": "0.2.1",
+    "@corvaui/tokens": "0.2.1",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.577.0",
+    "next": "16.3.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rehype-sanitize": "^6.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "@tailwindcss/postcss": "^4.1.13",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react": "^5.0.0",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.33.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.13",
-    "vite": "^7.1.2"
+    "axe-core": "^4.11.1",
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "16.3.4",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  },
+  "engines": {
+    "node": ">=22.0.0"
   }
 }
