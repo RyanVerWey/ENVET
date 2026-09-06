@@ -50,6 +50,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-corva-theme="mint-light"
+      data-scroll-behavior="smooth"
       className={`${body.variable} ${display.variable}`}
       suppressHydrationWarning
     >

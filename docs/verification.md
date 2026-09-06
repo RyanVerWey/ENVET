@@ -1,6 +1,6 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-09-06T03:11:31Z"
+updated: "2026-09-06T03:18:56Z"
 ---
 # ENVET owner-review verification
 
@@ -43,3 +43,7 @@ Owner factual/legal/privacy review, precise service/family eligibility and acces
 Run `npm ci`, `npm run lint`, `npm test`, `npm run build`, `npm run typecheck`, and `npm run format:check`. Start the built site with `npm start`, then `npm run test:preview`. Use `PREVIEW_ORIGIN=http://127.0.0.1:3001` if the local built server uses port 3001. Smoke-test origin is deliberately restricted to loopback.
 
 For browser audits, inject the installed development dependency `axe-core/axe.min.js` only into the local review tab through the supported browser developer tooling, run the WCAG tags above, and compare document scrollWidth/clientWidth at each width. Reload afterward to remove audit instrumentation and clear device emulation before handing the tab back. Never run this audit against the donation checkout or send test messages.
+
+## Final handoff
+
+Ready code-review PR: https://github.com/RyanVerWey/ENVET/pull/45. GitHub CI passed. Nineteen implementation tasks and the M4 initiative are complete; M4 milestone is closed. M1/M2/M3 owner acceptance, M5 launch, and M6 funded implementation remain open. Theme state/persistence, mobile menu expansion and close-on-navigation, and native FAQ keyboard disclosure were manually verified. Next.js smooth-scroll route-transition metadata was added after the development warning; reduced-motion rules remain intact.
