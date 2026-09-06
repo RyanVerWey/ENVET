@@ -5,7 +5,7 @@ slug: m2-messaging-and-experience-architecture
 status: active
 title: M2 Messaging and experience architecture
 type: brainstorm
-updated_at: "2026-09-06T02:24:24Z"
+updated_at: "2026-09-06T02:56:59Z"
 ---
 
 # Brainstorm: M2 Messaging and experience architecture
@@ -43,6 +43,8 @@ Every visitor knows within seconds whether ENVET is for them and whether to requ
 
 - Define sitemap, page goals, content model, and calls to action.
 - Keep intake human and low-risk before database funding.
+
+- Blog now belongs to the first release: three practical, source-grounded guides for first visits, families, and supporting the mission. No clinical advice or fabricated impact; transparent shared editorial byline and review policy.
 ## Raw Notes
 
 ## Refinement

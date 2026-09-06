@@ -1,60 +1,31 @@
-# Roadmap: ENVET
-
-Created: 2026-09-06T02:13:54Z
-
 ## Overview
 
-Six sequential milestones move ENVET from verified source material to owner-approved launch, then to funded operational workflows. M1 through M4 may proceed before database funding. M5 is blocked on explicit owner acceptance. M6 is blocked on funding and data-governance decisions.
+Six milestones, with owner-review implementation now authorized and a first-release blog explicitly in scope. GitHub #27 is the canonical implementation contract. docs/execution-contract.md identifies the local execution mirror necessitated by the GitHub-only spec CLI limitation.
 
-## M1: Source of Truth and Media Rights
+## M1: Source of truth and media rights
 
-Goal: Approve facts, social/contact links, donation destination, and reusable Facebook media.
+Facts, current contact email, six outbound channels, official logo, and three photos captured with provenance. Owner rights/consent and factual sign-off remain pending (#12).
 
-Summary: Crawl official page, preserve provenance, classify consent/copyright risk, and obtain owner sign-off.
+## M2: Messaging and experience architecture
 
-## M2: Messaging and Experience Architecture
+Mission-first site and three practical journal guides implemented for veterans, families, donors and volunteers. Sitemap, eligibility details, and final editorial approval need owner review. No clinical claims or sensitive intake.
 
-Goal: Approve sitemap, visitor journeys, page contracts, claims, and conversion hierarchy.
+## M3: CorvaUI design and prototype
 
-Summary: Put Get Support and Donate first; make phone, email, WhatsApp, Messenger, Facebook, and PayPal reliable supporting routes.
+Mint light and mint dark implemented with official logo and authentic local imagery. Responsive templates, typography, native disclosure and keyboard behavior documented in DESIGN.md. User authorized a complete review candidate; owner visual acceptance remains pending (#21), not presumed.
 
-## M3: CorvaUI Design and Prototype
+## M4: Static build and private owner review
 
-Goal: Approve high-fidelity mint light/dark direction before production code.
+Next.js App Router/TypeScript, nine core routes, three blog articles, three category pages, RSS, sitemap, NGO/WebSite/BlogPosting/Breadcrumb data, local images and verified social/payment links. QA and owner-review handoff recorded in docs/verification.md. Local loopback only; no production domain.
 
-Summary: Complete shape interview, visual probes, responsive templates, accessibility contract, and image art direction.
+## M5: Owner-approved launch
 
-## M4: Static Build and Private Owner Review
+Launch and rollback runbook prepared. Feedback, legal/privacy finalization and explicit owner approval (#35) must precede Vercel production connection (#36). Git deployment is disabled; production builds enforce approval and media gates.
 
-Goal: Complete database-free site and QA without connecting production URL.
+## M6: Funded data and growth
 
-Summary: Build approved pages, local media, social/contact/donation links, and a controlled owner-review artifact.
+Minimum-data follow-up workflow drafted in docs/data-workflow.md. Database/vendor/schema/authorization/retention/CMS/measurement implementation is blocked on funding and approved workflows. Static review does not depend on it.
 
-## M5: Owner-Approved Production Launch
+## Parking lot
 
-Goal: Publish only after owner explicitly accepts content, design, behavior, and media.
-
-Summary: Resolve feedback, record approval, connect Vercel production domain, verify launch, and hand off operations.
-
-## M6: Funded Data and Growth Platform
-
-Goal: Add minimum necessary database-backed workflows after funding.
-
-Summary: Map operations, minimize data, approve security architecture, then add intake, content, and measurement incrementally.
-
-## Ordering Notes
-
-- M1 blocks M2 and M3 media/copy approval.
-- M2 and M3 block M4 production-quality implementation.
-- M4 blocks owner acceptance and M5.
-- M5 production connection requires explicit owner approval.
-- M6 requires funding and approved data-governance policy; it can be planned after M4 but should not delay static launch.
-
-## Parking Lot
-
-- Automated Facebook ingestion
-- Custom payment processing
-- Blog or resource library
-- Scheduling integration
-- Donor CRM integration
-- Volunteer portal
+Automatic Facebook ingestion, custom payment processing, scheduling integration, donor CRM, volunteer portal, and a CMS without a demonstrated owner need. Blog is no longer parked.
