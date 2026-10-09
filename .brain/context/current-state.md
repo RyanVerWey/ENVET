@@ -1,6 +1,12 @@
 ---
-updated: "2026-10-09T23:27:35Z"
+updated: "2026-10-09T23:38:29Z"
 ---
+## Emergency-contact autofill correction released (October 9, 2026)
+
+Source 510d84cb2a924e689c13f6eb272e1ce5ddb272b9; Vercel dpl_BcJWCRBZKwXhX8begtapQbBUi8rH Ready in 23s, envet.info assigned. Immutable envet-gqjl2fka2-ryanverweys-projects.vercel.app. Exact-source CI 38005091833 and 38005085425 successful. Node 22.x and Standard Protection unchanged. Live 15-public/9-private route, media, discovery and redirect probes pass. Prior healthy dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR/source 8041d13 is rollback candidate, not exercised.
+
+Shared FormField now uses stable names and section-signer autofill hints for signer contact details; emergency name/phone and other non-signer fields explicitly opt out. Independent manual values preserved; 72 unit tests and actual-component browser regressions pass. Native saved-profile autofill could not be forced through available browser tooling; third-party overrides unverified. Existing controls retained under Impeccable hardening. No legal wording, consent, version, auth, permissions, schema, DNS or collection changes; FORM_COLLECTION_ENABLED=false. Read-only public forms remain unchanged. Synthetic regression and Vercel release proofs under C:/Users/verwe/.codex/artifacts/envet-deployment/.
+
 ## Full-page copy/accessibility polish released (October 9, 2026)
 
 Current live release supersedes the accordion release: source 8041d13d9304e4bd2e20456505e3796a3f36ca62, Vercel dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR, immutable envet-i3a7fxj4x-ryanverweys-projects.vercel.app. Ready in32s; envet.info assigned. Runtime22.x and Standard Protection verified. Exact-source CI runs38004237294 and38004234745 successful; live 15-public/9-private route and redirect/discovery/media probes pass. Prior healthy dpl_BVWKQe7gj2AVLrLL52naKkCphuf5/d7e1e0e is rollback candidate, not exercised.
@@ -69,3 +75,4 @@ Independent GPT-6 Astra correction review accepts the prepared local increment o
 User explicitly repeated deploy/configure envet.info. Current candidate 064897f25f7e15692522d03cdb9561454a4cc752/PR45 has both GitHub checks successful. DNS remains ready (A216.198.79.1; www CNAME envet.info). Vercel browser access available; existing envet project now connected to RyanVerWey/ENVET, Next.js preset/Node22 saved, production tracks codex/envet-owner-preview. Automatic Git deployment remains disabled in vercel.json.
 
 Production-only Config variables saved: SITE_URL=https://envet.info; SITE_APPROVED_FOR_LAUNCH=true; CONTENT_AND_MEDIA_APPROVED=false; FORM_COLLECTION_ENABLED=false. No deployment/merge or data activation. Asked for four-image rights/depicted-person consent or release without uncleared media; answer still required. No credential-access blocker remains; optional Vercel connector suggestion is not evidence of installed/connected status. See latest section of docs/launch-runbook.md for exact state and next verification.
+

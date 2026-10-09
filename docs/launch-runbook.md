@@ -1,7 +1,11 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-10-09T23:27:35Z"
+updated: "2026-10-09T23:38:37Z"
 ---
+## Latest release: independent emergency-contact autofill
+
+October 9, 2026: manual exact-SHA 510d84cb2a924e689c13f6eb272e1ce5ddb272b9 production deployment dpl_BcJWCRBZKwXhX8begtapQbBUi8rH Ready in 23s; https://envet.info assigned. Immutable https://envet-gqjl2fka2-ryanverweys-projects.vercel.app. Both exact-source GitHub checks passed; Node 22.x/Standard Protection unchanged. 72 unit tests and browser field/state regressions passed; full production probe passed. Signer autofill hints grouped, non-signer fields off. Native saved-profile and extension autofill unverified. No live collection, legal, authentication, schema, permission or DNS changes. Prior healthy dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR/source 8041d13d9304e4bd2e20456505e3796a3f36ca62 is rollback candidate; not exercised. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-autofill-release.png.
+
 ## Latest release: full-page copy and accessibility polish
 
 October9,2026: manual exact-SHA8041d13d9304e4bd2e20456505e3796a3f36ca62 production deployment dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR Ready in32s. https://envet.info assigned; immutable https://envet-i3a7fxj4x-ryanverweys-projects.vercel.app. Both GitHub checks success for exact source; Node22.x/Standard Protection unchanged. Expanded production smoke verifies clean public copy, H1/main/skip target, labeled SVG social anchors, natural tab order, 15public+9private routes, no-store/noindex boundaries, canonical/discovery/media/HTTPS redirects. Actual live editorial cleanup, read-only forms and keyboard-focused social footer verified. No collection/auth/encryption/schema/permissions/DNS changes. Rollback candidate is prior healthy dpl_BVWKQe7gj2AVLrLL52naKkCphuf5/source d7e1e0ef532ada1894382fb75b7824b7296c5aa5. Restore it through Vercel's authorized rollback workflow only if needed; rollback not exercised.
@@ -134,3 +138,4 @@ Manual exact-SHA Vercel release dpl_BVWKQe7gj2AVLrLL52naKkCphuf5 is Ready with e
 Actual built donation/visit pointer, Enter and Space checks confirm one open section; current section can close to zero, focus stays on summary. Donation reflow/image ratio pass eight nominal320/768/1280/2560 width and mint theme combinations. Live donation pointer/Enter mutual exclusion and image beneath heading verified. Full read-only production probe passes15 public/9 private routes, redirects, canonicals, robots, sitemap/RSS, image optimization/OG and404s. This is targeted browser coverage, not full WCAG/screen-reader/legacy-browser certification. Older browsers without native details name support may retain independent disclosures. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-donate-accordion.png.
 
 Previous healthy22.x production dpl_FKGUTk6yzwPtR3PNuhZFGUEEXYvQ/source1db4ced remains listed Ready and is rollback candidate. Same schema/config/collection-disabled behavior; no irreversible writes. If public routes/canonicals fail or private content is exposed, stop further releases and promote that known-good deployment through the owner account, rerun production probes, and restrict an exposure before investigation. Actual rollback not exercised; this narrow UI change has no measured SLO or traffic-performance claim. Google/signed-form activation remains separately gated.
+
