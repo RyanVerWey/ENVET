@@ -364,7 +364,7 @@ export function FormReviewQueue() {
             Opening this record is audited. Signed content cannot be edited.
             Retained indefinitely; no routine delete action.
           </p>
-          <details className="document-disclosure">
+          <details className="document-disclosure" name="envet-accordion">
             <summary>Open complete signed document & signatures</summary>
             <SignedDocument data={detail} />
           </details>

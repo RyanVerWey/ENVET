@@ -25,7 +25,7 @@ export function DocumentView({ source }: { source: DocumentSource }) {
 }
 export function SourceDisclosure({ kind }: { kind: FormKind }) {
   return (
-    <details className="document-disclosure">
+    <details className="document-disclosure" name="envet-accordion">
       <summary>Read the complete supplied document</summary>
       <DocumentView source={formSource(kind)} />
     </details>

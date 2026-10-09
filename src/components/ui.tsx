@@ -151,7 +151,7 @@ export function FAQ({
   return (
     <div className="faq-list">
       {items.map((item) => (
-        <details key={item.question}>
+        <details key={item.question} name="envet-accordion">
           <summary>
             {item.question}
             <span aria-hidden="true">+</span>

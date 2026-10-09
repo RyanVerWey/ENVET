@@ -89,6 +89,12 @@ export default function Donate() {
             <br />
             you’re giving.
           </h2>
+          <Photo
+            src="/images/farm.jpg"
+            alt="Horses and people beside the fenced paddock at Eagle’s Nest"
+            className="giving-clarity-photo"
+            sizes="(max-width: 760px) 100vw, (max-width: 1240px) 40vw, 460px"
+          />
         </div>
         <FAQ
           items={[

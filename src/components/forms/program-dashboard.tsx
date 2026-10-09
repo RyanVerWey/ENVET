@@ -182,7 +182,7 @@ export function ProgramReport({ data }: { data: ProgramMetrics }) {
           <Link href="/team/forms">Keep the queue moving →</Link>
         </section>
       </div>
-      <details className="kpi-definitions">
+      <details className="kpi-definitions" name="envet-accordion">
         <summary>How ENVET’s activity measures are calculated</summary>
         <p>
           One completed visit means one staff-linked participant, one date and

@@ -651,6 +651,10 @@ address {
 .faq-list {
   min-width: 0;
 }
+.giving-clarity-photo {
+  margin-top: 28px;
+  aspect-ratio: 3 / 2;
+}
 .faq-list details {
   border-top: 1px solid var(--line);
 }

@@ -1,6 +1,14 @@
 ---
-updated: "2026-10-09T22:48:06Z"
+updated: "2026-10-09T23:07:43Z"
 ---
+## Single-open accordion and donor imagery revision (October 9, 2026)
+
+Owner requested every expandable section close its predecessor. All six disclosure source locations now share native details name envet-accordion, giving page-wide mutual exclusion without JavaScript/hydration state. Browser owns temporary open state; opening another closes the prior section, toggling the current one can close all. Mobile navigation remains independent. Exact supplied legal text, signatures and collection gates unchanged. Native name behavior documented by MDN; older browsers without details name support may retain independent disclosures.
+
+Donation page places approved farm.jpg directly below Know where you are giving. Corva mint styles retained, 3:2 reserved aspect ratio and responsive image sizes avoid layout shift. No new assets or consent assumptions. Impeccable context/brand gates guide narrow composition, not redesign.
+
+Local checks: 57 tests/10 files, lint, build, typecheck, formatting, team browser regression and built-preview smoke pass. Actual built donation page pointer/Enter/Space checks show exactly one open, focus remains on requested summary. Eight 320/768/1280/2560 nominal viewport/theme combinations have no horizontal overflow (effective widths minus scrollbar:305/753/1265/2545) and stable 3:2 image. Full accessibility conformance not claimed; screen-reader/legacy-browser behavior untested. Public update awaits exact-SHA CI and controlled Vercel release; collection remains disabled.
+
 ## Current live production state (October 9, 2026)
 
 Website live at https://envet.info;www308 to apex and HTTP-to-HTTPS pass. User explicitly approved publication and existing four assets;per-asset rights/consent evidence in docs/media-manifest.json. Final Vercel Ready deployment dpl_FKGUTk6yzwPtR3PNuhZFGUEEXYvQ from1db4ceda7a0cf6e10f45b63ddd08310008ad119c/PR45, Next.js/Node22.x. Both CI checks successful;55 tests and final read-only production probes pass. Fifteen public pages indexable/canonical;9 private pages no-store/noindex;15 sitemap locations/3 RSS items;images/optimized/OG/404s/redirects verified. Mobile home/visit and theme/menu/checklist interaction checks pass.

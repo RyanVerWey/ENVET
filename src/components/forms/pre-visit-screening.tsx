@@ -130,7 +130,7 @@ export function PreVisitScreening({
             <strong>{section.title}: discussed with caller</strong>
           </label>
           <p>{section.prompt}</p>
-          <details>
+          <details name="envet-accordion">
             <summary>Read full caller guidance</summary>
             {section.items.map((item) => (
               <p key={item.key}>

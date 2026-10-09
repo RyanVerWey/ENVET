@@ -14,7 +14,7 @@ export default function PreVisitPage() {
       </Link>
       <h1>Before you visit Eagle’s Nest</h1>
       <PreVisitChecklist />
-      <details className="pre-visit-call-guide">
+      <details className="pre-visit-call-guide" name="envet-accordion">
         <summary>ENVET staff: call / text conversation guide</summary>
         <p>
           Use these prompts before a guest form exists. This page does not save
