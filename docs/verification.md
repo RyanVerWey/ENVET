@@ -1,7 +1,11 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-09T23:34:08Z"
+updated: "2026-10-09T23:45:27Z"
 ---
+## October 9: named minor and guardian certification
+
+Prepared child-name/age/guardian flow, separate signatures and required versioned guardian certification. See docs/forms-workflow.md for semantics, exact-wording review gate and source references. 75 unit/API/PGlite tests pass; actual SigningRoom browser path verifies required checkbox, keyboard Space, preserved separate names/signatures, review and edit invalidation. 8 certification viewport/theme combinations have no overflow. Original DOCX hashes/body/headers unchanged. Lint/build/types/format pass. No real data, hosted schema changes, identity activation or collection. The added legal wording is proposed, not approved; Google identity cannot prove parental authority. Impeccable clarification keeps existing Corva controls and precise labels. Synthetic preview proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-child-guardian-preview.png.
+
 ## October 9: emergency contact autofill fix
 
 Shared FormField had no explicit autofill hints. Added stable names, section-signer contact hints and autocomplete off for emergency contact, guardian and horse fields. Independent React state and manual editing preserved; legal text, consent, form version and collection gates unchanged. Impeccable hardening kept existing controls and labels. 72 unit tests, browser field/state regressions, lint, build, types, formatting pass. Browser tests assert blank emergency phone after signer entry and preserve a separate emergency number after signer changes. Native-profile Autofill.trigger unsupported through browser tool; forced native-profile fill and extension behavior unverified. Synthetic data only, no submissions. Guidance: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-emergency-autofill-test.png.

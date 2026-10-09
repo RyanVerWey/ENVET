@@ -40,6 +40,7 @@ export type ReceiptData = {
     receivedAt: string;
     signer: { id: string; email: string; role: string };
     electronicConsent: { version: string; text: string };
+    guardianCertification?: { version: string; text: string; certified: true };
     attribution: string;
     version: string;
   };
@@ -52,8 +53,9 @@ export function SignedDocument({ data }: { data: ReceiptData }) {
     ),
   );
   Object.assign(fieldLabels, {
-    guestAge: "Guest age",
-    guardianName: "Guardian name",
+    minorAge: "Guest age (0–17)",
+    guardianName: "Parent / lawful guardian printed name",
+    ...(r.minor ? { guestName: "Child’s full name" } : {}),
   });
   return (
     <div className="signed-record">
@@ -91,7 +93,7 @@ export function SignedDocument({ data }: { data: ReceiptData }) {
           </div>
         ))}
       </dl>
-      <h3>Guest / owner signature</h3>
+      <h3>{r.minor ? "Child / guest signature" : "Guest / owner signature"}</h3>
       {r.guestSignature.method === "typed" ? (
         <p className="typed-signature">{r.guestSignature.name}</p>
       ) : (
@@ -120,6 +122,16 @@ export function SignedDocument({ data }: { data: ReceiptData }) {
         </>
       )}
       <h3>Electronic consent & attribution</h3>
+      {r.guardianCertification && (
+        <>
+          <h4>Parent / lawful guardian certification</h4>
+          <p>{r.guardianCertification.text}</p>
+          <p>
+            Certified by the submitting guardian. Certification version:{" "}
+            {r.guardianCertification.version}.
+          </p>
+        </>
+      )}
       <p>{r.electronicConsent.text}</p>
       <p>
         Consent version: {r.electronicConsent.version}. Submitting Google

@@ -13,6 +13,7 @@ import {
 import {
   conditionOptions,
   electronicConsent,
+  guardianCertificationText,
   fieldSections,
   formSource,
   formTitles,
@@ -39,10 +40,12 @@ export function FormField({
   field,
   value,
   onChange,
+  autoComplete,
 }: {
   field: Field;
   value: string;
   onChange: (value: string) => void;
+  autoComplete?: string;
 }) {
   const id = `field-${field.key}`;
   return (
@@ -55,7 +58,7 @@ export function FormField({
         <textarea
           id={id}
           name={field.key}
-          autoComplete={fieldAutocomplete(field.key)}
+          autoComplete={autoComplete ?? fieldAutocomplete(field.key)}
           value={value}
           rows={3}
           maxLength={field.max ?? 1500}
@@ -66,8 +69,11 @@ export function FormField({
         <input
           id={id}
           name={field.key}
-          autoComplete={fieldAutocomplete(field.key)}
+          autoComplete={autoComplete ?? fieldAutocomplete(field.key)}
           type={field.type ?? "text"}
+          min={field.key === "minorAge" ? 0 : undefined}
+          max={field.key === "minorAge" ? 17 : undefined}
+          step={field.key === "minorAge" ? 1 : undefined}
           value={value}
           maxLength={field.max ?? 254}
           required={field.required}
@@ -143,6 +149,7 @@ export function SigningRoom({
     name: "",
   });
   const [consent, setConsent] = useState(false);
+  const [guardianCertified, setGuardianCertified] = useState(false);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [frozen, setFrozen] = useState(false);
@@ -173,6 +180,7 @@ export function SigningRoom({
   }
   function field(key: string, value: string) {
     setFields((v) => ({ ...v, [key]: value }));
+    setGuardianCertified(false);
   }
   function next(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -182,7 +190,9 @@ export function SigningRoom({
         (field) => fieldInput(field, fields[field.key] ?? "") === null,
       );
       if (invalid) {
-        setMessage(`Check ${invalid.label.toLowerCase()} before continuing.`);
+        setMessage(
+          `Check ${minor && invalid.key === "guestName" ? "the child’s full name" : invalid.label.toLowerCase()} before continuing.`,
+        );
         document.getElementById(`field-${invalid.key}`)?.focus();
         return;
       }
@@ -216,10 +226,11 @@ export function SigningRoom({
       if (
         !signatureInput(guest, name) ||
         (minor && !signatureInput(guardian, fields.guardianName ?? "")) ||
+        (minor && !guardianCertified) ||
         !consent
       ) {
         setMessage(
-          "Match printed names, provide signatures and agree to electronic records before continuing.",
+          "Match printed names, provide separate signatures, complete any guardian certification and agree to electronic records before continuing.",
         );
         return;
       }
@@ -242,6 +253,7 @@ export function SigningRoom({
         initials,
         guestSignature: guest,
         guardianSignature: minor ? guardian : null,
+        guardianCertified: minor && guardianCertified,
         consent,
       });
     if (!input) {
@@ -380,14 +392,16 @@ export function SigningRoom({
                   : "Complete the relevant details. Optional fields may be left blank."}
               </p>
               <div className="sign-field-grid">
-                {current.fields.map((f) => (
-                  <FormField
-                    key={f.key}
-                    field={f}
-                    value={fields[f.key] ?? ""}
-                    onChange={(v) => field(f.key, v)}
-                  />
-                ))}
+                {current.fields
+                  .filter((f) => !(minor && f.key === "guestName"))
+                  .map((f) => (
+                    <FormField
+                      key={f.key}
+                      field={f}
+                      value={fields[f.key] ?? ""}
+                      onChange={(v) => field(f.key, v)}
+                    />
+                  ))}
               </div>
               {kind === "liability" && step === 0 && (
                 <fieldset className="sign-guardian">
@@ -398,6 +412,10 @@ export function SigningRoom({
                       checked={minor}
                       onChange={(e) => {
                         setMinor(e.target.checked);
+                        setGuardianCertified(false);
+                        setConsent(false);
+                        setGuest({ method: "typed", name: "" });
+                        field("guestName", "");
                         if (!e.target.checked) {
                           setFields(({ minorAge, guardianName, ...rest }) => {
                             void minorAge;
@@ -417,6 +435,17 @@ export function SigningRoom({
                   {minor ? (
                     <>
                       <div className="sign-field-grid">
+                        <FormField
+                          field={{
+                            key: "guestName",
+                            label: "Child’s full name",
+                            required: true,
+                            max: 100,
+                          }}
+                          value={fields.guestName ?? ""}
+                          onChange={(v) => field("guestName", v)}
+                          autoComplete="off"
+                        />
                         <FormField
                           field={{
                             key: "minorAge",
@@ -581,17 +610,41 @@ export function SigningRoom({
               </p>
               <SignatureInput
                 label={
-                  kind === "donation" ? "Owner signature" : "Guest signature"
+                  kind === "donation"
+                    ? "Owner signature"
+                    : minor
+                      ? "Child / guest signature"
+                      : "Guest signature"
                 }
                 value={guest}
                 onChange={setGuest}
               />
               {minor && (
-                <SignatureInput
-                  label="Parent / lawful guardian signature"
-                  value={guardian}
-                  onChange={setGuardian}
-                />
+                <>
+                  <SignatureInput
+                    label="Parent / lawful guardian signature"
+                    value={guardian}
+                    onChange={setGuardian}
+                  />
+                  <fieldset className="sign-guardian">
+                    <legend>Parent / lawful guardian certification</legend>
+                    <p id="guardian-certification-text">
+                      {guardianCertificationText}
+                    </p>
+                    <label className="check-line">
+                      <input
+                        type="checkbox"
+                        name="guardianCertified"
+                        checked={guardianCertified}
+                        onChange={(e) => setGuardianCertified(e.target.checked)}
+                        aria-describedby="guardian-certification-text"
+                        required
+                      />
+                      I certify that I am the named child’s parent or lawful
+                      guardian and agree to the certification above.
+                    </label>
+                  </fieldset>
+                </>
               )}
               <label className="check-line consent-line">
                 <input
@@ -627,9 +680,18 @@ export function SigningRoom({
                       <div key={k}>
                         <dt>
                           {[
-                            ...sections.flatMap((s) => s.fields),
-                            { key: "minorAge", label: "Guest age" },
-                            { key: "guardianName", label: "Guardian name" },
+                            ...sections
+                              .flatMap((s) => s.fields)
+                              .map((f) =>
+                                minor && f.key === "guestName"
+                                  ? { ...f, label: "Child’s full name" }
+                                  : f,
+                              ),
+                            { key: "minorAge", label: "Guest age (0–17)" },
+                            {
+                              key: "guardianName",
+                              label: "Parent / lawful guardian printed name",
+                            },
                           ].find((f) => f.key === k)?.label ?? k}
                         </dt>
                         <dd>{v}</dd>
@@ -656,6 +718,12 @@ export function SigningRoom({
                 </p>
                 {minor && (
                   <>
+                    <h3>Guardian certification</h3>
+                    <p>{guardianCertificationText}</p>
+                    <p>
+                      Guardian certification:{" "}
+                      {guardianCertified ? "agreed" : "not agreed"}.
+                    </p>
                     <h3>Parent / lawful guardian</h3>
                     {guardian.method === "typed" ? (
                       <p className="typed-signature">{guardian.name}</p>

@@ -11,6 +11,8 @@ import { uuidPattern } from "@/lib/community/validation";
 import {
   consentVersion,
   electronicConsent,
+  guardianCertificationText,
+  guardianCertificationVersion,
   formSource,
   isFormKind,
 } from "@/lib/forms/definition";
@@ -50,6 +52,15 @@ export async function POST(request: Request) {
       receivedAt: new Date().toISOString(),
       source: formSource(input.kind),
       electronicConsent: { version: consentVersion, text: electronicConsent },
+      ...(input.minor
+        ? {
+            guardianCertification: {
+              version: guardianCertificationVersion,
+              text: guardianCertificationText,
+              certified: true as const,
+            },
+          }
+        : {}),
       signer: {
         id: user.id,
         email: user.email,

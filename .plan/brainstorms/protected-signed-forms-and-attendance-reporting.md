@@ -5,7 +5,7 @@ slug: protected-signed-forms-and-attendance-reporting
 status: active
 title: Protected signed forms and attendance reporting
 type: brainstorm
-updated_at: "2026-10-09T23:34:07Z"
+updated_at: "2026-10-09T23:39:55Z"
 ---
 
 # Brainstorm: Protected signed forms and attendance reporting
@@ -37,6 +37,8 @@ An accessible, calm signing room, not a long generic contact form. Staff see rea
 - One bounded spec: AC1 source paragraph fidelity + source SHA256/version; AC2 complete donor and liability field mapping with guardian flow; AC3 typed/drawn signature, initials, e-consent, review/back, no persistence before submit; AC4 Google identity + server consent/version validation; AC5 AES-256-GCM encrypted immutable signed payload, server timestamp and digest, private RLS service-only RPCs; AC6 durable transactional idempotency/rates; AC7 thank-you only after committed receipt, same-user receipt or current staff only; AC8 paginated review queue, versioned audited statuses and staff evaluation separate from signed payload; AC9 no deletion in ordinary UI, separately explicit authorized administrative purge; AC10 staff-confirmed completed visits with pseudonymous participant identity, unique visit key and void/correction; AC11 real CorvaUI charts and auditable KPI definitions from aggregate-only RPC; AC12 local SQL/API/component/browser negative/replay/authorization/a11y checks, disabled liability gate, no real submissions/cloud migration or deploy until release review. First local increment includes both gated signing flows, staff private attendance for recorded participants, no attachments required at initial application; vet/Coggins/registration/photo documents are requested by staff outside this app before trial.
 
 - Autofill correction: explicit signer contact group; emergency contact fields opt out and retain independent manual values. Add policy and rendered-component regression coverage. Keep original legal text, form versions and collection gates unchanged.
+
+- Owner requests explicit Child full name in under-18 flow, age 0-17, guardian printed name and own adult Google account; separate guest/guardian signatures; required guardian authority certification. Preserve guestName as participant identity, original source wording and encrypted private storage; version the separate certification and freeze it in record, receipt and staff detail. Liability remains disabled pending exact-version legal approval; do not claim Google proves adulthood, guardianship or waiver enforceability.
 ## Raw Notes
 
 ## Non-goals

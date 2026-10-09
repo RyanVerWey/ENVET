@@ -30,7 +30,12 @@ import { POST as sign, GET as receipt } from "@/app/api/forms/route";
 import { PATCH as review, GET as queue } from "@/app/api/team/forms/route";
 import { POST as visit } from "@/app/api/team/visits/route";
 import { GET as metrics } from "@/app/api/team/impact/route";
-import { formVersion } from "@/lib/forms/definition";
+import {
+  formVersion,
+  liabilityInitials,
+  guardianCertificationText,
+  guardianCertificationVersion,
+} from "@/lib/forms/definition";
 import { encrypt } from "@/lib/forms/crypto";
 import { screeningFixture } from "./fixtures/pre-visit";
 const signer = "11111111-1111-4111-8111-111111111111",
@@ -215,6 +220,61 @@ describe("signing and staff HTTP boundaries", () => {
     const unconfirmed = await sign(request("/api/forms"));
     expect(unconfirmed.status).toBe(503);
     expect(await unconfirmed.json()).not.toHaveProperty("submitted");
+  });
+  it("freezes guardian certification with child details and server-derived submitting-account attribution", async () => {
+    const minor = {
+      ...input,
+      kind: "liability",
+      version: formVersion("liability"),
+      minor: true,
+      guardianCertified: true,
+      fields: {
+        guestName: "Synthetic Child",
+        minorAge: "12",
+        guardianName: "Synthetic Guardian",
+        signedDate: "2026-10-09",
+        address: "Synthetic address",
+        phone: "202-555-0100",
+        email: "guardian@example.test",
+        emergencyName: "Synthetic Emergency",
+        emergencyPhone: "202-555-0199",
+      },
+      initials: {
+        ...Object.fromEntries(liabilityInitials.map((i) => [`p${i}`, "SC"])),
+        parent: "SG",
+      },
+      guestSignature: { method: "typed", name: "Synthetic Child" },
+      guardianSignature: { method: "typed", name: "Synthetic Guardian" },
+    };
+    expect(
+      (
+        await sign(
+          request("/api/forms", { ...minor, guardianCertified: false }),
+        )
+      ).status,
+    ).toBe(400);
+    expect(rpc).not.toHaveBeenCalled();
+    expect((await sign(request("/api/forms", minor))).status).toBe(201);
+    expect(encrypt).toHaveBeenCalledWith(
+      expect.objectContaining({
+        fields: expect.objectContaining({
+          guestName: "Synthetic Child",
+          minorAge: "12",
+        }),
+        guardianCertified: true,
+        guardianCertification: {
+          text: guardianCertificationText,
+          version: guardianCertificationVersion,
+          certified: true,
+        },
+        signer: {
+          id: signer,
+          email: "synthetic@example.test",
+          role: "guardian",
+        },
+      }),
+      expect.stringMatching(/^liability:.*:signed:v1$/),
+    );
   });
   it("rejects a staff review whose claimed kind differs from the stored form", async () => {
     vi.mocked(staffUser).mockResolvedValue({ id: signer } as Awaited<

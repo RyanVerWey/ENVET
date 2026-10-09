@@ -27,6 +27,10 @@ const f = (
 export const electronicConsent =
   "I agree to use electronic records and signatures for this submission. I have reviewed the complete document and my information, and intend my signature to sign this record. I declare that I am the adult guest or legal horse owner, or the parent/lawful guardian of the named minor, using my own Google account with authority to submit this record. I can save or print a copy. ENVET retains signed records indefinitely; deletion requires explicit administrative authorization. I may contact ENVET for a paper process instead.";
 export const consentVersion = "electronic-consent-2026-10-09-v1";
+export const guardianCertificationVersion =
+  "guardian-certification-2026-10-09-v1";
+export const guardianCertificationText =
+  "I certify that I am at least 18 years old and am the parent or lawful guardian of the minor named in this form. I have legal authority to give permission for the minor's participation and to complete this document; no court order or other legal restriction prevents me from doing so. The child's name, age and the guardian information I have provided are accurate to the best of my knowledge. I am using my own Google account, not the child's account or another person's account. I have read the complete equine activity release, including its risk acknowledgements and photo, video and audio provisions, and have had an opportunity to ask ENVET questions. I give permission for the named minor to participate subject to ENVET's arrangements and safety requirements, and make the acknowledgements and permissions in the release only to the extent I am legally authorized to do so. My signature is my own; the guest's signature is recorded separately and does not replace my authorization. I will not sign the child's name as though I were the child; if the child cannot sign, I will contact ENVET for signing arrangements. I understand that Google sign-in and this certification do not independently verify guardianship, guarantee the legal effect of the release, book a visit or confirm participation. I will notify ENVET before participation if my authority or the information provided changes.";
 export const liabilityInitials = [
   1, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19, 20, 21, 24,
 ];
@@ -198,7 +202,7 @@ export function formSource(kind: FormKind) {
   return sources[kind];
 }
 export function formVersion(kind: FormKind) {
-  return `${kind}-${formSource(kind).sourceSha256}-${consentVersion}`;
+  return `${kind}-${formSource(kind).sourceSha256}-${consentVersion}${kind === "liability" ? `-${guardianCertificationVersion}` : ""}`;
 }
 export function formStatuses(kind: FormKind) {
   return kind === "liability"

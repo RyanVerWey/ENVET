@@ -28,6 +28,7 @@ export type Submission = {
   initials: Record<string, string>;
   guestSignature: Signature;
   guardianSignature: Signature | null;
+  guardianCertified: boolean;
   consent: true;
 };
 function record(value: unknown): value is Record<string, unknown> {
@@ -152,6 +153,7 @@ export function submissionInput(value: unknown): Submission | null {
         "initials",
         "guestSignature",
         "guardianSignature",
+        "guardianCertified",
         "consent",
       ].includes(k),
     ) ||
@@ -167,6 +169,14 @@ export function submissionInput(value: unknown): Submission | null {
   const kind = value.kind;
   const minor = kind === "liability" && value.minor;
   if (kind === "donation" && value.minor) return null;
+  if (
+    minor
+      ? value.guardianCertified !== true
+      : ![undefined, false].includes(
+          value.guardianCertified as undefined | boolean,
+        )
+  )
+    return null;
   const schema = [
     ...fieldSections[kind].flatMap((s) => s.fields),
     ...(minor
@@ -247,6 +257,7 @@ export function submissionInput(value: unknown): Submission | null {
     initials,
     guestSignature,
     guardianSignature,
+    guardianCertified: minor,
     consent: true,
   };
 }

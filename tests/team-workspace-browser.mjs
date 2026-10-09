@@ -17,7 +17,13 @@ const server = await createServer({
     },
   },
   esbuild: { jsx: "automatic" },
-  optimizeDeps: { entries: ["team-workspace.html", "form-autofill.html"] },
+  optimizeDeps: {
+    entries: [
+      "team-workspace.html",
+      "form-autofill.html",
+      "form-guardian.html",
+    ],
+  },
   server: {
     host: "127.0.0.1",
     port: 0,
@@ -186,9 +192,147 @@ try {
   await emergencyPhone.press("Tab");
   assert.equal(await signerPhone.inputValue(), "202-555-0101");
   assert.equal(await emergencyPhone.inputValue(), "202-555-0199");
+  await page.goto(`${base}form-guardian.html`);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page
+    .getByRole("checkbox", { name: "Guest is under 18", exact: true })
+    .check();
+  const childName = page.getByRole("textbox", {
+    name: "Child’s full name",
+    exact: true,
+  });
+  await childName.fill("Synthetic Child");
+  assert.equal(await childName.getAttribute("autocomplete"), "off");
+  assert.equal(
+    await page
+      .getByRole("textbox", { name: "Printed name of guest", exact: true })
+      .count(),
+    0,
+  );
+  await page
+    .getByRole("spinbutton", { name: "Guest age (0–17)", exact: true })
+    .fill("12");
+  await page
+    .getByRole("textbox", {
+      name: "Parent / lawful guardian printed name",
+      exact: true,
+    })
+    .fill("Synthetic Guardian");
+  await page
+    .getByRole("textbox", { name: "Address", exact: true })
+    .fill("Synthetic test address");
+  await page
+    .getByRole("textbox", { name: "Phone number", exact: true })
+    .fill("202-555-0100");
+  await page
+    .getByRole("textbox", { name: "Email", exact: true })
+    .fill("guardian@example.test");
+  await page
+    .getByRole("textbox", { name: "Emergency contact name", exact: true })
+    .fill("Synthetic Emergency");
+  await page
+    .getByRole("textbox", {
+      name: "Emergency contact phone number",
+      exact: true,
+    })
+    .fill("202-555-0199");
+  await page.getByRole("button", { name: "Continue", exact: false }).click();
+  await page
+    .getByRole("heading", { name: "Read & initial", exact: true })
+    .waitFor();
+  for (const input of await page.locator('input[id^="initial-p"]').all())
+    await input.fill("SC");
+  await page.locator("#parent-initial").fill("SG");
+  await page.getByRole("button", { name: "Continue", exact: false }).click();
+  await page.getByRole("heading", { name: "Sign", exact: true }).waitFor();
+  const guestSignature = page.getByRole("group", {
+    name: "Child / guest signature",
+    exact: true,
+  });
+  const guardianSignature = page.getByRole("group", {
+    name: "Parent / lawful guardian signature",
+    exact: true,
+  });
+  await guestSignature.getByRole("textbox").fill("Synthetic Child");
+  await guardianSignature.getByRole("textbox").fill("Synthetic Guardian");
+  const certification = page.getByRole("checkbox", {
+    name: "I certify that I am the named child’s parent or lawful guardian and agree to the certification above.",
+    exact: true,
+  });
+  assert.equal(await certification.isChecked(), false);
+  assert.equal(await certification.getAttribute("required"), "");
+  assert.equal(
+    await certification.getAttribute("aria-describedby"),
+    "guardian-certification-text",
+  );
+  for (const theme of ["mint-light", "mint-dark"]) {
+    await page.evaluate((value) => {
+      document.documentElement.dataset.corvaTheme = value;
+    }, theme);
+    for (const width of [320, 768, 1280, 2560]) {
+      await page.setViewportSize({ width, height: 900 });
+      assert.equal(await certification.isVisible(), true);
+      assert.equal(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+        true,
+        `Guardian certification overflows at ${width}/${theme}`,
+      );
+    }
+  }
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.locator(".consent-line input").check();
+  await page.getByRole("button", { name: "Continue", exact: false }).click();
+  assert.equal(
+    await page.getByRole("heading", { name: "Sign", exact: true }).count(),
+    1,
+  );
+  await certification.focus();
+  await page.keyboard.press("Space");
+  await page.getByRole("button", { name: "Continue", exact: false }).click();
+  await page
+    .getByRole("heading", { name: "Review & finish", exact: true })
+    .waitFor();
+  await page
+    .getByText("Guardian certification: agreed.", { exact: true })
+    .waitFor();
+  assert.equal(
+    await page.getByText("Child’s full name", { exact: true }).count(),
+    1,
+  );
+  await page.getByRole("button", { name: "Back", exact: true }).click();
+  await page.getByRole("button", { name: "Back", exact: true }).click();
+  await page.getByRole("button", { name: "Back", exact: true }).click();
+  await page
+    .getByRole("textbox", { name: "Child’s full name", exact: true })
+    .fill("Synthetic Child Updated");
+  await page.getByRole("button", { name: "Continue", exact: false }).click();
+  await page.getByRole("button", { name: "Continue", exact: false }).click();
+  assert.equal(await certification.isChecked(), false);
+  await page.getByRole("button", { name: "Back", exact: true }).click();
+  await page.getByRole("button", { name: "Back", exact: true }).click();
+  await page
+    .getByRole("checkbox", { name: "Guest is under 18", exact: true })
+    .uncheck();
+  assert.equal(await childName.count(), 0);
+  assert.equal(
+    await page
+      .getByRole("textbox", { name: "Printed name of guest", exact: true })
+      .inputValue(),
+    "",
+  );
+  assert.equal(
+    await page
+      .getByRole("spinbutton", { name: "Guest age (0–17)", exact: true })
+      .count(),
+    0,
+  );
   assert.deepEqual(failures, []);
   console.log(
-    "Browser regressions passed: team refresh/error/keyboard behavior; form autofill attributes and independent signer/emergency-contact values.",
+    "Browser regressions passed: team refresh/error/keyboard behavior; independent autofill values; named-child flow, separate signatures, required keyboard guardian certification and edit invalidation.",
   );
 } finally {
   await browser?.close();

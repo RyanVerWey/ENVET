@@ -3,6 +3,7 @@ vi.mock("server-only", () => ({}));
 import {
   formSource,
   formVersion,
+  guardianCertificationVersion,
   liabilityInitials,
 } from "@/lib/forms/definition";
 import { signatureInput, submissionInput } from "@/lib/forms/validation";
@@ -36,7 +37,7 @@ export function donationFixture() {
     consent: true,
   };
 }
-function liabilityFixture(minor = false) {
+export function liabilityFixture(minor = false) {
   return {
     ...donationFixture(),
     kind: "liability",
@@ -52,6 +53,7 @@ function liabilityFixture(minor = false) {
       ...(minor ? { minorAge: "12", guardianName: "Test Guardian" } : {}),
     },
     minor,
+    guardianCertified: minor,
     riding: [],
     initials: {
       ...Object.fromEntries(liabilityInitials.map((i) => [`p${i}`, "TG"])),
@@ -107,6 +109,49 @@ describe("source-preserving forms and signing validation", () => {
       { ...valid, fields: { ...valid.fields, ownerName: "x".repeat(101) } },
     ])
       expect(submissionInput(bad)).toBeNull();
+  });
+  it("requires named child, lawful guardian certification and independent matching signatures", () => {
+    const valid = liabilityFixture(true);
+    for (const bad of [
+      { ...valid, guardianCertified: undefined },
+      { ...valid, guardianCertified: false },
+      { ...valid, guardianCertified: "true" },
+      { ...valid, fields: { ...valid.fields, guestName: "" } },
+      { ...valid, fields: { ...valid.fields, minorAge: "18" } },
+      { ...valid, fields: { ...valid.fields, guardianName: "" } },
+      { ...valid, guestSignature: valid.guardianSignature },
+      { ...valid, guardianSignature: valid.guestSignature },
+    ])
+      expect(submissionInput(bad)).toBeNull();
+    expect(
+      submissionInput({ ...liabilityFixture(), guardianCertified: true }),
+    ).toBeNull();
+    expect(
+      submissionInput({ ...donationFixture(), guardianCertified: true }),
+    ).toBeNull();
+    expect(
+      submissionInput({ ...valid, fields: { ...valid.fields, minorAge: "0" } }),
+    ).not.toBeNull();
+    expect(
+      submissionInput({
+        ...valid,
+        fields: { ...valid.fields, minorAge: "17" },
+      }),
+    ).not.toBeNull();
+  });
+  it("requires a new liability approval version without changing donor version or source text", () => {
+    expect(formVersion("liability")).toContain(guardianCertificationVersion);
+    expect(formVersion("donation")).not.toContain(guardianCertificationVersion);
+    const current = liabilityFixture(true);
+    expect(
+      submissionInput({
+        ...current,
+        version: current.version.replace(
+          `-${guardianCertificationVersion}`,
+          "",
+        ),
+      }),
+    ).toBeNull();
   });
   it("validates bounded normalized strokes, not SVG/image URLs, empty taps or NaN", () => {
     expect(

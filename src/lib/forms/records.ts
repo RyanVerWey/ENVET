@@ -6,6 +6,7 @@ export type SignedRecord = Submission & {
   receivedAt: string;
   source: unknown;
   electronicConsent: { version: string; text: string };
+  guardianCertification?: { version: string; text: string; certified: true };
   signer: { id: string; email: string; role: "guest" | "guardian" | "owner" };
   attribution: string;
 };
