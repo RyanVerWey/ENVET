@@ -33,6 +33,7 @@ import {
 } from "@/lib/forms/validation";
 import { SignatureDrawing, SignatureInput } from "./signature-input";
 import { SourceDisclosure } from "./document-view";
+import { fieldAutocomplete } from "@/lib/forms/autofill";
 
 export function FormField({
   field,
@@ -53,6 +54,8 @@ export function FormField({
       {field.multiline ? (
         <textarea
           id={id}
+          name={field.key}
+          autoComplete={fieldAutocomplete(field.key)}
           value={value}
           rows={3}
           maxLength={field.max ?? 1500}
@@ -62,6 +65,8 @@ export function FormField({
       ) : (
         <input
           id={id}
+          name={field.key}
+          autoComplete={fieldAutocomplete(field.key)}
           type={field.type ?? "text"}
           value={value}
           maxLength={field.max ?? 254}

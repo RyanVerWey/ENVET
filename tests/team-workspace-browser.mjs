@@ -9,8 +9,15 @@ const server = await createServer({
   root,
   configFile: false,
   logLevel: "error",
+  resolve: {
+    alias: {
+      "@": join(root, "../../src"),
+      "next/navigation": join(root, "forms-next-navigation.ts"),
+      "next/link": join(root, "forms-next-link.tsx"),
+    },
+  },
   esbuild: { jsx: "automatic" },
-  optimizeDeps: { entries: ["team-workspace.html"] },
+  optimizeDeps: { entries: ["team-workspace.html", "form-autofill.html"] },
   server: {
     host: "127.0.0.1",
     port: 0,
@@ -148,9 +155,40 @@ try {
   );
   assert.equal((await state()).mutations, 1);
 
+  await page.goto(`${base}form-autofill.html`);
+  const signerPhone = page.getByRole("textbox", {
+    name: "Phone number",
+    exact: true,
+  });
+  const emergencyPhone = page.getByRole("textbox", {
+    name: "Emergency contact phone number",
+    exact: true,
+  });
+  await signerPhone.waitFor();
+  assert.equal(
+    await signerPhone.getAttribute("autocomplete"),
+    "section-signer tel",
+  );
+  assert.equal(await emergencyPhone.getAttribute("autocomplete"), "off");
+  assert.equal(
+    await page
+      .getByRole("textbox", { name: "Emergency contact name", exact: true })
+      .getAttribute("autocomplete"),
+    "off",
+  );
+  assert.equal(await signerPhone.getAttribute("name"), "phone");
+  assert.equal(await emergencyPhone.getAttribute("name"), "emergencyPhone");
+  await signerPhone.fill("202-555-0100");
+  assert.equal(await emergencyPhone.inputValue(), "");
+  await emergencyPhone.fill("202-555-0199");
+  await signerPhone.fill("202-555-0101");
+  assert.equal(await emergencyPhone.inputValue(), "202-555-0199");
+  await emergencyPhone.press("Tab");
+  assert.equal(await signerPhone.inputValue(), "202-555-0101");
+  assert.equal(await emergencyPhone.inputValue(), "202-555-0199");
   assert.deepEqual(failures, []);
   console.log(
-    "Team workspace browser regressions passed: success; status/delete/hide 503 and 403; old reported target at 320px dark with keyboard and reduced motion.",
+    "Browser regressions passed: team refresh/error/keyboard behavior; form autofill attributes and independent signer/emergency-contact values.",
   );
 } finally {
   await browser?.close();

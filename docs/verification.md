@@ -1,7 +1,11 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-09T23:23:14Z"
+updated: "2026-10-09T23:34:08Z"
 ---
+## October 9: emergency contact autofill fix
+
+Shared FormField had no explicit autofill hints. Added stable names, section-signer contact hints and autocomplete off for emergency contact, guardian and horse fields. Independent React state and manual editing preserved; legal text, consent, form version and collection gates unchanged. Impeccable hardening kept existing controls and labels. 72 unit tests, browser field/state regressions, lint, build, types, formatting pass. Browser tests assert blank emergency phone after signer entry and preserve a separate emergency number after signer changes. Native-profile Autofill.trigger unsupported through browser tool; forced native-profile fill and extension behavior unverified. Synthetic data only, no submissions. Guidance: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-emergency-autofill-test.png.
+
 ## October 9, 2026: full-page copy and accessibility polish
 
 Owner explicitly requested an audit and fixes, not diagnostics only. Impeccable guided design-system-first polish: existing Corva mint tokens, genuine approved photos, humanist typography and restrained glass retained. Brain session 1791587483141652000; Plan M3 brainstorm records the scope; canonical implementation remains GitHub #27/PR45. Owner visual acceptance is not presumed.
