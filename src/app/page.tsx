@@ -6,7 +6,7 @@ import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
-  "Equine therapy for veterans & families",
+  "Equine therapy for Veterans & families",
   org.description,
   "/",
 );
@@ -19,13 +19,13 @@ export default function Home() {
           <div>
             <p className="eyebrow">Eagle’s Nest Veterans’ Equine Therapy</p>
             <h1>
-              Equine therapy for veterans <span>and their families.</span>
+              Equine therapy for Veterans <span>and their families.</span>
             </h1>
           </div>
           <div className="hero-introduction">
             <p className="lead">
               Connection with horses. Support from a community. ENVET brings
-              veterans and their families together with rescued and donated
+              Veterans and their families together with rescued and donated
               horses in the Virginia countryside.
             </p>
             <div className="actions">
@@ -67,7 +67,7 @@ export default function Home() {
         <div className="mission-copy">
           <p>
             ENVET is a nonprofit providing equine therapy options for United
-            States veterans and their families. Here in Lovettsville, rescued
+            States Veterans and their families. Here in Lovettsville, rescued
             and donated horses are at the center of our work.
           </p>
           <p>
@@ -84,7 +84,7 @@ export default function Home() {
       <section className="participation-section">
         <div className="wrap participation-layout">
           <div className="participation-copy">
-            <p className="eyebrow">For veterans & families</p>
+            <p className="eyebrow">For Veterans & families</p>
             <h2>Your visit starts with a conversation.</h2>
             <p>
               Get to know the program before you come to the farm. Contact ENVET
@@ -137,11 +137,11 @@ export default function Home() {
         />
         <div className="giving-copy">
           <p className="eyebrow">A community-supported mission</p>
-          <h2>Help keep equine therapy accessible to veterans.</h2>
+          <h2>Help keep equine therapy accessible to Veterans.</h2>
           <p>
             ENVET’s mission includes free access to rescued and donated horses
-            for veterans. Your generosity helps keep the program going for
-            veterans and their families.
+            for Veterans. Your generosity helps keep the program going for
+            Veterans and their families.
           </p>
           <Action href="/donate">Make a donation</Action>
           <Link href="/contact" className="text-link">
@@ -204,7 +204,7 @@ export default function Home() {
               answer: (
                 <p>
                   ENVET’s official page describes free access to rescued or
-                  donated horses for veterans. Ask the team about your specific
+                  donated horses for Veterans. Ask the team about your specific
                   visit and any arrangements before attending.
                 </p>
               ),

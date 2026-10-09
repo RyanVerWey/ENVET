@@ -10,7 +10,31 @@ import {
 import { isLaunchEnabled, jsonLd, organization } from "../src/lib/site";
 import fs from "node:fs";
 import path from "node:path";
-import { preVisitSections } from "../src/lib/forms/pre-visit";
+import { affiliations, preVisitSections } from "../src/lib/forms/pre-visit";
+
+describe("Veteran capitalization", () => {
+  it("capitalizes authored page, component and blog copy without changing internal codes", () => {
+    const roots = ["src/app", "src/components"];
+    // Check visible TSX copy; data enum codes stay stable in src/lib.
+    for (const root of roots) {
+      for (const file of fs.readdirSync(root, { recursive: true })) {
+        if (typeof file !== "string" || !file.endsWith(".tsx")) continue;
+        const fullPath = path.join(root, file);
+        expect(fs.readFileSync(fullPath, "utf8"), fullPath).not.toMatch(
+          /\bveterans?\b/,
+        );
+      }
+    }
+    for (const post of getPosts()) {
+      expect(
+        `${post.title} ${post.description} ${post.body}`,
+        post.slug,
+      ).not.toMatch(/\bveterans?\b/);
+    }
+    expect(organization.description).not.toMatch(/\bveterans?\b/);
+    expect(affiliations[0]).toEqual(["veteran", "Veteran"]);
+  });
+});
 
 describe("participation scope", () => {
   it("includes partner nations across public descriptions and published articles", () => {

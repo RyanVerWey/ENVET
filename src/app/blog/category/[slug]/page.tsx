@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props) {
   if (!post) notFound();
   return pageMetadata(
     post.category,
-    `ENVET journal guides about ${post.category.toLowerCase()} for veterans, families, and supporters.`,
+    `ENVET journal guides about ${post.category.toLowerCase()} for Veterans, families, and supporters.`,
     `/blog/category/${slug}`,
   );
 }

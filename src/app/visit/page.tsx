@@ -7,7 +7,7 @@ import { PreVisitChecklist } from "@/components/forms/pre-visit-checklist";
 export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
   "Plan a visit",
-  "Contact ENVET about equine therapy options for veterans and families in Lovettsville, Virginia. Learn what to ask before your first visit.",
+  "Contact ENVET about equine therapy options for Veterans and families in Lovettsville, Virginia. Learn what to ask before your first visit.",
   "/visit",
 );
 export default async function Visit() {

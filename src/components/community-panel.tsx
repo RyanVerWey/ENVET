@@ -129,7 +129,7 @@ export function CommunityPanel({
         <p>
           {enabled
             ? "Share this guide, or sign in with Google to leave a comment. Comments appear as soon as they are posted and may be removed by ENVET."
-            : "Know someone who could use this guide? Share it with a veteran, family member, or friend."}
+            : "Know someone who could use this guide? Share it with a Veteran, family member, or friend."}
         </p>
       </div>
       <div className="community-actions">

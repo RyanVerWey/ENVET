@@ -46,7 +46,7 @@ export function Header() {
     <header className="site-header">
       <div className="utility-bar">
         <div className="wrap">
-          <span>Serving veterans & families in Lovettsville, Virginia</span>
+          <span>Serving Veterans & families in Lovettsville, Virginia</span>
           <a href={org.phoneHref}>Call {org.phone}</a>
         </div>
       </div>

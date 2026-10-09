@@ -1,5 +1,5 @@
 ---
-title: "Coming alongside a veteran, one question at a time"
+title: "Coming alongside a Veteran, one question at a time"
 description: "A practical starting point for family members who want to learn about ENVET without making assumptions for someone else."
 date: "2026-09-06"
 updated: "2026-09-06"
@@ -27,7 +27,7 @@ You do not need to explain another person’s history to make an initial inquiry
 ## Questions to bring to the team
 
 - How do family members take part in the current program?
-- Can a support person accompany a veteran on an initial visit?
+- Can a support person accompany a Veteran on an initial visit?
 - Are there age restrictions or supervision requirements for children?
 - What activities are available, and what does a first visit involve?
 - What access or accommodation questions should we discuss ahead of time?

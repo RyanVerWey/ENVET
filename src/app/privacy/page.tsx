@@ -64,7 +64,7 @@ export default function Privacy() {
                 guest form includes emergency contacts and a separate parent or
                 lawful guardian flow for minors. The horse form includes animal
                 history, care and optional current-rider information—not a
-                veteran’s medical intake. The submitting adult’s Google account
+                Veteran’s medical intake. The submitting adult’s Google account
                 and email accompany the record; sign-in is not independent proof
                 of identity or guardian authority.
               </p>

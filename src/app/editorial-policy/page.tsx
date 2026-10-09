@@ -3,7 +3,7 @@ import { organization } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Editorial standards",
-  "How ENVET’s journal uses source-grounded answers, clear authorship, useful links, and careful language for veterans and families.",
+  "How ENVET’s journal uses source-grounded answers, clear authorship, useful links, and careful language for Veterans and families.",
   "/editorial-policy",
 );
 export default function Editorial() {
@@ -20,7 +20,7 @@ export default function Editorial() {
         <div className="prose">
           <h2>About the journal</h2>
           <p>
-            The ENVET journal shares practical information for veterans,
+            The ENVET journal shares practical information for Veterans,
             families, and supporters. Guides draw on ENVET’s program information
             and official public sources. They help you prepare for a
             conversation with the team, not replace professional healthcare

@@ -13,7 +13,7 @@ export function Footer() {
           <p>
             Eagle’s Nest Veterans’ Equine Therapy.
             <br />
-            Supporting veterans and families through connection with horses.
+            Supporting Veterans and families through connection with horses.
           </p>
           <p className="footer-location">
             Lovettsville, Virginia

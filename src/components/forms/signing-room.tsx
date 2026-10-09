@@ -500,7 +500,7 @@ export function SigningRoom({
               )}
               {kind === "donation" && step === 2 && (
                 <p className="field-hint">
-                  Rider details describe the current rider, not a veteran
+                  Rider details describe the current rider, not a Veteran
                   receiving services. Staff evaluation, acceptance and
                   disposition are completed by ENVET separately. No upload is
                   requested here; ENVET follows up for photos, registration

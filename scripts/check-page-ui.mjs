@@ -4,6 +4,11 @@ import assert from "node:assert/strict";
 export function assertPolishedPage(html, route) {
   const markup = html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, "");
   const text = markup.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  assert.doesNotMatch(
+    text,
+    /\bveterans?\b/,
+    `${route}: capitalize Veteran, including plurals and possessives`,
+  );
   assert.equal(
     (markup.match(/<h1(?:\s|>)/g) || []).length,
     1,

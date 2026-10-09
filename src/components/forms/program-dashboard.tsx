@@ -195,7 +195,7 @@ export function ProgramReport({ data }: { data: ProgramMetrics }) {
           Active participants counts distinct participant references, not Google
           accounts, page views, bookings or signed waivers. It includes guests
           recorded as program participants; it is not a verified count of United
-          States veterans. Repeat participation is participants with at least
+          States Veterans. Repeat participation is participants with at least
           two visits in this period divided by participants with any visit in
           this period. No participants means no percentage.
         </p>

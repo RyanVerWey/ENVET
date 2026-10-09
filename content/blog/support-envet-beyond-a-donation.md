@@ -1,6 +1,6 @@
 ---
 title: "Big-hearted support comes in more than one form"
-description: "Give, share, or ask where a helping hand is needed. Thoughtful ways to support ENVET’s work with veterans and horses."
+description: "Give, share, or ask where a helping hand is needed. Thoughtful ways to support ENVET’s work with Veterans and horses."
 date: "2026-09-06"
 updated: "2026-09-06"
 category: "Supporting the mission"
@@ -16,7 +16,7 @@ sources:
 
 **You can give through ENVET’s official PayPal donation page, share the organization’s work, or contact the team about current volunteer and in-kind needs.** A useful contribution starts with what the program needs now and what you can comfortably offer.
 
-ENVET provides equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families in Lovettsville, Virginia. Its official page describes free access to rescued or donated horses for veterans. Community support helps the program keep going.
+ENVET provides equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families in Lovettsville, Virginia. Its official page describes free access to rescued or donated horses for Veterans. Community support helps the program keep going.
 
 ## Make a donation through the official channel
 
@@ -28,7 +28,7 @@ We do not assign a made-up outcome to a donation amount. Ask the team about curr
 
 ## Share with someone who might be looking
 
-A veteran or family member may not know ENVET exists. Sharing the [official Facebook page](https://www.facebook.com/profile.php?id=100068209587248) or the [visit information](/visit) can help them find a place to ask questions.
+A Veteran or family member may not know ENVET exists. Sharing the [official Facebook page](https://www.facebook.com/profile.php?id=100068209587248) or the [visit information](/visit) can help them find a place to ask questions.
 
 Keep the invitation gentle. You do not need to assume someone wants services or ask them to disclose personal circumstances. A simple “I came across this and thought you might want to know about it” leaves the choice with them.
 

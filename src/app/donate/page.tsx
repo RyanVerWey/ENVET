@@ -4,7 +4,7 @@ import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Support the mission",
-  "Help keep ENVET’s equine therapy program going for veterans and their families. Donate through the organization’s official PayPal page.",
+  "Help keep ENVET’s equine therapy program going for Veterans and their families. Donate through the organization’s official PayPal page.",
   "/donate",
 );
 export default function Donate() {
@@ -13,7 +13,7 @@ export default function Donate() {
       <PageIntro
         eyebrow="Support ENVET"
         title="Your generosity makes connection possible."
-        intro="Support equine therapy options for veterans and their families. Help sustain the horses, the place, and the program at Eagle’s Nest."
+        intro="Support equine therapy options for Veterans and their families. Help sustain the horses, the place, and the program at Eagle’s Nest."
         path="/donate"
       />
       <section className="wrap donation-feature">
@@ -30,7 +30,7 @@ export default function Donate() {
             Sustain the mission.
           </h2>
           <p>
-            Support equine therapy options for veterans and their families
+            Support equine therapy options for Veterans and their families
             through ENVET’s official donation page.
           </p>
           <Action href={org.donate} external>
@@ -56,7 +56,7 @@ export default function Donate() {
           <span>01</span>
           <h3>Share the mission</h3>
           <p>
-            Help a veteran, family, or potential supporter find ENVET.{" "}
+            Help a Veteran, family, or potential supporter find ENVET.{" "}
             <a href={org.facebook}>
               Follow and share the official Facebook page.
             </a>

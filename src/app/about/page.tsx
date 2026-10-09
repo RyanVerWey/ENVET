@@ -2,7 +2,7 @@ import { Action, PageIntro, Photo } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
   "Our story",
-  "Meet Eagle’s Nest Veterans’ Equine Therapy, a nonprofit connecting veterans, families, and horses in Lovettsville, Virginia.",
+  "Meet Eagle’s Nest Veterans’ Equine Therapy, a nonprofit connecting Veterans, families, and horses in Lovettsville, Virginia.",
   "/about",
 );
 export default function About() {
@@ -11,7 +11,7 @@ export default function About() {
       <PageIntro
         eyebrow="Our story"
         title="A shared purpose. A place to connect."
-        intro="Eagle’s Nest Veterans’ Equine Therapy brings veterans, families, and horses together in Lovettsville, Virginia."
+        intro="Eagle’s Nest Veterans’ Equine Therapy brings Veterans, families, and horses together in Lovettsville, Virginia."
         path="/about"
       />
       <section className="wrap story-split">
@@ -34,7 +34,7 @@ export default function About() {
           </p>
           <p>
             Our official Facebook page describes free access to horses for
-            veterans. The team can explain current opportunities, eligibility,
+            Veterans. The team can explain current opportunities, eligibility,
             and how family members can take part.
           </p>
           <p>
