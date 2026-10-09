@@ -27,9 +27,10 @@ export default function About() {
             <br />a place of support.
           </h2>
           <p>
-            ENVET provides equine therapy options for United States veterans and
-            their families. Based in Lovettsville, Virginia, the nonprofit
-            brings people together with rescued or donated horses.
+            ENVET provides equine therapy options for United States and
+            partner-nation Veterans, Active Duty service members, and their
+            families. Based in Lovettsville, Virginia, the nonprofit brings
+            people together with rescued or donated horses.
           </p>
           <p>
             Our official Facebook page describes free access to horses for

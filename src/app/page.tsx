@@ -184,7 +184,8 @@ export default function Home() {
                 <p>
                   Eagle’s Nest Veterans’ Equine Therapy is a nonprofit in
                   Lovettsville, Virginia, providing equine therapy options for
-                  United States veterans and their families.
+                  United States and partner-nation Veterans, Active Duty service
+                  members, and their families.
                 </p>
               ),
             },

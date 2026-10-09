@@ -21,12 +21,12 @@ export const preVisitSections = [
     key: "pvEligibilityDiscussed",
     title: "Start with a conversation",
     prompt:
-      "Ask: Are you a Veteran, Active Duty, or a family member? What family connection should ENVET confirm?",
+      "Ask: Are you a Veteran, Active Duty service member, or a family member from the United States or a partner nation? What service or family connection should ENVET confirm?",
     items: [
       {
         key: "connection",
         title: "Confirm participation with ENVET",
-        text: "The program serves United States Veterans, Active Duty service members and their families, not unrelated civilian recreation. ENVET confirms eligibility privately. Do not upload or message military identity documents or medical records.",
+        text: "The program serves Veterans and Active Duty service members from the United States and partner nations, along with their families, not unrelated civilian recreation. ENVET confirms eligibility privately. Do not upload or message military identity documents or medical records.",
       },
     ],
   },

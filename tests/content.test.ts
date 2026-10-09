@@ -10,6 +10,40 @@ import {
 import { isLaunchEnabled, jsonLd, organization } from "../src/lib/site";
 import fs from "node:fs";
 import path from "node:path";
+import { preVisitSections } from "../src/lib/forms/pre-visit";
+
+describe("participation scope", () => {
+  it("includes partner nations across public descriptions and published articles", () => {
+    const copy = [
+      organization.description,
+      ...getPosts().map((post) => post.body),
+      ...["src/app/page.tsx", "src/app/about/page.tsx"].map((file) =>
+        fs.readFileSync(file, "utf8").replace(/\s+/g, " "),
+      ),
+    ];
+    for (const text of copy) {
+      expect(text).toMatch(/United States and partner-nation Veterans/);
+      expect(text).toContain("Active Duty service members");
+      expect(text).toContain("their families");
+    }
+  });
+
+  it("keeps private confirmation and document-safety guidance in the checklist", () => {
+    const section = preVisitSections[0];
+    expect(section.title).toBe("Start with a conversation");
+    expect(section.prompt).toContain("United States or a partner nation");
+    expect(section.items[0].title).toBe("Confirm participation with ENVET");
+    const text = section.items[0].text;
+    expect(text).toContain("United States and partner nations");
+    expect(text).toContain("Veterans and Active Duty service members");
+    expect(text).toContain("their families");
+    expect(text).toContain("not unrelated civilian recreation");
+    expect(text).toContain("ENVET confirms eligibility privately");
+    expect(text).toContain(
+      "Do not upload or message military identity documents or medical records",
+    );
+  });
+});
 
 describe("publication controls", () => {
   const valid = {

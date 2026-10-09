@@ -1,6 +1,9 @@
 ---
-updated: "2026-10-09T23:46:47Z"
+updated: "2026-10-09T23:50:28Z"
 ---
+## Partner-nation participation correction prepared (October 9, 2026)
+
+Owner confirms ENVET serves United States and partner-nation Veterans, Active Duty service members, and their families. Shared pre-visit public/staff guidance, homepage, About page, organization search/schema description and three published blog introductions now agree. Private ENVET confirmation, unrelated-civilian-recreation boundary, and no military identity/medical uploads remain. No partner-country list or documentary verification invented; existing affiliation codes, checklist structure/version, signature contracts, auth, collection gates and database unchanged. Impeccable clarified existing Corva copy without redesign. Regression coverage verifies inclusive scope and preserved safety guidance: 77 tests, lint/build/types, browser and Plan checks pass. Publication pending exact-source CI and manual Vercel release verification.
 ## Prepared minor / guardian signing revision (October 9, 2026)
 
 Source 53dce1a3cc1790a1082f4e30c32a0b6865530a33 pushed on PR45 within open Plan46. Owner requests explicit child name under Guest is under18, age0–17 and parent/lawful guardian printed name, own adult Google account, separate signatures and full authority certification. Existing guestName is child identity, child autofill off. Required separate guardian certification is client/server validated, resets after detail edits, and freezes exact wording/version in protected record; receipt/staff details show stored text and do not retrofit older records. Liability version changed, donor version/source originals unchanged. No legal approval presumed: new wording is proposed, actual adulthood/guardianship unverified, child unable to sign uses team arrangements. No live collection, Google activation, hosted migration/keys/permission change or deployment in this revision; current public release below remains unchanged.

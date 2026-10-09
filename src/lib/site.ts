@@ -35,7 +35,7 @@ export const organization = {
   name: "Eagle's Nest Veterans' Equine Therapy",
   shortName: "ENVET",
   description:
-    "Equine therapy options for United States veterans and their families in Lovettsville, Virginia. Meet ENVET, plan a visit, or help keep the program going.",
+    "Equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families in Lovettsville, Virginia.",
   phone: "+1 540-504-8401",
   phoneHref: "tel:+15405048401",
   email: "envet501c3@gmail.com",

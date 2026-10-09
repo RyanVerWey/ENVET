@@ -5,7 +5,7 @@ slug: m1-source-of-truth-and-media-rights
 status: active
 title: M1 Source of truth and media rights
 type: brainstorm
-updated_at: "2026-09-06T02:24:24Z"
+updated_at: "2026-10-09T23:49:46Z"
 ---
 
 # Brainstorm: M1 Source of truth and media rights
@@ -44,6 +44,8 @@ One trusted source file answers what ENVET is, who it serves, how to contact it,
 
 - Crawl official Facebook About, Photos, and recent posts.
 - Record source provenance, image subjects, consent risk, and owner approval state.
+
+- Owner correction: ENVET serves United States and partner-nation Veterans, Active Duty service members, and their families. Align public descriptions, blog introductions, and shared pre-visit eligibility guidance. Keep private ENVET confirmation, no unrelated civilian recreation, and no military identity or medical uploads. No country list, new eligibility classifications, database changes, or signing enablement.
 ## Raw Notes
 
 ## Refinement

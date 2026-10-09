@@ -16,7 +16,7 @@ sources:
 
 **You can give through ENVET’s official PayPal donation page, share the organization’s work, or contact the team about current volunteer and in-kind needs.** A useful contribution starts with what the program needs now and what you can comfortably offer.
 
-ENVET provides equine therapy options for United States veterans and their families in Lovettsville, Virginia. Its official page describes free access to rescued or donated horses for veterans. Community support helps the program keep going.
+ENVET provides equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families in Lovettsville, Virginia. Its official page describes free access to rescued or donated horses for veterans. Community support helps the program keep going.
 
 ## Make a donation through the official channel
 

@@ -16,7 +16,7 @@ sources:
 
 **Yes. Family members can reach out to learn about ENVET and ask about current participation arrangements.** The team confirms eligibility, available activities, and whether a family member or support person can join a particular visit.
 
-Eagle’s Nest Veterans’ Equine Therapy is a nonprofit providing equine therapy options for United States veterans and their families in Lovettsville, Virginia. This guide is a starting point for a conversation, not confirmation of a booking or a specific service.
+Eagle’s Nest Veterans’ Equine Therapy is a nonprofit providing equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families in Lovettsville, Virginia. This guide is a starting point for a conversation, not confirmation of a booking or a specific service.
 
 ## Start by asking what would be useful
 

@@ -20,7 +20,7 @@ You do not have to arrive at that conversation knowing exactly what you want to 
 
 ## What is ENVET, and where is it?
 
-Eagle’s Nest Veterans’ Equine Therapy is a nonprofit providing equine therapy options for United States veterans and their families. It is based at **37958 Long Lane, Lovettsville, Virginia 20180**.
+Eagle’s Nest Veterans’ Equine Therapy is a nonprofit providing equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families. It is based at **37958 Long Lane, Lovettsville, Virginia 20180**.
 
 The organization’s official Facebook page describes free access to rescued or donated horses for veterans. Confirm the arrangements for your particular visit directly with the team. This website does not reserve a place or confirm an appointment.
 
