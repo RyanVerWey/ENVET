@@ -1,6 +1,15 @@
 ---
-updated: "2026-10-09T23:10:42Z"
+updated: "2026-10-09T23:27:35Z"
 ---
+## Full-page copy/accessibility polish released (October 9, 2026)
+
+Current live release supersedes the accordion release: source 8041d13d9304e4bd2e20456505e3796a3f36ca62, Vercel dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR, immutable envet-i3a7fxj4x-ryanverweys-projects.vercel.app. Ready in32s; envet.info assigned. Runtime22.x and Standard Protection verified. Exact-source CI runs38004237294 and38004234745 successful; live 15-public/9-private route and redirect/discovery/media probes pass. Prior healthy dpl_BVWKQe7gj2AVLrLL52naKkCphuf5/d7e1e0e is rollback candidate, not exercised.
+
+Owner requested public-facing professional copy with no AI/draft/approval/setup commentary. Cleaned editorial/account/community/team/form text without claiming inactive features work. Privacy conditionally describes active capabilities only. Off signing routes show original read-only document and contact path, not unusable signing inputs. Legal source/consent contract and all auth/collection gates unchanged; FORM_COLLECTION_ENABLED=false, no data platform activation, permissions, schema or DNS changes.
+
+Semantic hierarchy repaired for journal/category/gallery; main is programmatically focusable for skip link; native navigation and meaningful icon labels; no positive tabindex. Footer Facebook/Messenger/WhatsApp icons use verified destinations, decorative SVGs and44px targets. Entrance motion is shorter and translation-only so text remains readable immediately; reduced motion disables animation/transitions. Impeccable guided Corva-first polish, not new visual-system replacement.
+
+65 tests/11 files, lint/build/types/formatting, team browser regressions, 24-route preview smoke and Plan check pass. Actual25 available views x3 widths x2 themes (150 checks) pass semantic/name/ARIA/copy/overflow diagnostics; strict document-client-width checks also pass. Skip/Escape/keyboard disclosure behavior verified. 3,044 computed solid-background text contrast samples pass scoped thresholds. No full WCAG certification: screen readers, physical devices, alternate browsers and authenticated records untested in this pass. Owner visual acceptance not presumed. See docs/verification.md. Live footer proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-professional-footer.png. User-owned dev server3001 preserved; only agent-owned3002 audit server stopped at closeout.
 ## Single-open accordion and donor imagery revision (October 9, 2026)
 
 Owner requested every expandable section close its predecessor. All six disclosure source locations now share native details name envet-accordion, giving page-wide mutual exclusion without JavaScript/hydration state. Browser owns temporary open state; opening another closes the prior section, toggling the current one can close all. Mobile navigation remains independent. Exact supplied legal text, signatures and collection gates unchanged. Native name behavior documented by MDN; older browsers without details name support may retain independent disclosures.

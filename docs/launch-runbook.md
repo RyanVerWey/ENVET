@@ -1,7 +1,10 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-10-09T23:10:43Z"
+updated: "2026-10-09T23:27:35Z"
 ---
+## Latest release: full-page copy and accessibility polish
+
+October9,2026: manual exact-SHA8041d13d9304e4bd2e20456505e3796a3f36ca62 production deployment dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR Ready in32s. https://envet.info assigned; immutable https://envet-i3a7fxj4x-ryanverweys-projects.vercel.app. Both GitHub checks success for exact source; Node22.x/Standard Protection unchanged. Expanded production smoke verifies clean public copy, H1/main/skip target, labeled SVG social anchors, natural tab order, 15public+9private routes, no-store/noindex boundaries, canonical/discovery/media/HTTPS redirects. Actual live editorial cleanup, read-only forms and keyboard-focused social footer verified. No collection/auth/encryption/schema/permissions/DNS changes. Rollback candidate is prior healthy dpl_BVWKQe7gj2AVLrLL52naKkCphuf5/source d7e1e0ef532ada1894382fb75b7824b7296c5aa5. Restore it through Vercel's authorized rollback workflow only if needed; rollback not exercised.
 # Owner review, Vercel launch, and rollback
 
 ## Current state
@@ -10,7 +13,7 @@ Public website is live at https://envet.info under explicit October 9 user autho
 
 ## Review without a live URL
 
-Run `npm ci`, `npm run build`, and `npm start` locally. Open `http://127.0.0.1:3000`. Bind only to loopback. Walk through home, story, visit, donate, contact, gallery, journal, article/category, and privacy/editorial pages in both themes. The owner-review banner and noindex remain enabled. Share a local walkthrough or screenshots, not a public deployment.
+Run `npm ci`, `npm run build`, and `npm start` locally. Open `http://127.0.0.1:3000`. Bind only to loopback. Walk through home, story, visit, donate, contact, gallery, journal, article/category, and privacy/editorial pages in both themes. Preview noindex remains enabled; the visual owner-review banner was removed by explicit October 9 copy-cleanup request. Share a local walkthrough or screenshots, not a public deployment.
 
 Do not send a message, place a donation, or book a visit as a test. Check destination addresses without submitting transactions. A phone/mail/messaging app may open if an owner intentionally chooses a link.
 
@@ -20,7 +23,7 @@ Do not send a message, place a donation, or book a visit as a test. Check destin
 - Eligibility, family participation, appointment arrangements, accessibility, and scope of services. No medical credentials or outcome claims have been invented.
 - PayPal recipient and donation documentation process.
 - Every photograph and logo: copyright permission, identifiable-person releases, ages, crop acceptance. Record source, reviewer, date, and clearance in the media manifest, not just a global assurance.
-- All pages and initial articles, including editorial AI-assistance disclosure.
+- All pages and initial articles, source citations, dates and corrections policy.
 - Mobile/desktop design, CorvaUI mint light/dark, navigation, and typography.
 - Production domain, Vercel account/project ownership, access controls, hosting/log retention, final privacy text, and monitoring responsibility.
 
