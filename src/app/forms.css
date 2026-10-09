@@ -1207,3 +1207,10 @@
     break-after: page;
   }
 }
+.form-overview {
+  max-width: 960px;
+  padding-bottom: 90px;
+}
+.form-overview-intro {
+  margin-bottom: 48px;
+}

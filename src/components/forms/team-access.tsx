@@ -15,13 +15,11 @@ export async function TeamAccess({
     <>{children}</>
   ) : (
     <section className="wrap community-panel">
-      <h1>
-        {configured ? "Team access required" : "Workspace is being prepared"}
-      </h1>
+      <h1>Team access required</h1>
       <p>
         {configured
           ? "Use an authorized ENVET team Google account. Access is granted manually by an operator."
-          : "Protected records and program reports are not connected yet. No records are displayed."}
+          : "Contact ENVET for assistance accessing protected records and program reports."}
       </p>
       {configured && (
         <Link className="action" href={`/auth/sign-in?next=${next}`}>

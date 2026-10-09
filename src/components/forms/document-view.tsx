@@ -1,6 +1,12 @@
 import { formSource, type FormKind } from "@/lib/forms/definition";
 export type DocumentSource = ReturnType<typeof formSource>;
-export function DocumentView({ source }: { source: DocumentSource }) {
+export function DocumentView({
+  source,
+  showProvenance = true,
+}: {
+  source: DocumentSource;
+  showProvenance?: boolean;
+}) {
   return (
     <div className="source-document">
       {source.extraParts
@@ -16,18 +22,20 @@ export function DocumentView({ source }: { source: DocumentSource }) {
           {p}
         </p>
       ))}
-      <p className="document-provenance">
-        Source SHA-256: <code>{source.sourceSha256}</code>. Supplied wording
-        preserved; page layout adapted for web reading.
-      </p>
+      {showProvenance && (
+        <p className="document-provenance">
+          Source SHA-256: <code>{source.sourceSha256}</code>. Supplied wording
+          preserved; page layout adapted for web reading.
+        </p>
+      )}
     </div>
   );
 }
 export function SourceDisclosure({ kind }: { kind: FormKind }) {
   return (
     <details className="document-disclosure" name="envet-accordion">
-      <summary>Read the complete supplied document</summary>
-      <DocumentView source={formSource(kind)} />
+      <summary>Read the full document</summary>
+      <DocumentView source={formSource(kind)} showProvenance={false} />
     </details>
   );
 }

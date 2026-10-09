@@ -69,6 +69,18 @@ button {
   outline: 3px solid var(--accent);
   outline-offset: 5px;
 }
+a,
+button,
+input,
+select,
+textarea,
+summary,
+[tabindex="-1"] {
+  scroll-margin-block: 160px 32px;
+}
+#main:focus {
+  outline: none;
+}
 h1,
 h2,
 h3,
@@ -746,18 +758,42 @@ address {
   letter-spacing: 0;
   margin-bottom: 18px;
 }
-.footer-top > div:not(:first-child) a {
+.footer-top > :not(:first-child) a {
   display: flex;
   align-items: center;
   gap: 6px;
   width: fit-content;
-  min-height: 32px;
+  min-height: 44px;
   font-size: 0.95rem;
   text-decoration: none;
   overflow-wrap: anywhere;
 }
 .footer-top a:hover {
   text-decoration: underline;
+}
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.footer-top .footer-social a {
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--heading);
+  transition:
+    transform 220ms var(--ease-out),
+    border-color 220ms var(--ease-out);
+}
+.footer-social a:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+.footer-social svg {
+  flex-shrink: 0;
 }
 .footer-bottom {
   display: flex;
@@ -774,6 +810,9 @@ address {
   gap: 20px;
 }
 .footer-bottom a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   text-decoration: none;
 }
 .page-intro {
@@ -1179,25 +1218,23 @@ address {
 .hero-heading > div:first-child,
 .page-intro > h1,
 .article-header > h1 {
-  animation: content-arrive 650ms var(--ease-out) both;
+  animation: content-arrive 420ms var(--ease-out) both;
 }
 .hero-introduction,
 .page-intro > .lead {
-  animation: content-arrive 650ms 90ms var(--ease-out) both;
+  animation: content-arrive 420ms 60ms var(--ease-out) both;
 }
 .hero-photograph {
-  animation: content-arrive 750ms 140ms var(--ease-out) both;
+  animation: content-arrive 460ms 80ms var(--ease-out) both;
 }
 .hero-photograph .photo img {
   animation: photo-settle 1100ms var(--ease-out) both;
 }
 @keyframes content-arrive {
   from {
-    opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(10px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }

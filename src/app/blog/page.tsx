@@ -20,7 +20,10 @@ export default function Blog() {
         intro="Explore practical resources on visiting Eagle’s Nest, supporting a loved one, and contributing to the mission."
         path="/blog"
       />
-      <section className="wrap blog-index">
+      <section className="wrap blog-index" aria-labelledby="journal-guides">
+        <h2 id="journal-guides" className="sr-only">
+          Journal guides
+        </h2>
         <nav className="category-nav" aria-label="Journal categories">
           <Link href="/blog" aria-current="page">
             All stories

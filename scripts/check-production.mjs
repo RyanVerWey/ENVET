@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { assertPolishedPage } from "./check-page-ui.mjs";
 
 // Read-only probes of the explicitly authorized production origin.
 const origin = "https://envet.info";
@@ -28,6 +29,7 @@ for (const path of publicRoutes) {
     path,
   );
   const html = await response.text();
+  assertPolishedPage(html, path);
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, path);
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/);
   assert.ok(canonical, `${path}: canonical present`);
@@ -62,6 +64,7 @@ for (const path of [
   assert.equal(response.status, 200, path);
   assert.match(response.headers.get("cache-control") || "", /no-store/, path);
   const html = await response.text();
+  assertPolishedPage(html, path);
   assert.match(html, /name="robots" content="[^"]*noindex/, path);
   if (path.startsWith("/forms"))
     assert.match(response.headers.get("x-robots-tag") || "", /noindex/, path);

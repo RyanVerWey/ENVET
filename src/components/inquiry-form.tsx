@@ -10,8 +10,8 @@ export function InquiryForm({ enabled }: { enabled: boolean }) {
   if (!enabled)
     return (
       <p className="small">
-        The online form is being prepared. Please call or email ENVET using the
-        contact options above.
+        Call, email, or message the team to discuss your interests and arrange
+        the next step.
       </p>
     );
   return (

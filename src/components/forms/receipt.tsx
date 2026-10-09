@@ -171,10 +171,11 @@ export function Receipt({ id }: { id: string }) {
   }
   return (
     <section className="wrap receipt-page">
+      {!data && <h1>Your submission receipt</h1>}
       {!data && !error && <p role="status">Verifying your private receipt…</p>}
       {error && (
         <>
-          <h1>Receipt unavailable</h1>
+          <h2>We couldn’t retrieve your receipt</h2>
           <p role="alert">{error}</p>
           <p>
             This page does not confirm a new submission. Sign in with the

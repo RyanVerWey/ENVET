@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { assertPolishedPage } from "./check-page-ui.mjs";
 const origin = process.env.PREVIEW_ORIGIN || "http://127.0.0.1:3000";
 if (!/^http:\/\/(127\.0\.0\.1|localhost):\d+$/.test(origin))
   throw new Error("This smoke test only targets a local review server.");
@@ -16,6 +17,11 @@ const routes = [
   "/forms/liability",
   "/forms/donation",
   "/editorial-policy",
+  "/forms/receipt",
+  "/account",
+  "/team",
+  "/team/forms",
+  "/team/impact",
   "/blog/first-visit-to-envet",
   "/blog/questions-families-can-ask",
   "/blog/support-envet-beyond-a-donation",
@@ -42,6 +48,7 @@ for (const route of routes) {
   assert.equal(response.status, 200, route);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/, route);
   const html = await response.text();
+  assertPolishedPage(html, route);
   assert.equal(
     (html.match(/<h1(?:\s|>)/g) || []).length,
     1,

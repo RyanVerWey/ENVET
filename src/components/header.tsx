@@ -70,7 +70,13 @@ export function Header() {
             <Link
               href={href}
               key={href}
-              aria-current={pathname.startsWith(href) ? "page" : undefined}
+              aria-current={
+                pathname === href
+                  ? "page"
+                  : pathname.startsWith(`${href}/`)
+                    ? "location"
+                    : undefined
+              }
             >
               {label}
             </Link>
@@ -119,7 +125,13 @@ export function Header() {
             key={href}
             href={href}
             onClick={() => setMenuFor(null)}
-            aria-current={pathname.startsWith(href) ? "page" : undefined}
+            aria-current={
+              pathname === href
+                ? "page"
+                : pathname.startsWith(`${href}/`)
+                  ? "location"
+                  : undefined
+            }
           >
             {label}
           </Link>

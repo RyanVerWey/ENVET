@@ -1,7 +1,20 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-09T22:08:23Z"
+updated: "2026-10-09T23:23:14Z"
 ---
+## October 9, 2026: full-page copy and accessibility polish
+
+Owner explicitly requested an audit and fixes, not diagnostics only. Impeccable guided design-system-first polish: existing Corva mint tokens, genuine approved photos, humanist typography and restrained glass retained. Brain session 1791587483141652000; Plan M3 brainstorm records the scope; canonical implementation remains GitHub #27/PR45. Owner visual acceptance is not presumed.
+
+Fixed findings: P2 public AI-assistance/owner-review/setup commentary; P2 privacy text describing inactive features; P2 offline signing pages exposing unusable editable previews; P2 skipped journal headings and unfocusable skip destination; P3 text-only social links/undersized footer targets; P2 delayed text opacity during entrance animation. No source legal wording, signature consent contract, auth rules, schema, permissions or collection flags changed.
+
+Public form routes now show a polished read-only document and a team-contact path when collection is disabled. Original legal text remains complete and keyboard-expandable. Submission stays disabled pending the separately required review/security activation. Privacy describes actual enabled features rather than hypothetical ones. Receipt direct entry has a meaningful heading/contact path instead of an unnecessary unavailable API request.
+
+Verification: 65 Vitest tests/11 files; lint, optimized build, TypeScript, Prettier, team-workspace browser regressions and 24-route preview smoke pass. Smoke probes now enforce semantic main/H1, keyboard skip target, labeled social SVGs, natural tab order and absence of public draft/editorial/setup copy. Eight new UI-contract regression cases preserve useful input hints and ignore serialized internal state.
+
+Actual built-page DOM audit covers 25 views: all 15 public content routes, nine form/account/team unauthenticated routes, and a 404. One H1/main per view; no heading skips, duplicate IDs, dangling ARIA references, unlabeled visible controls, missing image alt attributes, positive tabindex values or targeted copy leaks. 150 route/viewport/theme combinations (25 x 320/768/1280 nominal widths x mint light/dark) pass these checks. Additional strict scrollWidth/clientWidth comparison passes all 25 routes at each width. Keyboard skip link focuses main; Enter opens mobile navigation; Escape closes it and returns focus. Social targets measure 44x44px.
+
+Reduced-motion emulation confirms no heading animation or action transition. Computed solid-background text colors sampled across 25 views in both themes: 3,044 samples meet the tested 4.5:1 normal/3:1 large-text contrast thresholds using CSS Lab D50-to-sRGB conversion and alpha compositing. This is a scoped text-color diagnostic, not a complete automated axe scan; photo/backdrop layering needs visual review. No WCAG conformance certification is claimed. Screen readers, physical devices, Safari/Firefox, authenticated record screens and real form submissions remain untested in this pass. No sensitive records opened or test submissions sent.
 # ENVET owner-review verification
 
 Date: September 6, 2026. This report describes a local review candidate, not an approved or deployed website.

@@ -327,12 +327,10 @@ export function SigningRoom({
           <div className="sign-banner">
             <LockKeyhole size={19} />
             <div>
-              <strong>Review preview — submissions disabled</strong>
+              <strong>Complete your paperwork with ENVET</strong>
               <p>
-                {kind === "liability"
-                  ? "Original wording is awaiting ENVET owner/legal approval for electronic use."
-                  : "Collection awaits identity, protection and recovery checks."}{" "}
-                You can explore the flow; nothing is submitted.
+                Online submissions are not accepted. Contact the team for
+                signing arrangements.
               </p>
             </div>
           </div>
@@ -600,8 +598,8 @@ export function SigningRoom({
                 {electronicConsent}
               </label>
               <p className="field-hint">
-                Electronic consent is additional workflow text, separate from
-                the supplied document, and included in owner/legal review.{" "}
+                Your electronic-signature consent is separate from the terms in
+                the document above.{" "}
                 {minor
                   ? "Submitting guardian declares lawful authority; the child's identity is not independently verified."
                   : "Signer declares they are the adult guest or legal owner identified in the form."}
@@ -719,7 +717,7 @@ export function SigningRoom({
           <p className="sign-footnote">
             <LockKeyhole size={14} />
             {!enabled
-              ? "Preview only. No data collection."
+              ? "Contact ENVET to arrange signing."
               : "Google sign-in · private signed record · indefinite retention"}
           </p>
         </form>

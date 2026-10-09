@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import { SocialIcon } from "./social-icon";
 import { organization as org } from "@/lib/site";
 export function Footer() {
   return (
@@ -20,7 +21,7 @@ export function Footer() {
             Visits by arrangement. Please contact us first.
           </p>
         </div>
-        <div>
+        <nav aria-label="Footer navigation">
           <h2>Explore ENVET</h2>
           <Link href="/visit">Plan a visit</Link>
           <Link href="/about">Our story</Link>
@@ -28,20 +29,33 @@ export function Footer() {
           <Link href="/blog">The journal</Link>
           <Link href="/donate">Support ENVET</Link>
           <Link href="/forms">Guest & horse donation forms</Link>
-        </div>
+        </nav>
         <div>
           <h2>Contact & connect</h2>
-          <a href={org.phoneHref}>{org.phone}</a>
-          <a href={`mailto:${org.email}`}>{org.email}</a>
-          <a href={org.facebook}>
-            Facebook <ArrowUpRight size={14} aria-hidden="true" />
+          <a href={org.phoneHref}>
+            <Phone size={17} aria-hidden="true" /> {org.phone}
           </a>
-          <a href={org.messenger}>
-            Messenger <ArrowUpRight size={14} aria-hidden="true" />
+          <a href={`mailto:${org.email}`}>
+            <Mail size={17} aria-hidden="true" /> {org.email}
           </a>
-          <a href={org.whatsapp}>
-            WhatsApp <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
+          <nav className="footer-social" aria-label="ENVET social channels">
+            {(
+              [
+                ["facebook", "Facebook", org.facebook],
+                ["messenger", "Messenger", org.messenger],
+                ["whatsapp", "WhatsApp", org.whatsapp],
+              ] as const
+            ).map(([network, label, href]) => (
+              <a
+                key={network}
+                href={href}
+                aria-label={`ENVET on ${label}`}
+                title={`ENVET on ${label}`}
+              >
+                <SocialIcon network={network} />
+              </a>
+            ))}
+          </nav>
         </div>
       </div>
       <div className="wrap footer-bottom">

@@ -15,7 +15,10 @@ export default function Gallery() {
         intro="A glimpse of the horses and the place behind the mission. Photographs from ENVET’s own community page."
         path="/gallery"
       />
-      <section className="wrap gallery-grid">
+      <section className="wrap gallery-grid" aria-labelledby="farm-photographs">
+        <h2 id="farm-photographs" className="sr-only">
+          Photographs from Eagle’s Nest
+        </h2>
         <figure>
           <Photo
             src="/images/horse.jpg"

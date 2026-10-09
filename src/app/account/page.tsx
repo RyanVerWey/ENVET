@@ -27,10 +27,10 @@ export default async function Account({ searchParams }: Props) {
       <section className="wrap community-panel account-panel">
         {!configured ? (
           <>
-            <h2>Community sign-in is being prepared.</h2>
+            <h2>Explore the ENVET journal</h2>
             <p>
-              Google sign-in is not available yet. You can still read every
-              guide and contact ENVET directly.
+              Reading and sharing guides does not require an account. For
+              questions about participation, contact the ENVET team.
             </p>
             <Link className="text-link" href="/blog">
               Read the journal

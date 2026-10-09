@@ -5,7 +5,7 @@ slug: m3-corvaui-design-and-prototype
 status: active
 title: M3 CorvaUI design and prototype
 type: brainstorm
-updated_at: "2026-10-09T23:06:57Z"
+updated_at: "2026-10-09T23:22:51Z"
 ---
 
 # Brainstorm: M3 CorvaUI design and prototype
@@ -49,6 +49,8 @@ Authentic farm imagery, calm confidence, and unmistakable action paths make ENVE
 - Owner expanded revision: accented animations, tasteful glassmorphism, premium finish; retain Corva basics but permit broader art direction. Use bounded glass navigation and photographic captions, restrained entrance/scroll choreography, interaction feedback and reduced-motion alternatives. No new claims, production URL or database.
 
 - October 9 owner feedback: all expandable sections use one shared native details name per page, so opening one closes the other without extra client state. Donation clarity heading gains approved local farm photography beneath it. Preserve mint themes, native keyboard operation, exact legal wording and disabled collection gates; verify mutual exclusion, image placement and responsive reflow before controlled production update.
+
+- October 9 owner-directed full-page polish: remove public AI/draft/setup commentary without inventing readiness; align privacy with active capabilities; keep legal wording and collection gates intact. Semantic heading hierarchy, focusable skip target, natural tab order, labeled 44px footer social icons, restrained translation-only entrances, reduced-motion fallback. Audit public/unauthenticated pages in both mint themes; do not presume authenticated data-flow or owner visual acceptance.
 ## Raw Notes
 
 ## Refinement

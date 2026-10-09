@@ -1,11 +1,14 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FileHeart, Sprout, LockKeyhole, PenLine } from "lucide-react";
+import { collectionEnabled } from "@/lib/forms/server";
 export const metadata: Metadata = {
   title: "ENVET forms",
   robots: { index: false, follow: false },
 };
 export default function FormsPage() {
+  const enabled =
+    collectionEnabled("donation") || collectionEnabled("liability");
   return (
     <section className="wrap forms-home">
       <p className="eyebrow">Before the next chapter</p>
@@ -14,8 +17,8 @@ export default function FormsPage() {
         <br />A clear record.
       </h1>
       <p className="forms-lead">
-        Review ENVET’s forms at your own pace. When signing opens, your Google
-        account, initials and signature accompany a private record for the team.
+        Read ENVET’s guest release and horse-candidate application at your own
+        pace. The team can help you understand the paperwork and next steps.
       </p>
       <div className="pre-visit-link">
         <div>
@@ -32,18 +35,17 @@ export default function FormsPage() {
       </div>
       <div className="form-options">
         <Link href="/forms/liability" className="form-option">
-          <FileHeart size={30} />
+          <FileHeart size={30} aria-hidden="true" />
           <span className="form-option-type">For guests & families</span>
           <h2>Equine activity release</h2>
           <p>
-            Participant details, the supplied release, initials and a guest
-            signature. A separate parent or guardian signature for guests under
-            18.
+            Understand the equine activity release, participant information, and
+            parent or guardian requirements for guests under 18.
           </p>
           <span className="form-option-action">Review the release →</span>
         </Link>
         <Link href="/forms/donation" className="form-option">
-          <Sprout size={30} />
+          <Sprout size={30} aria-hidden="true" />
           <span className="form-option-type">For horse owners</span>
           <h2>Equine candidate donation</h2>
           <p>
@@ -52,24 +54,25 @@ export default function FormsPage() {
             ownership.
           </p>
           <span className="form-option-action">
-            Start a candidate application →
+            Read the candidate application →
           </span>
         </Link>
       </div>
-      <div className="forms-assurance">
-        <p>
-          <PenLine size={19} />
-          Typed or hand-drawn signatures
-        </p>
-        <p>
-          <LockKeyhole size={19} />
-          Private records · no saved drafts
-        </p>
-      </div>
+      {enabled && (
+        <div className="forms-assurance">
+          <p>
+            <PenLine size={19} aria-hidden="true" />
+            Typed or hand-drawn signatures
+          </p>
+          <p>
+            <LockKeyhole size={19} aria-hidden="true" />
+            Private records · no saved drafts
+          </p>
+        </div>
+      )}
       <p className="field-hint">
-        Signing remains disabled while documents and activation checks are
-        reviewed. Need a paper form or help?{" "}
-        <Link href="/contact">Contact ENVET</Link>.
+        Need help completing a form?{" "}
+        <Link href="/contact">Contact ENVET for signing arrangements</Link>.
       </p>
     </section>
   );

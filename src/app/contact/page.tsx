@@ -90,8 +90,7 @@ export default function Contact() {
           <h2 id="inquiry-heading">Ask ENVET to follow up.</h2>
           <p>
             Tell us what interests you. A team member can call or email to
-            answer questions or arrange a visit. Sending this form does not book
-            a visit.
+            answer questions and help arrange a visit.
           </p>
         </div>
         <InquiryForm enabled={!!dataConfig()} />

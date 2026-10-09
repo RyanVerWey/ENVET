@@ -25,8 +25,8 @@ export default async function TeamPage() {
       />
       {!configured ? (
         <section className="wrap community-panel">
-          <h2>Workspace unavailable</h2>
-          <p>The database connection is still being prepared.</p>
+          <h2>ENVET team access</h2>
+          <p>For help accessing team tools, contact ENVET.</p>
           <Link href="/contact">Contact options</Link>
         </section>
       ) : !user ? (

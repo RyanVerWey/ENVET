@@ -35,7 +35,10 @@ export default async function Category({ params }: Props) {
         intro={`Helpful reading about ${posts[0].category.toLowerCase()}, with a clear next step.`}
         path={`/blog/category/${slug}`}
       />
-      <section className="wrap blog-index">
+      <section className="wrap blog-index" aria-labelledby="journal-guides">
+        <h2 id="journal-guides" className="sr-only">
+          Guides in this category
+        </h2>
         <nav className="category-nav" aria-label="Journal categories">
           <Link href="/blog">All stories</Link>
           {categories.map(([key, name]) => (

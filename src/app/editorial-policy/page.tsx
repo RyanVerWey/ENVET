@@ -18,13 +18,13 @@ export default function Editorial() {
       <section className="wrap legal-layout">
         <aside>Updated October 9, 2026.</aside>
         <div className="prose">
-          <h2>Who writes these guides?</h2>
+          <h2>About the journal</h2>
           <p>
-            The ENVET website editorial team prepares program information under
-            the shared byline “ENVET editorial.” Initial website copy was
-            developed with AI assistance from the project brief and ENVET’s
-            official public information. Initial publication was authorized on
-            October 9, 2026. The byline does not imply a medical qualification.
+            The ENVET journal shares practical information for veterans,
+            families, and supporters. Guides draw on ENVET’s program information
+            and official public sources. They help you prepare for a
+            conversation with the team, not replace professional healthcare
+            advice.
           </p>
           <h2>Sources you can follow</h2>
           <p>
@@ -49,11 +49,11 @@ export default function Editorial() {
           </p>
           <h2>Photographs and dignity</h2>
           <p>
-            Photos come from ENVET’s official page. Publication requires owner
-            clearance of rights and consent. A person’s appearance in a photo is
-            not a claim about their military service, diagnosis, or
-            participation in treatment. We do not use identifying images of
-            children without explicit approval.
+            Photographs show the horses, people, and setting at Eagle’s Nest. We
+            respect the privacy and dignity of everyone pictured. A person’s
+            appearance in a photo is not a claim about their military service,
+            diagnosis, or participation in treatment. We do not use identifying
+            images of children without permission.
           </p>
           <h2>Healthcare boundaries</h2>
           <p>

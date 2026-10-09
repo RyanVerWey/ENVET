@@ -121,10 +121,15 @@ export function CommunityPanel({
     >
       <div className="community-heading">
         <p className="eyebrow">COMMUNITY</p>
-        <h2 id="community-heading">Keep the conversation going.</h2>
+        <h2 id="community-heading">
+          {enabled
+            ? "Keep the conversation going."
+            : "Share a helpful next step."}
+        </h2>
         <p>
-          Share this guide, or sign in with Google to leave a comment. Comments
-          appear as soon as they are posted and may be removed by ENVET.
+          {enabled
+            ? "Share this guide, or sign in with Google to leave a comment. Comments appear as soon as they are posted and may be removed by ENVET."
+            : "Know someone who could use this guide? Share it with a veteran, family member, or friend."}
         </p>
       </div>
       <div className="community-actions">
@@ -169,11 +174,6 @@ export function CommunityPanel({
             </span>
           ))}
       </div>
-      {state === "unavailable" && (
-        <p className="small">
-          Likes and comments are being prepared. Sharing is available now.
-        </p>
-      )}
       {state === "loading" && <p role="status">Loading the conversation…</p>}
       {state === "error" && (
         <button

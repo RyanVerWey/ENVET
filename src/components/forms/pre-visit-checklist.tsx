@@ -35,7 +35,7 @@ export function PreVisitChecklist() {
           className="quiet-button"
           onClick={() => window.print()}
         >
-          <Printer size={16} /> Print checklist
+          <Printer size={16} aria-hidden="true" /> Print checklist
         </button>
         <button
           type="button"
@@ -47,8 +47,8 @@ export function PreVisitChecklist() {
         </button>
       </div>
       <p className="field-hint">
-        Checkmarks stay on this page only and reset on reload. They are not sent
-        to ENVET, a signed release, eligibility approval or a booking.
+        Use this as your personal preparation list. Checkmarks reset when you
+        reload and are not sent to ENVET. Arrange your visit with the team.
       </p>
       <ol className="pre-visit-sections">
         {preVisitSections.map((section, index) => (

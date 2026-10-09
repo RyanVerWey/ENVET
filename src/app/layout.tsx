@@ -58,14 +58,10 @@ export default function RootLayout({
         <a className="skip-link" href="#main">
           Skip to content
         </a>
-        {!launchEnabled && (
-          <div className="review-banner">
-            OWNER REVIEW <span>·</span> Not a public launch. Content & imagery
-            awaiting approval.
-          </div>
-        )}
         <Header />
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1}>
+          {children}
+        </main>
         <PageCounter enabled={!!dataConfig()} />
         <Footer />
         <script
