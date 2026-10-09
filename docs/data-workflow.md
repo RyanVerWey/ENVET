@@ -1,40 +1,32 @@
 ---
-title: M6 minimum-data workflow, funding gated
-updated: "2026-09-06T03:03:36Z"
+title: M6 funded community and follow-up workflow
+updated: "2026-10-09T21:10:42Z"
 ---
-# M6: minimum-data workflow, funding gated
+# M6: funded community and follow-up workflow
 
-This is a proposed operational scope for owner review, not a provisioned service or an approved retention policy. No database, auth account, paid service, email provider, or donor CRM has been created.
+October 9, 2026 owner decisions replace the former funding gate and proposed retention policy. Existing Supabase project rpkxpsnqlhcepyxclgau is healthy in us-east-1. Google OAuth credentials do not yet exist; provider activation and real account tests remain outstanding. Implementation is a private review increment, not public collection or deployment approval.
 
-## Jobs before infrastructure
+## Approved jobs
 
-1. A veteran or family member asks about a visit.
-2. An authorized ENVET coordinator follows up through the visitor's chosen channel.
-3. The coordinator records only whether contact is pending, in progress, scheduled, or closed.
-4. A separate owner-approved process handles any necessary eligibility check; the website must not store document scans.
-5. Owner can publish approved content through a simple editorial workflow. The initial Markdown workflow already works without a CMS.
+Visitors read/share existing journal posts. Google members like and comment; valid comments publish immediately, with owner removal, reporting and staff moderation. Staff privately manage horse profiles, services, inquiries and aggregate traffic. Blog article authoring stays in the existing Markdown workflow for now.
 
-## Proposed minimum request record
+A visitor submits interest, ENVET follows up by phone/contact or books a visit. Inquiry fields: name, email or phone, service of interest, optional short non-sensitive note, contact consent and consent timestamp. Status tracks new, contacted, booked or closed. Records persist until authorized staff manually deletes them: NO automatic 90-day cleanup and NO expiry on closure. Backup/log expiry is a separate provider policy to verify before collection.
 
-Random identifier, preferred name, one contact method/address, contact permission timestamp, general request type (visit, volunteer, partner), status, created/updated timestamps, assigned coordinator identifier, and optional short non-sensitive coordination note. Avoid date of birth, SSN, DD214, military ID uploads, diagnoses, medical history, crisis narratives, payment-card data, or free-form health questionnaires.
+No medical/military records, diagnoses, DD214/ID uploads, SSN, payment cards, crisis intake or detailed health questionnaires. Explain that the form expresses interest, not a confirmed booking or emergency support. No minor direct-account/intake design added.
 
-Owner must decide whether notes are needed at all. Do not add fields merely because a database can hold them. No minors' direct accounts or intake without a separately approved guardian and privacy design.
+## Access and privacy
 
-## Security contract to approve after funding
+Public visitors see published content and visible comments only. Members act only as themselves. Staff authority uses private UUID membership, checked server-side and at the database boundary, never editable profile metadata. Initial staff grants follow actual Google-confirmed login and operator verification. Account/team surfaces are noindex, but robots directives are not access control.
 
-- Owner-controlled vendor account, actual monthly budget, region, backup/restore capability, and export/exit plan.
-- Individual coordinator accounts with MFA, least privilege, server-side authorization on every operation, and no public table access.
-- Separate preview and production data. Use synthetic records for development; never copy real intake into a preview.
-- Encryption in transit/at rest, secret management, non-sensitive audit events, rate limits, validation, and abuse handling.
-- Owner-approved retention period, deletion/export procedure, backup retention, incident contact, and access review. No guessed retention policy silently becomes binding.
-- Tests for unauthorized access, cross-user reads/writes, input validation, audit events, and deletion. A successful restore exercise before collecting real data.
+Private inquiries and reports are not publicly enumerable. Aggregate daily public-page counts are page views, not unique visitors; no visitor identifiers, emails, query strings or operational routes. No fabricated metrics. Rate controls collect the minimum short-lived abuse data; document any hashed network signal separately from analytics.
 
-## Donation and content boundaries
+Use request-scoped auth, no shared authenticated caches, explicit grants/RLS, server input validation, same-origin checks, durable rate limits and server-only privileged credentials if strictly needed. Test visitor/member/other-member/staff/revoked-staff negatives. Use synthetic development records; do not copy real inquiries into previews.
 
-Keep donations on the existing PayPal destination. No custom checkout or donor table unless the owner defines a concrete need. Reconcile through the payment provider instead of duplicating sensitive records. Any future impact reporting should be aggregated and privacy-safe; no diagnosis-level segmentation or identifiable beneficiary stories without consent.
+## Remaining activation gates
 
-For a CMS, first ask who publishes, how often, and whether Git-based authoring is sufficient. Add draft/review/publish roles and media release tracking only if justified. Keep public article URLs stable.
+Google owner setup (docs/google-auth-setup.md), real-account hosted negative access tests, staff bootstrap, final privacy/content/media acceptance, tested backup recovery, production secrets and authorized launch. Current implementation and evidence live in the existing M6 issues #40–#44 and the explicit execution mirror .plan/specs/m6-community-workspace-execution.md. Keep six milestones; do not create duplicates to work around Plan adoption/parent-link limitations.
 
-## Execution order
+Donations stay on verified PayPal; no donor CRM, payment processing, scheduling integration or automatic Facebook ingestion added.
 
-GitHub #39 maps these jobs; #40 selects funded architecture; #41 implements schema/authorization/retention; #42 adds minimal follow-up; #43 considers owner content management; #44 adds only approved aggregate measurement. #40–#44 remain blocked by funding and owner decisions. This milestone must not delay the database-free website review.
+
+Hosted schema and foreign-key indexes are applied; local migration versions match remote history. RLS/grants/catalog and anonymous PostgREST checks pass. No staff users, inquiry records or published seed profiles were created. See docs/verification.md for exact evidence and remaining real-account/backup/owner gates.

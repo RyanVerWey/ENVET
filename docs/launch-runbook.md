@@ -1,12 +1,12 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-09-06T03:03:36Z"
+updated: "2026-10-09T21:11:37Z"
 ---
 # Owner review, Vercel launch, and rollback
 
 ## Current state
 
-Local review only. No Vercel project or domain has been connected. `vercel.json` disables Git-triggered deployments using the documented `git.deploymentEnabled: false` setting. [Vercel Git configuration](https://vercel.com/docs/project-configuration/git-configuration).
+Owner review remains local; no website deployment is live. Vercel project envet and envet.info/www.envet.info DNS are now prepared under explicit October 9 user authorization. `vercel.json` disables Git-triggered deployments using the documented `git.deploymentEnabled: false` setting. [Vercel Git configuration](https://vercel.com/docs/project-configuration/git-configuration).
 
 ## Review without a live URL
 
@@ -49,3 +49,39 @@ Before launch, retain the approved commit and previous Vercel deployment identif
 ## Database gate
 
 M6 begins implementation only after funding and approval of the minimum-data workflow in `docs/data-workflow.md`. The static site does not depend on that work.
+
+## envet.info DNS setup, October 9, 2026
+
+User explicitly authorized DNS configuration through Margaret Lamm's delegated GoDaddy account. Delegated browser access was verified and the editable envet.info zone inspected. This supersedes the earlier restriction on preparing/connecting DNS for this task; it does not supply a hosting destination or approve unrelated content changes.
+
+Current zone before changes:
+- A @: GoDaddy Parked, TTL 600 seconds. Public A answers: 15.197.148.33 and 3.33.130.190.
+- CNAME www: envet.info., TTL 1 hour.
+- NS @: ns07.domaincontrol.com. and ns08.domaincontrol.com., TTL 1 hour.
+- CNAME _domainconnect: _domainconnect.gd.domaincontrol.com., TTL 1 hour.
+- SOA: primary ns07.domaincontrol.com.
+- TXT _dmarc: GoDaddy default quarantine policy; preserve.
+- No MX records listed.
+
+Vercel account ryanverweys-projects was accessible. Its project search for envet returned no results; no .vercel/project.json link or Vercel CLI was present in this checkout. The target project was requested from the user. No DNS records have been changed. Obtain the actual project and its domain-specific A/CNAME/verification requirements before replacing the parked A and www CNAME. Retain GoDaddy nameservers and unrelated records. Verify saved records through the UI and authoritative/public DNS, then verify Vercel domain status and HTTPS when a deployment exists.
+
+User also reported an available database; provider/project details have not been verified. Database integration is outside this DNS request.
+
+## Vercel project and DNS completed, October 9, 2026
+
+User explicitly requested creation of a new Vercel project after authorizing DNS setup. Created an empty project, renamed it envet, in ryanverweys-projects (Hobby). Dashboard: https://vercel.com/ryanverweys-projects/envet. Project ID: prj_u8D5ZLTqdeImPMdw8r375HQ57VB6. No Git repository was connected and no production or preview deployment was created. This preserves the owner-review publication gate and existing vercel.json/next.config.ts guards.
+
+Added envet.info to Production and www.envet.info as a 308 permanent redirect to envet.info. Vercel's actual required apex A record was 216.198.79.1. Through Margaret Lamm's delegated GoDaddy zone, replaced A @ Parked with 216.198.79.1, retaining the 600-second TTL. Existing CNAME www -> envet.info. was retained: Vercel explicitly confirmed it is properly configured, so no additional CNAME change was needed. GoDaddy NS, SOA, _domainconnect and _dmarc were untouched; no MX was present.
+
+Verified apex A on both authoritative GoDaddy nameservers and Cloudflare (1.1.1.1); verified www through Google (8.8.8.8), plus authoritative CNAME and preserved nameservers. Both Vercel domain panels now say the domain is properly configured but has no production deployment. Do not represent this as a live website or completed launch: no HTTPS deployment/route smoke tests can pass before an approved deployment exists. SSL serving status was not separately verified.
+
+Next launch work: obtain documented owner/content/media acceptance, connect the approved repository and branch, configure Next.js/Node and approved environment values, deploy, then check HTTPS, canonical/308 redirects, routes, search metadata and rollback. Do not set approval flags merely because DNS is ready. No database changes or purchases occurred.
+
+## Community/data activation gate (October 9, 2026)
+
+Existing Supabase project is verified: rpkxpsnqlhcepyxclgau, us-east-1, Postgres17, healthy. Google auth/community/team implementation is now authorized under M6. Owner selected immediate comments, likes/sharing, private horse/service and inquiry management, anonymous page counts, and inquiry retention until manual deletion. Historical funding-gated/no-database language above describes the earlier static review phase, not a continuing funding blocker.
+
+Before activation, follow docs/google-auth-setup.md; confirm the already-applied migration history, test real-account negative permissions and real Google callback, grant verified UUID staff membership manually, configure server-only keys, verify backups/recovery and expiry, and accept final privacy text. Google client secrets stay in Supabase; no privileged secrets enter public variables. Keep real data out of previews. No public deployment is authorized by database availability; all existing owner/media/content gates still apply. Review dependency advisories before release, not only build success.
+
+
+Hosted M6 migrations are applied (20261009210844 and 20261009210926); grants/RLS/catalog and anonymous REST negatives pass. No Google provider credentials, initial staff grants, real inquiry collection or deployment were activated. The local increment passed independent review; its live-user, backup, privacy/media and launch gates remain open. See docs/verification.md and docs/google-auth-setup.md.

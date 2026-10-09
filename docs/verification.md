@@ -1,6 +1,6 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-09-06T04:01:22Z"
+updated: "2026-10-09T21:10:41Z"
 ---
 # ENVET owner-review verification
 
@@ -62,3 +62,25 @@ Initial visuals were rejected. This revision replaces typography, layout, photo 
 Regression fixes: featured blog intrinsic-size tablet overflow; low contrast from offscreen scroll fades (now translation-only); compiler dropped standard backdrop-filter when followed by an explicit WebKit duplicate (use standard source and automatic prefixing).
 
 Review remains loopback-only at http://127.0.0.1:3001/. M3 visual approval #21, M5 owner feedback #33 and launch approval #35 stay open.
+
+## Funded community and team increment, October 9, 2026
+
+Prepared on codex/envet-owner-preview / PR #45; not activated or deployed. Owner chose Google auth, likes/sharing, immediate comments and manual inquiry retention. Request-scoped auth, server-only privileged access, service-only RPCs with explicit grants/RLS, durable abuse controls, private staff membership, horses/services management, inquiry follow-up, comment moderation and aggregate daily page views are implemented locally. No real inquiries, admin grants, Google credentials or production environment changes were made. The independently accepted additive schema was subsequently applied to the existing hosted project, without user or content seed data.
+
+Parent recorded full lint/test/build/type checks and the loopback HTTP smoke suite through Brain. Initial independent GPT-6 Astra review reproduced 24 passing tests, lint, formatting, service-RPC anonymous/member denial, actual unavailable account/team/contact states, copy sharing and article reflow at 320/768/1440/2560px. This does not establish complete WCAG conformance or configured/live-user behavior.
+
+Independent review reproduced two medium workflow defects: report paging omitted older comment targets, and a successful staff mutation followed by failed refresh falsely showed Saved with stale records. Review was explicitly rejected/released; both corrections passed new independent local review. The 25-test suite, lint, build, types, formatting and HTTP smoke checks pass. Synthetic exact-component browser regressions cover normal save, status/delete/hide followed by refresh503/403, hidden stale records and refresh-only retry without replay, plus older reported-target moderation at 320px dark with keyboard/reduced motion. Independent native deletion-modal transport required a synthetic confirmation stub; this is not proof of a real-user deletion-confirmation flow. Build success did not override those behavioral failures.
+
+Next.js and matching ESLint config are pinned to 16.3.8. Dependency audit has nine findings (four moderate, five high, zero critical): development lint-pattern dependencies and the repository-controlled Markdown parser chain. No reachable untrusted runtime exploit was established in reviewed routes; no universal safety claim is made. Review compatible dependency updates before public release rather than apply audit-suggested breaking downgrades blindly.
+
+Live activation still requires owner-created Google credentials, Supabase provider settings, server secret and random pepper, real-account hosted authorization checks, verified-Google UUID staff bootstrap, real callback/cookie/sign-out and member/staff/revocation workflows, hosted negative access checks and backup recovery/expiry verification. Owner content/media/privacy approval and explicit launch approval remain required. Inquiries persist until manually deleted; closing them causes no expiry. Provider backup/log expiry is separate.
+
+### Hosted schema integration
+
+Applied community_workspace (20261009210844) and additive community_foreign_key_indexes (20261009210926) through Supabase migrations after fresh empty-schema/history inspection. Local filenames match actual remote history; accepted main SQL bytes were unchanged by alignment. All ten tables have RLS. Read-only catalog/security audit passes; zero public/private application functions permit anon/authenticated EXECUTE. Staff/inquiries/comments/horses/services counts are all zero.
+
+Actual anonymous PostgREST checks with the public publishable key: horses/services SELECT200, direct comments SELECT401, private inquiries route404, staff_dashboard RPC401. No privileged secret or authenticated user token was used. This does not prove authenticated member, revoked staff or successful live writes.
+
+Three uncovered user foreign-key indexes were added; the follow-up performance advisor no longer reports them. Remaining notices are INFO: [eight intentional deny-by-default no-policy tables](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy), [unused indexes on an empty new schema](https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index), and [Auth fixed connection allocation](https://supabase.com/docs/guides/deployment/going-into-prod). Do not weaken grants/RLS or remove needed indexes merely to silence notices. Review Auth allocation when sizing production. No security ERROR/WARN was returned at this inspection.
+
+GitHub CI now runs isolated browser regressions in addition to the existing tests/build/types/HTTP smoke. CI results for the new push must be reported separately; local passes do not prove a remote run. Echo final integration review covers exact migration/history alignment, additive indexes, CI step and this handoff boundary.

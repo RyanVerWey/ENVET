@@ -4,6 +4,8 @@ import { Action, Breadcrumbs, Photo, PostList } from "@/components/ui";
 import { formatDate, getPost, getPosts, renderMarkdown } from "@/lib/blog";
 import { absoluteUrl, jsonLd, organization } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+import { CommunityPanel } from "@/components/community-panel";
+import { dataConfig } from "@/lib/community/config";
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -113,6 +115,7 @@ export default async function Article({ params }: Props) {
           </div>
         </div>
       </article>
+      <CommunityPanel slug={slug} title={post.title} enabled={!!dataConfig()} />
       <section className="wrap reading-section">
         <h2>Keep exploring</h2>
         <PostList

@@ -17,6 +17,9 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
+      - name: Install isolated browser-test runtime
+        run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
       - run: npm run build
       - run: npm run typecheck
       - name: Smoke-test the built owner preview

@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "last_active_chain": "brainstorm/m6-funded-data-and-growth-platform",
-  "last_updated_at": "2026-09-06T02:22:59Z",
+  "last_active_chain": "brainstorm/m6-supabase-community-and-team-workspace",
+  "last_updated_at": "2026-10-09T20:18:04Z",
   "sessions": {
     "brainstorm/envet-fresh-start": {
       "chain_id": "brainstorm/envet-fresh-start",
@@ -100,6 +100,20 @@
       "next_action": "Capture the user's vision in plain language.",
       "created_at": "2026-09-06T02:22:59Z",
       "updated_at": "2026-09-06T02:22:59Z"
+    },
+    "brainstorm/m6-supabase-community-and-team-workspace": {
+      "chain_id": "brainstorm/m6-supabase-community-and-team-workspace",
+      "brainstorm": "m6-supabase-community-and-team-workspace",
+      "current_stage": "brainstorm",
+      "current_cluster": 1,
+      "current_cluster_label": "vision-intake",
+      "stage_statuses": {
+        "brainstorm": "in_progress"
+      },
+      "summary": "Vision still missing. No supporting material recorded yet.",
+      "next_action": "Capture the user's vision in plain language.",
+      "created_at": "2026-10-09T20:18:04Z",
+      "updated_at": "2026-10-09T20:18:04Z"
     }
   }
 }

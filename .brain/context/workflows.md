@@ -1,5 +1,5 @@
 ---
-updated: "2026-09-06T02:59:58Z"
+updated: "2026-10-09T20:49:12Z"
 ---
 ## ENVET workflow
 
@@ -7,4 +7,4 @@ Start or reuse a Brain session and read AGENTS.md plus linked context. GitHub Pl
 
 Run verification with brain session run -- npm run lint; brain session run -- npm test; brain session run -- npm run build; brain session run -- npm run typecheck. With a local server running, use brain session run -- npm run test:preview. Browser checks cover light/dark, keyboard, responsive sizes, and axe accessibility. Record results in docs/verification.md.
 
-Use brain edit for durable memory. Keep current scope tied to GitHub #27 and the six milestones. Commit and push the review branch, open a ready code-review PR, and finish the Brain session. Do not merge or deploy before owner acceptance. No Vercel URL or database provisioning until their gates are met.
+Use brain edit for durable memory. Keep current scope tied to GitHub #27 and the six milestones. Commit and push the review branch, open a ready code-review PR, and finish the Brain session. Do not merge or deploy before owner acceptance. Vercel project/DNS and existing Supabase integration were authorized October 9, 2026. Public deployment and real data collection still require owner approval and activation/security checks.

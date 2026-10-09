@@ -5,6 +5,8 @@ import "@corvaui/react/styles.css";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { PageCounter } from "@/components/page-counter";
+import { dataConfig } from "@/lib/community/config";
 import {
   absoluteUrl,
   jsonLd,
@@ -63,6 +65,7 @@ export default function RootLayout({
         )}
         <Header />
         <main id="main">{children}</main>
+        <PageCounter enabled={!!dataConfig()} />
         <Footer />
         <script
           type="application/ld+json"

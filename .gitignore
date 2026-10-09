@@ -23,6 +23,7 @@ playwright-report/
 .env*
 !.env.example
 .vercel/
+supabase/.temp/
 *.tsbuildinfo
 output/playwright/
 .playwright-cli/

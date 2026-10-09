@@ -2,6 +2,8 @@ import { ArrowUpRight, MapPin } from "lucide-react";
 import { PageIntro } from "@/components/ui";
 import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+import { InquiryForm } from "@/components/inquiry-form";
+import { dataConfig } from "@/lib/community/config";
 export const metadata = pageMetadata(
   "Contact ENVET",
   "Call, email, or message Eagle’s Nest Veterans’ Equine Therapy in Lovettsville, Virginia. Arrange a visit or ask how to support the program.",
@@ -78,6 +80,21 @@ export default function Contact() {
             details. Ask how any necessary information should be shared.
           </p>
         </aside>
+      </section>
+      <section
+        className="wrap inquiry-section"
+        aria-labelledby="inquiry-heading"
+      >
+        <div>
+          <p className="eyebrow">START A CONVERSATION</p>
+          <h2 id="inquiry-heading">Ask ENVET to follow up.</h2>
+          <p>
+            Tell us what interests you. A team member can call or email to
+            answer questions or arrange a visit. Sending this form does not book
+            a visit.
+          </p>
+        </div>
+        <InquiryForm enabled={!!dataConfig()} />
       </section>
       <section className="wrap closing-cta">
         <div>

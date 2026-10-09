@@ -1,3 +1,6 @@
+---
+updated: "2026-10-09T21:11:04Z"
+---
 ## Overview
 
 Six milestones, with owner-review implementation now authorized and a first-release blog explicitly in scope. GitHub #27 is the canonical implementation contract. docs/execution-contract.md identifies the local execution mirror necessitated by the GitHub-only spec CLI limitation.
@@ -16,7 +19,7 @@ Mint light and mint dark implemented with official logo and authentic local imag
 
 ## M4: Static build and private owner review
 
-Next.js App Router/TypeScript, nine core routes, three blog articles, three category pages, RSS, sitemap, NGO/WebSite/BlogPosting/Breadcrumb data, local images and verified social/payment links. QA and owner-review handoff recorded in docs/verification.md. Local loopback only; no production domain.
+Next.js App Router/TypeScript, nine core routes, three blog articles, three category pages, RSS, sitemap, NGO/WebSite/BlogPosting/Breadcrumb data, local images and verified social/payment links. QA and owner-review handoff recorded in docs/verification.md. Local loopback review only; domain/DNS infrastructure is prepared without deployment.
 
 ## M5: Owner-approved launch
 
@@ -24,11 +27,11 @@ Launch and rollback runbook prepared. Feedback, legal/privacy finalization and e
 
 ## M6: Funded data and growth
 
-Minimum-data follow-up workflow drafted in docs/data-workflow.md. Database/vendor/schema/authorization/retention/CMS/measurement implementation is blocked on funding and approved workflows. Static review does not depend on it.
+Minimum-data follow-up workflow drafted in docs/data-workflow.md. Existing Supabase funding and core workflows approved October 9, 2026. Google OAuth, community participation, private horses/services/inquiries workspace and aggregate page counts are accepted as a prepared local increment; hosted schema and indexes are applied, with actual catalog/anonymous permission checks; provider credentials/live verification and owner launch acceptance remain gated. Static review does not depend on it.
 
 ## Parking lot
 
 Automatic Facebook ingestion, custom payment processing, scheduling integration, donor CRM, volunteer portal, and a CMS without a demonstrated owner need. Blog is no longer parked.
 ## Visual revision following owner feedback
 
-Initial design rejected. PR #45 now contains the professional typography/layout rebuild plus requested accented motion and limited glass materials. M3 visual acceptance (#21) and M5 owner-feedback acceptance (#33) remain open pending review. Technical QA does not close owner approval. No public launch or data provisioning.
+Initial design rejected. PR #45 now contains the professional typography/layout rebuild plus requested accented motion and limited glass materials. M3 visual acceptance (#21) and M5 owner-feedback acceptance (#33) remain open pending review. Technical QA does not close owner approval. No public launch or live data collection. Existing owner-funded infrastructure is prepared.

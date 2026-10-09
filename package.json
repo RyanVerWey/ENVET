@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:browser": "node tests/team-workspace-browser.mjs",
     "test:preview": "node scripts/check-preview.mjs",
     "format:check": "prettier --check src tests scripts next.config.ts tsconfig.json vitest.config.mts",
     "check": "npm run lint && npm test && npm run build && npm run typecheck"
@@ -16,9 +17,11 @@
   "dependencies": {
     "@corvaui/react": "0.2.1",
     "@corvaui/tokens": "0.2.1",
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.117.3",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.577.0",
-    "next": "16.3.4",
+    "next": "16.3.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "rehype-sanitize": "^6.0.0",
@@ -29,14 +32,17 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "axe-core": "^4.11.1",
+    "@electric-sql/pglite": "0.5.8",
     "@types/node": "^22.19.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
+    "axe-core": "^4.11.1",
     "eslint": "^9.39.0",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "16.3.8",
+    "playwright": "1.64.0",
     "prettier": "^3.9.6",
     "typescript": "^5.9.3",
+    "vite": "8.2.2",
     "vitest": "^4.0.18"
   },
   "engines": {

@@ -1,12 +1,14 @@
 import { PageIntro } from "@/components/ui";
 import { organization } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+import { dataConfig } from "@/lib/community/config";
 export const metadata = pageMetadata(
   "Privacy & accessibility",
   "How the ENVET website handles privacy, external services, theme preferences, and accessibility feedback.",
   "/privacy",
 );
 export default function Privacy() {
+  const communityEnabled = !!dataConfig();
   return (
     <>
       <PageIntro
@@ -17,17 +19,54 @@ export default function Privacy() {
       />
       <section className="wrap legal-layout">
         <aside>
-          Updated September 6, 2026.
+          Updated October 9, 2026.
           <br />
           Owner-review version.
         </aside>
         <div className="prose">
-          <h2>A website, not an intake system</h2>
+          <h2>A human introduction, not medical intake</h2>
           <p>
-            This release has no accounts, medical intake forms, document
-            uploads, newsletter signups, or site database. Please don’t send
-            medical records, military identity documents, or financial details
-            through ordinary email or messaging.
+            Please don’t send medical records, military identity documents, or
+            financial details through this site, email, or messaging. ENVET
+            follows up with people directly about visits and program questions.
+          </p>
+          <h2>Inquiries and follow-up</h2>
+          <p>
+            {communityEnabled
+              ? "The online inquiry form collects"
+              : "When activated, the online inquiry form will collect"}{" "}
+            your name, email address or phone number, service or activity of
+            interest, an optional short note, and your permission to be
+            contacted. ENVET uses this to respond by phone or email or arrange a
+            visit. Team members can mark an inquiry new, contacted, booked, or
+            closed. Inquiries remain until an authorized team member manually
+            deletes them. Backup copies may expire on a separate provider
+            schedule.
+          </p>
+          <h2>Google sign-in and journal discussion</h2>
+          <p>
+            {communityEnabled
+              ? "Google sign-in lets"
+              : "When activated, Google sign-in will let"}{" "}
+            members like and comment on journal guides. Comments appear
+            immediately in public as plain text and show only “Community
+            member,” never a Google email address or profile picture. The text a
+            member writes is public, so it should not include private
+            information. Members can remove their own comments; ENVET can hide
+            comments and review reports. Google and Supabase process sign-in
+            information under their own service terms.
+          </p>
+          <h2>Anonymous page counts</h2>
+          <p>
+            {communityEnabled
+              ? "The site counts"
+              : "When activated, the site will count"}{" "}
+            daily views of public pages by path. These counts do not identify
+            unique visitors or store search queries, account routes, cookies, or
+            visitor profiles. Hashed, time-windowed rate counters limit form and
+            discussion abuse; expired counters are removed on subsequent writes.
+            The application does not retain raw IP addresses in those counters.
+            Hosting may keep its own technical logs.
           </p>
           <h2>Your theme preference</h2>
           <p>
@@ -49,9 +88,9 @@ export default function Privacy() {
           <p>
             A web host may process routine technical information such as IP
             addresses and request logs to deliver and protect the site.
-            Production hosting, access controls, and retention settings must be
-            reviewed before launch. No marketing analytics are included in this
-            release.
+            Production hosting, access controls, backup expiry, and retention
+            settings must be reviewed before launch. No advertising tracker is
+            included in this release.
           </p>
           <h2>Accessibility</h2>
           <p>
@@ -65,9 +104,8 @@ export default function Privacy() {
           <p>
             Email{" "}
             <a href={`mailto:${organization.email}`}>{organization.email}</a> or
-            call <a href={organization.phoneHref}>{organization.phone}</a>. If
-            you contact ENVET, the information you choose to share is handled in
-            that communication channel, not a database on this site.
+            call <a href={organization.phoneHref}>{organization.phone}</a>. You
+            can also ask ENVET to correct or manually delete an inquiry.
           </p>
         </div>
       </section>

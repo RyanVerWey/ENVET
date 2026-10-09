@@ -2,12 +2,15 @@ import Link from "next/link";
 import { Action, FAQ, PageIntro, Photo } from "@/components/ui";
 import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+import { publishedContent } from "@/lib/community/public-content";
+export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
   "Plan a visit",
   "Contact ENVET about equine therapy options for veterans and families in Lovettsville, Virginia. Learn what to ask before your first visit.",
   "/visit",
 );
-export default function Visit() {
+export default async function Visit() {
+  const { horses, services } = await publishedContent();
   return (
     <>
       <PageIntro
@@ -48,6 +51,49 @@ export default function Visit() {
           priority
         />
       </section>
+      {(horses.length > 0 || services.length > 0) && (
+        <section
+          className="wrap published-content"
+          aria-labelledby="published-content-heading"
+        >
+          <p className="eyebrow">AT EAGLE’S NEST</p>
+          <h2 id="published-content-heading">Meet the program.</h2>
+          {services.length > 0 && (
+            <div className="published-group">
+              <h3>Current services</h3>
+              <div className="published-list">
+                {services.map((service) => (
+                  <article key={service.slug}>
+                    <h4>{service.title}</h4>
+                    <p>{service.summary}</p>
+                    {service.details && (
+                      <p className="small">{service.details}</p>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
+          {horses.length > 0 && (
+            <div className="published-group">
+              <h3>Horses</h3>
+              <div className="published-list">
+                {horses.map((horse) => (
+                  <article key={horse.slug}>
+                    <h4>{horse.name}</h4>
+                    <p>{horse.summary}</p>
+                    {horse.details && <p className="small">{horse.details}</p>}
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
+          <p className="small">
+            Ask ENVET which activities are available and appropriate for your
+            visit.
+          </p>
+        </section>
+      )}
       <section className="wrap visit-planning">
         <div>
           <p className="eyebrow">BEFORE YOU HEAD OUT</p>
