@@ -1,7 +1,13 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-09T23:45:27Z"
+updated: "2026-10-09T23:54:19Z"
 ---
+## October 9: partner-nation participation correction
+
+Owner-confirmed scope added across shared public/staff pre-visit guidance, homepage, About, organization search/schema description and all three published articles. Regression tests cover United States/partner nations, Active Duty and families, private ENVET confirmation, no unrelated civilian recreation, and no military identity/medical uploads. No country list, new affiliation codes, signed-document changes or collection activation. Impeccable clarified existing Corva copy.
+
+77 tests, lint/build/types/formatting, browser regressions, Plan check and 24-route built preview smoke pass. Exact source c160f45ee27f0d4917937776cb9703ec22c7fb33 passed CI38006408059/38006404483. Manual Vercel dpl_5AXMXtYQa4BFA33gj9nJgn1zv6AD Ready in 28s and assigned envet.info. 15-public/9-private production probes and discovery/media/redirect tests pass. Actual live checklist visible with corrected scope and intact private-confirmation/document warning. FORM_COLLECTION_ENABLED remains false; guardian certification remains pending owner/legal review. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-partner-nation-eligibility.png. Previous healthy dpl_BcJWCRBZKwXhX8begtapQbBUi8rH/source510d84c retained as rollback candidate, not exercised.
+
 ## October 9: named minor and guardian certification
 
 Prepared child-name/age/guardian flow, separate signatures and required versioned guardian certification. See docs/forms-workflow.md for semantics, exact-wording review gate and source references. 75 unit/API/PGlite tests pass; actual SigningRoom browser path verifies required checkbox, keyboard Space, preserved separate names/signatures, review and edit invalidation. 8 certification viewport/theme combinations have no overflow. Original DOCX hashes/body/headers unchanged. Lint/build/types/format pass. No real data, hosted schema changes, identity activation or collection. The added legal wording is proposed, not approved; Google identity cannot prove parental authority. Impeccable clarification keeps existing Corva controls and precise labels. Synthetic preview proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-child-guardian-preview.png.
