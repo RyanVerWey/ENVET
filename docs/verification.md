@@ -1,7 +1,13 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-09T23:54:19Z"
+updated: "2026-10-09T23:59:45Z"
 ---
+## Veteran capitalization released (October 9, 2026)
+
+Owner requires Veteran, Veterans and their singular/plural possessives capitalized everywhere in ENVET-authored website copy. Corrected public headings/body, header/footer, blog titles/descriptions/articles, metadata, privacy, community prompts and dashboard/signing guidance. Original legal templates already capitalized these terms and remain unchanged; internal veteran enum, URLs and visitor-authored content unchanged. Persistent rule in standards.md; source-copy regression plus rendered preview/production assertions prevent recurrence. Impeccable consistency pass retained Corva layout and controls.
+
+Source068c9933352e3a08f027c6b1542f6becb84df8b8; CI38006856008/38006854387 successful including browser regression checks. 78 tests, lint/build/types/format, Plan and24-route preview pass. Vercel dpl_3Mozu5R1yxyG4XwMv5hxEQHqs466 Ready31s and envet.info assigned; immutable envet-iwzgcojgd-ryanverweys-projects.vercel.app. Live15-public/9-private route/discovery/media/redirect checks pass, now including capitalization. Browser confirms capitalized home/title/header/body/journal/footer. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-veteran-capitalization.png. Prior healthy sourcec160f45/dpl_5AXMXtYQa4BFA33gj9nJgn1zv6AD is rollback candidate, not exercised. No activation, security, schema, consent or signature-version change; collection remains disabled. Only agent-owned3002 preview server stopped; user-owned3001 preserved.
+
 ## October 9: partner-nation participation correction
 
 Owner-confirmed scope added across shared public/staff pre-visit guidance, homepage, About, organization search/schema description and all three published articles. Regression tests cover United States/partner nations, Active Duty and families, private ENVET confirmation, no unrelated civilian recreation, and no military identity/medical uploads. No country list, new affiliation codes, signed-document changes or collection activation. Impeccable clarified existing Corva copy.
