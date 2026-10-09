@@ -1,7 +1,10 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { PGlite } from "@electric-sql/pglite";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
+vi.mock("server-only", () => ({}));
+import { encrypt, decrypt } from "@/lib/forms/crypto";
+import { screeningFixture } from "./fixtures/pre-visit";
 const staff = "11111111-1111-4111-8111-111111111111",
   member = "22222222-2222-4222-8222-222222222222",
   other = "33333333-3333-4333-8333-333333333333",
@@ -316,6 +319,57 @@ describe("private signed evidence, reviews and attendance in isolated Postgres",
         )
       ).rows[0].id,
     ).toBe(original);
+  });
+  it("stores screening as private encrypted review evidence without changing signed content or counting another visit", async () => {
+    const event = "66666666-6666-4666-8666-666666666666";
+    vi.stubEnv(
+      "FORM_ENCRYPTION_KEYS",
+      JSON.stringify({ synthetic: Buffer.alloc(32, 7).toString("base64") }),
+    );
+    vi.stubEnv("FORM_ACTIVE_KEY_ID", "synthetic");
+    try {
+      const screening = screeningFixture();
+      const context = `${form}:${event}:review:v1`;
+      const box = encrypt(screening, context);
+      await db.query(
+        "select public.staff_review_form($1,$2,2,'reviewed',$3,$4::jsonb,null)",
+        [staff, form, event, JSON.stringify(box)],
+      );
+      const staffRecord = (
+        await db.query<{
+          r: {
+            evaluation: { protected_evaluation: typeof box };
+            protected_record: typeof record;
+          };
+        }>("select public.read_signed_form($1,$2,true) r", [staff, form])
+      ).rows[0].r;
+      expect(staffRecord.protected_record).toEqual(record);
+      expect(JSON.stringify(staffRecord.evaluation)).not.toContain(
+        "family_veteran",
+      );
+      expect(
+        decrypt(staffRecord.evaluation.protected_evaluation, context),
+      ).toEqual(screening);
+      const own = (
+        await db.query<{ r: { evaluation: unknown } }>(
+          "select public.read_signed_form($1,$2,false) r",
+          [member, form],
+        )
+      ).rows[0].r;
+      expect(own.evaluation).toBeNull();
+      const metrics = (
+        await db.query<{ m: { visits: number } }>(
+          "select public.staff_program_metrics($1,90) m",
+          [staff],
+        )
+      ).rows[0].m;
+      expect(metrics.visits).toBe(1);
+      expect(JSON.stringify(metrics)).not.toMatch(
+        /pvAffiliation|family_veteran|pvEligibility/,
+      );
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
   it("preserves evidence after Google account removal, never grants ordinary staff deletion, rechecks revoked staff", async () => {
     await db.exec("reset role");

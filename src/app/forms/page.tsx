@@ -17,6 +17,19 @@ export default function FormsPage() {
         Review ENVET’s forms at your own pace. When signing opens, your Google
         account, initials and signature accompany a private record for the team.
       </p>
+      <div className="pre-visit-link">
+        <div>
+          <p className="eyebrow">For program participants</p>
+          <h2>Start with the pre-visit checklist.</h2>
+          <p>
+            Confirm your connection and goals, then plan clothing, local weather
+            and protective equipment with ENVET.
+          </p>
+        </div>
+        <Link className="action" href="/forms/pre-visit">
+          Prepare for your visit →
+        </Link>
+      </div>
       <div className="form-options">
         <Link href="/forms/liability" className="form-option">
           <FileHeart size={30} />

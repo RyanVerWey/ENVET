@@ -31,6 +31,8 @@ import { PATCH as review, GET as queue } from "@/app/api/team/forms/route";
 import { POST as visit } from "@/app/api/team/visits/route";
 import { GET as metrics } from "@/app/api/team/impact/route";
 import { formVersion } from "@/lib/forms/definition";
+import { encrypt } from "@/lib/forms/crypto";
+import { screeningFixture } from "./fixtures/pre-visit";
 const signer = "11111111-1111-4111-8111-111111111111",
   id = "22222222-2222-4222-8222-222222222222";
 const rpc = vi.fn();
@@ -89,6 +91,74 @@ beforeEach(() => {
   rpc.mockResolvedValue({ data: id, error: null });
 });
 describe("signing and staff HTTP boundaries", () => {
+  it("encrypts guest screening in the audited review channel, not signed evidence or metrics", async () => {
+    vi.mocked(staffUser).mockResolvedValue({ id: signer } as Awaited<
+      ReturnType<typeof staffUser>
+    >);
+    rpc
+      .mockResolvedValueOnce({ data: { kind: "liability" }, error: null })
+      .mockResolvedValueOnce({ data: true, error: null });
+    const screening = screeningFixture();
+    const response = await review(
+      request(
+        "/api/team/forms",
+        {
+          id,
+          kind: "liability",
+          status: "needs_followup",
+          version: 1,
+          participantId: null,
+          evaluation: { notes: "Synthetic", ...screening },
+        },
+        undefined,
+        "PATCH",
+      ),
+    );
+    expect(response.status).toBe(200);
+    expect(encrypt).toHaveBeenCalledWith(
+      expect.objectContaining(screening),
+      expect.stringMatching(new RegExp(`^${id}:[0-9a-f-]+:review:v1$`)),
+    );
+    expect(rpc).toHaveBeenCalledWith(
+      "staff_review_form",
+      expect.objectContaining({
+        p_actor: signer,
+        p_expected: 1,
+        p_evaluation: expect.objectContaining({
+          ciphertext: "encrypted test fixture",
+        }),
+      }),
+    );
+    expect(rpc.mock.calls.map(([name]) => name)).toEqual([
+      "read_signed_form",
+      "staff_review_form",
+    ]);
+    expect(response.headers.get("cache-control")).toContain("no-store");
+  });
+  it("rejects invalid screening before encrypting or writing", async () => {
+    vi.mocked(staffUser).mockResolvedValue({ id: signer } as Awaited<
+      ReturnType<typeof staffUser>
+    >);
+    rpc.mockResolvedValue({ data: { kind: "liability" }, error: null });
+    const response = await review(
+      request(
+        "/api/team/forms",
+        {
+          id,
+          kind: "liability",
+          status: "reviewed",
+          version: 1,
+          participantId: null,
+          evaluation: { ...screeningFixture(), pvAffiliation: "unrelated" },
+        },
+        undefined,
+        "PATCH",
+      ),
+    );
+    expect(response.status).toBe(400);
+    expect(encrypt).not.toHaveBeenCalled();
+    expect(rpc).toHaveBeenCalledTimes(1);
+  });
   it("rejects cross-origin signing before auth/storage, and disabled signing before identity", async () => {
     expect(
       (await sign(request("/api/forms", input, "https://evil.test"))).status,

@@ -7,6 +7,7 @@ import "../../src/app/forms.css";
 import { ProgramDashboard } from "../../src/components/forms/program-dashboard";
 import { FormReviewQueue } from "../../src/components/forms/review-queue";
 import { Receipt } from "../../src/components/forms/receipt";
+import { evaluationInput } from "../../src/lib/forms/validation";
 import {
   formSource,
   formVersion,
@@ -25,6 +26,7 @@ let status = "submitted",
   version = 1,
   reads = 0,
   mutations = 0;
+let evaluation: Record<string, string> | null = null;
 const detail = {
   id,
   kind: "liability",
@@ -108,6 +110,7 @@ window.fetch = async (input, init) => {
       ...detail,
       status,
       version,
+      evaluation,
       participant_id: status === "reviewed" ? actor : null,
     });
   if (url.startsWith("/api/team/forms?")) {
@@ -136,6 +139,10 @@ window.fetch = async (input, init) => {
   if (url === "/api/team/forms" && init?.method === "PATCH") {
     mutations++;
     const payload = JSON.parse(String(init.body));
+    const validated = evaluationInput(payload.evaluation, "liability");
+    if (!validated)
+      return response({ error: "Synthetic screening validation failed." }, 400);
+    evaluation = validated;
     status = payload.status;
     version++;
     return response({ saved: true });
@@ -149,6 +156,9 @@ Object.assign(window, {
     },
     get mutations() {
       return mutations;
+    },
+    get evaluation() {
+      return evaluation;
     },
   },
 });

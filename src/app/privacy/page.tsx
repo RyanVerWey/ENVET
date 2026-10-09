@@ -91,6 +91,19 @@ export default function Privacy() {
             Ask ENVET about paper alternatives, corrections, revocation or an
             authorized deletion request.
           </p>
+          <p>
+            The visitor pre-visit checklist uses temporary checkmarks only. They
+            are not sent to ENVET or saved in browser storage. Authorized staff
+            may attach a call/text screening to a guest record: conversation
+            date and channel, reported Veteran/Active Duty or family connection,
+            staff eligibility decision, selected goals, discussed safety topics
+            and follow-up outcome. This separate encrypted review record is
+            staff-only, audited and retained indefinitely with the guest record.
+            It does not alter the signed release or appear in the signer’s
+            receipt. No proof documents, diagnoses or trauma histories are
+            requested. Neither checkmarks nor screening count as attendance or
+            clinical outcomes; affiliation is not used in program charts.
+          </p>
           <h2>Anonymous page counts</h2>
           <p>
             {communityEnabled
@@ -113,11 +126,11 @@ export default function Privacy() {
           </p>
           <h2>External links and donations</h2>
           <p>
-            Facebook, Messenger, WhatsApp, PayPal, Google Maps, and your email
-            or phone application operate separately. Their privacy policies
-            apply when you choose to use them. This website does not embed
-            social feeds, load advertising trackers, or receive payment-card
-            details.
+            Facebook, Messenger, WhatsApp, PayPal, Google Maps, the National
+            Weather Service, and your email or phone application operate
+            separately. Their privacy policies apply when you choose to use
+            them. This website does not embed social feeds, load advertising
+            trackers, or receive payment-card details.
           </p>
           <h2>Hosting and technical records</h2>
           <p>

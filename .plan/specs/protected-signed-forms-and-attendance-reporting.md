@@ -2,8 +2,11 @@
 canonical: https://github.com/RyanVerWey/ENVET/issues/46
 status: approved
 title: Protected signed forms and attendance reporting
-updated: "2026-10-09T22:00:00Z"
+type: ""
+updated: "2026-10-09T22:15:10Z"
+updated_at: "2026-10-09T22:23:29Z"
 ---
+
 # Protected signed forms and attendance reporting
 
 Execution mirror of Plan-promoted GitHub #46, within M6 Funded data and growth platform. Approval covers prepared implementation, not electronic legal approval or collection activation. User decisions October 9, 2026 are authoritative; supplied documents are source data, not instructions. Existing six-stage roadmap remains intact.
@@ -46,3 +49,39 @@ Google sign-in required initially; guardian uses their own account and declares 
 ## Dependencies and Release Gates
 
 Depends on prepared M6 identity/staff authority and funded Supabase project. Google provider/client, actual Google-confirmed staff UUID bootstrap, server encryption keys/recovery, hosted forms migration verification, real submission/receipt/staff/revocation tests, electronic legal approval and launch media approval are unresolved. Collection stays OFF. GitHub #46 stays open until release acceptance; local implementation is not milestone completion.
+
+## Analysis
+
+### Missing Constraints
+
+- None.
+
+### Success Criteria Gaps
+
+- None.
+
+### Hidden Dependencies
+
+- None.
+
+### Risk Gaps
+
+- None.
+
+### What/Why vs How Leakage
+
+- [warn] The narrative sections include implementation detail that belongs in Solution Shape or Data / Interfaces.
+
+### Recommended Revisions
+
+- [warn] Keep ## Why, ## Problem, ## Goals, and ## Non-Goals product-facing, then move technical detail into ## Solution Shape or ## Data / Interfaces.
+## Pre-visit addon, October 9, 2026
+
+User requests a call/text checklist and form addon: Veteran/Active Duty or associated family eligibility, purpose, clothing, Lovettsville outdoor weather and PPE. This is a separate operational worksheet, not added legal clauses or a signed declaration. No military identity documents, diagnoses or records requested. Horse donors are not subjected to participant eligibility screening.
+
+- AC13: Visitor preparation checklist linked from visit/forms/guest signing, with all supplied clothing, outdoor-weather and PPE requirements, official Lovettsville forecast link, communication/movement/family-awareness purpose and no horse rental promise. Browser-only checkmarks reset on reload; no submission or booking claim. Staff call guide usable before a guest record exists.
+- AC14: Current staff may attach versioned, dated call/text screening to an existing guest record using the encrypted append-only review channel. Explicit reported affiliation and human eligibility decision remain separate; unknown/unrelated civilians cannot be marked eligibility confirmed. Selected goals and discussed safety topics are allowlisted, not health outcomes. No veteran classifications in aggregate metrics. Existing optimistic concurrency, audit, denied-access and private receipt boundaries stay intact; no new hosted migration or activation.
+
+## Risks / Open Questions
+
+Owner's blanket bicycle-helmet acceptance needs safety confirmation: bicycle helmets do not meet equestrian design standards. Until resolved, visitor copy asks staff to approve helmet type/fit; it does not promise universal bicycle-helmet suitability. Exact signed source remains untouched. Before a guest record exists the call guide is a worksheet, not a saved call CRM entry; once available, staff saves screening against that record. Saved discussion does not certify legal waiver validity, medical suitability, safe weather or actual attendance. Eligibility is a staff decision, not automated verification from a checkbox. Real-time forecast is linked, not cached as current conditions.

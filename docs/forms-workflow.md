@@ -1,5 +1,5 @@
 ---
-updated: "2026-10-09T22:02:19Z"
+updated: "2026-10-09T22:24:33Z"
 ---
 # ENVET protected forms workflow
 
@@ -37,3 +37,17 @@ Review queue/aged seven-day counts are all-time submitted records. Median first-
 6. Owner media, domain and production launch gates remain separate. Stop collection on authority/privacy/recovery/version failures while preserving evidence.
 
 Synthetic UI fixture is isolated under tests, loopback-only; sample counts are not ENVET activity. Automated/browser checks prove prepared behavior only, not live authentication, cloud recovery or legal approval. Brain and Plan retain this distinction.
+
+## Pre-visit screening and preparation
+
+User requirements, October 9, 2026: Veteran/Active Duty or associated family connection, purpose (communication, new skills/movement, family situational awareness), clothing, Lovettsville outdoor weather, helmets and other PPE. Public `/forms/pre-visit` and `/visit` share ten checkable preparation items; forms hub and guest signing link the addon. Source documents and signed-version identity are unchanged. Program eligibility screening does not apply to horse donors. Checkmarks are temporary page state, never sent, stored or interpreted as permission/attendance.
+
+Public staff call guide works before a guest record exists, but does not persist a call. Authorized staff can attach structured screening to an existing guest release via the separate AES-GCM encrypted append-only review channel: exact checklist version, call/text date/channel, reported affiliation, explicit staff eligibility decision, selected goals, five discussion topics and follow-up/conversation outcome. Unknown/unrelated affiliation cannot be eligibility-confirmed; conversation-complete requires confirmed eligible connection, a goal and all topics discussed. Date/channel and allowlisted values required once screening starts. A complete conversation is not booking, legal validity, medical suitability or day-of safety clearance. Older notes-only/blank horse-key guest reviews remain readable/updatable; substantive horse evaluation is still donation-only. Staff-only read/audit, version-conflict protection, indefinite review retention and signed receipt isolation unchanged. No new hosted schema migration. Private screening classifications remain excluded from metrics; actual attendance still recorded separately.
+
+Do not request DD214/document uploads, diagnoses, injury/trauma details or military identity numbers. Staff confirms eligibility privately rather than inferring it from account or checkmark. Optional operational notes carry existing bounded/private handling and no-sensitive-history warning. Updates are not autosaved; invalid client-side screening retains edits instead of submitting. Contact date is the staff-reported conversation date, distinct from server audit time.
+
+Helmet exception unresolved: owner supplied bicycle helmets as acceptable, but equestrian design standards differ (University of Tennessee: https://uthorse.tennessee.edu/wp-content/uploads/sites/105/2020/07/EquestrianHelmetInfo.pdf). Asked owner whether to use fitted equestrian helmets with staff-reviewed exceptions. Until reply, visitor text asks staff to confirm type/fit and explicitly includes bicycle helmets in that conversation; it does not publish blanket acceptance or silently forbid them. All mounted activities require helmets; under-10s expected helmeted throughout barn. Gloves and standard-size ear/eye PPE availability preserved. Weather link points to NWS Lovettsville https://forecast.weather.gov/MapClick.php?lat=39.2698&lon=-77.6404; no cached conditions presented as current or automated weather-clearance decision.
+
+Verification: 54 unit/route/local PGlite tests including actual encrypted review round-trip, signer exclusion and unchanged visit totals; lint/build/types/format and production HTTP smoke pass. Existing team-workspace browser regression passes; it does not test the new checklist. Browser connection timed out three times, so new keyboard/mobile/visual interaction and print-layout QA remain unverified, not accepted. Source parity confirms originals and exact body/header/footer unchanged. Initial content test failed because it omitted headings; fixed assertion. A later discovery test timed out during import and passed on rerun; no timeout increased. No real submissions, Google activation, keys, hosted forms migration or deployment. Synthetic fixtures remain local only. Independent Astra review requested for this addon; release gates remain open.
+
+Astra addon review found no blocking code defects; independently ran 29 relevant tests and confirmed protected review storage, eligibility safeguards, donor isolation, source immutability and metric separation. Reviewer explicitly withheld UI/frozen-manifest/live acceptance. New visual/mobile/keyboard/print QA and helmet confirmation remain open.

@@ -3,6 +3,7 @@ import { Action, FAQ, PageIntro, Photo } from "@/components/ui";
 import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { publishedContent } from "@/lib/community/public-content";
+import { PreVisitChecklist } from "@/components/forms/pre-visit-checklist";
 export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
   "Plan a visit",
@@ -94,46 +95,13 @@ export default async function Visit() {
           </p>
         </section>
       )}
-      <section className="wrap visit-planning">
-        <div>
-          <p className="eyebrow">BEFORE YOU HEAD OUT</p>
-          <h2>What to discuss before your visit.</h2>
-        </div>
-        <ol className="steps">
-          <li>
-            <span>01</span>
-            <div>
-              <h3>Participation & availability</h3>
-              <p>
-                Ask who can participate, whether a family member can join, and
-                which activities are currently available. Let the team explain
-                any eligibility verification privately.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span>02</span>
-            <div>
-              <h3>Comfort & access</h3>
-              <p>
-                Ask about terrain, seating, restrooms, mobility access, and
-                accommodations you need. Confirm what the team can provide
-                before traveling.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span>03</span>
-            <div>
-              <h3>The details of your visit</h3>
-              <p>
-                Confirm your time, meeting location, clothing and footwear,
-                weather plans, and what to bring. Please do not arrive
-                unannounced.
-              </p>
-            </div>
-          </li>
-        </ol>
+      <section className="wrap visit-planning pre-visit-on-visit">
+        <PreVisitChecklist />
+        <p className="small">
+          Ask about terrain, seating, restrooms, mobility access and
+          accommodations before traveling. Confirm your time and meeting
+          location with ENVET. Please do not arrive unannounced.
+        </p>
       </section>
       <section className="wrap faq-section">
         <div>

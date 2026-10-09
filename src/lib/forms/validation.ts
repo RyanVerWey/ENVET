@@ -11,6 +11,7 @@ import {
   type Field,
 } from "./definition";
 import { uuidPattern } from "../community/validation";
+import { preVisitInput, preVisitKeys } from "./pre-visit";
 
 export type Point = [number, number];
 export type Signature =
@@ -249,18 +250,35 @@ export function submissionInput(value: unknown): Submission | null {
     consent: true,
   };
 }
-export function evaluationInput(value: unknown) {
+export function evaluationInput(value: unknown, kind: FormKind = "donation") {
+  const fields =
+    kind === "donation"
+      ? evaluationFields
+      : evaluationFields.filter((f) => f.key === "notes");
   if (
     !record(value) ||
-    !Object.keys(value).every((k) => evaluationFields.some((f) => f.key === k))
+    !Object.keys(value).every(
+      (k) =>
+        fields.some((f) => f.key === k) ||
+        // Earlier guest reviews included blank horse-evaluation keys.
+        (kind === "liability" &&
+          value[k] === "" &&
+          evaluationFields.some((f) => f.key === k)) ||
+        (kind === "liability" && preVisitKeys.some((key) => key === k)),
+    )
   )
     return null;
   const result: Record<string, string> = {};
-  for (const field of evaluationFields) {
+  for (const field of fields) {
     const text = clean(value[field.key] ?? "", field.max ?? 254);
     if (text === null || (field.type === "date" && text && !validDate(text)))
       return null;
     result[field.key] = text;
+  }
+  if (kind === "liability") {
+    const screening = preVisitInput(value);
+    if (!screening) return null;
+    Object.assign(result, screening);
   }
   return result;
 }

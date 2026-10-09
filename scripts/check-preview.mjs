@@ -12,6 +12,7 @@ const routes = [
   "/blog",
   "/privacy",
   "/forms",
+  "/forms/pre-visit",
   "/forms/liability",
   "/forms/donation",
   "/editorial-policy",
@@ -23,6 +24,7 @@ const routes = [
   "/blog/category/supporting-the-mission",
 ];
 for (const route of [
+  "/forms/pre-visit",
   "/forms/liability",
   "/forms/donation",
   "/forms/receipt",

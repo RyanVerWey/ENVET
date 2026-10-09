@@ -1,8 +1,226 @@
+.pre-visit-page,
 .forms-home,
 .receipt-page,
 .form-review-workspace,
 .program-dashboard {
   padding-block: 64px 88px;
+}
+.pre-visit-page {
+  max-width: 1060px;
+}
+.pre-visit-page h1 {
+  font-size: 2.6rem;
+}
+.pre-visit-checklist {
+  max-width: 960px;
+}
+.pre-visit-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  justify-content: space-between;
+}
+.pre-visit-heading > div {
+  max-width: 70ch;
+}
+.pre-visit-heading > svg {
+  flex-shrink: 0;
+  color: var(--heading);
+  margin-top: 8px;
+}
+.pre-visit-heading h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+.pre-visit-heading p:not(.eyebrow) {
+  color: var(--muted);
+}
+.pre-visit-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  padding-block: 20px;
+  border-block: 1px solid var(--line);
+  margin-top: 24px;
+}
+.pre-visit-toolbar p {
+  margin: 0 auto 0 0;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.pre-visit-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.pre-visit-sections {
+  list-style: none;
+  margin: 32px 0;
+  padding: 0;
+}
+.pre-visit-sections > li {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(0, 2fr);
+  gap: 36px;
+  padding-block: 28px 36px;
+  border-bottom: 1px solid var(--line);
+}
+.pre-visit-section-heading {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+.pre-visit-section-heading > span {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.pre-visit-section-heading h3 {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.pre-visit-items {
+  min-width: 0;
+  display: grid;
+  gap: 22px;
+}
+.pre-visit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 8px;
+  margin: -8px;
+}
+.pre-visit-item:hover {
+  background: var(--surface);
+}
+.pre-visit-item:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.pre-visit-item input {
+  flex-shrink: 0;
+  margin: 4px 0 0;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
+.pre-visit-item > span {
+  display: grid;
+  gap: 6px;
+  max-width: 70ch;
+}
+.pre-visit-item strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.pre-visit-item span span {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.pre-visit-weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  margin-left: 34px;
+}
+.pre-visit-footer {
+  max-width: 70ch;
+  font-size: 0.95rem;
+}
+.pre-visit-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 40px;
+  justify-content: space-between;
+  align-items: center;
+  border-block: 1px solid var(--line);
+  padding-block: 28px;
+  margin-block: 32px;
+}
+.pre-visit-link > div {
+  max-width: 62ch;
+}
+.pre-visit-link h2 {
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+}
+.pre-visit-link p {
+  font-size: 0.95rem;
+}
+.pre-visit-link p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+.sign-pre-visit {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+.sign-pre-visit .field-hint {
+  font-size: 0.8rem;
+}
+.pre-visit-on-visit {
+  display: block;
+}
+.pre-visit-screening {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 20px;
+  margin-block: 28px;
+  min-width: 0;
+}
+.pre-visit-screening > legend {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-inline: 8px;
+}
+.pre-visit-goals {
+  padding: 0;
+  border: 0;
+  margin: 26px 0;
+}
+.pre-visit-goals > legend {
+  font-weight: 600;
+}
+.pre-visit-topic {
+  padding-block: 16px;
+  border-top: 1px solid var(--line);
+}
+.pre-visit-topic .check-line {
+  margin-top: 0;
+}
+.pre-visit-topic p {
+  max-width: 70ch;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.pre-visit-topic summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.pre-visit-call-guide {
+  padding-block: 26px;
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  font-size: 0.95rem;
+}
+.pre-visit-call-guide summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.pre-visit-call-guide ol {
+  padding-left: 22px;
+  max-width: 70ch;
+}
+.pre-visit-call-guide li {
+  margin-top: 20px;
 }
 .forms-home {
   max-width: 1100px;
@@ -772,6 +990,26 @@
   }
 }
 @media (max-width: 760px) {
+  .pre-visit-page {
+    padding-block: 36px 56px;
+  }
+  .pre-visit-page h1 {
+    font-size: 2rem;
+  }
+  .pre-visit-heading h2 {
+    font-size: 1.5rem;
+  }
+  .pre-visit-heading > svg {
+    display: none;
+  }
+  .pre-visit-sections > li {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-block: 24px;
+  }
+  .pre-visit-screening {
+    padding: 16px;
+  }
   .forms-home,
   .receipt-page,
   .form-review-workspace,
@@ -900,6 +1138,36 @@
   }
 }
 @media print {
+  .pre-visit-toolbar,
+  .pre-visit-page > .sign-back,
+  .pre-visit-call-guide,
+  .pre-visit-page > p {
+    display: none !important;
+  }
+  .pre-visit-page {
+    padding: 0;
+    width: auto;
+    max-width: none;
+  }
+  .pre-visit-checklist {
+    color: oklch(20% 0.005 164);
+    background: oklch(99% 0.005 164);
+  }
+  .pre-visit-sections > li {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-block: 18px;
+    break-inside: avoid;
+  }
+  .pre-visit-checklist h2,
+  .pre-visit-checklist h3,
+  .pre-visit-item span span,
+  .pre-visit-checklist p {
+    color: oklch(20% 0.005 164);
+  }
+  .pre-visit-weather::after {
+    content: " forecast.weather.gov · Lovettsville, VA";
+  }
   header,
   footer,
   .review-banner,

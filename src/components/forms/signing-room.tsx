@@ -287,6 +287,20 @@ export function SigningRoom({
         <Link href="/forms" className="sign-back">
           ← All ENVET forms
         </Link>
+        {kind === "liability" && (
+          <Link
+            href="/forms/pre-visit"
+            target="_blank"
+            rel="noreferrer"
+            className="sign-pre-visit"
+          >
+            Pre-visit checklist ↗
+            <span className="field-hint">
+              Opens in a new tab so your unsigned work stays here. Separate from
+              the release.
+            </span>
+          </Link>
+        )}
         <div className="sign-document-icon">
           <FileText size={26} />
         </div>

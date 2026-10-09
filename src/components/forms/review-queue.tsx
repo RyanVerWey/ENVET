@@ -17,6 +17,8 @@ import {
 } from "@/lib/forms/definition";
 import { FormField } from "./signing-room";
 import { SignedDocument, type ReceiptData } from "./receipt";
+import { PreVisitScreening } from "./pre-visit-screening";
+import { evaluationInput } from "@/lib/forms/validation";
 type QueueRow = {
   id: string;
   kind: FormKind;
@@ -162,12 +164,20 @@ export function FormReviewQueue() {
   function review(event: FormEvent) {
     event.preventDefault();
     if (!detail) return;
+    const validated = evaluationInput(evaluation, detail.kind);
+    if (!validated) {
+      setMessage(
+        "Review not sent. Check the screening date, contact channel, connection and eligibility decision. A complete conversation needs a goal and all five topics discussed. Your edits are still here.",
+      );
+      document.getElementById("pre-visit-screening")?.focus();
+      return;
+    }
     void change("/api/team/forms", "PATCH", {
       id: detail.id,
       kind: detail.kind,
       version: detail.version,
       status,
-      evaluation,
+      evaluation: validated,
       participantId:
         detail.kind === "liability" && status === "reviewed" && participant
           ? participant
@@ -237,6 +247,11 @@ export function FormReviewQueue() {
           Refresh queue
         </button>
       </div>
+      <p className="field-hint">
+        Screening a caller before a guest form exists? Use the{" "}
+        <Link href="/forms/pre-visit">pre-visit call guide</Link>. Save the
+        private checklist when their guest record is available.
+      </p>
       {message && (
         <p className="form-message" role="status">
           {message}
@@ -386,6 +401,9 @@ export function FormReviewQueue() {
                 />
               ))}
             </div>
+            {detail.kind === "liability" && (
+              <PreVisitScreening value={evaluation} onChange={setEvaluation} />
+            )}
             {detail.kind === "liability" && status === "reviewed" && (
               <label>
                 Existing participant reference (optional)

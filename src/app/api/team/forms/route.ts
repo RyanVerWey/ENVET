@@ -111,13 +111,15 @@ export async function PATCH(request: Request) {
   if (!current.data) return apiJson({ error: "Form not found." }, 404);
   if (current.data.kind !== input.kind)
     return apiJson({ error: "Review type does not match this form." }, 400);
-  const evaluation = evaluationInput(input.evaluation);
-  if (
-    !evaluation ||
-    (input.kind === "liability" &&
-      Object.entries(evaluation).some(([k, v]) => k !== "notes" && v))
-  )
-    return apiJson({ error: "Invalid review notes." }, 400);
+  const evaluation = evaluationInput(input.evaluation, input.kind);
+  if (!evaluation)
+    return apiJson(
+      {
+        error:
+          "Check review fields and pre-visit screening: date, channel, connection, eligibility and discussion outcome.",
+      },
+      400,
+    );
   try {
     const event = randomUUID();
     const normalizedId = input.id.toLowerCase();
