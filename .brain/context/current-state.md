@@ -1,6 +1,12 @@
 ---
-updated: "2026-10-09T23:38:29Z"
+updated: "2026-10-09T23:46:47Z"
 ---
+## Prepared minor / guardian signing revision (October 9, 2026)
+
+Source 53dce1a3cc1790a1082f4e30c32a0b6865530a33 pushed on PR45 within open Plan46. Owner requests explicit child name under Guest is under18, age0–17 and parent/lawful guardian printed name, own adult Google account, separate signatures and full authority certification. Existing guestName is child identity, child autofill off. Required separate guardian certification is client/server validated, resets after detail edits, and freezes exact wording/version in protected record; receipt/staff details show stored text and do not retrofit older records. Liability version changed, donor version/source originals unchanged. No legal approval presumed: new wording is proposed, actual adulthood/guardianship unverified, child unable to sign uses team arrangements. No live collection, Google activation, hosted migration/keys/permission change or deployment in this revision; current public release below remains unchanged.
+
+75 tests, lint/build/types/format, actual-component browser flow and24-route preview smoke pass. Eight certification size/theme combinations no overflow; original DOCX full parity passes. Impeccable clarified familiar Corva labels/required checkbox, without redesign. Synthetic preview proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-child-guardian-preview.png. See docs/forms-workflow.md for certification scope and Virginia review references. Owner/legal exact-version approval and operational activation remain outstanding.
+
 ## Emergency-contact autofill correction released (October 9, 2026)
 
 Source 510d84cb2a924e689c13f6eb272e1ce5ddb272b9; Vercel dpl_BcJWCRBZKwXhX8begtapQbBUi8rH Ready in 23s, envet.info assigned. Immutable envet-gqjl2fka2-ryanverweys-projects.vercel.app. Exact-source CI 38005091833 and 38005085425 successful. Node 22.x and Standard Protection unchanged. Live 15-public/9-private route, media, discovery and redirect probes pass. Prior healthy dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR/source 8041d13 is rollback candidate, not exercised.
@@ -75,4 +81,3 @@ Independent GPT-6 Astra correction review accepts the prepared local increment o
 User explicitly repeated deploy/configure envet.info. Current candidate 064897f25f7e15692522d03cdb9561454a4cc752/PR45 has both GitHub checks successful. DNS remains ready (A216.198.79.1; www CNAME envet.info). Vercel browser access available; existing envet project now connected to RyanVerWey/ENVET, Next.js preset/Node22 saved, production tracks codex/envet-owner-preview. Automatic Git deployment remains disabled in vercel.json.
 
 Production-only Config variables saved: SITE_URL=https://envet.info; SITE_APPROVED_FOR_LAUNCH=true; CONTENT_AND_MEDIA_APPROVED=false; FORM_COLLECTION_ENABLED=false. No deployment/merge or data activation. Asked for four-image rights/depicted-person consent or release without uncleared media; answer still required. No credential-access blocker remains; optional Vercel connector suggestion is not evidence of installed/connected status. See latest section of docs/launch-runbook.md for exact state and next verification.
-
