@@ -1,5 +1,5 @@
 ---
-updated: "2026-10-09T22:08:23Z"
+updated: "2026-10-09T22:31:48Z"
 ---
 ## Current owner-review revision
 
@@ -39,3 +39,10 @@ Final local checks: 46 tests/8 files, lint, build, types, format, source parity,
 
 Independent review rejected two SQL defects, corrected before release: common per-form lock now precedes review/attendance identity invariant reads; new attendance locks a published service row while prior matching nonce replay remains valid after archival. Local regressions prove service rejection and immutable identity after attendance; they do not substitute for hosted concurrent sessions. Further UI refresh correction clears old hidden-record warning on successful recovery. Exact frozen code/schema/test/config manifest v2 is outside repo at C:/Users/verwe/.codex/envet-forms-review-manifest-v2.json, digest a0990d4f29916bceb5b6282cd44abe8af2aa47952ee0911dd412ac47013a1881 (44 entries). GitHub #46 stays open for live gates.
 Independent GPT-6 Astra correction review accepts the prepared local increment only: all44file hashes and canonical aggregate digest match,21forms tests/source parity/production smoke/refresh recovery verified. Report C:/Users/verwe/.codex/envet-forms-correction-qc.json. No new blockers; live/legal/recovery/launch gates remain open. Technical acceptance does not permit collection activation.
+
+
+## Latest production preparation (October 9, 2026)
+
+User explicitly repeated deploy/configure envet.info. Current candidate 064897f25f7e15692522d03cdb9561454a4cc752/PR45 has both GitHub checks successful. DNS remains ready (A216.198.79.1; www CNAME envet.info). Vercel browser access available; existing envet project now connected to RyanVerWey/ENVET, Next.js preset/Node22 saved, production tracks codex/envet-owner-preview. Automatic Git deployment remains disabled in vercel.json.
+
+Production-only Config variables saved: SITE_URL=https://envet.info; SITE_APPROVED_FOR_LAUNCH=true; CONTENT_AND_MEDIA_APPROVED=false; FORM_COLLECTION_ENABLED=false. No deployment/merge or data activation. Asked for four-image rights/depicted-person consent or release without uncleared media; answer still required. No credential-access blocker remains; optional Vercel connector suggestion is not evidence of installed/connected status. See latest section of docs/launch-runbook.md for exact state and next verification.

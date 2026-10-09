@@ -1,6 +1,6 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-10-09T21:17:40Z"
+updated: "2026-10-09T22:31:48Z"
 ---
 # Owner review, Vercel launch, and rollback
 
@@ -91,3 +91,16 @@ Hosted M6 migrations are applied (20261009210844 and 20261009210926); grants/RLS
 User authorized connecting and deploying the current website to envet.info. This supersedes the earlier no-public-launch instruction for that domain. Candidate commit is 0975e6d on codex/envet-owner-preview (PR #45), with both GitHub checks passing. A future .org is reportedly transferring from Wix to GoDaddy; its exact hostname was not supplied. Do not modify or guess it; envet.info remains the requested launch domain.
 
 Deployment authority is not a factual assertion of copyright ownership or pictured-person consent. All four current entries in docs/media-manifest.json still have publicApproved false: logo, horse, farm and connection images. Obtain explicit owner clearance for these entries before changing the media manifest or CONTENT_AND_MEDIA_APPROVED. No flags or hosting settings were changed in response to the authorization alone. Google login, inquiry collection and analytics remain unconfigured/disabled until their credential and real-account/backup activation checks pass; website publication does not require silently activating them.
+
+
+## Deployment preparation, October 9, 2026 (latest)
+
+User again requested deployment/configuration on envet.info. Candidate 064897f25f7e15692522d03cdb9561454a4cc752 on codex/envet-owner-preview/PR45 has both GitHub Review checks successful. Public DNS still resolves apex A to 216.198.79.1 and www CNAME to envet.info; no DNS writes were needed.
+
+Vercel in-app browser access worked after navigation. Connected existing RyanVerWey/ENVET GitHub repository to existing envet project; saved Next.js framework preset and Node 22.x. Production branch tracking now targets codex/envet-owner-preview, not the obsolete main implementation. Existing vercel.json still disables automatic Git deployments. No repository merge or deployment was initiated.
+
+Saved four production-only Config variables: SITE_URL=https://envet.info; SITE_APPROVED_FOR_LAUNCH=true (explicit user authority); CONTENT_AND_MEDIA_APPROVED=false (pending per-asset rights/consent); FORM_COLLECTION_ENABLED=false (separate signed-form activation gate). No secrets, Google provider changes, database migrations, or purchases. Vercel confirmed successful configuration saves. These values require a new deployment before affecting a served artifact.
+
+Remaining publication dependency: explicit clearance for all four existing Facebook-sourced assets (ENVET logo, horse/fence, farm/two people, rider/handler), including depicted-person/guardian consent as applicable, or user selection of a release that excludes uncleared assets. A question was presented; no clearance answer was received during preparation. Do not invent approval evidence or set the media flag true before resolving this. Protected form signing remains disabled independently.
+
+No live website or completed HTTPS/routing verification is claimed. After clearance, update per-asset manifest evidence, deploy the exact reviewed revision, verify READY artifact/source, apex HTTPS, www redirect, public routes/canonical/robots/sitemap/RSS, and private form/team access denial. First deployment has no prior known-good artifact: retain its immutable commit/deployment ID; restrict/unpublish an unsafe first release rather than pretending instant rollback has a predecessor. Future .org remains unspecified and untouched.
