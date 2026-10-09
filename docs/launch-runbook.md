@@ -1,12 +1,12 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-10-09T22:31:48Z"
+updated: "2026-10-09T22:48:06Z"
 ---
 # Owner review, Vercel launch, and rollback
 
 ## Current state
 
-Owner review remains local; no website deployment is live. Vercel project envet and envet.info/www.envet.info DNS are now prepared under explicit October 9 user authorization. `vercel.json` disables Git-triggered deployments using the documented `git.deploymentEnabled: false` setting. [Vercel Git configuration](https://vercel.com/docs/project-configuration/git-configuration).
+Public website is live at https://envet.info under explicit October 9 user authorization and media clearance. Current immutable release and verification are recorded below. Historical preparation notes are retained for provenance. `vercel.json` disables Git-triggered deployments using the documented `git.deploymentEnabled: false` setting. [Vercel Git configuration](https://vercel.com/docs/project-configuration/git-configuration).
 
 ## Review without a live URL
 
@@ -93,7 +93,7 @@ User authorized connecting and deploying the current website to envet.info. This
 Deployment authority is not a factual assertion of copyright ownership or pictured-person consent. All four current entries in docs/media-manifest.json still have publicApproved false: logo, horse, farm and connection images. Obtain explicit owner clearance for these entries before changing the media manifest or CONTENT_AND_MEDIA_APPROVED. No flags or hosting settings were changed in response to the authorization alone. Google login, inquiry collection and analytics remain unconfigured/disabled until their credential and real-account/backup activation checks pass; website publication does not require silently activating them.
 
 
-## Deployment preparation, October 9, 2026 (latest)
+## Deployment preparation, October 9, 2026 (before clearance)
 
 User again requested deployment/configuration on envet.info. Candidate 064897f25f7e15692522d03cdb9561454a4cc752 on codex/envet-owner-preview/PR45 has both GitHub Review checks successful. Public DNS still resolves apex A to 216.198.79.1 and www CNAME to envet.info; no DNS writes were needed.
 
@@ -104,3 +104,19 @@ Saved four production-only Config variables: SITE_URL=https://envet.info; SITE_A
 Remaining publication dependency: explicit clearance for all four existing Facebook-sourced assets (ENVET logo, horse/fence, farm/two people, rider/handler), including depicted-person/guardian consent as applicable, or user selection of a release that excludes uncleared assets. A question was presented; no clearance answer was received during preparation. Do not invent approval evidence or set the media flag true before resolving this. Protected form signing remains disabled independently.
 
 No live website or completed HTTPS/routing verification is claimed. After clearance, update per-asset manifest evidence, deploy the exact reviewed revision, verify READY artifact/source, apex HTTPS, www redirect, public routes/canonical/robots/sitemap/RSS, and private form/team access denial. First deployment has no prior known-good artifact: retain its immutable commit/deployment ID; restrict/unpublish an unsafe first release rather than pretending instant rollback has a predecessor. Future .org remains unspecified and untouched.
+
+## Live production release, October 9, 2026
+
+ENVET is live at https://envet.info. User explicitly authorized deployment and confirmed the existing logo and all three Facebook photos by replying 'use them, its fine' to the rights/pictured-person/guardian consent question. Each approved asset records source, reviewer, date and that evidence in docs/media-manifest.json; the excluded child image remains excluded.
+
+Final deployed source: 1db4ceda7a0cf6e10f45b63ddd08310008ad119c, codex/envet-owner-preview/PR45. Vercel production deployment dpl_FKGUTk6yzwPtR3PNuhZFGUEEXYvQ, https://vercel.com/ryanverweys-projects/envet/FKGUTk6yzwPtR3PNuhZFGUEEXYvQ, is Ready; envet.info is assigned. Immutable deployment hostname: envet-chhejt7xf-ryanverweys-projects.vercel.app. Dashboard runtime is 22.x; framework Next.js; Standard Protection retained. package.json and lockfile pin 22.x because the former >=22 constraint caused Vercel to override the saved dashboard runtime with 24.x. Local runtime is24; hosted CI uses22. Both final GitHub Review checks passed, including browser regression, build/types and owner-preview smoke. 55 local tests and approved production build/lint/types/format pass.
+
+Production configuration: SITE_URL=https://envet.info, SITE_APPROVED_FOR_LAUNCH=true, CONTENT_AND_MEDIA_APPROVED=true, FORM_COLLECTION_ENABLED=false. No Supabase/OAuth/encryption credentials were added; no migration, staff grant, customer submission, analytics activation or purchase. This launch is the public website, not activation of databased signing or Google interactions. Google/team/inquiry and signed-form legal/auth/recovery gates remain open. Forms visibly state signing is disabled. The future .org remains unspecified and untouched.
+
+Read-only live probes (brain session run -- node scripts/check-production.mjs) pass on the final domain:15 public routes200, canonical envet.info URLs and parseable structured data;9 form/account/team routes no-store and noindex with no canonical;www/visit308 to apex/visit;HTTP upgrades to HTTPS;3 legacy redirects308;15 sitemap locations,3 RSS articles;4 approved original images, optimized image and OpenGraph image200;unknown/draft404. Team/account use HTML robots noindex even without database config; forms additionally carry X-Robots-Tag. The probe normalizes root URL slashes because Next renders the root canonical without a trailing slash. No fake metrics or sensitive test submissions.
+
+Live browser evidence: desktop home and 390px home/visit have no horizontal overflow; theme toggles mint-light/mint-dark;mobile menu opens and visit navigation closes it;temporary pre-visit checks update2/10 via pointer and keyboard, then reset0/10. Default viewport and original light preference restored. Form hub shows disabled signing. This is targeted launch QA, not a complete WCAG or cross-browser certification. Proof images at C:/Users/verwe/.codex/artifacts/envet-deployment/envet-live.png and vercel-live-node22.png.
+
+Previous verified healthy deployment: dpl_2UAKZx2zvr32oB13W1u1Rx7YWSFt from c3e5113969448aedd65d0e57baa9105ff7d1bb7b, immutable hostname envet-bfcfukn7i-ryanverweys-projects.vercel.app (Node24). It passed the public/private/redirect/SEO/image live checks before Node22 pinning. Both releases share the same content/schema/collection-disabled configuration; no data migration or irreversible writes occurred. For failed public routes, broken canonical/redirects, or exposed private content, pause releases and use the owner Vercel account to promote this known-good deployment; then rerun production probes. For an exposure, restrict/unpublish first and investigate rather than relying on noindex. Actual rollback was not exercised. Check deployment retention before relying on older releases (project currently shows30-day retention).
+
+Git remains connected but automatic Git deployments are intentionally disabled in vercel.json. Manual release procedure:verify the exact pushed commit's CI checks, choose Create Deployment with its full SHA, confirm Production target, wait for Ready, verify source/runtime/domain, then run the production probe. Do not deploy the obsolete main branch. Real data stays disabled until its separate activation workflow is accepted. Search Console ownership/sitemap submission and long-term monitoring are not completed by this publication; no search ranking/indexing/AI citation guarantee is made.

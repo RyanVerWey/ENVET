@@ -29,8 +29,11 @@ for (const path of publicRoutes) {
   );
   const html = await response.text();
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, path);
-  assert.ok(
-    html.includes(`rel="canonical" href="${origin}${path}"`),
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)"/);
+  assert.ok(canonical, `${path}: canonical present`);
+  assert.equal(
+    new URL(canonical[1]).href,
+    new URL(path, origin).href,
     `${path}: canonical`,
   );
   assert.doesNotMatch(
@@ -45,6 +48,7 @@ for (const path of publicRoutes) {
   console.log(`PASS public ${path}: HTTPS, canonical, HTML, structured data`);
 }
 for (const path of [
+  "/forms",
   "/forms/pre-visit",
   "/forms/liability",
   "/forms/donation",
@@ -57,8 +61,10 @@ for (const path of [
   const response = await fetch(origin + path);
   assert.equal(response.status, 200, path);
   assert.match(response.headers.get("cache-control") || "", /no-store/, path);
-  assert.match(response.headers.get("x-robots-tag") || "", /noindex/, path);
   const html = await response.text();
+  assert.match(html, /name="robots" content="[^"]*noindex/, path);
+  if (path.startsWith("/forms"))
+    assert.match(response.headers.get("x-robots-tag") || "", /noindex/, path);
   assert.doesNotMatch(html, /rel="canonical"/, path);
   console.log(`PASS private ${path}: no-store, noindex, no canonical`);
 }
@@ -77,6 +83,9 @@ for (const [path, target] of [
 const www = await fetch("https://www.envet.info/visit", { redirect: "manual" });
 assert.equal(www.status, 308, "www redirect");
 assert.equal(www.headers.get("location"), `${origin}/visit`);
+const http = await fetch("http://envet.info/visit", { redirect: "manual" });
+assert.ok([307, 308].includes(http.status), "HTTP redirects to HTTPS");
+assert.equal(http.headers.get("location"), `${origin}/visit`);
 const robots = await (await fetch(origin + "/robots.txt")).text();
 assert.match(robots, /Allow: \//);
 assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`));

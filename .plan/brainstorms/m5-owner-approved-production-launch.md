@@ -5,7 +5,7 @@ slug: m5-owner-approved-production-launch
 status: active
 title: M5 Owner approved production launch
 type: brainstorm
-updated_at: "2026-10-09T22:31:41Z"
+updated_at: "2026-10-09T22:48:06Z"
 ---
 
 # Brainstorm: M5 Owner approved production launch
@@ -47,6 +47,8 @@ Launch becomes an explicit business acceptance event, not an automatic consequen
 - October 9: user explicitly requested new Vercel project. Created empty envet in ryanverweys-projects; attached envet.info (Production) and www.envet.info (308 to apex). GoDaddy A @ changed to Vercel-required 216.198.79.1, TTL 600; valid www CNAME to envet.info retained. Authoritative/public DNS and Vercel proper-configuration status verified. No Git connection or site deployment; owner/content/media release approval remains required. See docs/launch-runbook.md.
 
 - October 9 latest deployment request: explicit envet.info launch authority recorded. Candidate 064897f/PR45 has both CI checks passing. Existing Vercel envet now connected to RyanVerWey/ENVET, Next.js/Node22 configured, production tracks codex/envet-owner-preview, SITE_URL=https://envet.info and site approval true saved. Automatic Git builds remain disabled; content/media approval false and form collection false. Publication is waiting only on four-image rights/consent confirmation or user choice to exclude uncleared assets; no deployment or completed launch checks claimed. Preserve separate legal/auth/encryption gates. Details in docs/launch-runbook.md.
+
+- October 9 production launch completed on envet.info after explicit four-asset clearance. Ready Vercel dpl_FKGUTk6yzwPtR3PNuhZFGUEEXYvQ from1db4ced/PR45, Next.js/Node22;both CI checks passed. Live production probes pass15 public routes,9 private no-store/noindex routes,HTTPS/www/legacy redirects,sitemap15/feed3,media/OG/404. Mobile/theme/menu/temporary-checklist interactions verified. Signed collection, Google/team/inquiry activation remain disabled;future .org untouched. Git auto deploy remains disabled;manual reviewed-SHA release runbook and prior healthy rollback candidate recorded. Search Console/long-term monitoring remain follow-ups. See docs/launch-runbook.md.
 ## Raw Notes
 
 ## Refinement

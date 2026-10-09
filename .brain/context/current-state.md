@@ -1,7 +1,13 @@
 ---
-updated: "2026-10-09T22:31:48Z"
+updated: "2026-10-09T22:48:06Z"
 ---
-## Current owner-review revision
+## Current live production state (October 9, 2026)
+
+Website live at https://envet.info;www308 to apex and HTTP-to-HTTPS pass. User explicitly approved publication and existing four assets;per-asset rights/consent evidence in docs/media-manifest.json. Final Vercel Ready deployment dpl_FKGUTk6yzwPtR3PNuhZFGUEEXYvQ from1db4ceda7a0cf6e10f45b63ddd08310008ad119c/PR45, Next.js/Node22.x. Both CI checks successful;55 tests and final read-only production probes pass. Fifteen public pages indexable/canonical;9 private pages no-store/noindex;15 sitemap locations/3 RSS items;images/optimized/OG/404s/redirects verified. Mobile home/visit and theme/menu/checklist interaction checks pass.
+
+Production flags true for site/content/media, FORM_COLLECTION_ENABLED=false. No credentials, Google activation, form migration, staff grants, records or analytics collection activated. Signed forms remain disabled for separate legal/auth/encryption/recovery approval. This is a live public website, not a live data platform. Future .org remains untouched. Git auto-deploy stays disabled;manual exact-SHA releases required. Runtime pin corrects Vercel engines precedence. Prior healthy deployment dpl_2UAKZx2zvr32oB13W1u1Rx7YWSFt/c3e5113 retained as rollback candidate;rollback not exercised. Search Console/monitoring follow-ups remain. See docs/launch-runbook.md latest release section. Historical notes below describe earlier gates, not current publication state.
+
+## Historical owner-review revision
 
 Branch codex/envet-owner-preview, PR #45. Owner rejected the initial design as unprofessional and requested accented animation, tasteful glassmorphism and a premium complete feel. Revised the full visual system: Source Sans 3 sentence-case typography, complete organization wordmark, wide authentic photography, mission/visit/donation composition, inner-page copy, featured blog layout, limited glass navigation/photo caption, CSS entrance/scroll/interaction motion and reduced-motion fallbacks. See DESIGN.md.
 
