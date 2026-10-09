@@ -56,6 +56,41 @@ export default function Privacy() {
             comments and review reports. Google and Supabase process sign-in
             information under their own service terms.
           </p>
+          <h2>Signed guest and horse-candidate forms</h2>
+          <p>
+            Forms remain previews until document approval and activation checks
+            are complete. When enabled, forms require Google sign-in and collect
+            the details in ENVET’s supplied documents, initials where requested,
+            typed or drawn signatures, electronic consent and submission time.
+            The guest form includes emergency contacts and a separate parent or
+            lawful guardian flow for minors. The horse form includes animal
+            history, care and optional current-rider information—not a veteran’s
+            medical intake. The submitting adult’s Google account and email
+            accompany the record; sign-in is not independent proof of identity
+            or guardian authority.
+          </p>
+          <p>
+            Signed content is encrypted server-side and kept in private database
+            records. The submitting account and currently authorized ENVET staff
+            may retrieve it. Staff document access and review changes are
+            audited. Signed records are retained indefinitely, including after
+            account removal, with deletion only after explicit administrative
+            authorization. Routine staff screens have no signed-record delete
+            action. Backup copies have a separate recovery/expiry policy;
+            deleting an active record does not erase existing backups or revoke
+            a release. No form draft is saved in browser storage. Copies you
+            choose to save or print contain personal information and should be
+            kept private.
+          </p>
+          <p>
+            Staff may separately record completed visits and horse evaluations.
+            Program charts use aggregated activity without names, contact
+            details, signatures or health descriptions. Signing forms are not
+            counted as visits, donations or clinical outcomes. Forms, receipts,
+            accounts and team pages are excluded from first-party page counting.
+            Ask ENVET about paper alternatives, corrections, revocation or an
+            authorized deletion request.
+          </p>
           <h2>Anonymous page counts</h2>
           <p>
             {communityEnabled

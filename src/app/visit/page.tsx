@@ -193,7 +193,8 @@ export default async function Visit() {
           <p>
             Read our{" "}
             <Link href="/blog/first-visit-to-envet">first-visit guide</Link> or
-            reach out directly.
+            reach out directly. When the team asks you to complete a release,
+            use the <Link href="/forms/liability">guest form</Link>.
           </p>
         </div>
         <Action href="/contact">All contact options</Action>

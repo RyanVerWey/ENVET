@@ -1,6 +1,6 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-09T21:10:41Z"
+updated: "2026-10-09T22:08:23Z"
 ---
 # ENVET owner-review verification
 
@@ -84,3 +84,15 @@ Actual anonymous PostgREST checks with the public publishable key: horses/servic
 Three uncovered user foreign-key indexes were added; the follow-up performance advisor no longer reports them. Remaining notices are INFO: [eight intentional deny-by-default no-policy tables](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy), [unused indexes on an empty new schema](https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index), and [Auth fixed connection allocation](https://supabase.com/docs/guides/deployment/going-into-prod). Do not weaken grants/RLS or remove needed indexes merely to silence notices. Review Auth allocation when sizing production. No security ERROR/WARN was returned at this inspection.
 
 GitHub CI now runs isolated browser regressions in addition to the existing tests/build/types/HTTP smoke. CI results for the new push must be reported separately; local passes do not prove a remote run. Echo final integration review covers exact migration/history alignment, additive indexes, CI step and this handoff boundary.
+## Protected forms / honest attendance increment, October 9, 2026
+
+Plan #46 and docs/forms-workflow.md define scope. Both supplied DOCX originals unchanged; independent structural/hash/body/header/footer parity passes via scripts/check-form-sources.ps1. Digital layout adapted; original source visual rendering could not run because bundled LibreOffice absent. Preserve wording pending owner/legal approval, particularly legacy liability language/minors/photo release/electronic intent.
+
+Parent Brain-recorded: 46 tests/8 files, lint, optimized build, types, format, existing team browser regressions, source parity and production-build HTTP smoke pass. HTTP covers18 ordinary routes/19internal targets and five private no-store/noindex pages. Dev server cache-control is Next's no-cache; production-build loopback3002 verifies no-store. No public deployment.
+
+Actual signing UI: synthetic donation6steps to disabled final review; guest minor4steps,16guest+guardian opening initials, separate typed signatures, consent and complete review disabled final. Hand drawing retained a bounded stroke, clear removed it. Keyboard completion tested because native default-click transport was inconsistent; this is not a passed universal pointer/real-user test. Signing width320/390 measured no page overflow in dark theme. Synthetic exact-component queue confirmed-write/refresh503 hides rows/details, refresh retrieves without replay and clears old warning; receipt403 shows no thank-you; synthetic success renders source/fields/signatures and save/print controls. Real Corva charts render populated aggregates/tables and reviewers check320dark/reduced motion. No real signer or attendance in fixture.
+
+Independent release review initially rejected participant-relink concurrency and unpublished-service attendance. Correction uses shared per-form guard before fresh invariants plus published service FOR SHARE lock, leaving matching prior nonce replay valid after archival. Local SQL regressions pass; concurrency fix established by lock/interleaving review, not actual hosted multi-session experiment. Missing committed UUID fails503, spoofed kind review400, duplicate/replay/conflict/wrong-key/access denial/account removal/void corrections tested. Exact v2 manifest44entries digest a0990d4f29916bceb5b6282cd44abe8af2aa47952ee0911dd412ac47013a1881; hash canonicalization sorted path:lowercase-sha256 lines joined LF with no trailing LF, UTF8 SHA256.
+
+New forms migration local only. No keys, Google activation, hosted forms records or deployment. Gates: final independent verdict, owner/legal exact version/consent approval, key lifecycle and restore exercise, hosted migration/grants/RLS/concurrency, real Google account and staff bootstrap, own/other/revoked access, successful receipt/retry/review/visit/void, production/media/privacy acceptance. Indefinite signed retention has no routine deletion; explicit operator purge must include authorized scope, audit/recovery and backup implications. No legal validity or complete accessibility/security claim.
+Independent GPT-6 Astra correction review accepts the prepared local increment only: all44file hashes and canonical aggregate digest match,21forms tests/source parity/production smoke/refresh recovery verified. Report C:/Users/verwe/.codex/envet-forms-correction-qc.json. No new blockers; live/legal/recovery/launch gates remain open. Technical acceptance does not permit collection activation.

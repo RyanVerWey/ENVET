@@ -11,6 +11,9 @@ const routes = [
   "/gallery",
   "/blog",
   "/privacy",
+  "/forms",
+  "/forms/liability",
+  "/forms/donation",
   "/editorial-policy",
   "/blog/first-visit-to-envet",
   "/blog/questions-families-can-ask",
@@ -19,6 +22,18 @@ const routes = [
   "/blog/category/for-families",
   "/blog/category/supporting-the-mission",
 ];
+for (const route of [
+  "/forms/liability",
+  "/forms/donation",
+  "/forms/receipt",
+  "/team/forms",
+  "/team/impact",
+]) {
+  const response = await fetch(origin + route);
+  assert.equal(response.status, 200, route);
+  assert.match(response.headers.get("cache-control") || "", /no-store/, route);
+  assert.match(response.headers.get("x-robots-tag") || "", /noindex/, route);
+}
 const internal = new Set();
 for (const route of routes) {
   const response = await fetch(origin + route);

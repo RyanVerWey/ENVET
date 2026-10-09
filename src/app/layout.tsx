@@ -3,6 +3,7 @@ import { Source_Sans_3 } from "next/font/google";
 import "@corvaui/tokens/css";
 import "@corvaui/react/styles.css";
 import "./globals.css";
+import "./forms.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { PageCounter } from "@/components/page-counter";

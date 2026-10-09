@@ -1,5 +1,5 @@
 ---
-updated: "2026-10-09T21:11:36Z"
+updated: "2026-10-09T22:08:23Z"
 ---
 ## Current owner-review revision
 
@@ -22,3 +22,20 @@ Prepared community/team code passed independent GPT-6 Astra local review against
 Hosted additive migrations 20261009210844 community_workspace and 20261009210926 community_foreign_key_indexes are applied; local filenames match remote history. All 10 tables have RLS, catalog security audit passes, zero application RPCs permit anonymous/member execution. Anonymous REST published reads200, direct comments401/private inquiry404/staff RPC401. Staff, inquiries, comments and profile tables remain empty. INFO no-policy notices are intentional service-only denial; unused indexes reflect empty schema; Auth connection allocation is a production-sizing follow-up. No secrets/provider activation/staff grants or collection/deployment occurred.
 
 Retrospective: missing-config tests hid an OAuth loopback-origin bug; configured callback regression now tests localhost/127 normalization. Build-only readiness missed moderation paging and refresh recovery; carry those exact-component and 101-record regression tests into CI. Final hosted integration evidence and remaining activation gates are in docs/verification.md. M6 issues remain open until live/owner gates pass.
+
+
+## Latest launch authorization
+
+October 9: user explicitly authorized connection/deployment to envet.info, superseding earlier publication restriction for that domain. Future unspecified .org remains untouched during Wix-to-GoDaddy transfer. Current candidate0975e6d/PR45 passed both GitHub checks. Four media entries remain uncleared; request exact logo/photo rights and depicted-person consent before changing approval flags or publishing. Community credentials/live-account/backup gates still apply independently; no deployment or hosting mutations attempted yet. See docs/launch-runbook.md.
+## Protected forms increment (October 9, 2026)
+
+User requested both supplied blank DOCX forms digitally, then DocuSign-like signing. Plan-promoted #46 sits in existing M6 Funded data and growth platform; execution mirror .plan/specs/protected-signed-forms-and-attendance-reporting.md. Prepared guided steps/initials/typed or drawn signatures, conditional guardian flow, final review, confirmed private receipt/export, encrypted immutable evidence, current-staff private review queue and separate audited actual attendance. CorvaUI Chart reports completed participant visits, active/repeat participants, review backlog/first-review time, service mix and horse candidate stage. No waiver-as-visit, health/donation/identity claims. User chose Google-only initial signing; exact liability wording remains disabled for owner/legal review; signed retention indefinite, deletion only with explicit administrative authorization. See docs/forms-workflow.md.
+
+Original files unchanged; body/all extracted parts/tabs/breaks/hash parity pass. Original visual page layout unverified: bundled DOCX renderer lacked LibreOffice. Legacy legal text preserved, not silently repaired or declared valid. Source photo release grants no rights clearance for existing website media.
+
+Both forms remain collection-disabled. Forms migration 20261009212532 is LOCAL ONLY, not applied to hosted Supabase. No encryption keys, Google provider activation, staff bootstrap, customer submissions, or deployment. Owner/legal/version approval, server keys/recovery, hosted migration/catalog/concurrency tests, real Google submission/access/revocation tests and media launch gates remain open. Local prepared-code evidence must not be described as live databased signing.
+
+Final local checks: 46 tests/8 files, lint, build, types, format, source parity, existing team browser regression and production-build loopback HTTP smoke (18 routes/19 internal targets; five private no-store/noindex pages) pass. Development Next overrides HTML cache headers to no-cache; actual production-build test uses port3002 and passes no-store. Synthetic browser fixture isolated under tests, loopback only; sample metrics not ENVET activity. Actual both signing flows reach disabled final review; guardian initials/signatures, drawn stroke and clear, typed keyboard, 320/390px reflow verified. Browser native click transport had inconsistent default actions; keyboard completion tested, not a universal pointer/cross-browser assertion.
+
+Independent review rejected two SQL defects, corrected before release: common per-form lock now precedes review/attendance identity invariant reads; new attendance locks a published service row while prior matching nonce replay remains valid after archival. Local regressions prove service rejection and immutable identity after attendance; they do not substitute for hosted concurrent sessions. Further UI refresh correction clears old hidden-record warning on successful recovery. Exact frozen code/schema/test/config manifest v2 is outside repo at C:/Users/verwe/.codex/envet-forms-review-manifest-v2.json, digest a0990d4f29916bceb5b6282cd44abe8af2aa47952ee0911dd412ac47013a1881 (44 entries). GitHub #46 stays open for live gates.
+Independent GPT-6 Astra correction review accepts the prepared local increment only: all44file hashes and canonical aggregate digest match,21forms tests/source parity/production smoke/refresh recovery verified. Report C:/Users/verwe/.codex/envet-forms-correction-qc.json. No new blockers; live/legal/recovery/launch gates remain open. Technical acceptance does not permit collection activation.

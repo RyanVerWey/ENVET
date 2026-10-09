@@ -7,7 +7,12 @@ export function PageCounter({ enabled }: { enabled: boolean }) {
   const path = usePathname();
   const last = useRef<string | null>(null);
   useEffect(() => {
-    if (!enabled || last.current === path) return;
+    if (
+      !enabled ||
+      last.current === path ||
+      /^\/(forms|team|account|auth|api)(\/|$)/.test(path)
+    )
+      return;
     last.current = path;
     void fetch("/api/analytics/page", {
       method: "POST",

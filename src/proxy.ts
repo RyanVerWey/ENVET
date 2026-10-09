@@ -29,12 +29,19 @@ export async function proxy(request: NextRequest) {
   response.headers.set("Cache-Control", "private, no-store, max-age=0");
   if (
     request.nextUrl.pathname.startsWith("/account") ||
-    request.nextUrl.pathname.startsWith("/team")
+    request.nextUrl.pathname.startsWith("/team") ||
+    request.nextUrl.pathname.startsWith("/forms")
   )
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
   return response;
 }
 
 export const config = {
-  matcher: ["/account/:path*", "/team/:path*", "/api/:path*", "/auth/:path*"],
+  matcher: [
+    "/account/:path*",
+    "/team/:path*",
+    "/forms/:path*",
+    "/api/:path*",
+    "/auth/:path*",
+  ],
 };

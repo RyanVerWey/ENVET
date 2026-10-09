@@ -2,7 +2,7 @@
   "repo": "RyanVerWey/ENVET",
   "repo_url": "https://github.com/RyanVerWey/ENVET",
   "default_branch": "main",
-  "last_updated_at": "2026-09-06T02:26:26Z",
+  "last_updated_at": "2026-10-09T21:24:46Z",
   "stories": {},
   "planning": {
     "add-owner-managed-content-workflow-where-justified": {
@@ -510,6 +510,19 @@
       "milestone_number": 4,
       "milestone_title": "M4 Static build and private owner review",
       "updated_at": "2026-09-06T02:26:00Z"
+    },
+    "protected-signed-forms-and-attendance-reporting": {
+      "slug": "protected-signed-forms-and-attendance-reporting",
+      "kind": "spec",
+      "title": "Protected signed forms and attendance reporting",
+      "issue_number": 46,
+      "issue_url": "https://github.com/RyanVerWey/ENVET/issues/46",
+      "remote_state": "open",
+      "readiness": "ready",
+      "ownership_mode": "github",
+      "entry_mode": "local_promotion",
+      "source_mode": "local",
+      "updated_at": "2026-10-09T21:24:46Z"
     },
     "record-explicit-owner-production-approval": {
       "slug": "record-explicit-owner-production-approval",

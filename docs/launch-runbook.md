@@ -1,6 +1,6 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-10-09T21:11:37Z"
+updated: "2026-10-09T21:17:40Z"
 ---
 # Owner review, Vercel launch, and rollback
 
@@ -85,3 +85,9 @@ Before activation, follow docs/google-auth-setup.md; confirm the already-applied
 
 
 Hosted M6 migrations are applied (20261009210844 and 20261009210926); grants/RLS/catalog and anonymous REST negatives pass. No Google provider credentials, initial staff grants, real inquiry collection or deployment were activated. The local increment passed independent review; its live-user, backup, privacy/media and launch gates remain open. See docs/verification.md and docs/google-auth-setup.md.
+
+## Explicit deployment authority, October 9, 2026
+
+User authorized connecting and deploying the current website to envet.info. This supersedes the earlier no-public-launch instruction for that domain. Candidate commit is 0975e6d on codex/envet-owner-preview (PR #45), with both GitHub checks passing. A future .org is reportedly transferring from Wix to GoDaddy; its exact hostname was not supplied. Do not modify or guess it; envet.info remains the requested launch domain.
+
+Deployment authority is not a factual assertion of copyright ownership or pictured-person consent. All four current entries in docs/media-manifest.json still have publicApproved false: logo, horse, farm and connection images. Obtain explicit owner clearance for these entries before changing the media manifest or CONTENT_AND_MEDIA_APPROVED. No flags or hosting settings were changed in response to the authorization alone. Google login, inquiry collection and analytics remain unconfigured/disabled until their credential and real-account/backup activation checks pass; website publication does not require silently activating them.

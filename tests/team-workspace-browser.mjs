@@ -10,6 +10,7 @@ const server = await createServer({
   configFile: false,
   logLevel: "error",
   esbuild: { jsx: "automatic" },
+  optimizeDeps: { entries: ["team-workspace.html"] },
   server: {
     host: "127.0.0.1",
     port: 0,
