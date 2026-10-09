@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 afterEach(() => {
   vi.unstubAllEnvs();
+  vi.doUnmock("../docs/media-manifest.json");
   vi.resetModules();
 });
 
@@ -48,9 +49,27 @@ describe("discovery release states", () => {
     vi.stubEnv("CONTENT_AND_MEDIA_APPROVED", "true");
     vi.stubEnv("SITE_URL", "https://envet.org");
     vi.stubEnv("VERCEL_ENV", "production");
+    vi.doMock("../docs/media-manifest.json", () => ({
+      default: { assets: [{ publicApproved: false }] },
+    }));
     vi.resetModules();
     await expect(import("../next.config")).rejects.toThrow(
       "every deployed image",
     );
+  });
+  it("permits the owner-cleared manifest with approved production configuration", async () => {
+    vi.stubEnv("SITE_APPROVED_FOR_LAUNCH", "true");
+    vi.stubEnv("CONTENT_AND_MEDIA_APPROVED", "true");
+    vi.stubEnv("SITE_URL", "https://envet.info");
+    vi.stubEnv("VERCEL_ENV", "production");
+    vi.resetModules();
+    const media = await import("../docs/media-manifest.json");
+    expect(media.default.assets).toHaveLength(4);
+    for (const asset of media.default.assets) {
+      expect(asset.publicApproved).toBe(true);
+      expect(asset.approvedAt).toBe("2026-10-09");
+      expect(asset.approvalEvidence).toContain("use them, its fine");
+    }
+    await expect(import("../next.config")).resolves.toHaveProperty("default");
   });
 });

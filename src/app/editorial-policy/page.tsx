@@ -16,20 +16,15 @@ export default function Editorial() {
         path="/editorial-policy"
       />
       <section className="wrap legal-layout">
-        <aside>
-          Updated September 6, 2026.
-          <br />
-          Initial articles prepared for owner review.
-        </aside>
+        <aside>Updated October 9, 2026.</aside>
         <div className="prose">
           <h2>Who writes these guides?</h2>
           <p>
             The ENVET website editorial team prepares program information under
             the shared byline “ENVET editorial.” Initial website copy was
             developed with AI assistance from the project brief and ENVET’s
-            official public information. The organization owner must review and
-            approve it before public launch. The byline does not imply a medical
-            qualification.
+            official public information. Initial publication was authorized on
+            October 9, 2026. The byline does not imply a medical qualification.
           </p>
           <h2>Sources you can follow</h2>
           <p>

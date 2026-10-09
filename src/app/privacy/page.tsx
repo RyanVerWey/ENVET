@@ -18,11 +18,7 @@ export default function Privacy() {
         path="/privacy"
       />
       <section className="wrap legal-layout">
-        <aside>
-          Updated October 9, 2026.
-          <br />
-          Owner-review version.
-        </aside>
+        <aside>Updated October 9, 2026.</aside>
         <div className="prose">
           <h2>A human introduction, not medical intake</h2>
           <p>
@@ -134,11 +130,11 @@ export default function Privacy() {
           </p>
           <h2>Hosting and technical records</h2>
           <p>
-            A web host may process routine technical information such as IP
-            addresses and request logs to deliver and protect the site.
-            Production hosting, access controls, backup expiry, and retention
-            settings must be reviewed before launch. No advertising tracker is
-            included in this release.
+            Vercel hosts this website and may process routine technical
+            information such as IP addresses and request logs to deliver and
+            protect it. Hosting records follow the provider’s policies, separate
+            from ENVET’s application records. No advertising tracker is included
+            in this release.
           </p>
           <h2>Accessibility</h2>
           <p>
