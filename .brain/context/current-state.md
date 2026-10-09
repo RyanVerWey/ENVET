@@ -1,5 +1,5 @@
 ---
-updated: "2026-10-09T23:07:43Z"
+updated: "2026-10-09T23:10:42Z"
 ---
 ## Single-open accordion and donor imagery revision (October 9, 2026)
 
@@ -7,7 +7,7 @@ Owner requested every expandable section close its predecessor. All six disclosu
 
 Donation page places approved farm.jpg directly below Know where you are giving. Corva mint styles retained, 3:2 reserved aspect ratio and responsive image sizes avoid layout shift. No new assets or consent assumptions. Impeccable context/brand gates guide narrow composition, not redesign.
 
-Local checks: 57 tests/10 files, lint, build, typecheck, formatting, team browser regression and built-preview smoke pass. Actual built donation page pointer/Enter/Space checks show exactly one open, focus remains on requested summary. Eight 320/768/1280/2560 nominal viewport/theme combinations have no horizontal overflow (effective widths minus scrollbar:305/753/1265/2545) and stable 3:2 image. Full accessibility conformance not claimed; screen-reader/legacy-browser behavior untested. Public update awaits exact-SHA CI and controlled Vercel release; collection remains disabled.
+Local checks: 57 tests/10 files, lint, build, typecheck, formatting, team browser regression and built-preview smoke pass. Actual built donation page pointer/Enter/Space checks show exactly one open, focus remains on requested summary. Eight 320/768/1280/2560 nominal viewport/theme combinations have no horizontal overflow (effective widths minus scrollbar:305/753/1265/2545) and stable 3:2 image. Full accessibility conformance not claimed; screen-reader/legacy-browser behavior untested. Both GitHub checks passed for d7e1e0ef532ada1894382fb75b7824b7296c5aa5; Vercel production dpl_BVWKQe7gj2AVLrLL52naKkCphuf5 is Ready with envet.info assigned, runtime22.x/Standard Protection retained. Live mutual exclusion and farm image verified; full production probe passes. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-donate-accordion.png. Prior healthy22.x release dpl_FKGUTk6yzwPtR3PNuhZFGUEEXYvQ/1db4ced is rollback candidate; no config/schema change. Collection remains disabled.
 
 ## Current live production state (October 9, 2026)
 
