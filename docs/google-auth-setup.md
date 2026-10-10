@@ -1,18 +1,18 @@
 ---
 title: ENVET Google sign-in activation
-updated: "2026-10-10T00:52:55Z"
+updated: "2026-10-10T00:59:49Z"
 ---
 ## Chrome activation and verified owner login (October 9, 2026)
 
 Owner opened working Chrome tabs and completed Google consent/client creation and direct Supabase credential entry. Verified hosted Auth external.google=true, then verified actual production Google login: ENVET account renders You’re signed in and Supabase records one owner-designated user with confirmed email, Google identity, matching provider email and email_verified=true. Operator bootstrapped only that verified UUID into private.staff_members and independently checked membership. The second designated account has not signed in; no fabricated or email-only grant. Do not record personal account identifiers or secrets in public notes.
 
-Supabase Site URL https://envet.info and three exact allowed callbacks are saved: https://envet.info/auth/callback, http://localhost:3001/auth/callback, http://127.0.0.1:3001/auth/callback. No wildcards. Google Web client draft was corrected to production and both local port3001 origins, with only https://rpkxpsnqlhcepyxclgau.supabase.co/auth/v1/callback as Google redirect; owner then created/saved credentials themselves. Standard OpenID/email/profile declarations saved, no sensitive/restricted Google scopes. ENVET homepage/privacy links supplied; Google app remains External/Testing until actual publication confirmation/verification.
+Supabase Site URL https://envet.info and three exact allowed callbacks are saved: https://envet.info/auth/callback, http://localhost:3001/auth/callback, http://127.0.0.1:3001/auth/callback. No wildcards. Saved Google Web client verified with production and both local port3001 origins, and only https://rpkxpsnqlhcepyxclgau.supabase.co/auth/v1/callback as Google redirect; owner created/saved credentials themselves. Standard OpenID/email/profile declarations saved, no sensitive/restricted Google scopes. ENVET homepage/privacy links supplied; Owner explicitly approved identity-only publication; Google Audience now visibly confirms In production. No sensitive/restricted scopes or automatic staff grants.
 
 Saved Vercel Production NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY and AUTH_REDIRECT_ORIGIN=https://envet.info. Redeployed already-verified source fdab66b to dpl_4uud8bim6m2ax71FuGfSUbE42SdC, Ready42s, envet.info assigned, immutable envet-5txg84s3r-ryanverweys-projects.vercel.app. Actual owner callback succeeded on this release. No server secret/rate pepper/encryption settings or collection enablement yet; admin membership exists but team UI needs server-only data configuration.
 
-Created ignored .env.development.local with public auth settings, loopback origin port3001 and collection OFF; no privileged secrets. NextRequest normalizes even request.url from 127.0.0.1 to localhost. OAuth start and finish now preserve the actual local Host only after URL/config validation and strict same-port loopback checks; production ignores Host for redirects. No forwarded-header trust. Regression tests reject wrong ports, outside domains, path/userinfo Host spoofing and unapproved production origins. Actual localhost and 127.0.0.1 port3001 HTTP start probes both return307 to Supabase, preserve their exact callbacks and set PKCE cookies. Full90tests/lint/build/types/format pass. Local-origin code still awaits source commit/CI/release; hosted successful callback above is existing production source.
+Created ignored .env.development.local with public auth settings, loopback origin port3001 and collection OFF; no privileged secrets. NextRequest normalizes even request.url from 127.0.0.1 to localhost. OAuth start and finish now preserve the actual local Host only after URL/config validation and strict same-port loopback checks; production ignores Host for redirects. No forwarded-header trust. Regression tests reject wrong ports, outside domains, path/userinfo Host spoofing and unapproved production origins. Actual localhost and 127.0.0.1 port3001 HTTP start probes both return307 to Supabase, preserve their exact callbacks and set PKCE cookies. Full90tests/lint/build/types/format pass. Local-origin fixes released from exact passing source1fcfc2319b8bdb856573bdb960dd4473d54fc10a after both CI verify checks succeeded (runs38011047595 and38011051866). Deployment dpl_CTjrRYLwbTidkdt4G6Ljukea1BfA Ready28s, envet.info assigned, immutable envet-k1xyyxfnn-ryanverweys-projects.vercel.app. Production15-public/9-private smoke, redirects/discovery/media pass; signed-in owner session survives release. Staff link is still absent pending server-only data settings; no live blog writes or signed intake claimed.
 
-Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-auth-prod-local-redirects-saved.png, envet-vercel-auth-vars-saved.png, envet-auth-first-production-release.png, envet-google-owner-login-verified.png. Never equate successful member sign-in with working staff operations, public Google app publication or protected signed-form collection.
+Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-auth-prod-local-redirects-saved.png, envet-vercel-auth-vars-saved.png, envet-auth-first-production-release.png, envet-google-owner-login-verified.png, envet-google-published.png and envet-auth-local-fix-production.png. Never equate successful member sign-in with working staff operations, public Google app publication or protected signed-form collection.
 ## Activation session and Google project (October 9, 2026)
 
 Owner explicitly requests Google auth activation and selected their already-signed-in personal Google account for project ownership. Created isolated Google Cloud project ENVET, ID envet-511200; Google notification confirms Create Project: ENVET finished. No billing link, paid services, OAuth credential, added scopes, provider activation or staff grants performed. First project-create attempt had unloaded form/resource errors; after recovery verified no ENVET project before the successful second attempt. Do not create another project.
@@ -25,11 +25,11 @@ Seven existing auth/contract route tests and Plan check pass. Build/test mocks a
 
 # ENVET Google sign-in activation
 
-Auth prepared, not activated. Google provider is disabled; no OAuth client exists. Hosted schema migrations are applied and the catalog/anonymous permissions audit passes; this does not prove live login or member/staff workflows. Keep secrets out of chat, issues, source control, screenshots and Brain.
+Google identity sign-in is active and published; see the latest verified activation section above. Hosted schema migrations are applied and the catalog/anonymous permissions audit passes; this does not prove live login or member/staff workflows. Keep secrets out of chat, issues, source control, screenshots and Brain.
 
 ## Owner setup
 
-1. Use an ENVET-controlled Google Cloud project. Configure Google Auth Platform branding and support contact; use External audience for personal Google accounts. Keep private-review testing settings; add intended admins as test users if Google's test controls apply.
+1. Use an ENVET-controlled Google Cloud project. Configure Google Auth Platform branding and support contact; use External audience for personal Google accounts. Identity-only app publication is owner-approved; do not add sensitive scopes or automatic staff promotion.
 2. Scopes: `openid`, `userinfo.email`, `userinfo.profile` only. No Gmail, Drive or calendar access.
 3. Create a Web application OAuth client. Authorized origins must match the actual local development hostname/port and, at approved launch, `https://envet.info`.
 4. Google's redirect URI is exactly `https://rpkxpsnqlhcepyxclgau.supabase.co/auth/v1/callback`—not the website callback.
@@ -44,7 +44,7 @@ Google returns to Supabase `/auth/v1/callback`. Supabase returns to ENVET `/auth
 
 ## Application configuration
 
-URL and publishable key identify the public Supabase client; neither grants privileged access. A secret/service-role key must never use a `NEXT_PUBLIC_` variable. If needed by the implementation, server-only credentials belong in untracked local environment/Vercel encrypted settings. Match auth origin to the local review server (currently `http://127.0.0.1:3001`); use `localhost` consistently if required for Google's development origin. Do not connect public production before release approval.
+URL and publishable key identify the public Supabase client; neither grants privileged access. A secret/service-role key must never use a `NEXT_PUBLIC_` variable. If needed by the implementation, server-only credentials belong in untracked local environment/Vercel encrypted settings. Match auth origin to the local review server (currently `http://127.0.0.1:3001`); use `localhost` consistently if required for Google's development origin. Production connection is now owner-approved and verified.
 
 ## Staff bootstrap and proof
 
@@ -54,7 +54,7 @@ Before collection, verify successful/cancelled login, callback, sign-out, expire
 
 Inquiries persist until staff manually deletes them. Active-table deletion does not immediately purge provider backups/logs; confirm those expiry policies before production collection.
 
-No credentials entered or staff grants made yet. Hosted migration versions are 20261009210844 (community_workspace) and 20261009210926 (community_foreign_key_indexes), matching local migration filenames. Do not reapply them. Live-account verification status must be updated from actual test evidence, never inferred.
+Owner completed credential entry and one verified UUID received an operator staff grant; see current activation evidence above. Hosted migration versions are 20261009210844 (community_workspace) and 20261009210926 (community_foreign_key_indexes), matching local migration filenames. Do not reapply them. Live-account verification status must be updated from actual test evidence, never inferred.
 
 ## Operator-only bootstrap template
 
