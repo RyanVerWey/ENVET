@@ -1,7 +1,18 @@
 ---
 title: ENVET Google sign-in activation
-updated: "2026-10-10T00:39:48Z"
+updated: "2026-10-10T00:52:55Z"
 ---
+## Chrome activation and verified owner login (October 9, 2026)
+
+Owner opened working Chrome tabs and completed Google consent/client creation and direct Supabase credential entry. Verified hosted Auth external.google=true, then verified actual production Google login: ENVET account renders You’re signed in and Supabase records one owner-designated user with confirmed email, Google identity, matching provider email and email_verified=true. Operator bootstrapped only that verified UUID into private.staff_members and independently checked membership. The second designated account has not signed in; no fabricated or email-only grant. Do not record personal account identifiers or secrets in public notes.
+
+Supabase Site URL https://envet.info and three exact allowed callbacks are saved: https://envet.info/auth/callback, http://localhost:3001/auth/callback, http://127.0.0.1:3001/auth/callback. No wildcards. Google Web client draft was corrected to production and both local port3001 origins, with only https://rpkxpsnqlhcepyxclgau.supabase.co/auth/v1/callback as Google redirect; owner then created/saved credentials themselves. Standard OpenID/email/profile declarations saved, no sensitive/restricted Google scopes. ENVET homepage/privacy links supplied; Google app remains External/Testing until actual publication confirmation/verification.
+
+Saved Vercel Production NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY and AUTH_REDIRECT_ORIGIN=https://envet.info. Redeployed already-verified source fdab66b to dpl_4uud8bim6m2ax71FuGfSUbE42SdC, Ready42s, envet.info assigned, immutable envet-5txg84s3r-ryanverweys-projects.vercel.app. Actual owner callback succeeded on this release. No server secret/rate pepper/encryption settings or collection enablement yet; admin membership exists but team UI needs server-only data configuration.
+
+Created ignored .env.development.local with public auth settings, loopback origin port3001 and collection OFF; no privileged secrets. NextRequest normalizes even request.url from 127.0.0.1 to localhost. OAuth start and finish now preserve the actual local Host only after URL/config validation and strict same-port loopback checks; production ignores Host for redirects. No forwarded-header trust. Regression tests reject wrong ports, outside domains, path/userinfo Host spoofing and unapproved production origins. Actual localhost and 127.0.0.1 port3001 HTTP start probes both return307 to Supabase, preserve their exact callbacks and set PKCE cookies. Full90tests/lint/build/types/format pass. Local-origin code still awaits source commit/CI/release; hosted successful callback above is existing production source.
+
+Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-auth-prod-local-redirects-saved.png, envet-vercel-auth-vars-saved.png, envet-auth-first-production-release.png, envet-google-owner-login-verified.png. Never equate successful member sign-in with working staff operations, public Google app publication or protected signed-form collection.
 ## Activation session and Google project (October 9, 2026)
 
 Owner explicitly requests Google auth activation and selected their already-signed-in personal Google account for project ownership. Created isolated Google Cloud project ENVET, ID envet-511200; Google notification confirms Create Project: ENVET finished. No billing link, paid services, OAuth credential, added scopes, provider activation or staff grants performed. First project-create attempt had unloaded form/resource errors; after recovery verified no ENVET project before the successful second attempt. Do not create another project.

@@ -58,3 +58,25 @@ export function originMatchesConfig(
     return false;
   }
 }
+
+export function oauthRequestOrigin(
+  requestUrl: string,
+  requestHost: string | null,
+  configuredOrigin: string,
+): string | null {
+  const requestOrigin = new URL(requestUrl).origin;
+  if (!originMatchesConfig(requestOrigin, configuredOrigin)) return null;
+  if (!configuredOrigin.startsWith("http:")) return requestOrigin;
+  // NextRequest normalizes loopback URLs. Host preserves the browser's cookie
+  // hostname; accept only the configured port and the two local aliases.
+  if (!requestHost) return configuredOrigin;
+  try {
+    const local = new URL(`http://${requestHost}`);
+    return local.host === requestHost &&
+      originMatchesConfig(local.origin, configuredOrigin)
+      ? local.origin
+      : null;
+  } catch {
+    return null;
+  }
+}

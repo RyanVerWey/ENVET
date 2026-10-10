@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { communityConfig, originMatchesConfig } from "@/lib/community/config";
+import { communityConfig, oauthRequestOrigin } from "@/lib/community/config";
 import { safeReturnPath } from "@/lib/community/validation";
 import { userClient } from "@/lib/community/supabase";
 
@@ -12,21 +12,26 @@ function authRedirect(url: URL | string) {
 
 export async function GET(request: NextRequest) {
   const config = communityConfig();
-  if (!config || !originMatchesConfig(request.nextUrl.origin, config.origin))
+  const origin = config
+    ? oauthRequestOrigin(
+        request.url,
+        request.headers.get("host"),
+        config.origin,
+      )
+    : null;
+  if (!config || !origin)
     return authRedirect(new URL("/account?error=unavailable", request.url));
   const code = request.nextUrl.searchParams.get("code");
-  if (!code)
-    return authRedirect(new URL("/account?error=callback", config.origin));
+  if (!code) return authRedirect(new URL("/account?error=callback", origin));
   const client = await userClient();
   if (!client)
-    return authRedirect(new URL("/account?error=unavailable", config.origin));
+    return authRedirect(new URL("/account?error=unavailable", origin));
   const { error } = await client.auth.exchangeCodeForSession(code);
-  if (error)
-    return authRedirect(new URL("/account?error=callback", config.origin));
+  if (error) return authRedirect(new URL("/account?error=callback", origin));
   const response = authRedirect(
     new URL(
       safeReturnPath(request.cookies.get("envet-auth-next")?.value ?? null),
-      config.origin,
+      origin,
     ),
   );
   response.cookies.set("envet-auth-next", "", {

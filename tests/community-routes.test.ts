@@ -120,4 +120,77 @@ describe("HTTP route fail-closed states", () => {
     expect(finish.headers.get("location")).toBe("http://127.0.0.1:3001/team");
     expect(finish.cookies.get("envet-auth-next")?.maxAge).toBe(0);
   });
+
+  it.each(["http://localhost:3001", "http://127.0.0.1:3001"])(
+    "keeps OAuth callbacks and sessions on the starting local origin %s",
+    async (origin) => {
+      vi.mocked(communityConfig).mockReturnValue({
+        url: "https://example.supabase.co",
+        publishableKey: "public",
+        origin: "http://127.0.0.1:3001",
+      });
+      const signInWithOAuth = vi.fn().mockResolvedValue({
+        data: { url: "https://example.supabase.co/auth/v1/authorize" },
+        error: null,
+      });
+      const exchangeCodeForSession = vi.fn().mockResolvedValue({ error: null });
+      vi.mocked(userClient).mockResolvedValue({
+        auth: { signInWithOAuth, exchangeCodeForSession },
+      } as never);
+      await startGoogle(
+        new NextRequest(`${origin}/auth/sign-in?next=/account`, {
+          headers: { host: new URL(origin).host },
+        }),
+      );
+      expect(signInWithOAuth).toHaveBeenCalledWith({
+        provider: "google",
+        options: { redirectTo: `${origin}/auth/callback` },
+      });
+      const finish = await finishGoogle(
+        new NextRequest(`${origin}/auth/callback?code=one-time`, {
+          headers: {
+            cookie: "envet-auth-next=%2Faccount",
+            host: new URL(origin).host,
+          },
+        }),
+      );
+      expect(finish.headers.get("location")).toBe(`${origin}/account`);
+      const failed = await finishGoogle(
+        new NextRequest(`${origin}/auth/callback`, {
+          headers: { host: new URL(origin).host },
+        }),
+      );
+      expect(failed.headers.get("location")).toBe(
+        `${origin}/account?error=callback`,
+      );
+    },
+  );
+
+  it.each([
+    "http://localhost:3001",
+    "https://other.example",
+    "http://envet.info",
+  ])(
+    "rejects unapproved production OAuth origin %s before auth",
+    async (origin) => {
+      vi.mocked(communityConfig).mockReturnValue({
+        url: "https://example.supabase.co",
+        publishableKey: "public",
+        origin: "https://envet.info",
+      });
+      const start = await startGoogle(
+        new NextRequest(`${origin}/auth/sign-in`),
+      );
+      const finish = await finishGoogle(
+        new NextRequest(`${origin}/auth/callback?code=one-time`),
+      );
+      expect(start.headers.get("location")).toBe(
+        `${origin}/account?error=unavailable`,
+      );
+      expect(finish.headers.get("location")).toBe(
+        `${origin}/account?error=unavailable`,
+      );
+      expect(userClient).not.toHaveBeenCalled();
+    },
+  );
 });

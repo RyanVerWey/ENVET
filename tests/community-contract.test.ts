@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { oauthRequestOrigin } from "../src/lib/community/config";
 import {
   parseComment,
   parseContent,
@@ -7,6 +8,37 @@ import {
 } from "../src/lib/community/validation";
 
 describe("community input boundaries", () => {
+  it("bounds local cookie origins and ignores production Host spoofing", () => {
+    const local = "http://127.0.0.1:3001";
+    for (const host of ["localhost:3001", "127.0.0.1:3001"])
+      expect(
+        oauthRequestOrigin("http://localhost:3001/auth/sign-in", host, local),
+      ).toBe(`http://${host}`);
+    for (const host of [
+      "evil.example",
+      "localhost:3002",
+      "localhost:3001/evil",
+      "user@localhost:3001",
+    ])
+      expect(
+        oauthRequestOrigin("http://localhost:3001/auth/sign-in", host, local),
+      ).toBeNull();
+    expect(
+      oauthRequestOrigin(
+        "https://envet.info/auth/sign-in",
+        "evil.example",
+        "https://envet.info",
+      ),
+    ).toBe("https://envet.info");
+    expect(
+      oauthRequestOrigin(
+        "http://localhost:3002/auth/sign-in",
+        "localhost:3001",
+        local,
+      ),
+    ).toBeNull();
+  });
+
   it("rejects external, encoded, and auth-loop return paths", () => {
     for (const unsafe of [
       "https://evil.example/",
