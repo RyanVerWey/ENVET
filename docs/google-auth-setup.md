@@ -1,7 +1,17 @@
 ---
 title: ENVET Google sign-in activation
-updated: "2026-10-09T21:10:41Z"
+updated: "2026-10-10T00:39:48Z"
 ---
+## Activation session and Google project (October 9, 2026)
+
+Owner explicitly requests Google auth activation and selected their already-signed-in personal Google account for project ownership. Created isolated Google Cloud project ENVET, ID envet-511200; Google notification confirms Create Project: ENVET finished. No billing link, paid services, OAuth credential, added scopes, provider activation or staff grants performed. First project-create attempt had unloaded form/resource errors; after recovery verified no ENVET project before the successful second attempt. Do not create another project.
+
+Connected to the owner's authenticated Supabase dashboard after recovering their newly opened tab. Live public Auth settings still show external.google=false. URL configuration currently defaults to http://localhost:3000 with no redirects. Prepared Site URL https://envet.info and sole redirect https://envet.info/auth/callback; saving is pending explicit action-time confirmation. These prepared values are not yet applied. Keep FORM_COLLECTION_ENABLED=false and signed storage recovery gate intact.
+
+Google Auth Platform overview and Branding screens for envet-511200 fail or stall in the controlled browser, including retry and fresh-tab recovery; project creation itself succeeded. Owner confirmed their regular browser shows Get started. On owner handoff, click Get started and configure app name ENVET, External audience, and a support contact Google allows; owner reviews and accepts any User Data Policy agreement themselves. Stop before OAuth credential creation until exact client configuration and credential handoff are confirmed. Basic identity scopes only: openid, userinfo.email, userinfo.profile. Web client origin https://envet.info; Google redirect https://rpkxpsnqlhcepyxclgau.supabase.co/auth/v1/callback. Client secret belongs directly in Supabase provider configuration, never chat/source/Brain; no website GOOGLE_CLIENT_SECRET needed. Owner must retain credential safely when Google shows it once. Supabase still needs provider configuration; Vercel still needs public project URL/key/auth origin and private operational settings. Do not claim live callback or team access until actual owner login and verified UUID grant.
+
+Seven existing auth/contract route tests and Plan check pass. Build/test mocks are not live OAuth evidence. Browser proof of pending exact callback: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-auth-redirect-approval.png. Current prepared signing UI release remains fdab66b / dpl_G9RJuDGNEJwiaewwx74xnVVJv3CM; this session does not deploy code or enable intake.
+
 # ENVET Google sign-in activation
 
 Auth prepared, not activated. Google provider is disabled; no OAuth client exists. Hosted schema migrations are applied and the catalog/anonymous permissions audit passes; this does not prove live login or member/staff workflows. Keep secrets out of chat, issues, source control, screenshots and Brain.

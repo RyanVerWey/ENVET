@@ -1,6 +1,14 @@
 ---
-updated: "2026-10-10T00:28:37Z"
+updated: "2026-10-10T00:39:48Z"
 ---
+## Google auth activation started (October 9, 2026)
+
+Owner selected their existing personal Google account for ENVET Cloud ownership. Created ENVET project envet-511200; Google finished notification verifies existence. No paid services/billing, OAuth credentials, provider activation, website environment changes or staff grants. Google Auth Platform overview/branding fail to load in the controlled browser after retry and fresh-tab recovery; owner confirmed https://console.cloud.google.com/auth/overview?project=envet-511200 shows Get started in their regular browser. Controlled browser still stalls; hand off initial app setup (ENVET, External audience, available support contact), with owner reviewing any Google agreement and creating/entering credentials themselves. Owner report is not evidence that app/client setup is complete. Do not create duplicate projects.
+
+Recovered owner's authenticated Supabase tab. Hosted Google provider remains disabled. Site URL still http://localhost:3000, no allowed redirects. Prepared https://envet.info plus sole https://envet.info/auth/callback; saving awaits owner action-time confirmation because this changes the auth redirect trust boundary. Screenshot proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-auth-redirect-approval.png; Google error proof envet-google-auth-platform-error.png. Pending entries alone are not applied configuration. Owner must handle Google credential creation/secret entry safely; never paste secrets in chat.
+
+Seven existing auth/contract tests and Plan check passed. Plan brainstorm records activation sequence. docs/google-auth-setup.md contains exact origins/two callback destinations and current handoff. Current public release fdab66b/dpl_G9RJuDGNEJwiaewwx74xnVVJv3CM unchanged. Collection stays OFF; no successful Google callback or authenticated dashboard acceptance claimed.
+
 ## Guided forms production release (October 9, 2026)
 
 Source fdab66b7f9903d8e64eaf46c64aef2b3e0bea65c passed exact-source CI38008985172 and38008989530, then released to Vercel dpl_G9RJuDGNEJwiaewwx74xnVVJv3CM Ready24s with envet.info assigned. Immutable: envet-fy7zoiiqv-ryanverweys-projects.vercel.app. Live15-public/9-private smoke plus redirects/discovery/media pass, including new guided-room/progress/form visibility assertions on both signing routes. Browser confirms liability four-step and donation six-step signing UI, offline notice, real editable fields and no dead Google link. Live proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-guided-liability-live.png and envet-guided-donation-live.png. Prior healthy source7d07c89/dpl_CmfN7DhHhNcguHDh6tZk1DJQxnyD is rollback candidate, not exercised.
