@@ -4,7 +4,7 @@ status: approved
 title: Protected signed forms and attendance reporting
 type: ""
 updated: "2026-10-09T22:15:10Z"
-updated_at: "2026-10-10T00:14:15Z"
+updated_at: "2026-10-10T00:18:39Z"
 ---
 
 # Protected signed forms and attendance reporting
@@ -97,4 +97,3 @@ Server freezes each initial's exact original clause, paragraph index, mark, gues
 Applied reviewed additive protected_signed_forms migration to hosted Supabase rpkxpsnqlhcepyxclgau. Catalog confirms all five private tables have RLS, no anon/member reads or server DELETE; all seven signing/staff RPCs are invoker/empty-search-path, service-only execute, and immutable signed trigger exists. Zero signed records and zero staff members. Security advisor only INFO deny-by-default RLS/no-policy findings; no WARN/ERROR security findings. Hosted concurrency, key recovery and real-account end-to-end are not proved by catalog checks.
 
 Live intake remains OFF. Actual hosted Auth settings show Google disabled; Vercel Production has only SITE_URL, SITE_APPROVED_FOR_LAUNCH, CONTENT_AND_MEDIA_APPROVED and disabled FORM_COLLECTION_ENABLED, not Supabase/server encryption settings. Owner asked to configure OAuth credentials directly, never paste secrets in chat. Still required: Google client/provider/callback, server Supabase key and rate pepper, server encryption keyring with separate owner recovery and restore test, approved-version environment values, real staff UUID bootstrap and own/other/revoked receipt/review tests. No auth bypass, real signing or staff grants performed. Issue46 remains open for live acceptance.
-

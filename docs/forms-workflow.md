@@ -1,6 +1,12 @@
 ---
-updated: "2026-10-10T00:14:15Z"
+updated: "2026-10-10T00:18:39Z"
 ---
+## Initials code release — intake not activated (October 9, 2026)
+
+Source 7d07c8910dd2a7c77032d31e63fd8b010115c3c8 released after successful exact-source CI38008174543 and38008170874. Vercel dpl_CmfN7DhHhNcguHDh6tZk1DJQxnyD Ready34s, envet.info assigned; immutable envet-jc3ixdx5u-ryanverweys-projects.vercel.app. Production15-public/9-private probes plus discovery/media/redirect checks pass. Deployment proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-initials-release.png; synthetic filled preview output/playwright/envet-applied-initials.png. Prior healthy source068c993/dpl_3Mozu5R1yxyG4XwMv5hxEQHqs466 is rollback candidate, not exercised. CI reports existing checkout/setup-node action-runtime deprecation and upcoming ubuntu-latest migration notices, not application check failures; application Node22 unchanged.
+
+No collection, auth/key activation, real records or staff grants. Owner needs Google OAuth/provider configured directly and an owner-controlled separate encryption-key recovery location/restore check; async questions sent. Server credentials, exact approved-version variables and real staff/receipt/review acceptance still outstanding. Legal wording approval is settled, not the blocker. Agent-owned3002/3013 servers stopped; user-owned3001/PID21332 preserved. GitHub Plan46 remains open; PR45 attached. This release ships prepared features behind the unchanged fail-closed gate, not operational acceptance.
+
 ## Reusable initials and owner approval (October 9, 2026)
 
 Owner explicitly approved current electronic wording for live signing, including minor/guardian and media provisions. This supersedes the earlier pending-wording approval below; it is not an enforceability determination. Added drawn or keyboard-typed reusable initials, deliberate per-clause apply/clear, separate guardian initials, and filled final/receipt document views. Draft changes do not replace existing marks; identity changes clear that person's marks/signature. All 16 guest acknowledgements plus minor guardian opening are required. Legacy typed-string records remain readable. Liability workflow version adds initials-v2; source, electronic consent and guardian certification text stay unchanged. Receipt uses stored source/marks, not newly invented assent.
@@ -72,4 +78,3 @@ Helmet exception unresolved: owner supplied bicycle helmets as acceptable, but e
 Verification: 54 unit/route/local PGlite tests including actual encrypted review round-trip, signer exclusion and unchanged visit totals; lint/build/types/format and production HTTP smoke pass. Existing team-workspace browser regression passes; it does not test the new checklist. Browser connection timed out three times, so new keyboard/mobile/visual interaction and print-layout QA remain unverified, not accepted. Source parity confirms originals and exact body/header/footer unchanged. Initial content test failed because it omitted headings; fixed assertion. A later discovery test timed out during import and passed on rerun; no timeout increased. No real submissions, Google activation, keys, hosted forms migration or deployment. Synthetic fixtures remain local only. Independent Astra review requested for this addon; release gates remain open.
 
 Astra addon review found no blocking code defects; independently ran 29 relevant tests and confirmed protected review storage, eligibility safeguards, donor isolation, source immutability and metric separation. Reviewer explicitly withheld UI/frozen-manifest/live acceptance. New visual/mobile/keyboard/print QA and helmet confirmation remain open.
-

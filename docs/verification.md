@@ -1,7 +1,13 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-10T00:14:15Z"
+updated: "2026-10-10T00:18:39Z"
 ---
+## Initials code release — intake not activated (October 9, 2026)
+
+Source 7d07c8910dd2a7c77032d31e63fd8b010115c3c8 released after successful exact-source CI38008174543 and38008170874. Vercel dpl_CmfN7DhHhNcguHDh6tZk1DJQxnyD Ready34s, envet.info assigned; immutable envet-jc3ixdx5u-ryanverweys-projects.vercel.app. Production15-public/9-private probes plus discovery/media/redirect checks pass. Deployment proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-initials-release.png; synthetic filled preview output/playwright/envet-applied-initials.png. Prior healthy source068c993/dpl_3Mozu5R1yxyG4XwMv5hxEQHqs466 is rollback candidate, not exercised. CI reports existing checkout/setup-node action-runtime deprecation and upcoming ubuntu-latest migration notices, not application check failures; application Node22 unchanged.
+
+No collection, auth/key activation, real records or staff grants. Owner needs Google OAuth/provider configured directly and an owner-controlled separate encryption-key recovery location/restore check; async questions sent. Server credentials, exact approved-version variables and real staff/receipt/review acceptance still outstanding. Legal wording approval is settled, not the blocker. Agent-owned3002/3013 servers stopped; user-owned3001/PID21332 preserved. GitHub Plan46 remains open; PR45 attached. This release ships prepared features behind the unchanged fail-closed gate, not operational acceptance.
+
 ## Reusable initials and owner approval (October 9, 2026)
 
 Owner explicitly approved current electronic wording for live signing, including minor/guardian and media provisions. This supersedes the earlier pending-wording approval below; it is not an enforceability determination. Added drawn or keyboard-typed reusable initials, deliberate per-clause apply/clear, separate guardian initials, and filled final/receipt document views. Draft changes do not replace existing marks; identity changes clear that person's marks/signature. All 16 guest acknowledgements plus minor guardian opening are required. Legacy typed-string records remain readable. Liability workflow version adds initials-v2; source, electronic consent and guardian certification text stay unchanged. Receipt uses stored source/marks, not newly invented assent.
@@ -141,4 +147,3 @@ Independent release review initially rejected participant-relink concurrency and
 
 New forms migration local only. No keys, Google activation, hosted forms records or deployment. Gates: final independent verdict, owner/legal exact version/consent approval, key lifecycle and restore exercise, hosted migration/grants/RLS/concurrency, real Google account and staff bootstrap, own/other/revoked access, successful receipt/retry/review/visit/void, production/media/privacy acceptance. Indefinite signed retention has no routine deletion; explicit operator purge must include authorized scope, audit/recovery and backup implications. No legal validity or complete accessibility/security claim.
 Independent GPT-6 Astra correction review accepts the prepared local increment only: all44file hashes and canonical aggregate digest match,21forms tests/source parity/production smoke/refresh recovery verified. Report C:/Users/verwe/.codex/envet-forms-correction-qc.json. No new blockers; live/legal/recovery/launch gates remain open. Technical acceptance does not permit collection activation.
-

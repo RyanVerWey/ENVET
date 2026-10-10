@@ -1,6 +1,12 @@
 ---
-updated: "2026-10-10T00:14:15Z"
+updated: "2026-10-10T00:18:39Z"
 ---
+## Initials code release — intake not activated (October 9, 2026)
+
+Source 7d07c8910dd2a7c77032d31e63fd8b010115c3c8 released after successful exact-source CI38008174543 and38008170874. Vercel dpl_CmfN7DhHhNcguHDh6tZk1DJQxnyD Ready34s, envet.info assigned; immutable envet-jc3ixdx5u-ryanverweys-projects.vercel.app. Production15-public/9-private probes plus discovery/media/redirect checks pass. Deployment proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-initials-release.png; synthetic filled preview output/playwright/envet-applied-initials.png. Prior healthy source068c993/dpl_3Mozu5R1yxyG4XwMv5hxEQHqs466 is rollback candidate, not exercised. CI reports existing checkout/setup-node action-runtime deprecation and upcoming ubuntu-latest migration notices, not application check failures; application Node22 unchanged.
+
+No collection, auth/key activation, real records or staff grants. Owner needs Google OAuth/provider configured directly and an owner-controlled separate encryption-key recovery location/restore check; async questions sent. Server credentials, exact approved-version variables and real staff/receipt/review acceptance still outstanding. Legal wording approval is settled, not the blocker. Agent-owned3002/3013 servers stopped; user-owned3001/PID21332 preserved. GitHub Plan46 remains open; PR45 attached. This release ships prepared features behind the unchanged fail-closed gate, not operational acceptance.
+
 ## Reusable initials and owner approval (October 9, 2026)
 
 Owner explicitly approved current electronic wording for live signing, including minor/guardian and media provisions. This supersedes the earlier pending-wording approval below; it is not an enforceability determination. Added drawn or keyboard-typed reusable initials, deliberate per-clause apply/clear, separate guardian initials, and filled final/receipt document views. Draft changes do not replace existing marks; identity changes clear that person's marks/signature. All 16 guest acknowledgements plus minor guardian opening are required. Legacy typed-string records remain readable. Liability workflow version adds initials-v2; source, electronic consent and guardian certification text stay unchanged. Receipt uses stored source/marks, not newly invented assent.
@@ -103,4 +109,3 @@ Independent GPT-6 Astra correction review accepts the prepared local increment o
 User explicitly repeated deploy/configure envet.info. Current candidate 064897f25f7e15692522d03cdb9561454a4cc752/PR45 has both GitHub checks successful. DNS remains ready (A216.198.79.1; www CNAME envet.info). Vercel browser access available; existing envet project now connected to RyanVerWey/ENVET, Next.js preset/Node22 saved, production tracks codex/envet-owner-preview. Automatic Git deployment remains disabled in vercel.json.
 
 Production-only Config variables saved: SITE_URL=https://envet.info; SITE_APPROVED_FOR_LAUNCH=true; CONTENT_AND_MEDIA_APPROVED=false; FORM_COLLECTION_ENABLED=false. No deployment/merge or data activation. Asked for four-image rights/depicted-person consent or release without uncleared media; answer still required. No credential-access blocker remains; optional Vercel connector suggestion is not evidence of installed/connected status. See latest section of docs/launch-runbook.md for exact state and next verification.
-
