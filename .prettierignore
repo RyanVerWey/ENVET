@@ -1,0 +1,8 @@
+.next
+node_modules
+package-lock.json
+.brain
+.plan
+AGENTS.md
+output
+LICENSE
