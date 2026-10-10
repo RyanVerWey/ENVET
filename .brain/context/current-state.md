@@ -1,6 +1,13 @@
 ---
-updated: "2026-10-10T00:59:50Z"
+updated: "2026-10-10T01:06:38Z"
 ---
+## Production anti-spam setting (October 9, 2026)
+
+Owner explicitly approved generating and saving RATE_LIMIT_PEPPER in Vercel Production. Saved cryptographically random 32-byte HMAC pepper as write-only Secret, Production-only. Initial value appeared in an accessibility response during asynchronous save; replaced it before any deployment. Final value was not printed, committed, copied into Brain, or used as a Google/database credential. Do not reveal or reuse the superseded value.
+
+Redeployed exact previously passing source1fcfc2319b8bdb856573bdb960dd4473d54fc10a with latest settings: dpl_GoXAEBhDdap5aMrkZgU58Nqcmk2Z, Ready53s, envet.info assigned, immutable envet-g6julhhd1-ryanverweys-projects.vercel.app. Production15-public/9-private smoke and redirects/discovery/media pass.21auth/contract/isolated-Postgres tests pass, including durable comment throttling. Empty production inquiry probes return503 for same-origin missing data configuration and403 for cross-origin, both no-store; no inquiry created.
+
+SUPABASE_SECRET_KEY is still absent from Vercel's variable listing. Owner must directly complete prepared server-key entry; pepper configuration alone does not activate database writes, dashboard operations, blog interactions or signed-form collection. FORM_COLLECTION_ENABLED remains false; encryption/recovery gates unchanged. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-anti-spam-secret-saved.png and envet-anti-spam-production-release.png.
 ## Google auth active; staff configuration pending (October 9, 2026)
 
 Working Chrome recovered. Owner created Google client and directly saved provider credentials. Hosted Google enabled=true and actual owner production login succeeds; confirmed provider identity manually verified and only that exact UUID receives staff membership. Second account has not signed in. Supabase Site URL https://envet.info plus exact production, localhost:3001 and 127.0.0.1:3001 callbacks are saved. Vercel public auth settings saved; fdab66b redeployed Ready42s as dpl_4uud8bim6m2ax71FuGfSUbE42SdC, envet.info assigned. Owner explicitly approved Google identity-only publication; Google Audience verified In production. Saved Web client public origins and Supabase callback independently verified. Staff server secret/pepper and signed encryption recovery still absent; collection OFF.

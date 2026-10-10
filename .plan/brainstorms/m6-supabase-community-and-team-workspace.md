@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-10T00:51:08Z"
+updated_at: "2026-10-10T01:05:10Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -50,6 +50,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Owner now explicitly requests Google auth activation, with ENVET Google project under Ryan's already-signed-in account. Sequence: Google app/client basic identity scopes; Supabase Google provider and exact envet.info callback allowlist; website URL/publishable key/auth origin; redeploy and real owner callback; verify Google-confirmed UUIDs before designated admin grants. Do not enable signed-form collection, grant from email-only claims, create paid services, or paste secrets in chat. Credential creation/security changes require action-time confirmation or owner handoff.
 
 - Owner requests completing Google OAuth in Chrome and exact localhost testing. Owner completed Google app/client/provider handoff; verify hosted Google enabled, save production and both port3001 local callbacks. Configure public Vercel auth settings and ignored development-only config. Preserve starting local hostname through PKCE despite NextRequest normalization; keep strict production origin and wrong-port/Host denial. Actual owner callback, private server credentials and verified UUID staff bootstrap remain separate acceptance gates. No signed-form activation before encryption recovery.
+
+- Owner explicitly approves generation and Production Secret storage of RATE_LIMIT_PEPPER. Generate cryptographically random 32-byte HMAC pepper, keep final value out of chat/source/Brain and redeploy existing passing production source. Verify write-only Production scope and anti-abuse regression tests. Server database key remains owner-entry dependency; do not claim runtime writes or enable protected form collection from pepper configuration alone.
 ## Raw Notes
 
 ## Refinement

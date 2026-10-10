@@ -1,7 +1,14 @@
 ---
 title: ENVET Google sign-in activation
-updated: "2026-10-10T00:59:49Z"
+updated: "2026-10-10T01:06:38Z"
 ---
+## Production anti-spam setting (October 9, 2026)
+
+Owner explicitly approved generating and saving RATE_LIMIT_PEPPER in Vercel Production. Saved cryptographically random 32-byte HMAC pepper as write-only Secret, Production-only. Initial value appeared in an accessibility response during asynchronous save; replaced it before any deployment. Final value was not printed, committed, copied into Brain, or used as a Google/database credential. Do not reveal or reuse the superseded value.
+
+Redeployed exact previously passing source1fcfc2319b8bdb856573bdb960dd4473d54fc10a with latest settings: dpl_GoXAEBhDdap5aMrkZgU58Nqcmk2Z, Ready53s, envet.info assigned, immutable envet-g6julhhd1-ryanverweys-projects.vercel.app. Production15-public/9-private smoke and redirects/discovery/media pass.21auth/contract/isolated-Postgres tests pass, including durable comment throttling. Empty production inquiry probes return503 for same-origin missing data configuration and403 for cross-origin, both no-store; no inquiry created.
+
+SUPABASE_SECRET_KEY is still absent from Vercel's variable listing. Owner must directly complete prepared server-key entry; pepper configuration alone does not activate database writes, dashboard operations, blog interactions or signed-form collection. FORM_COLLECTION_ENABLED remains false; encryption/recovery gates unchanged. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-anti-spam-secret-saved.png and envet-anti-spam-production-release.png.
 ## Chrome activation and verified owner login (October 9, 2026)
 
 Owner opened working Chrome tabs and completed Google consent/client creation and direct Supabase credential entry. Verified hosted Auth external.google=true, then verified actual production Google login: ENVET account renders You’re signed in and Supabase records one owner-designated user with confirmed email, Google identity, matching provider email and email_verified=true. Operator bootstrapped only that verified UUID into private.staff_members and independently checked membership. The second designated account has not signed in; no fabricated or email-only grant. Do not record personal account identifiers or secrets in public notes.
