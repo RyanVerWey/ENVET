@@ -1,6 +1,6 @@
 ---
 title: M6 funded community and follow-up workflow
-updated: "2026-10-10T03:43:55Z"
+updated: "2026-10-10T03:50:57Z"
 ---
 # M6: funded community and follow-up workflow
 
@@ -43,3 +43,5 @@ Uploads require photo rights/identifiable-person consent confirmation, bounded J
 Management link is only displayed after fresh staff_access using verified account UUID, never user-editable role/email metadata. Initial designated second account still must log in through Google before operator UUID bootstrap. No new grants occurred in this increment.
 
 Migration20261010034008 matches hosted history. Hosted rollback verification leaves no synthetic records; isolated API/database/browser tests cover authorization/conflicts/privacy and UX. Owner must add first real bios/portraits and confirm live publication. Security advisor's existing password-protection warning remediation: https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection . Intentional private no-policy RLS denies nonservice access; do not weaken it to silence INFO notices.
+
+Applied follow-up20261010034909 resets inherited Supabase service_role table defaults: no DELETE/TRUNCATE on animals and no UPDATE/DELETE on the portrait manifest. Keep both additive migrations; do not edit applied SQL bytes. Hosted post-grant rollback CRUD passes with zero retained synthetic rows.

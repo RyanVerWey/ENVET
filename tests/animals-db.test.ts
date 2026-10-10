@@ -15,11 +15,12 @@ const draft = {
 beforeAll(async () => {
   db = new PGlite();
   await db.exec(
-    `create role anon;create role authenticated;create role service_role bypassrls;create schema auth;create table auth.users(id uuid primary key);insert into auth.users values('${staff}'),('${member}');create schema storage;create table storage.buckets(id text primary key,name text,public boolean,file_size_limit bigint,allowed_mime_types text[]);`,
+    `create role anon;create role authenticated;create role service_role bypassrls;alter default privileges grant all on tables to service_role;create schema auth;create table auth.users(id uuid primary key);insert into auth.users values('${staff}'),('${member}');create schema storage;create table storage.buckets(id text primary key,name text,public boolean,file_size_limit bigint,allowed_mime_types text[]);`,
   );
   for (const suffix of [
     "_community_workspace.sql",
     "_animal_staff_profiles.sql",
+    "_animal_write_privileges.sql",
   ]) {
     const file = readdirSync("supabase/migrations").find((f) =>
       f.endsWith(suffix),
@@ -37,6 +38,24 @@ const save = (bio = draft, version: number | null = null, actor = staff) =>
     JSON.stringify(bio),
     version,
   ]);
+it("removes inherited server hard-delete and portrait rewrite privileges", async () => {
+  for (const table of ["public.animals", "private.animal_photos"]) {
+    for (const privilege of ["DELETE", "TRUNCATE", "TRIGGER", "REFERENCES"]) {
+      const result = await db.query(
+        "select has_table_privilege('service_role',$1,$2) as allowed",
+        [table, privilege],
+      );
+      expect(result.rows).toEqual([{ allowed: false }]);
+    }
+  }
+  expect(
+    (
+      await db.query(
+        "select has_table_privilege('service_role','private.animal_photos','UPDATE') as allowed",
+      )
+    ).rows,
+  ).toEqual([{ allowed: false }]);
+});
 it("requires current staff, valid species and complete approved publication data", async () => {
   await expect(save(draft, null, member)).rejects.toMatchObject({
     code: "42501",
