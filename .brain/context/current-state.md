@@ -1,6 +1,11 @@
 ---
-updated: "2026-10-10T00:39:48Z"
+updated: "2026-10-10T00:53:11Z"
 ---
+## Google auth active; staff configuration pending (October 9, 2026)
+
+Working Chrome recovered. Owner created Google client and directly saved provider credentials. Hosted Google enabled=true and actual owner production login succeeds; confirmed provider identity manually verified and only that exact UUID receives staff membership. Second account has not signed in. Supabase Site URL https://envet.info plus exact production, localhost:3001 and 127.0.0.1:3001 callbacks are saved. Vercel public auth settings saved; fdab66b redeployed Ready42s as dpl_4uud8bim6m2ax71FuGfSUbE42SdC, envet.info assigned. Google External/Testing/basic identity scopes; publication not yet verified. Staff server secret/pepper and signed encryption recovery still absent; collection OFF.
+
+Local-origin fix source46094b1 preserves validated same-port loopback Host through PKCE; strict production origin unchanged. Ignored development-only public config prepared. Both real local starts preserve callbacks with PKCE;90tests/lint/build/types/format pass. Code awaits CI/release. Full handoff/proof details docs/google-auth-setup.md. Windows command-line length limit requires brain edit --stdin for growing current-state body; do not silently skip failed memory updates.
 ## Google auth activation started (October 9, 2026)
 
 Owner selected their existing personal Google account for ENVET Cloud ownership. Created ENVET project envet-511200; Google finished notification verifies existence. No paid services/billing, OAuth credentials, provider activation, website environment changes or staff grants. Google Auth Platform overview/branding fail to load in the controlled browser after retry and fresh-tab recovery; owner confirmed https://console.cloud.google.com/auth/overview?project=envet-511200 shows Get started in their regular browser. Controlled browser still stalls; hand off initial app setup (ENVET, External audience, available support contact), with owner reviewing any Google agreement and creating/entering credentials themselves. Owner report is not evidence that app/client setup is complete. Do not create duplicate projects.
@@ -131,3 +136,4 @@ Independent GPT-6 Astra correction review accepts the prepared local increment o
 User explicitly repeated deploy/configure envet.info. Current candidate 064897f25f7e15692522d03cdb9561454a4cc752/PR45 has both GitHub checks successful. DNS remains ready (A216.198.79.1; www CNAME envet.info). Vercel browser access available; existing envet project now connected to RyanVerWey/ENVET, Next.js preset/Node22 saved, production tracks codex/envet-owner-preview. Automatic Git deployment remains disabled in vercel.json.
 
 Production-only Config variables saved: SITE_URL=https://envet.info; SITE_APPROVED_FOR_LAUNCH=true; CONTENT_AND_MEDIA_APPROVED=false; FORM_COLLECTION_ENABLED=false. No deployment/merge or data activation. Asked for four-image rights/depicted-person consent or release without uncleared media; answer still required. No credential-access blocker remains; optional Vercel connector suggestion is not evidence of installed/connected status. See latest section of docs/launch-runbook.md for exact state and next verification.
+
