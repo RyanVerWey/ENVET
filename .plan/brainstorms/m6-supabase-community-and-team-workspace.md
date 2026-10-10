@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-10T01:13:25Z"
+updated_at: "2026-10-10T01:38:25Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -54,6 +54,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Owner explicitly approves generation and Production Secret storage of RATE_LIMIT_PEPPER. Generate cryptographically random 32-byte HMAC pepper, keep final value out of chat/source/Brain and redeploy existing passing production source. Verify write-only Production scope and anti-abuse regression tests. Server database key remains owner-entry dependency; do not claim runtime writes or enable protected form collection from pepper configuration alone.
 
 - Owner approved current live signing wording and requested member first-name welcome, global sign-in, an I need to task chooser, personal saved pre-visit checkmarks, own signed-form history and printing, social share links on every article, and author M. Lamm with no invented bio. Extend M6 and forms #46 additively: service-only own-record listing, private per-account preparation with version conflict protection, Google-required writes, no eligibility or attendance inference, immutable encrypted acceptance evidence, no personal data on public caches. Live signing still requires server key entered by owner, encryption keyring and separately controlled recovery with restore proof. Preserve existing six milestones; deployment authorized.
+
+- Release590ca42 deployed Production dpl_ELrb7DPJr9DvGd4ePTZ3A4C8cfRD to envet.info; exact CI and100tests pass. Live owner-session member task hub, empty personal history/preparation, protected review/zero activity and signed-in blog controls verified. Google-only form collection enabled with approved versions, owner-entered service key, anti-spam and Desktop DPAPI recovery tested against actual crypto. No real legal record or personal safety acknowledgement submitted by agent. Keep41/46 operational acceptance open for first genuine signed receipt/review, second staff bootstrap and broader recovery; no new milestone. Web traffic analytics still not enabled; no claim of traffic metrics.
 ## Raw Notes
 
 ## Refinement

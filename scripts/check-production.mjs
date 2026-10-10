@@ -19,6 +19,7 @@ const publicRoutes = [
   "/blog/category/getting-started",
   "/blog/category/for-families",
   "/blog/category/supporting-the-mission",
+  "/blog/authors/m-lamm",
 ];
 for (const path of publicRoutes) {
   const response = await fetch(origin + path);
@@ -59,6 +60,8 @@ for (const path of [
   "/team/forms",
   "/team/impact",
   "/account",
+  "/account/forms",
+  "/account/pre-visit",
 ]) {
   const response = await fetch(origin + path);
   assert.equal(response.status, 200, path);
@@ -93,7 +96,8 @@ const robots = await (await fetch(origin + "/robots.txt")).text();
 assert.match(robots, /Allow: \//);
 assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`));
 const sitemap = await (await fetch(origin + "/sitemap.xml")).text();
-assert.equal((sitemap.match(/<loc>/g) || []).length, 15);
+assert.equal((sitemap.match(/<loc>/g) || []).length, 16);
+assert.ok(sitemap.includes(`${origin}/blog/authors/m-lamm`));
 assert.doesNotMatch(sitemap, /localhost|envet\.org|\/forms|\/team|\/account/);
 const feed = await (await fetch(origin + "/feed.xml")).text();
 assert.equal((feed.match(/<item>/g) || []).length, 3);
@@ -124,4 +128,42 @@ for (const path of [
   assert.equal((await fetch(origin + path)).status, 404, path);
 console.log(
   "PASS production redirects, robots, sitemap/RSS, approved images, optimization, OG and 404s.",
+);
+const session = await fetch(origin + "/api/account/session");
+assert.match(session.headers.get("cache-control") || "", /no-store/);
+assert.deepEqual(await session.json(), { signedIn: false, firstName: null });
+for (const path of [
+  "/api/account/checklist",
+  "/api/forms?id=44444444-4444-4444-8444-444444444444",
+  "/api/team/forms",
+]) {
+  const response = await fetch(origin + path);
+  assert.ok(
+    [401, 403].includes(response.status),
+    `${path}: denied anonymously, not configuration failure`,
+  );
+  assert.match(response.headers.get("cache-control") || "", /no-store/);
+}
+for (const kind of ["liability", "donation"]) {
+  const response = await fetch(origin + "/api/forms", {
+    method: "POST",
+    headers: {
+      origin,
+      "sec-fetch-site": "same-origin",
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ kind }),
+  });
+  assert.equal(
+    response.status,
+    401,
+    `${kind}: collection configured, Google required, no record submitted`,
+  );
+}
+const community = await fetch(origin + "/api/community/first-visit-to-envet");
+assert.equal(community.status, 200, "configured community reads");
+assert.match(community.headers.get("cache-control") || "", /no-store/);
+assert.equal((await community.json()).signedIn, false);
+console.log(
+  "PASS configured Google-only signing gates, private member/API denials and public discussion read. No records submitted.",
 );
