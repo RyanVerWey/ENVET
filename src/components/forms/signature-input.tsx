@@ -36,15 +36,18 @@ export function SignatureInput({
   label,
   value,
   onChange,
+  purpose = "signature",
 }: {
   label: string;
   value: Signature;
   onChange: (signature: Signature) => void;
+  purpose?: "signature" | "initials";
 }) {
   const id = useId();
   const drawing = useRef(false);
   const pointer = useRef<number | null>(null);
   const [limit, setLimit] = useState(false);
+  const initials = purpose === "initials";
   function point(event: PointerEvent<SVGSVGElement>): Point {
     const box = event.currentTarget.getBoundingClientRect();
     return [
@@ -57,7 +60,7 @@ export function SignatureInput({
       value.method !== "drawn" ||
       !event.isPrimary ||
       event.button !== 0 ||
-      value.strokes.length >= 100
+      value.strokes.length >= (initials ? 20 : 100)
     )
       return;
     event.preventDefault();
@@ -73,7 +76,9 @@ export function SignatureInput({
       value.method !== "drawn"
     )
       return;
-    if (value.strokes.reduce((n, s) => n + s.length, 0) >= 2000) {
+    if (
+      value.strokes.reduce((n, s) => n + s.length, 0) >= (initials ? 200 : 2000)
+    ) {
       drawing.current = false;
       setLimit(true);
       return;
@@ -103,7 +108,7 @@ export function SignatureInput({
             setLimit(false);
           }}
         >
-          Type signature
+          {initials ? "Type initials" : "Type signature"}
         </button>
         <button
           type="button"
@@ -113,29 +118,45 @@ export function SignatureInput({
             setLimit(false);
           }}
         >
-          Draw signature
+          {initials ? "Draw initials" : "Draw signature"}
         </button>
       </div>
-      <label htmlFor={`${id}-name`}>
-        Full printed name <span aria-hidden="true">*</span>
-      </label>
-      <input
-        id={`${id}-name`}
-        maxLength={100}
-        value={value.name}
-        autoComplete="off"
-        onChange={(event) => onChange({ ...value, name: event.target.value })}
-        aria-describedby={`${id}-help`}
-      />
+      {(!initials || value.method === "typed") && (
+        <>
+          <label htmlFor={`${id}-name`}>
+            {initials ? "Typed initials" : "Full printed name"}{" "}
+            <span aria-hidden="true">*</span>
+          </label>
+          <input
+            id={`${id}-name`}
+            maxLength={initials ? 12 : 100}
+            value={value.name}
+            autoComplete="off"
+            onChange={(event) =>
+              onChange({ ...value, name: event.target.value })
+            }
+            aria-describedby={`${id}-help`}
+          />
+        </>
+      )}
       <p id={`${id}-help`} className="field-hint">
-        Use the same printed name entered for this signer.{" "}
+        {initials
+          ? "Create your own initials. Apply them separately to each acknowledgement after reading it. "
+          : "Use the same printed name entered for this signer. "}
         {value.method === "drawn"
-          ? "Draw with a mouse, finger or stylus. Keyboard users can type a signature instead."
-          : "Your typed name is the signature; its display style does not verify identity."}
+          ? `Draw with a mouse, finger or stylus. Keyboard users can type ${initials ? "initials" : "a signature"} instead.`
+          : initials
+            ? "Changing these initials does not change acknowledgements already initialled."
+            : "Your typed name is the signature; its display style does not verify identity."}
       </p>
       {value.method === "typed" ? (
-        <div className="typed-signature" aria-label="Typed signature preview">
-          {value.name || "Your signature"}
+        <div
+          className="typed-signature"
+          aria-label={
+            initials ? "Typed initials preview" : "Typed signature preview"
+          }
+        >
+          {value.name || (initials ? "Your initials" : "Your signature")}
         </div>
       ) : (
         <svg
@@ -150,7 +171,11 @@ export function SignatureInput({
           onPointerCancel={stop}
           onLostPointerCapture={stop}
         >
-          <title>Draw signature here, or choose Type signature</title>
+          <title>
+            {initials
+              ? "Draw initials here, or choose Type initials"
+              : "Draw signature here, or choose Type signature"}
+          </title>
           {value.strokes.map((s, i) => (
             <polyline
               key={i}
@@ -178,7 +203,7 @@ export function SignatureInput({
       )}
       {limit && (
         <p role="status">
-          Drawing limit reached. Clear and draw again, or type your signature.
+          Drawing limit reached. Clear and draw again, or use the typed option.
         </p>
       )}
     </fieldset>

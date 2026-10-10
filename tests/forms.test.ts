@@ -6,10 +6,79 @@ import {
   guardianCertificationVersion,
   liabilityInitials,
 } from "@/lib/forms/definition";
-import { signatureInput, submissionInput } from "@/lib/forms/validation";
+import {
+  signatureInput,
+  submissionInput,
+  initialMarkInput,
+} from "@/lib/forms/validation";
+import { renderToStaticMarkup } from "react-dom/server";
+import { createElement } from "react";
+import { DocumentView } from "@/components/forms/document-view";
 import { decrypt, digest, encrypt, encryptionReady } from "@/lib/forms/crypto";
 import { collectionEnabled } from "@/lib/forms/server";
 const key = Buffer.alloc(32, 7).toString("base64");
+describe("applied initials", () => {
+  const drawn = {
+    method: "drawn",
+    strokes: [
+      [
+        [0.1, 0.2],
+        [0.4, 0.6],
+        [0.8, 0.2],
+      ],
+    ],
+  };
+  it("validates bounded real strokes and typed / legacy marks, never arbitrary images or audit text", () => {
+    expect(initialMarkInput(drawn)).toEqual(drawn);
+    expect(initialMarkInput("TG")).toBe("TG");
+    expect(initialMarkInput({ method: "typed", text: " TG " })).toEqual({
+      method: "typed",
+      text: "TG",
+    });
+    for (const bad of [
+      { method: "drawn", strokes: [] },
+      { ...drawn, text: "fake consent" },
+      { method: "typed", text: "123" },
+      {
+        method: "drawn",
+        strokes: [
+          [
+            [0, 0],
+            [2, 0],
+          ],
+        ],
+      },
+      {
+        method: "drawn",
+        strokes: [Array.from({ length: 201 }, (_, i) => [i / 201, 0.2])],
+      },
+    ])
+      expect(initialMarkInput(bad)).toBeNull();
+  });
+  it("fills all initial blanks with separate guest and guardian marks without mutating source", () => {
+    const source = formSource("liability");
+    const original = JSON.stringify(source);
+    const initials = Object.fromEntries(
+      liabilityInitials.map((i) => [`p${i}`, "TG"]),
+    );
+    const html = renderToStaticMarkup(
+      createElement(DocumentView, {
+        source,
+        initials: { ...initials, parent: { method: "typed", text: "PG" } },
+        minor: true,
+      }),
+    );
+    expect(html.match(/data-applied-initials="true"/g)).toHaveLength(17);
+    expect(html).toContain("PG");
+    expect(html).not.toMatch(/_{2,}\s*Initials/);
+    expect(JSON.stringify(source)).toBe(original);
+    const adult = renderToStaticMarkup(
+      createElement(DocumentView, { source, initials, minor: false }),
+    );
+    expect(adult.match(/data-applied-initials="true"/g)).toHaveLength(16);
+    expect(adult).toContain("Not applicable (adult guest)");
+  });
+});
 export function donationFixture() {
   return {
     kind: "donation",

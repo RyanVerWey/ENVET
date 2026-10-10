@@ -1,8 +1,8 @@
 export function useRouter() {
   return {
-    replace() {
-      throw new Error(
-        "Signing navigation is not mocked in this review/report fixture.",
+    replace(path: string) {
+      window.dispatchEvent(
+        new CustomEvent("synthetic-navigation", { detail: path }),
       );
     },
   };

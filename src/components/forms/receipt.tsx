@@ -8,10 +8,12 @@ import {
   initialLabels,
   type FormKind,
 } from "@/lib/forms/definition";
-import type { Signature } from "@/lib/forms/validation";
+import type { Signature, InitialMark } from "@/lib/forms/validation";
+import type { InitialAcknowledgement } from "@/lib/forms/records";
 import type { DocumentSource } from "./document-view";
 import { DocumentView } from "./document-view";
 import { SignatureDrawing } from "./signature-input";
+import { InitialMarkView } from "./initial-mark";
 export type ReceiptData = {
   id: string;
   kind: FormKind;
@@ -34,7 +36,8 @@ export type ReceiptData = {
     minor: boolean;
     riding: string[];
     conditions: string[];
-    initials: Record<string, string>;
+    initials: Record<string, InitialMark>;
+    initialAcknowledgements?: InitialAcknowledgement[];
     guestSignature: Signature;
     guardianSignature: Signature | null;
     receivedAt: string;
@@ -89,7 +92,9 @@ export function SignedDocument({ data }: { data: ReceiptData }) {
                 ? "Parent / guardian opening initials"
                 : (initialLabels[Number(k.replace(/^p/, ""))] ?? k)}
             </dt>
-            <dd>{v}</dd>
+            <dd>
+              <InitialMarkView mark={v} label={`Recorded initials: ${k}`} />
+            </dd>
           </div>
         ))}
       </dl>
@@ -143,8 +148,36 @@ export function SignedDocument({ data }: { data: ReceiptData }) {
         content differences; it is not a certificate of identity or legal
         validity.
       </p>
-      <h3>Original supplied wording</h3>
-      <DocumentView source={r.source} />
+      <h3>Completed document</h3>
+      <DocumentView
+        source={r.source}
+        initials={r.initials}
+        minor={r.minor}
+        fields={data.kind === "liability" ? r.fields : undefined}
+      />
+      {r.initialAcknowledgements && r.initialAcknowledgements.length > 0 && (
+        <details className="document-disclosure" name="envet-accordion">
+          <summary>Initialled acceptance audit</summary>
+          <div className="source-document">
+            {r.initialAcknowledgements.map((entry) => (
+              <section key={entry.key}>
+                <h4>
+                  {entry.signerRole === "guardian"
+                    ? "Parent / guardian"
+                    : "Guest"}{" "}
+                  · acknowledgement {entry.key}
+                </h4>
+                <p>{entry.text}</p>
+                <InitialMarkView
+                  mark={entry.mark}
+                  label={`Recorded ${entry.signerRole} initials: ${entry.key}`}
+                />
+                <p>Acceptance recorded on submission: {entry.recordedAt}</p>
+              </section>
+            ))}
+          </div>
+        </details>
+      )}
     </div>
   );
 }

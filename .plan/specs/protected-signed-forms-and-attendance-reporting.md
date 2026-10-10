@@ -4,7 +4,7 @@ status: approved
 title: Protected signed forms and attendance reporting
 type: ""
 updated: "2026-10-09T22:15:10Z"
-updated_at: "2026-10-09T22:23:29Z"
+updated_at: "2026-10-10T00:14:15Z"
 ---
 
 # Protected signed forms and attendance reporting
@@ -85,3 +85,16 @@ User requests a call/text checklist and form addon: Veteran/Active Duty or assoc
 ## Risks / Open Questions
 
 Owner's blanket bicycle-helmet acceptance needs safety confirmation: bicycle helmets do not meet equestrian design standards. Until resolved, visitor copy asks staff to approve helmet type/fit; it does not promise universal bicycle-helmet suitability. Exact signed source remains untouched. Before a guest record exists the call guide is a worksheet, not a saved call CRM entry; once available, staff saves screening against that record. Saved discussion does not certify legal waiver validity, medical suitability, safe weather or actual attendance. Eligibility is a staff decision, not automated verification from a checkbox. Real-time forecast is linked, not cached as current conditions.
+
+## Reusable initials and owner approval (October 9, 2026)
+
+Owner explicitly approved current electronic wording for live signing, including minor/guardian and media provisions. This supersedes the earlier pending-wording approval below; it is not an enforceability determination. Added drawn or keyboard-typed reusable initials, deliberate per-clause apply/clear, separate guardian initials, and filled final/receipt document views. Draft changes do not replace existing marks; identity changes clear that person's marks/signature. All 16 guest acknowledgements plus minor guardian opening are required. Legacy typed-string records remain readable. Liability workflow version adds initials-v2; source, electronic consent and guardian certification text stay unchanged. Receipt uses stored source/marks, not newly invented assent.
+
+Server freezes each initial's exact original clause, paragraph index, mark, guest/guardian role and receipt timestamp alongside existing full source, consent/certification text/version, Google attribution and signatures in authenticated encrypted evidence. Timestamp describes acceptance recorded on submission, not an independently verified time of each click. Same-nonce retries remain frozen; definitive rejection releases the draft and resets its request ID. Review queue remains separate and audit-protected.
+
+80 tests, lint/build/types/format, original DOCX full-text/hash parity, actual drawn/keyboard component browser checks and 24-route production-build loopback smoke pass. Browser covers 17 filled preview/receipt marks, draft stability, identity-edit invalidation, separate guardian certification/signatures, eight mint light/dark viewport combinations and unchanged retry followed by synthetic thank-you. Synthetic fixture saves nothing remotely and is not production-served. Proof: output/playwright/envet-applied-initials.png. Impeccable hardening retained Corva structure and clarified deliberate application; no redesign.
+
+Applied reviewed additive protected_signed_forms migration to hosted Supabase rpkxpsnqlhcepyxclgau. Catalog confirms all five private tables have RLS, no anon/member reads or server DELETE; all seven signing/staff RPCs are invoker/empty-search-path, service-only execute, and immutable signed trigger exists. Zero signed records and zero staff members. Security advisor only INFO deny-by-default RLS/no-policy findings; no WARN/ERROR security findings. Hosted concurrency, key recovery and real-account end-to-end are not proved by catalog checks.
+
+Live intake remains OFF. Actual hosted Auth settings show Google disabled; Vercel Production has only SITE_URL, SITE_APPROVED_FOR_LAUNCH, CONTENT_AND_MEDIA_APPROVED and disabled FORM_COLLECTION_ENABLED, not Supabase/server encryption settings. Owner asked to configure OAuth credentials directly, never paste secrets in chat. Still required: Google client/provider/callback, server Supabase key and rate pepper, server encryption keyring with separate owner recovery and restore test, approved-version environment values, real staff UUID bootstrap and own/other/revoked receipt/review tests. No auth bypass, real signing or staff grants performed. Issue46 remains open for live acceptance.
+

@@ -202,7 +202,7 @@ export function formSource(kind: FormKind) {
   return sources[kind];
 }
 export function formVersion(kind: FormKind) {
-  return `${kind}-${formSource(kind).sourceSha256}-${consentVersion}${kind === "liability" ? `-${guardianCertificationVersion}` : ""}`;
+  return `${kind}-${formSource(kind).sourceSha256}-${consentVersion}${kind === "liability" ? `-${guardianCertificationVersion}-initials-v2` : ""}`;
 }
 export function formStatuses(kind: FormKind) {
   return kind === "liability"

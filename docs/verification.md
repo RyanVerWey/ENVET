@@ -1,7 +1,19 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-09T23:59:45Z"
+updated: "2026-10-10T00:14:15Z"
 ---
+## Reusable initials and owner approval (October 9, 2026)
+
+Owner explicitly approved current electronic wording for live signing, including minor/guardian and media provisions. This supersedes the earlier pending-wording approval below; it is not an enforceability determination. Added drawn or keyboard-typed reusable initials, deliberate per-clause apply/clear, separate guardian initials, and filled final/receipt document views. Draft changes do not replace existing marks; identity changes clear that person's marks/signature. All 16 guest acknowledgements plus minor guardian opening are required. Legacy typed-string records remain readable. Liability workflow version adds initials-v2; source, electronic consent and guardian certification text stay unchanged. Receipt uses stored source/marks, not newly invented assent.
+
+Server freezes each initial's exact original clause, paragraph index, mark, guest/guardian role and receipt timestamp alongside existing full source, consent/certification text/version, Google attribution and signatures in authenticated encrypted evidence. Timestamp describes acceptance recorded on submission, not an independently verified time of each click. Same-nonce retries remain frozen; definitive rejection releases the draft and resets its request ID. Review queue remains separate and audit-protected.
+
+80 tests, lint/build/types/format, original DOCX full-text/hash parity, actual drawn/keyboard component browser checks and 24-route production-build loopback smoke pass. Browser covers 17 filled preview/receipt marks, draft stability, identity-edit invalidation, separate guardian certification/signatures, eight mint light/dark viewport combinations and unchanged retry followed by synthetic thank-you. Synthetic fixture saves nothing remotely and is not production-served. Proof: output/playwright/envet-applied-initials.png. Impeccable hardening retained Corva structure and clarified deliberate application; no redesign.
+
+Applied reviewed additive protected_signed_forms migration to hosted Supabase rpkxpsnqlhcepyxclgau. Catalog confirms all five private tables have RLS, no anon/member reads or server DELETE; all seven signing/staff RPCs are invoker/empty-search-path, service-only execute, and immutable signed trigger exists. Zero signed records and zero staff members. Security advisor only INFO deny-by-default RLS/no-policy findings; no WARN/ERROR security findings. Hosted concurrency, key recovery and real-account end-to-end are not proved by catalog checks.
+
+Live intake remains OFF. Actual hosted Auth settings show Google disabled; Vercel Production has only SITE_URL, SITE_APPROVED_FOR_LAUNCH, CONTENT_AND_MEDIA_APPROVED and disabled FORM_COLLECTION_ENABLED, not Supabase/server encryption settings. Owner asked to configure OAuth credentials directly, never paste secrets in chat. Still required: Google client/provider/callback, server Supabase key and rate pepper, server encryption keyring with separate owner recovery and restore test, approved-version environment values, real staff UUID bootstrap and own/other/revoked receipt/review tests. No auth bypass, real signing or staff grants performed. Issue46 remains open for live acceptance.
+
 ## Veteran capitalization released (October 9, 2026)
 
 Owner requires Veteran, Veterans and their singular/plural possessives capitalized everywhere in ENVET-authored website copy. Corrected public headings/body, header/footer, blog titles/descriptions/articles, metadata, privacy, community prompts and dashboard/signing guidance. Original legal templates already capitalized these terms and remain unchanged; internal veteran enum, URLs and visitor-authored content unchanged. Persistent rule in standards.md; source-copy regression plus rendered preview/production assertions prevent recurrence. Impeccable consistency pass retained Corva layout and controls.
@@ -129,3 +141,4 @@ Independent release review initially rejected participant-relink concurrency and
 
 New forms migration local only. No keys, Google activation, hosted forms records or deployment. Gates: final independent verdict, owner/legal exact version/consent approval, key lifecycle and restore exercise, hosted migration/grants/RLS/concurrency, real Google account and staff bootstrap, own/other/revoked access, successful receipt/retry/review/visit/void, production/media/privacy acceptance. Indefinite signed retention has no routine deletion; explicit operator purge must include authorized scope, audit/recovery and backup implications. No legal validity or complete accessibility/security claim.
 Independent GPT-6 Astra correction review accepts the prepared local increment only: all44file hashes and canonical aggregate digest match,21forms tests/source parity/production smoke/refresh recovery verified. Report C:/Users/verwe/.codex/envet-forms-correction-qc.json. No new blockers; live/legal/recovery/launch gates remain open. Technical acceptance does not permit collection activation.
+

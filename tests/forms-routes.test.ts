@@ -35,6 +35,9 @@ import {
   liabilityInitials,
   guardianCertificationText,
   guardianCertificationVersion,
+  formSource,
+  electronicConsent,
+  consentVersion,
 } from "@/lib/forms/definition";
 import { encrypt } from "@/lib/forms/crypto";
 import { screeningFixture } from "./fixtures/pre-visit";
@@ -241,6 +244,16 @@ describe("signing and staff HTTP boundaries", () => {
       },
       initials: {
         ...Object.fromEntries(liabilityInitials.map((i) => [`p${i}`, "SC"])),
+        p24: {
+          method: "drawn",
+          strokes: [
+            [
+              [0.1, 0.2],
+              [0.4, 0.7],
+              [0.8, 0.2],
+            ],
+          ],
+        },
         parent: "SG",
       },
       guestSignature: { method: "typed", name: "Synthetic Child" },
@@ -262,6 +275,35 @@ describe("signing and staff HTTP boundaries", () => {
           minorAge: "12",
         }),
         guardianCertified: true,
+        electronicConsent: { text: electronicConsent, version: consentVersion },
+        source: formSource("liability"),
+        initialAcknowledgements: expect.arrayContaining([
+          {
+            key: "p24",
+            paragraphIndex: 24,
+            text: formSource("liability").paragraphs[24],
+            mark: {
+              method: "drawn",
+              strokes: [
+                [
+                  [0.1, 0.2],
+                  [0.4, 0.7],
+                  [0.8, 0.2],
+                ],
+              ],
+            },
+            signerRole: "guest",
+            recordedAt: expect.any(String),
+          },
+          {
+            key: "parent",
+            paragraphIndex: 1,
+            text: formSource("liability").paragraphs[1],
+            mark: "SG",
+            signerRole: "guardian",
+            recordedAt: expect.any(String),
+          },
+        ]),
         guardianCertification: {
           text: guardianCertificationText,
           version: guardianCertificationVersion,

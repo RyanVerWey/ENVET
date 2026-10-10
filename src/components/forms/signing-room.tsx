@@ -27,13 +27,15 @@ import {
 import {
   signatureInput,
   fieldInput,
-  initialInput,
+  initialMarkInput,
   submissionInput,
   type Signature,
   type Submission,
+  type InitialMark,
 } from "@/lib/forms/validation";
 import { SignatureDrawing, SignatureInput } from "./signature-input";
-import { SourceDisclosure } from "./document-view";
+import { DocumentView, SourceDisclosure } from "./document-view";
+import { InitialMarkView } from "./initial-mark";
 import { fieldAutocomplete } from "@/lib/forms/autofill";
 
 export function FormField({
@@ -142,7 +144,17 @@ export function SigningRoom({
   const [minor, setMinor] = useState(false);
   const [riding, setRiding] = useState<string[]>([]);
   const [conditions, setConditions] = useState<string[]>([]);
-  const [initials, setInitials] = useState<Record<string, string>>({});
+  const [initials, setInitials] = useState<Record<string, InitialMark>>({});
+  const [guestInitials, setGuestInitials] = useState<Signature>({
+    method: "drawn",
+    name: "",
+    strokes: [],
+  });
+  const [guardianInitials, setGuardianInitials] = useState<Signature>({
+    method: "drawn",
+    name: "",
+    strokes: [],
+  });
   const [guest, setGuest] = useState<Signature>({ method: "typed", name: "" });
   const [guardian, setGuardian] = useState<Signature>({
     method: "typed",
@@ -181,6 +193,47 @@ export function SigningRoom({
   function field(key: string, value: string) {
     setFields((v) => ({ ...v, [key]: value }));
     setGuardianCertified(false);
+    setConsent(false);
+    if (key === "guestName" || key === "ownerName") {
+      setGuest({ method: "typed", name: "" });
+      setGuestInitials({ method: "drawn", name: "", strokes: [] });
+      setInitials((v): Record<string, InitialMark> =>
+        v.parent ? { parent: v.parent } : {},
+      );
+      setConsent(false);
+    }
+    if (key === "guardianName") {
+      setGuardian({ method: "typed", name: "" });
+      setGuardianInitials({ method: "drawn", name: "", strokes: [] });
+      setInitials(({ parent, ...rest }) => {
+        void parent;
+        return rest;
+      });
+      setConsent(false);
+    }
+  }
+  function draftMark(draft: Signature) {
+    return initialMarkInput(
+      draft.method === "typed"
+        ? { method: "typed", text: draft.name }
+        : { method: "drawn", strokes: draft.strokes },
+    );
+  }
+  function applyInitials(key: string, draft: Signature) {
+    const mark = draftMark(draft);
+    if (!mark) {
+      setMessage("Draw your initials or type letters before applying them.");
+      return;
+    }
+    setInitials((v) => ({ ...v, [key]: structuredClone(mark) }));
+    setMessage("");
+  }
+  function clearInitials(key: string) {
+    setInitials((v) => {
+      const next = { ...v };
+      delete next[key];
+      return next;
+    });
   }
   function next(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -212,11 +265,11 @@ export function SigningRoom({
     if (
       step === sections.length &&
       kind === "liability" &&
-      (liabilityInitials.some((i) => !initialInput(initials[`p${i}`])) ||
-        (minor && !initialInput(initials.parent)))
+      (liabilityInitials.some((i) => !initialMarkInput(initials[`p${i}`])) ||
+        (minor && !initialMarkInput(initials.parent)))
     ) {
       setMessage(
-        "Initial each marked section using letters before continuing.",
+        "Apply your initials to each marked acknowledgement before continuing.",
       );
       return;
     }
@@ -280,6 +333,7 @@ export function SigningRoom({
       }
       if ([400, 401, 403, 409, 429].includes(response.status)) {
         pending.current = null;
+        requestId.current = null;
         setFrozen(false);
       }
       setMessage(
@@ -524,7 +578,7 @@ export function SigningRoom({
                       [
                         ...liabilityInitials.map((i) => initials[`p${i}`]),
                         ...(minor ? [initials.parent] : []),
-                      ].filter((v) => initialInput(v)).length
+                      ].filter((v) => initialMarkInput(v)).length
                     }{" "}
                     of {liabilityInitials.length + (minor ? 1 : 0)}{" "}
                     acknowledgements initialled.
@@ -534,7 +588,7 @@ export function SigningRoom({
                     className="quiet-button"
                     onClick={() => {
                       const next = liabilityInitials.find(
-                        (i) => !initialInput(initials[`p${i}`]),
+                        (i) => !initialMarkInput(initials[`p${i}`]),
                       );
                       const input =
                         next !== undefined
@@ -559,43 +613,92 @@ export function SigningRoom({
                 </p>
               ) : (
                 <div className="initial-sections">
+                  <SignatureInput
+                    purpose="initials"
+                    label="Guest initials"
+                    value={guestInitials}
+                    onChange={setGuestInitials}
+                  />
+                  <p className="field-hint">
+                    Draw once, then click to apply after reading each
+                    acknowledgement. Changing your initials here does not change
+                    marks already applied.
+                  </p>
                   {liabilityInitials.map((i) => (
                     <section key={i}>
                       <p className="source-clause">
                         {formSource(kind).paragraphs[i]}
                       </p>
-                      <label htmlFor={`initial-p${i}`}>
-                        Guest initials — {initialLabels[i]}
-                        <span aria-hidden="true"> *</span>
-                      </label>
-                      <input
+                      <h2>Guest initials — {initialLabels[i]}</h2>
+                      {initials[`p${i}`] && (
+                        <InitialMarkView
+                          mark={initials[`p${i}`]}
+                          label={`Applied guest initials: ${initialLabels[i]}`}
+                        />
+                      )}
+                      <button
+                        type="button"
+                        className="quiet-button"
                         id={`initial-p${i}`}
-                        value={initials[`p${i}`] ?? ""}
-                        maxLength={12}
-                        required
-                        autoComplete="off"
-                        onChange={(e) =>
-                          setInitials((v) => ({
-                            ...v,
-                            [`p${i}`]: e.target.value,
-                          }))
-                        }
-                      />
+                        aria-label={`Click to apply initials: ${initialLabels[i]}`}
+                        onClick={() => applyInitials(`p${i}`, guestInitials)}
+                      >
+                        {initials[`p${i}`]
+                          ? "Reapply initials"
+                          : "Click to apply initials"}
+                      </button>
+                      {initials[`p${i}`] && (
+                        <button
+                          type="button"
+                          className="quiet-button"
+                          aria-label={`Clear initials: ${initialLabels[i]}`}
+                          onClick={() => clearInitials(`p${i}`)}
+                        >
+                          Clear
+                        </button>
+                      )}
                     </section>
                   ))}
                   {minor && (
-                    <label className="parent-initial">
-                      Parent / guardian opening initials *
-                      <input
-                        id="parent-initial"
-                        value={initials.parent ?? ""}
-                        required
-                        maxLength={12}
-                        onChange={(e) =>
-                          setInitials((v) => ({ ...v, parent: e.target.value }))
-                        }
+                    <section className="parent-initial">
+                      <SignatureInput
+                        purpose="initials"
+                        label="Parent / guardian initials"
+                        value={guardianInitials}
+                        onChange={setGuardianInitials}
                       />
-                    </label>
+                      <h2>Parent / guardian opening acknowledgement</h2>
+                      <p className="source-clause">
+                        {formSource(kind).paragraphs[1]}
+                      </p>
+                      {initials.parent && (
+                        <InitialMarkView
+                          mark={initials.parent}
+                          label="Applied parent / guardian opening initials"
+                        />
+                      )}
+                      <button
+                        type="button"
+                        className="quiet-button"
+                        id="parent-initial"
+                        onClick={() =>
+                          applyInitials("parent", guardianInitials)
+                        }
+                      >
+                        {initials.parent
+                          ? "Reapply guardian initials"
+                          : "Click to apply guardian initials"}
+                      </button>
+                      {initials.parent && (
+                        <button
+                          type="button"
+                          className="quiet-button"
+                          onClick={() => clearInitials("parent")}
+                        >
+                          Clear guardian initials
+                        </button>
+                      )}
+                    </section>
                   )}
                 </div>
               )}
@@ -743,7 +846,16 @@ export function SigningRoom({
                   Electronic consent: {consent ? "agreed" : "not agreed"}.
                 </p>
               </div>
-              <SourceDisclosure kind={kind} />
+              <h2>Completed document preview</h2>
+              <DocumentView
+                source={formSource(kind)}
+                initials={initials}
+                minor={minor}
+                fields={kind === "liability" ? fields : undefined}
+                showProvenance={false}
+              />
+              <h2>Electronic acceptance</h2>
+              <p>{electronicConsent}</p>
               {frozen && (
                 <p role="status">
                   This submission is held unchanged while its result is

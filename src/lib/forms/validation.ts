@@ -17,6 +17,11 @@ export type Point = [number, number];
 export type Signature =
   | { method: "typed"; name: string }
   | { method: "drawn"; name: string; strokes: Point[][] };
+// Strings remain readable for earlier, typed-initial records.
+export type InitialMark =
+  | string
+  | { method: "typed"; text: string }
+  | { method: "drawn"; strokes: Point[][] };
 export type Submission = {
   kind: FormKind;
   version: string;
@@ -25,7 +30,7 @@ export type Submission = {
   minor: boolean;
   riding: string[];
   conditions: string[];
-  initials: Record<string, string>;
+  initials: Record<string, InitialMark>;
   guestSignature: Signature;
   guardianSignature: Signature | null;
   guardianCertified: boolean;
@@ -69,6 +74,32 @@ export function fieldInput(field: Field, value: unknown) {
 export function initialInput(value: unknown) {
   const text = clean(value, 12, true);
   return text && /^[\p{L}\p{M} .'-]+$/u.test(text) ? text : null;
+}
+export function initialMarkInput(value: unknown): InitialMark | null {
+  if (typeof value === "string") return initialInput(value);
+  if (!record(value)) return null;
+  if (
+    value.method === "typed" &&
+    Object.keys(value).every((key) => ["method", "text"].includes(key))
+  ) {
+    const text = initialInput(value.text);
+    return text ? { method: "typed", text } : null;
+  }
+  if (
+    value.method !== "drawn" ||
+    !Object.keys(value).every((key) => ["method", "strokes"].includes(key)) ||
+    !Array.isArray(value.strokes) ||
+    value.strokes.length > 20 ||
+    value.strokes.reduce(
+      (n, stroke) => n + (Array.isArray(stroke) ? stroke.length : 201),
+      0,
+    ) > 200
+  )
+    return null;
+  const mark = signatureInput({ ...value, name: "Initials" }, "Initials");
+  return mark?.method === "drawn"
+    ? { method: "drawn", strokes: mark.strokes }
+    : null;
 }
 export function signatureInput(
   value: unknown,
@@ -227,11 +258,11 @@ export function submissionInput(value: unknown): Submission | null {
     !Object.keys(value.initials).every((k) => expected.includes(k))
   )
     return null;
-  const initials: Record<string, string> = {};
+  const initials: Record<string, InitialMark> = {};
   for (const key of expected) {
-    const text = initialInput(value.initials[key]);
-    if (!text) return null;
-    initials[key] = text;
+    const mark = initialMarkInput(value.initials[key]);
+    if (!mark) return null;
+    initials[key] = mark;
   }
   const guestSignature = signatureInput(
     value.guestSignature,

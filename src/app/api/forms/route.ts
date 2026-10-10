@@ -46,12 +46,27 @@ export async function POST(request: Request) {
     );
   try {
     const id = randomUUID();
+    const receivedAt = new Date().toISOString();
     const record: SignedRecord = {
       ...input,
       id,
-      receivedAt: new Date().toISOString(),
+      receivedAt,
       source: formSource(input.kind),
       electronicConsent: { version: consentVersion, text: electronicConsent },
+      initialAcknowledgements: Object.entries(input.initials).map(
+        ([key, mark]) => {
+          const paragraphIndex = key === "parent" ? 1 : Number(key.slice(1));
+          return {
+            key,
+            paragraphIndex,
+            text: formSource(input.kind).paragraphs[paragraphIndex],
+            mark,
+            signerRole:
+              key === "parent" ? ("guardian" as const) : ("guest" as const),
+            recordedAt: receivedAt,
+          };
+        },
+      ),
       ...(input.minor
         ? {
             guardianCertification: {

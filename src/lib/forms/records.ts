@@ -1,6 +1,14 @@
 import "server-only";
 import { decrypt, digest, type Envelope } from "./crypto";
 import type { Submission } from "./validation";
+export type InitialAcknowledgement = {
+  key: string;
+  paragraphIndex: number;
+  text: string;
+  mark: Submission["initials"][string];
+  signerRole: "guest" | "guardian";
+  recordedAt: string;
+};
 export type SignedRecord = Submission & {
   id: string;
   receivedAt: string;
@@ -9,6 +17,7 @@ export type SignedRecord = Submission & {
   guardianCertification?: { version: string; text: string; certified: true };
   signer: { id: string; email: string; role: "guest" | "guardian" | "owner" };
   attribution: string;
+  initialAcknowledgements?: InitialAcknowledgement[];
 };
 export type StoredForm = {
   id: string;
