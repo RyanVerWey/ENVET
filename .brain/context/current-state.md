@@ -1,5 +1,5 @@
 ---
-updated: "2026-10-10T00:53:11Z"
+updated: "2026-10-10T00:54:44Z"
 ---
 ## Google auth active; staff configuration pending (October 9, 2026)
 
@@ -136,4 +136,3 @@ Independent GPT-6 Astra correction review accepts the prepared local increment o
 User explicitly repeated deploy/configure envet.info. Current candidate 064897f25f7e15692522d03cdb9561454a4cc752/PR45 has both GitHub checks successful. DNS remains ready (A216.198.79.1; www CNAME envet.info). Vercel browser access available; existing envet project now connected to RyanVerWey/ENVET, Next.js preset/Node22 saved, production tracks codex/envet-owner-preview. Automatic Git deployment remains disabled in vercel.json.
 
 Production-only Config variables saved: SITE_URL=https://envet.info; SITE_APPROVED_FOR_LAUNCH=true; CONTENT_AND_MEDIA_APPROVED=false; FORM_COLLECTION_ENABLED=false. No deployment/merge or data activation. Asked for four-image rights/depicted-person consent or release without uncleared media; answer still required. No credential-access blocker remains; optional Vercel connector suggestion is not evidence of installed/connected status. See latest section of docs/launch-runbook.md for exact state and next verification.
-
