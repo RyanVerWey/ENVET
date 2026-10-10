@@ -1,6 +1,12 @@
 ---
-updated: "2026-10-10T00:25:26Z"
+updated: "2026-10-10T00:28:37Z"
 ---
+## Guided forms production release (October 9, 2026)
+
+Source fdab66b7f9903d8e64eaf46c64aef2b3e0bea65c passed exact-source CI38008985172 and38008989530, then released to Vercel dpl_G9RJuDGNEJwiaewwx74xnVVJv3CM Ready24s with envet.info assigned. Immutable: envet-fy7zoiiqv-ryanverweys-projects.vercel.app. Live15-public/9-private smoke plus redirects/discovery/media pass, including new guided-room/progress/form visibility assertions on both signing routes. Browser confirms liability four-step and donation six-step signing UI, offline notice, real editable fields and no dead Google link. Live proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-guided-liability-live.png and envet-guided-donation-live.png. Prior healthy source7d07c89/dpl_CmfN7DhHhNcguHDh6tZk1DJQxnyD is rollback candidate, not exercised.
+
+Live submissions and authenticated team access remain unavailable pending existing Google/config/encryption-recovery activation. No secret, permission, schema, consent/version or collection setting changed. Agent-owned3002 preview server stopped; user-owned3001 preserved. This release restores presentation, not operational signing acceptance. PR45 attached; Plan46 remains open.
+
 ## Guided forms restored for both routes (October 9, 2026)
 
 Owner asks why DocuSign-style forms disappeared and requires both flows visible. The prior public polish gate returned read-only FormOverview whenever collection was disabled. Removed that presentation gate: liability and donation always render SigningRoom, while collectionEnabled, fresh Google identity and all API/encryption/approved-version checks remain unchanged. Honest unavailable-submission notice explains page-local unsaved work; no dead Google action or fake successful receipt. Forms landing links now explicitly open guided forms. Donation step says Read & review, since its original source has no initial slots; liability retains drawn/typed per-clause initials and separate guardian marks/signatures.
