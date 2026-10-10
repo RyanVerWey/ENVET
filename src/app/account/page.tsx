@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { PageIntro } from "@/components/ui";
 import { communityConfig } from "@/lib/community/config";
 import { currentUser, staffUser } from "@/lib/community/supabase";
+import { memberFirstName } from "@/lib/community/member";
+import { MemberTasks } from "@/components/member-tasks";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -16,12 +18,17 @@ export default async function Account({ searchParams }: Props) {
   const user = configured ? await currentUser() : null;
   const staff = user ? await staffUser() : null;
   const { error } = await searchParams;
+  const firstName = user ? memberFirstName(user.user_metadata) : null;
   return (
     <>
       <PageIntro
         eyebrow="Community"
-        title="Your account"
-        intro="Join the conversation around ENVET’s journal."
+        title={
+          user
+            ? `Hello${firstName ? `, ${firstName}` : ""}. Welcome to ENVET.`
+            : "Your ENVET account"
+        }
+        intro="Your paperwork, visit preparation and journal conversations, in one place."
         path="/account"
       />
       <section className="wrap community-panel account-panel">
@@ -38,15 +45,13 @@ export default async function Account({ searchParams }: Props) {
           </>
         ) : user ? (
           <>
-            <h2>You’re signed in.</h2>
+            <p className="eyebrow">You’re signed in</p>
             <p>
               Use your Google account to like, comment on, and share published
               guides. Your email is not shown with comments.
             </p>
+            <MemberTasks />
             <div className="actions">
-              <Link className="action" href="/blog">
-                Go to the journal
-              </Link>
               {staff && (
                 <Link className="action action-secondary" href="/team">
                   Open team workspace

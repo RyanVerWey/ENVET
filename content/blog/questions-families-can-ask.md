@@ -4,7 +4,7 @@ description: "A practical starting point for family members who want to learn ab
 date: "2026-09-06"
 updated: "2026-09-06"
 category: "For families"
-author: "ENVET editorial"
+author: "M. Lamm"
 image: "/images/connection.jpg"
 imageAlt: "A helmeted rider leaning toward a paint horse, with a handler nearby at ENVET"
 published: true

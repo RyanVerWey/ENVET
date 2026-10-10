@@ -4,7 +4,7 @@ description: "Give, share, or ask where a helping hand is needed. Thoughtful way
 date: "2026-09-06"
 updated: "2026-09-06"
 category: "Supporting the mission"
-author: "ENVET editorial"
+author: "M. Lamm"
 image: "/images/horse.jpg"
 imageAlt: "A horse at Eagle’s Nest Veterans’ Equine Therapy"
 published: true

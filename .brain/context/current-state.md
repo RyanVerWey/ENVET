@@ -1,6 +1,18 @@
 ---
-updated: "2026-10-10T01:06:38Z"
+updated: "2026-10-10T01:30:55Z"
 ---
+## Member workspace and signing activation preparation (October 9, 2026)
+
+Owner again approved both forms for live signing. Owner directly saved SUPABASE_SECRET_KEY in Vercel Production; API credential never read by agent. Existing RATE_LIMIT_PEPPER remains. Generated a separate AES-256 keyring, saved as write-only Production Secret, with active ID envet-2026-10-v1. At owner's explicit request saved a Windows-current-user DPAPI encrypted Desktop recovery artifact and no-secret README outside repository. Re-read and restored that artifact; actual application crypto decrypted synthetic evidence and rejected a wrong key. This is a Windows-profile-dependent key restore, not a hosted database disaster-recovery test; move a portable keyring copy into owner password manager before retiring the profile. No key values in source, logs, Brain or screenshots.
+
+Exact current formVersion values saved as Production Config; FORM_COLLECTION_ENABLED configured true for next release. Existing fresh Google, same-origin, nonce/rate, version approval, encryption/digest and private receipt checks remain. Actual public deployment of this increment still pending; no real signed record submitted by agent. Initial owner staff membership is verified; second designated account still needs actual Google login/bootstrap.
+
+Implemented a static-public-safe, no-store minimal first-name session endpoint and global sign-in/account header link. Account has personal welcome and I need to task chooser/list for both guided forms, personal saved preparation, own submission history/printing, journal participation and separately authorized team link. New own-record history lists only ID/kind/time; private receipt retains filled initials and audit acceptance language. New per-account checklist is allowlisted, versioned, explicit-save and retry/conflict-aware, not staff screening, eligibility or attendance. Operational routes remain no-store/noindex; privacy updated.
+
+Published articles attributed to owner-designated M. Lamm with supplied facts only: ENVET owner and Army Veteran. Added name/role/bio, author profile, consistent Person structured data and sitemap entry. Each article has Facebook, LinkedIn, X, Bluesky, WhatsApp, Reddit, email, device share and copy-link options without social SDKs or automatic posting. Instagram/other apps use device share or copied link. Corva mint retained; member area uses task rows rather than marketing card grids.
+
+Applied reviewed additive member_preparation_and_form_history migration. Hosted catalog: private table RLS, no anon/member reads, three invoker/empty-search-path RPCs service-only. Hosted rollback checks prove own/other history and receipt scoping, checklist conflict rejection and no attendance from forms; zero synthetic records retained. Local migration filenames reconciled to hosted catalog versions: protected forms20261010001252, member increment20261010012325.100 tests, lint/build/types and formatting pass; browser member acceptance being completed. Six milestones intact; Plan41/46 open for operational acceptance, no premature closure.
+
 ## Production anti-spam setting (October 9, 2026)
 
 Owner explicitly approved generating and saving RATE_LIMIT_PEPPER in Vercel Production. Saved cryptographically random 32-byte HMAC pepper as write-only Secret, Production-only. Initial value appeared in an accessibility response during asynchronous save; replaced it before any deployment. Final value was not printed, committed, copied into Brain, or used as a Google/database credential. Do not reveal or reuse the superseded value.

@@ -1,13 +1,109 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ArrowUpRight, ClipboardCheck, Printer } from "lucide-react";
-import { lovettsvilleForecast, preVisitSections } from "@/lib/forms/pre-visit";
+import {
+  lovettsvilleForecast,
+  preVisitSections,
+  preVisitVersion,
+} from "@/lib/forms/pre-visit";
+import type { Preparation } from "@/lib/community/preparation";
 
-export function PreVisitChecklist() {
+export function PreVisitChecklist({ managed = false }: { managed?: boolean }) {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [version, setVersion] = useState<number | null>(null);
+  const [saved, setSaved] = useState<string[]>([]);
+  const [busy, setBusy] = useState(managed);
+  const [message, setMessage] = useState("");
+  const [conflict, setConflict] = useState(false);
   const items = preVisitSections.flatMap((s) => [...s.items]);
   const count = items.filter((i) => checked[i.key]).length;
+  const selected = items
+    .filter((item) => checked[item.key])
+    .map((item) => item.key);
+  const dirty = JSON.stringify(selected) !== JSON.stringify(saved);
+  const load = useCallback(async (signal?: AbortSignal) => {
+    setBusy(true);
+    try {
+      const response = await fetch("/api/account/checklist", {
+        cache: "no-store",
+        signal,
+      });
+      const result = await response.json();
+      if (!response.ok)
+        throw new Error(result.error || "Your checklist could not load.");
+      const data = result as Preparation;
+      if (
+        !Array.isArray(data.checked) ||
+        data.checklistVersion !== preVisitVersion ||
+        !Number.isSafeInteger(data.version)
+      )
+        throw new Error("Your checklist could not load.");
+      setChecked(Object.fromEntries(data.checked.map((key) => [key, true])));
+      setSaved(data.checked);
+      setVersion(data.version);
+      setConflict(false);
+      setMessage(
+        data.updatedAt
+          ? "Your saved preparation is ready."
+          : "Your preparation has not been saved yet.",
+      );
+    } catch (error) {
+      if (!signal?.aborted)
+        setMessage(
+          error instanceof Error
+            ? error.message
+            : "Your checklist could not load.",
+        );
+    } finally {
+      if (!signal?.aborted) setBusy(false);
+    }
+  }, []);
+  useEffect(() => {
+    if (!managed) return;
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => void load(controller.signal), 0);
+    return () => {
+      window.clearTimeout(timer);
+      controller.abort();
+    };
+  }, [managed, load]);
+  async function save() {
+    setBusy(true);
+    setMessage("");
+    try {
+      const response = await fetch("/api/account/checklist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          checked: selected,
+          version,
+          checklistVersion: preVisitVersion,
+        }),
+      });
+      const result = await response.json();
+      if (response.status === 409) {
+        setConflict(true);
+        setMessage(
+          "Your checklist changed in another window. Reload saved checks before saving again. Your current choices have not replaced them.",
+        );
+      } else if (!response.ok)
+        setMessage(
+          result.error || "Saving could not be confirmed. Please try again.",
+        );
+      else {
+        setVersion(result.version);
+        setSaved(selected);
+        setMessage("Your preparation is saved to your account.");
+      }
+    } catch {
+      setMessage(
+        "Saving could not be confirmed. Your checks remain on this page. Try saving again.",
+      );
+    } finally {
+      setBusy(false);
+    }
+  }
   return (
     <section
       className="pre-visit-checklist"
@@ -27,6 +123,16 @@ export function PreVisitChecklist() {
         <ClipboardCheck size={32} aria-hidden="true" />
       </div>
       <div className="pre-visit-toolbar">
+        {managed && (
+          <button
+            type="button"
+            className="action"
+            disabled={busy || version === null || conflict || !dirty}
+            onClick={() => void save()}
+          >
+            {busy ? "Please wait…" : "Save preparation"}
+          </button>
+        )}
         <p role="status" aria-live="polite">
           {count} of {items.length} preparation items checked
         </p>
@@ -40,16 +146,51 @@ export function PreVisitChecklist() {
         <button
           type="button"
           className="quiet-button"
-          disabled={!count}
+          disabled={!count || busy}
           onClick={() => setChecked({})}
         >
           Reset checks
         </button>
       </div>
       <p className="field-hint">
-        Use this as your personal preparation list. Checkmarks reset when you
-        reload and are not sent to ENVET. Arrange your visit with the team.
+        {managed ? (
+          "Save your personal checkmarks to return to them on another device. Changes are saved only when you choose Save preparation. This is not ENVET’s staff screening or a booking."
+        ) : (
+          <>
+            Checkmarks on this page reset when you reload.{" "}
+            <Link href="/account/pre-visit">
+              Sign in to save your preparation
+            </Link>
+            .
+          </>
+        )}{" "}
+        Arrange your visit with the team.
       </p>
+      {managed && (
+        <div className="preparation-status">
+          <p role="status" aria-live="polite">
+            {message || "Loading your saved preparation…"}
+            {dirty && " You have unsaved changes."}
+          </p>
+          {!busy && (version === null || conflict) && (
+            <button
+              type="button"
+              className="quiet-button"
+              onClick={() => {
+                if (
+                  !dirty ||
+                  window.confirm(
+                    "Reload saved checks and replace your unsaved choices?",
+                  )
+                )
+                  void load();
+              }}
+            >
+              Reload saved checks
+            </button>
+          )}
+        </div>
+      )}
       <ol className="pre-visit-sections">
         {preVisitSections.map((section, index) => (
           <li key={section.key}>
@@ -62,6 +203,7 @@ export function PreVisitChecklist() {
                 <label key={item.key} className="pre-visit-item">
                   <input
                     type="checkbox"
+                    disabled={managed && (busy || version === null)}
                     checked={!!checked[item.key]}
                     onChange={(e) =>
                       setChecked((v) => ({

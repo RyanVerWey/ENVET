@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { mkdir } from "node:fs/promises";
+import { createRequire } from "node:module";
+import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { createServer } from "vite";
 
@@ -605,9 +607,119 @@ try {
       fullPage: true,
     });
   }
+  // Member controls run against isolated, nonbinding mock responses only.
+  for (const mode of ["success", "conflict", "lost-response"]) {
+    await page.goto(`${base}member-workspace.html?mode=${mode}`);
+    await page.getByText("Your preparation has not been saved yet.").waitFor();
+    await page
+      .getByRole("link", { name: "Your ENVET account and tasks" })
+      .waitFor();
+    await page
+      .getByLabel("Choose your next step")
+      .selectOption("/account/pre-visit");
+    await page.getByRole("button", { name: "Continue", exact: true }).click();
+    await page.getByText("/account/pre-visit", { exact: true }).waitFor();
+    const pants = page.getByRole("checkbox", {
+      name: /Long pants with room to move/,
+    });
+    await pants.check();
+    await page
+      .getByRole("button", { name: "Save preparation", exact: true })
+      .click();
+    if (mode === "conflict") {
+      await page.getByText(/changed in another window/).waitFor();
+      assert.equal(
+        await page
+          .getByRole("button", { name: "Save preparation", exact: true })
+          .isDisabled(),
+        true,
+      );
+      page.once("dialog", (dialog) => dialog.accept());
+      await page.getByRole("button", { name: "Reload saved checks" }).click();
+      await page
+        .getByText("Your preparation has not been saved yet.")
+        .waitFor();
+      assert.equal(await pants.isChecked(), false);
+      assert.equal(
+        await page
+          .getByRole("checkbox", { name: /Shoes that cover/ })
+          .isChecked(),
+        true,
+      );
+    } else {
+      if (mode === "lost-response") {
+        await page.getByText(/Saving could not be confirmed/).waitFor();
+        assert.equal(await pants.isChecked(), true);
+        await page
+          .getByRole("button", { name: "Save preparation", exact: true })
+          .click();
+      }
+      await page
+        .getByText("Your preparation is saved to your account.")
+        .waitFor();
+      assert.equal(
+        await page
+          .getByRole("button", { name: "Save preparation", exact: true })
+          .isDisabled(),
+        true,
+      );
+    }
+    const facebook = page.getByRole("link", {
+      name: "Share this article on Facebook (opens in a new tab)",
+      exact: true,
+    });
+    assert.match(await facebook.getAttribute("href"), /envet.info/);
+    assert.match(await facebook.getAttribute("rel"), /noopener/);
+    assert.equal(
+      await page
+        .getByRole("link", { name: /Share this article on LinkedIn/ })
+        .count(),
+      1,
+    );
+    for (const theme of ["mint-light", "mint-dark"]) {
+      await page.evaluate((value) => {
+        document.documentElement.dataset.corvaTheme = value;
+      }, theme);
+      for (const width of [320, 768, 1280]) {
+        await page.setViewportSize({ width, height: 900 });
+        assert.equal(
+          await page.evaluate(
+            () =>
+              document.documentElement.scrollWidth <=
+              document.documentElement.clientWidth,
+          ),
+          true,
+          `member ${theme} ${width}: no overflow`,
+        );
+      }
+    }
+  }
+  await page.goto(`${base}member-workspace.html`);
+  await page.getByText("Your preparation has not been saved yet.").waitFor();
+  await page.setViewportSize({ width: 1280, height: 900 });
+  const require = createRequire(import.meta.url);
+  await page.addScriptTag({
+    content: await readFile(require.resolve("axe-core/axe.min.js"), "utf8"),
+  });
+  const memberAccessibility = await page.evaluate(async () =>
+    (await window.axe.run()).violations.map((violation) => ({
+      id: violation.id,
+      impact: violation.impact,
+      nodes: violation.nodes.length,
+    })),
+  );
+  assert.deepEqual(
+    memberAccessibility,
+    [],
+    "member task/checklist/sharing accessibility",
+  );
+  await page.screenshot({
+    path: "output/playwright/envet-member-workspace.png",
+    fullPage: true,
+  });
   assert.deepEqual(failures, []);
   console.log(
-    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, frozen draft marks, 17 filled review/receipt marks, unchanged submission retry/thank-you, separate guardian signatures/certification and identity-edit invalidation; responsive mint light/dark review.",
+    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, filled review/receipts, unchanged signing retry, separate guardian signatures; member task navigation, checklist conflict/retry states, share links, 320/768/1280 mint light/dark layouts and member axe accessibility.",
   );
 } finally {
   await browser?.close();

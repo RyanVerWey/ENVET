@@ -6,6 +6,8 @@ import { absoluteUrl, jsonLd, organization } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 import { CommunityPanel } from "@/components/community-panel";
 import { dataConfig } from "@/lib/community/config";
+import { getAuthor } from "@/lib/authors";
+import { ArticleShare } from "@/components/article-share";
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -33,6 +35,7 @@ export default async function Article({ params }: Props) {
   const post = getPost(slug);
   if (!post) notFound();
   const html = await renderMarkdown(post.body);
+  const author = getAuthor(post.author);
   return (
     <>
       <article>
@@ -52,7 +55,13 @@ export default async function Article({ params }: Props) {
           <h1>{post.title}</h1>
           <p className="lead">{post.description}</p>
           <div className="article-meta">
-            <Link href="/editorial-policy">By {post.author}</Link>
+            <Link
+              href={
+                author ? `/blog/authors/${author.slug}` : "/editorial-policy"
+              }
+            >
+              By {post.author}
+            </Link>
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <span>{post.readingMinutes} min read</span>
             {post.updated !== post.date && (
@@ -94,6 +103,27 @@ export default async function Article({ params }: Props) {
           </aside>
           <div>
             <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
+            {author && (
+              <section
+                className="article-author"
+                aria-labelledby="article-author-heading"
+              >
+                <p className="eyebrow">About the author</p>
+                <h2 id="article-author-heading">
+                  <Link href={`/blog/authors/${author.slug}`}>
+                    {author.name}
+                  </Link>
+                </h2>
+                <p className="author-role">{author.role}</p>
+                <p>{author.bio}</p>
+                <Link
+                  className="text-link"
+                  href={`/blog/authors/${author.slug}`}
+                >
+                  More from {author.name}
+                </Link>
+              </section>
+            )}
             <section className="source-list">
               <h2>Sources & further reading</h2>
               <ul>
@@ -115,7 +145,8 @@ export default async function Article({ params }: Props) {
           </div>
         </div>
       </article>
-      <CommunityPanel slug={slug} title={post.title} enabled={!!dataConfig()} />
+      <ArticleShare title={post.title} url={absoluteUrl(`/blog/${slug}`)} />
+      <CommunityPanel slug={slug} enabled={!!dataConfig()} />
       <section className="wrap reading-section">
         <h2>Keep exploring</h2>
         <PostList
@@ -137,9 +168,17 @@ export default async function Article({ params }: Props) {
             datePublished: `${post.date}T12:00:00Z`,
             dateModified: `${post.updated}T12:00:00Z`,
             author: {
-              "@type": "Organization",
+              "@type": author?.type ?? "Organization",
+              ...(author
+                ? {
+                    "@id": absoluteUrl(`/blog/authors/${author.slug}#author`),
+                    description: author.bio,
+                  }
+                : {}),
               name: post.author,
-              url: absoluteUrl("/editorial-policy"),
+              url: absoluteUrl(
+                author ? `/blog/authors/${author.slug}` : "/editorial-policy",
+              ),
             },
             publisher: { "@id": absoluteUrl("/#organization") },
             mainEntityOfPage: absoluteUrl(`/blog/${slug}`),

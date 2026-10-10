@@ -29,6 +29,9 @@ export function Footer() {
           <Link href="/blog">The journal</Link>
           <Link href="/donate">Support ENVET</Link>
           <Link href="/forms">Guest & horse donation forms</Link>
+          <Link href="/account" prefetch={false}>
+            Your account & tasks
+          </Link>
         </nav>
         <div>
           <h2>Contact & connect</h2>

@@ -19,6 +19,8 @@ const routes = [
   "/editorial-policy",
   "/forms/receipt",
   "/account",
+  "/account/forms",
+  "/account/pre-visit",
   "/team",
   "/team/forms",
   "/team/impact",
@@ -28,6 +30,7 @@ const routes = [
   "/blog/category/getting-started",
   "/blog/category/for-families",
   "/blog/category/supporting-the-mission",
+  "/blog/authors/m-lamm",
 ];
 for (const route of [
   "/forms/pre-visit",
@@ -36,6 +39,8 @@ for (const route of [
   "/forms/receipt",
   "/team/forms",
   "/team/impact",
+  "/account/forms",
+  "/account/pre-visit",
 ]) {
   const response = await fetch(origin + route);
   assert.equal(response.status, 200, route);

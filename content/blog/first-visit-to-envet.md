@@ -4,7 +4,7 @@ description: "A simple guide to contacting ENVET, asking the right questions, an
 date: "2026-09-06"
 updated: "2026-09-06"
 category: "Getting started"
-author: "ENVET editorial"
+author: "M. Lamm"
 image: "/images/farm.jpg"
 imageAlt: "The outdoor setting at Eagle’s Nest in Lovettsville, Virginia"
 published: true

@@ -20,11 +20,9 @@ type Community = {
 
 export function CommunityPanel({
   slug,
-  title,
   enabled,
 }: {
   slug: string;
-  title: string;
   enabled: boolean;
 }) {
   const [data, setData] = useState<Community | null>(null);
@@ -92,28 +90,7 @@ export function CommunityPanel({
     }
   }
 
-  async function copyLink() {
-    const url = new URL(`/blog/${slug}`, window.location.origin).toString();
-    try {
-      await navigator.clipboard.writeText(url);
-      setMessage("Guide link copied.");
-    } catch {
-      setMessage(`Copy this link: ${url}`);
-    }
-  }
-
-  async function share() {
-    const url = new URL(`/blog/${slug}`, window.location.origin).toString();
-    if (!navigator.share) return copyLink();
-    try {
-      await navigator.share({ title, url });
-      setMessage("Shared using your device.");
-    } catch (error) {
-      if (error instanceof DOMException && error.name === "AbortError") return;
-      setMessage("Sharing did not finish. You can copy the link instead.");
-    }
-  }
-
+  if (!enabled) return null;
   return (
     <section
       className="wrap community-section"
@@ -133,20 +110,6 @@ export function CommunityPanel({
         </p>
       </div>
       <div className="community-actions">
-        <button
-          type="button"
-          className="quiet-button"
-          onClick={() => void share()}
-        >
-          Share this guide
-        </button>
-        <button
-          type="button"
-          className="quiet-button"
-          onClick={() => void copyLink()}
-        >
-          Copy link
-        </button>
         {state === "ready" &&
           data &&
           (data.signedIn ? (

@@ -117,9 +117,14 @@ export default function Privacy() {
           )}
           <h2>Your pre-visit checklist</h2>
           <p>
-            Checkmarks stay on the current page and reset when it reloads. They
-            are not sent to ENVET or saved in browser storage. Checking an item
-            does not confirm eligibility or book a visit.
+            The public checklist keeps checkmarks only on the current page; they
+            reset when it reloads. If you sign in and choose Save preparation in
+            your account, the selected item identifiers and save time are kept
+            privately in the database until you replace them or your account is
+            removed. No notes, medical details or proof documents are collected.
+            Personal checkmarks do not confirm eligibility, complete staff
+            screening or book a visit. Neither checklist saves nor form
+            submissions count as actual attendance.
           </p>
           {communityEnabled && (
             <>

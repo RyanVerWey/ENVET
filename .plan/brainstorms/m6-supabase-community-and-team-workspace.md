@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-10T01:05:10Z"
+updated_at: "2026-10-10T01:13:25Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -52,6 +52,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Owner requests completing Google OAuth in Chrome and exact localhost testing. Owner completed Google app/client/provider handoff; verify hosted Google enabled, save production and both port3001 local callbacks. Configure public Vercel auth settings and ignored development-only config. Preserve starting local hostname through PKCE despite NextRequest normalization; keep strict production origin and wrong-port/Host denial. Actual owner callback, private server credentials and verified UUID staff bootstrap remain separate acceptance gates. No signed-form activation before encryption recovery.
 
 - Owner explicitly approves generation and Production Secret storage of RATE_LIMIT_PEPPER. Generate cryptographically random 32-byte HMAC pepper, keep final value out of chat/source/Brain and redeploy existing passing production source. Verify write-only Production scope and anti-abuse regression tests. Server database key remains owner-entry dependency; do not claim runtime writes or enable protected form collection from pepper configuration alone.
+
+- Owner approved current live signing wording and requested member first-name welcome, global sign-in, an I need to task chooser, personal saved pre-visit checkmarks, own signed-form history and printing, social share links on every article, and author M. Lamm with no invented bio. Extend M6 and forms #46 additively: service-only own-record listing, private per-account preparation with version conflict protection, Google-required writes, no eligibility or attendance inference, immutable encrypted acceptance evidence, no personal data on public caches. Live signing still requires server key entered by owner, encryption keyring and separately controlled recovery with restore proof. Preserve existing six milestones; deployment authorized.
 ## Raw Notes
 
 ## Refinement

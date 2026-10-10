@@ -1,6 +1,14 @@
 ---
-updated: "2026-10-10T00:25:26Z"
+updated: "2026-10-10T01:30:55Z"
 ---
+## Owner-approved live-signing configuration and member hub (October 9, 2026)
+
+Owner reaffirmed both forms are approved and requested protected databasing. Server key entered directly by owner; rate pepper already saved. Separate encryption keyring saved to Production with active ID envet-2026-10-v1. Windows-current-user DPAPI recovery artifact and README saved on owner's Desktop outside source at owner's explicit direction. Actual crypto restored the artifact, decrypted synthetic evidence and rejected a wrong key. DPAPI recovery depends on the original Windows profile; portable password-manager recovery and separate database backups remain operational follow-through. Do not disclose key values or replace a keyring without retaining old key IDs.
+
+Exact approved document-version Config values and collection=true prepared for next deployment. Legal approval is settled; server guards are not bypassed. No real legal signature submitted by agent. New account task list links both guided forms, private own-form history/printing and personal pre-visit preparation. Form evidence still freezes original source, exact initial clauses/marks/roles, consent and guardian certification wording/versions, signatures, verified-account attribution and server time as immutable authenticated ciphertext. Personal preparation stays separate from immutable releases and staff call screening; it is not booking, eligibility or attendance.
+
+Additive hosted migration provides minimum own-history records and private account checkmarks with explicit-save optimistic concurrency. Browser roles cannot read or invoke these operations directly. Hosted rolled-back synthetic checks verify cross-account denial, own receipt/history, stale checklist rejection and zero implied attendance; no synthetic records retained. Production deployment and live acceptance evidence will follow. Plan46 remains open pending final operational acceptance.
+
 ## Guided forms restored for both routes (October 9, 2026)
 
 Owner asks why DocuSign-style forms disappeared and requires both flows visible. The prior public polish gate returned read-only FormOverview whenever collection was disabled. Removed that presentation gate: liability and donation always render SigningRoom, while collectionEnabled, fresh Google identity and all API/encryption/approved-version checks remain unchanged. Honest unavailable-submission notice explains page-local unsaved work; no dead Google action or fake successful receipt. Forms landing links now explicitly open guided forms. Donation step says Read & review, since its original source has no initial slots; liability retains drawn/typed per-clause initials and separate guardian marks/signatures.

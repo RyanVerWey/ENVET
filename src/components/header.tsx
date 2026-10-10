@@ -6,6 +6,7 @@ import { useState, useSyncExternalStore } from "react";
 import { Button } from "@corvaui/react";
 import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import { organization as org } from "@/lib/site";
+import { MemberLink } from "./member-link";
 
 const nav = [
   ["About ENVET", "/about"],
@@ -48,6 +49,7 @@ export function Header() {
         <div className="wrap">
           <span>Serving Veterans & families in Lovettsville, Virginia</span>
           <a href={org.phoneHref}>Call {org.phone}</a>
+          <MemberLink pathname={pathname} />
         </div>
       </div>
       <div className="header-inner wrap">
