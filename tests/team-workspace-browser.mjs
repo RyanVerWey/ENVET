@@ -501,6 +501,110 @@ try {
       .count(),
     0,
   );
+  // Both production routes must retain the full guided UI while intake is off.
+  for (const kind of ["liability", "donation"]) {
+    await page.goto(`${base}form-guardian.html?mode=offline&kind=${kind}`);
+    await page
+      .getByText("Review your form, step by step", { exact: true })
+      .waitFor();
+    assert.equal(
+      await page.getByRole("link", { name: "Continue with Google" }).count(),
+      0,
+    );
+    const contactSteps = kind === "liability" ? 1 : 3;
+    for (let step = 0; step < contactSteps; step++) {
+      for (const input of await page
+        .locator("input[required], textarea[required]")
+        .all()) {
+        const type = await input.getAttribute("type");
+        if (type === "checkbox") continue;
+        const name = await input.getAttribute("name");
+        await input.fill(
+          type === "date"
+            ? "2026-10-09"
+            : type === "email"
+              ? "synthetic@example.test"
+              : type === "tel"
+                ? "202-555-0100"
+                : /guestName|ownerName/.test(name)
+                  ? "Synthetic Signer"
+                  : "Synthetic test information",
+        );
+      }
+      await page
+        .getByRole("button", { name: "Continue", exact: false })
+        .click();
+    }
+    await page
+      .getByRole("heading", {
+        name: kind === "liability" ? "Read & initial" : "Read & review",
+        exact: true,
+      })
+      .waitFor();
+    if (kind === "liability") {
+      const mark = page.getByRole("group", {
+        name: "Guest initials",
+        exact: true,
+      });
+      await mark
+        .getByRole("button", { name: "Type initials", exact: true })
+        .click();
+      await mark.getByRole("textbox", { name: "Typed initials" }).fill("SS");
+      for (const button of await page.locator('button[id^="initial-p"]').all())
+        await button.click();
+    }
+    await page.getByRole("button", { name: "Continue", exact: false }).click();
+    const signature = page.getByRole("group", {
+      name: kind === "liability" ? "Guest signature" : "Owner signature",
+      exact: true,
+    });
+    await signature.getByRole("textbox").fill("Synthetic Signer");
+    await page.locator(".consent-line input").check();
+    await page.getByRole("button", { name: "Continue", exact: false }).click();
+    await page
+      .getByRole("heading", { name: "Review & finish", exact: true })
+      .waitFor();
+    assert.equal(
+      await page
+        .getByRole("button", { name: "Finish & submit", exact: true })
+        .isDisabled(),
+      true,
+    );
+    assert.equal(
+      await page.locator(".source-document [data-applied-initials]").count(),
+      kind === "liability" ? 16 : 0,
+    );
+    assert.equal(
+      await page.getByRole("heading", { name: /Thank you/i }).count(),
+      0,
+    );
+    for (const theme of ["mint-light", "mint-dark"]) {
+      await page.evaluate((value) => {
+        document.documentElement.dataset.corvaTheme = value;
+      }, theme);
+      for (const width of [320, 1280]) {
+        await page.setViewportSize({ width, height: 900 });
+        assert.equal(
+          await page.evaluate(
+            () =>
+              document.documentElement.scrollWidth <=
+              document.documentElement.clientWidth,
+          ),
+          true,
+          `${kind} ${theme} ${width}: no overflow`,
+        );
+      }
+    }
+    await page.evaluate(() => {
+      document.documentElement.dataset.corvaTheme = "mint-light";
+    });
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await mkdir("output/playwright", { recursive: true });
+    await page.screenshot({
+      path: `output/playwright/envet-${kind}-guided-review.png`,
+      fullPage: true,
+    });
+  }
   assert.deepEqual(failures, []);
   console.log(
     "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, frozen draft marks, 17 filled review/receipt marks, unchanged submission retry/thank-you, separate guardian signatures/certification and identity-edit invalidation; responsive mint light/dark review.",

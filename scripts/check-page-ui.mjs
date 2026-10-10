@@ -19,6 +19,19 @@ export function assertPolishedPage(html, route) {
     1,
     `${route}: one main`,
   );
+  if (route === "/forms/liability" || route === "/forms/donation") {
+    assert.match(
+      markup,
+      /aria-label="Document signing"/,
+      `${route}: guided signing room remains visible`,
+    );
+    assert.match(
+      markup,
+      /aria-label="Signing progress"/,
+      `${route}: signing steps`,
+    );
+    assert.match(markup, /<form\b/, `${route}: interactive form`);
+  }
   assert.match(
     markup,
     /<main[^>]*id="main"[^>]*tabindex="-1"/,

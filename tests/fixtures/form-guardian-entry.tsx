@@ -76,16 +76,24 @@ window.addEventListener("synthetic-navigation", (event) => {
   if (!id) throw new Error("Synthetic navigation lacks receipt ID.");
   root.render(<Receipt id={id} />);
 });
+const parameters = new URLSearchParams(location.search);
+const offline = parameters.get("mode") === "offline";
+if (offline)
+  window.fetch = async () => {
+    throw new Error("Offline signing must never send a submission.");
+  };
 document.documentElement.dataset.corvaTheme =
-  new URLSearchParams(location.search).get("theme") === "dark"
-    ? "mint-dark"
-    : "mint-light";
+  parameters.get("theme") === "dark" ? "mint-dark" : "mint-light";
 root.render(
   <>
     <p className="wrap">
       Synthetic local test. No Google account, submission or saved personal
       data.
     </p>
-    <SigningRoom kind="liability" enabled={true} signedIn={true} />
+    <SigningRoom
+      kind={parameters.get("kind") === "donation" ? "donation" : "liability"}
+      enabled={!offline}
+      signedIn={!offline}
+    />
   </>,
 );

@@ -1,14 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { FileHeart, Sprout, LockKeyhole, PenLine } from "lucide-react";
-import { collectionEnabled } from "@/lib/forms/server";
 export const metadata: Metadata = {
   title: "ENVET forms",
   robots: { index: false, follow: false },
 };
 export default function FormsPage() {
-  const enabled =
-    collectionEnabled("donation") || collectionEnabled("liability");
   return (
     <section className="wrap forms-home">
       <p className="eyebrow">Before the next chapter</p>
@@ -42,7 +39,7 @@ export default function FormsPage() {
             Understand the equine activity release, participant information, and
             parent or guardian requirements for guests under 18.
           </p>
-          <span className="form-option-action">Review the release →</span>
+          <span className="form-option-action">Open the guided release →</span>
         </Link>
         <Link href="/forms/donation" className="form-option">
           <Sprout size={30} aria-hidden="true" />
@@ -54,22 +51,20 @@ export default function FormsPage() {
             ownership.
           </p>
           <span className="form-option-action">
-            Read the candidate application →
+            Open the guided application →
           </span>
         </Link>
       </div>
-      {enabled && (
-        <div className="forms-assurance">
-          <p>
-            <PenLine size={19} aria-hidden="true" />
-            Typed or hand-drawn signatures
-          </p>
-          <p>
-            <LockKeyhole size={19} aria-hidden="true" />
-            Private records · no saved drafts
-          </p>
-        </div>
-      )}
+      <div className="forms-assurance">
+        <p>
+          <PenLine size={19} aria-hidden="true" />
+          Typed or hand-drawn signatures
+        </p>
+        <p>
+          <LockKeyhole size={19} aria-hidden="true" />
+          Details stay on this page until submission
+        </p>
+      </div>
       <p className="field-hint">
         Need help completing a form?{" "}
         <Link href="/contact">Contact ENVET for signing arrangements</Link>.

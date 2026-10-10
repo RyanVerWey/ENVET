@@ -5,7 +5,7 @@ slug: protected-signed-forms-and-attendance-reporting
 status: active
 title: Protected signed forms and attendance reporting
 type: brainstorm
-updated_at: "2026-10-10T00:02:26Z"
+updated_at: "2026-10-10T00:24:15Z"
 ---
 
 # Brainstorm: Protected signed forms and attendance reporting
@@ -41,6 +41,8 @@ An accessible, calm signing room, not a long generic contact form. Staff see rea
 - Owner requests explicit Child full name in under-18 flow, age 0-17, guardian printed name and own adult Google account; separate guest/guardian signatures; required guardian authority certification. Preserve guestName as participant identity, original source wording and encrypted private storage; version the separate certification and freeze it in record, receipt and staff detail. Liability remains disabled pending exact-version legal approval; do not claim Google proves adulthood, guardianship or waiver enforceability.
 
 - Owner approved current electronic wording for live signing, including guardian and media provisions. Requested reusable drawn initials with deliberate per-clause click-to-apply; final preview and saved receipt must visibly fill initial blanks. Preserve keyboard typed initials and legacy receipt compatibility, distinct guest/guardian attribution, exact source/electronic/guardian text/version frozen in encrypted audit record, idempotency and private review queue. Live activation still requires actual Google provider, hosted migration, server keys/recovery, staff access and verified submission/receipt path; do not replace these with gate bypasses.
+
+- Owner correction October 9: both public form routes must always expose the existing DocuSign-style guided workflow, even while intake is unavailable. Keep Google identity, approved-version, encryption and server submission gates intact; show honest unavailable status without a dead sign-in button. Liability uses deliberate reusable initials; donation source contains no initial slots. Verify both routes and full offline review with disabled submit, no network writes or fake receipt.
 ## Raw Notes
 
 ## Non-goals

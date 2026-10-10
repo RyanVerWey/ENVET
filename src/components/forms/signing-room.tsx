@@ -133,7 +133,7 @@ export function SigningRoom({
   const sections = fieldSections[kind];
   const steps = [
     ...sections.map((s) => s.title),
-    "Read & initial",
+    kind === "liability" ? "Read & initial" : "Read & review",
     "Sign",
     "Review & finish",
   ];
@@ -398,9 +398,12 @@ export function SigningRoom({
           <div className="sign-banner">
             <LockKeyhole size={19} />
             <div>
-              <strong>Complete your paperwork with ENVET</strong>
+              <strong>Review your form, step by step</strong>
               <p>
-                Online submissions are not accepted. Contact the team for
+                You can enter details, add your signature and review the
+                completed document. Online submission is currently unavailable;
+                nothing is sent or saved. Google sign-in is required when
+                submissions open. <Link href="/contact">Contact ENVET</Link> for
                 signing arrangements.
               </p>
             </div>

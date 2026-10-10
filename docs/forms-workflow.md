@@ -1,6 +1,14 @@
 ---
-updated: "2026-10-10T00:18:39Z"
+updated: "2026-10-10T00:25:26Z"
 ---
+## Guided forms restored for both routes (October 9, 2026)
+
+Owner asks why DocuSign-style forms disappeared and requires both flows visible. The prior public polish gate returned read-only FormOverview whenever collection was disabled. Removed that presentation gate: liability and donation always render SigningRoom, while collectionEnabled, fresh Google identity and all API/encryption/approved-version checks remain unchanged. Honest unavailable-submission notice explains page-local unsaved work; no dead Google action or fake successful receipt. Forms landing links now explicitly open guided forms. Donation step says Read & review, since its original source has no initial slots; liability retains drawn/typed per-clause initials and separate guardian marks/signatures.
+
+This supersedes earlier read-only-offline presentation decisions, not identity or protected-record requirements. Current production Google/config/recovery blockers remain; no environment values, schema, credentials, staff membership or legal wording changed. Impeccable hardening kept existing Corva mint structure and clarified offline state. Plan46 remains open for operational activation.
+
+Verified 84 tests, lint, build, types, formatting, Plan check, browser regressions and 24-route/22-target production-build loopback smoke. New route tests guarantee both guided components render with disabled submit and no fabricated identity. Browser completes both offline flows through signature and final review, checks 16 applied liability initials, disabled Finish & submit, no receipt, no network writes and mint light/dark 320/1280 no overflow. Existing child/guardian and drawn-initial retry regression checks pass. Synthetic evidence: output/playwright/envet-liability-guided-review.png and output/playwright/envet-donation-guided-review.png. Donation review still presents captured fields/signature separately above the preserved original application; no source wording or legal evidence fabricated. Release not yet performed.
+
 ## Initials code release — intake not activated (October 9, 2026)
 
 Source 7d07c8910dd2a7c77032d31e63fd8b010115c3c8 released after successful exact-source CI38008174543 and38008170874. Vercel dpl_CmfN7DhHhNcguHDh6tZk1DJQxnyD Ready34s, envet.info assigned; immutable envet-jc3ixdx5u-ryanverweys-projects.vercel.app. Production15-public/9-private probes plus discovery/media/redirect checks pass. Deployment proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-initials-release.png; synthetic filled preview output/playwright/envet-applied-initials.png. Prior healthy source068c993/dpl_3Mozu5R1yxyG4XwMv5hxEQHqs466 is rollback candidate, not exercised. CI reports existing checkout/setup-node action-runtime deprecation and upcoming ubuntu-latest migration notices, not application check failures; application Node22 unchanged.
