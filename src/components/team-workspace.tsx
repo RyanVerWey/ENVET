@@ -64,7 +64,7 @@ type Draft = {
   expectedVersion: number | null;
 };
 const emptyDraft: Draft = {
-  kind: "horse",
+  kind: "service",
   slug: "",
   title: "",
   summary: "",
@@ -168,10 +168,11 @@ export function TeamWorkspace() {
   return (
     <div className="wrap team-workspace">
       <nav className="team-nav" aria-label="Workspace sections">
+        <a href="/team/animals">Animal staff & bios</a>
         <a href="/team/forms">Forms review</a>
         <a href="/team/impact">Program activity</a>
         <a href="#team-inquiries">Inquiries</a>
-        <a href="#team-content">Horses & services</a>
+        <a href="#team-content">Services</a>
         <a href="#team-comments">Comments</a>
         <a href="#team-analytics">Page counts</a>
       </nav>
@@ -277,7 +278,7 @@ export function TeamWorkspace() {
             <div className="team-section-heading">
               <div>
                 <p className="eyebrow">PUBLIC INFORMATION</p>
-                <h2>Horses & services</h2>
+                <h2>Services</h2>
               </div>
               <p>
                 Only published entries appear on the visit page. Keep details
@@ -286,17 +287,13 @@ export function TeamWorkspace() {
             </div>
             <div className="team-content-layout">
               <div className="team-content-list">
-                {(["horse", "service"] as const).map((kind) => {
-                  const items =
-                    kind === "horse" ? workspace.horses : workspace.services;
+                {(["service"] as const).map((kind) => {
+                  const items = workspace.services;
                   return (
                     <div key={kind}>
-                      <h3>{kind === "horse" ? "Horses" : "Services"}</h3>
+                      <h3>Services</h3>
                       {items.length === 0 ? (
-                        <p className="small">
-                          No {kind === "horse" ? "horses" : "services"} entered
-                          yet.
-                        </p>
+                        <p className="small">No services entered yet.</p>
                       ) : (
                         <ul>
                           {items.map((item) => (
@@ -346,7 +343,6 @@ export function TeamWorkspace() {
                       })
                     }
                   >
-                    <option value="horse">Horse</option>
                     <option value="service">Service</option>
                   </select>
                 </label>

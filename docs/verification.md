@@ -1,7 +1,17 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-10T01:38:25Z"
+updated: "2026-10-10T03:44:30Z"
 ---
+## Animal staff profiles increment (October 9, 2026)
+
+Owner scope: public /staff with Horses (Horse Heroes), Dogs and Cats, personal photo-led cards, nickname/farm job/introduction/story/personality/favorites/staff-approved meeting tips. Private /team/animals provides create/read/edit/draft/publish/archive and recoverable trash/restore with live preview, rights-confirmed portrait uploads and optimistic versions. New global upper-right Management link uses freshly verified server-side staff membership; metadata never grants access. Ryan's existing verified membership remains. Second designated Google account has no auth identity yet; first login and verified UUID bootstrap remain required. No automatic email promotion or invented profiles.
+
+Applied animal_staff_profiles migration20261010034008; local filename aligned with hosted catalog. Public animals RLS exposes published/nontrashed rows only; portrait manifest is service-only and bucket animal-portraits is private,3MB WebP. Staff RPCs are invoker/empty-search-path, server-only EXECUTE, audited and require current membership. Private serving checks current published use or fresh manager; no-store and unoptimized images avoid optimizer/public caching of draft assets. Uploads bounded, decoded JPEG/PNG/WebP only, resized1600px, location/camera metadata stripped and randomized IDs. Removing a portrait from a bio/trashing does not purge media. Orphan uploads remain private; any future cleanup must confirm no references and authorization.
+
+109 unit/API/isolated-Postgres tests, lint/build/types/format and browser regressions pass. Browser fixtures cover create/edit/trash/restore, stale conflict, manager-only link, filters, page-wide single-open stories and320/768/1280 light/dark reflow/axe. Hosted rollback-only create/publish/stale/trash/restore and anon/member denial passes; zero retained synthetic profiles, portraits or audit rows. Both profile/manifest tables have RLS; bucket private; anon/member execute false. Production-build local smoke29 routes/27internal targets passes. No real portrait/profile or legal submission created on owner's behalf. Actual cloud Storage upload/download and first real profile publication still owner-operated acceptance, not inferred from mocked upload tests. Database security advisor has INFO intentional deny-by-default tables and existing password-protection WARN; Google-only app does not accept passwords. Sharp pinned patched0.35.5 following GHSA-wq5f-xc86-pv6w; nine existing lint/Markdown chain audit findings remain, no breaking downgrade applied.
+
+Corva mint/Source Sans retained; Impeccable guided photo-led public composition and task-focused manager editor. Six milestones intact; Plan41/46 remain open for operational acceptance. Git source/CI/production evidence follows after release.
+
 ## Member workspace and live signing release (October 9, 2026)
 
 Source 590ca428bf50a86246533d5cbb5208b29ca461eb passes both exact-source CI verification runs38013490152 and38013487612. Vercel dpl_ELrb7DPJr9DvGd4ePTZ3A4C8cfRD Ready28s is Production with envet.info assigned; immutable envet-4wlm1pv2u-ryanverweys-projects.vercel.app. Production16-public/11-private smoke passes canonical/index rules, HTTP/www redirects, sitemap16/RSS3, media/optimization/OG/404s, minimal anonymous session response, no-store protected API denials, both live signing routes requiring Google with401 rather than configuration503, and public discussion reads200. This supersedes prior deployment-pending/collection-off/server-key-absent reports below.

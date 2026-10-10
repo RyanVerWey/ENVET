@@ -77,7 +77,8 @@ export default async function Visit() {
           )}
           {horses.length > 0 && (
             <div className="published-group">
-              <h3>Horses</h3>
+              <h3>Horse Heroes</h3>
+              <Link href="/staff">Get to know the animal staff →</Link>
               <div className="published-list">
                 {horses.map((horse) => (
                   <article key={horse.slug}>

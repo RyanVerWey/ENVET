@@ -41,6 +41,20 @@ export default function Privacy() {
                 remain until an authorized team member manually deletes them.
                 Backup copies may expire on a separate provider schedule.
               </p>
+              <h2>Animal staff profiles and portraits</h2>
+              <p>
+                ENVET managers create animal biographies and confirm permission
+                to publish uploaded portraits, including consent for
+                identifiable people shown. Camera and location metadata are
+                removed from uploaded portraits. Draft profiles and photos are
+                private; published profiles and their portraits are visible to
+                everyone. Unpublishing or moving a profile to trash hides it
+                from future public requests, but cannot recall copies already
+                downloaded. Trashed profiles can be restored as drafts. Removing
+                a portrait from a bio does not permanently delete the stored
+                photo. Profile changes and photo-permission confirmations are
+                audited.
+              </p>
               <h2>Google sign-in and journal discussion</h2>
               <p>
                 Google sign-in lets members like and comment on journal guides.

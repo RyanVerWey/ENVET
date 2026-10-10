@@ -26,6 +26,7 @@ export function Footer() {
           <Link href="/visit">Plan a visit</Link>
           <Link href="/about">Our story</Link>
           <Link href="/gallery">Life at the farm</Link>
+          <Link href="/staff">Meet the animal staff</Link>
           <Link href="/blog">The journal</Link>
           <Link href="/donate">Support ENVET</Link>
           <Link href="/forms">Guest & horse donation forms</Link>

@@ -17,6 +17,7 @@ const server = await createServer({
       "@": join(root, "../../src"),
       "next/navigation": join(root, "forms-next-navigation.ts"),
       "next/link": join(root, "forms-next-link.tsx"),
+      "next/image": join(root, "animals-next-image.tsx"),
     },
   },
   esbuild: { jsx: "automatic" },
@@ -717,9 +718,123 @@ try {
     path: "output/playwright/envet-member-workspace.png",
     fullPage: true,
   });
+  await page.goto(`${base}animal-workspace.html`);
+  await page.getByRole("link", { name: "Management", exact: true }).waitFor();
+  await page
+    .getByRole("button", { name: "Edit Test Dog", exact: true })
+    .click();
+  await page.getByLabel("Nickname", { exact: true }).fill("Sunny");
+  await page
+    .getByRole("button", { name: "Save & publish bio", exact: true })
+    .click();
+  await page.getByText("Bio saved.", { exact: true }).waitFor();
+  await page
+    .getByRole("button", { name: "Move Test Dog to trash", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Confirm move to trash", exact: true })
+    .click();
+  await page.getByText("Moved to trash.", { exact: false }).waitFor();
+  await page.getByRole("button", { name: "Trash", exact: true }).click();
+  await page
+    .getByRole("button", { name: "Restore as draft", exact: true })
+    .click();
+  await page.getByText("Restored as a draft.", { exact: false }).waitFor();
+  await page.getByRole("button", { name: "Profiles", exact: true }).click();
+  await page.getByRole("button", { name: "New animal", exact: true }).click();
+  await page.getByLabel("Animal name", { exact: false }).fill("New Test Cat");
+  await page.getByLabel("Animal type", { exact: true }).selectOption("cat");
+  await page
+    .getByLabel("Short introduction", { exact: false })
+    .fill("Synthetic cat bio for browser creation tests only.");
+  await page.getByRole("button", { name: "Save bio", exact: true }).click();
+  await page.getByText("Bio saved.", { exact: true }).waitFor();
+  await page
+    .getByRole("button", { name: "Edit New Test Cat", exact: true })
+    .waitFor();
+  await page.goto(`${base}animal-workspace.html?mode=conflict`);
+  await page
+    .getByRole("button", { name: "Edit Test Horse", exact: true })
+    .click();
+  await page.getByLabel("Nickname", { exact: true }).fill("Unsaved draft");
+  await page
+    .getByRole("button", { name: "Save & publish bio", exact: true })
+    .click();
+  await page.getByText("This changed.", { exact: false }).waitFor();
+  assert.equal(
+    await page.getByLabel("Nickname", { exact: true }).inputValue(),
+    "Unsaved draft",
+  );
+  assert.equal(
+    await page
+      .getByRole("button", { name: "Save & publish bio", exact: true })
+      .isDisabled(),
+    true,
+  );
+  await page
+    .getByRole("button", { name: "Refresh profiles", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Edit Test Horse", exact: true })
+    .waitFor();
+  await page.goto(`${base}animal-workspace.html?mode=member&view=roster`);
+  await page
+    .getByRole("link", { name: "Your ENVET account and tasks" })
+    .waitFor();
+  assert.equal(
+    await page.getByRole("link", { name: "Management", exact: true }).count(),
+    0,
+  );
+  await page.getByText("Get to know Test Horse", { exact: false }).click();
+  await page.getByText("Get to know Test Dog", { exact: false }).click();
+  assert.equal(await page.locator("details[open]").count(), 1);
+  await page.getByRole("button", { name: "Cats 1", exact: true }).click();
+  assert.equal(await page.locator(".animal-card").count(), 1);
+  assert.equal(
+    await page.getByRole("heading", { name: "Test Cat", exact: true }).count(),
+    1,
+  );
+  for (const view of ["roster", "manager"]) {
+    for (const dark of [false, true])
+      for (const width of [320, 768, 1280]) {
+        await page.setViewportSize({ width, height: 900 });
+        await page.goto(
+          `${base}animal-workspace.html?view=${view}${dark ? "&theme=dark" : ""}`,
+        );
+        await page
+          .getByText(
+            view === "roster"
+              ? "Big personalities. Good company."
+              : "Create an animal bio",
+            { exact: true },
+          )
+          .waitFor();
+        assert.equal(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= window.innerWidth,
+          ),
+          true,
+          `${view} ${width} ${dark}`,
+        );
+        await page.addScriptTag({
+          path: require.resolve("axe-core/axe.min.js"),
+        });
+        assert.deepEqual(
+          await page.evaluate(async () =>
+            (await window.axe.run()).violations.map((v) => v.id),
+          ),
+          [],
+          `${view} axe ${width} ${dark}`,
+        );
+      }
+  }
+  await page.screenshot({
+    path: "output/playwright/envet-animal-manager.png",
+    fullPage: true,
+  });
   assert.deepEqual(failures, []);
   console.log(
-    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, filled review/receipts, unchanged signing retry, separate guardian signatures; member task navigation, checklist conflict/retry states, share links, 320/768/1280 mint light/dark layouts and member axe accessibility.",
+    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, filled review/receipts, unchanged signing retry, separate guardian signatures; member task navigation, checklist conflict/retry states, share links; animal CRUD/trash/restore/conflicts, manager-only navigation, filters and single-open stories; 320/768/1280 mint light/dark layouts and axe accessibility.",
   );
 } finally {
   await browser?.close();

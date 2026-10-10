@@ -29,8 +29,8 @@ describe("discovery release states", () => {
     const { GET } = await import("../src/app/feed.xml/route");
     const { pageMetadata } = await import("../src/lib/seo");
     const entries = sitemap();
-    expect(entries).toHaveLength(16);
-    expect(new Set(entries.map((e) => e.url)).size).toBe(16);
+    expect(entries).toHaveLength(17);
+    expect(new Set(entries.map((e) => e.url)).size).toBe(17);
     expect(
       entries.some(
         (entry) => entry.url === "https://envet.org/blog/authors/m-lamm",

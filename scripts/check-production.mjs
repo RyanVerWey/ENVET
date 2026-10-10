@@ -7,6 +7,7 @@ const publicRoutes = [
   "/",
   "/about",
   "/visit",
+  "/staff",
   "/donate",
   "/contact",
   "/gallery",
@@ -59,6 +60,7 @@ for (const path of [
   "/team",
   "/team/forms",
   "/team/impact",
+  "/team/animals",
   "/account",
   "/account/forms",
   "/account/pre-visit",
@@ -96,7 +98,7 @@ const robots = await (await fetch(origin + "/robots.txt")).text();
 assert.match(robots, /Allow: \//);
 assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`));
 const sitemap = await (await fetch(origin + "/sitemap.xml")).text();
-assert.equal((sitemap.match(/<loc>/g) || []).length, 16);
+assert.equal((sitemap.match(/<loc>/g) || []).length, 17);
 assert.ok(sitemap.includes(`${origin}/blog/authors/m-lamm`));
 assert.doesNotMatch(sitemap, /localhost|envet\.org|\/forms|\/team|\/account/);
 const feed = await (await fetch(origin + "/feed.xml")).text();
@@ -131,11 +133,16 @@ console.log(
 );
 const session = await fetch(origin + "/api/account/session");
 assert.match(session.headers.get("cache-control") || "", /no-store/);
-assert.deepEqual(await session.json(), { signedIn: false, firstName: null });
+assert.deepEqual(await session.json(), {
+  signedIn: false,
+  firstName: null,
+  manager: false,
+});
 for (const path of [
   "/api/account/checklist",
   "/api/forms?id=44444444-4444-4444-8444-444444444444",
   "/api/team/forms",
+  "/api/team/animals",
 ]) {
   const response = await fetch(origin + path);
   assert.ok(

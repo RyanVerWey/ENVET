@@ -24,8 +24,10 @@ export async function publishedContent() {
   });
   const [horses, services] = await Promise.all([
     client
-      .from("horses")
-      .select("slug,name,summary,details")
+      .from("animals")
+      .select("slug,name,summary,details:story")
+      .eq("species", "horse")
+      .is("deleted_at", null)
       .eq("state", "published")
       .order("name"),
     client

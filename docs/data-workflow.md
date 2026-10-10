@@ -1,6 +1,6 @@
 ---
 title: M6 funded community and follow-up workflow
-updated: "2026-10-09T21:10:42Z"
+updated: "2026-10-10T03:43:55Z"
 ---
 # M6: funded community and follow-up workflow
 
@@ -30,3 +30,16 @@ Donations stay on verified PayPal; no donor CRM, payment processing, scheduling 
 
 
 Hosted schema and foreign-key indexes are applied; local migration versions match remote history. RLS/grants/catalog and anonymous PostgREST checks pass. No staff users, inquiry records or published seed profiles were created. See docs/verification.md for exact evidence and remaining real-account/backup/owner gates.
+
+
+## Animal roster management (October 9, 2026 additive owner scope)
+
+Live auth/signing supersedes the historical setup gates above. Animal types are exactly horse/Horse Heroes, dog/Dogs and cat/Cats. /staff reads published, nontrashed public.animals; /visit uses published horse animals rather than the legacy horse editor. Existing legacy horses are preserved as unpublished animal drafts, not silently published. Services retain their separate editor.
+
+/team/animals requires current verified private staff membership. Bios include portrait/accessible description, nickname, playful real-world job, introduction, story, personality, favorites and approved meeting tips. Create/edit/state changes use expected versions; stale edits fail409. Deletion moves a profile to recoverable trash, hides its card and restore returns draft. Publishing requires actual portrait, story and visit tips. No fabricated animals, treatment guarantees or availability promises. Staff actions are audited.
+
+Uploads require photo rights/identifiable-person consent confirmation, bounded JPEG/PNG/WebP, actual decoding,1600px maximum WebP and stripped camera/location metadata. Private bucket animal-portraits; private manifest records verified actor and permission-confirmation time. Server image route authorizes current published use or fresh manager and returns no-store bytes; no signed public URL or Next optimizer cache. Unpublishing/trashing blocks future unauthenticated requests, but cannot revoke previously downloaded public copies. Removing an attachment does not permanently delete media; failed/discarded uploads can leave private orphans. No automated purge. Future cleanup requires reference checks and authorized recoverability.
+
+Management link is only displayed after fresh staff_access using verified account UUID, never user-editable role/email metadata. Initial designated second account still must log in through Google before operator UUID bootstrap. No new grants occurred in this increment.
+
+Migration20261010034008 matches hosted history. Hosted rollback verification leaves no synthetic records; isolated API/database/browser tests cover authorization/conflicts/privacy and UX. Owner must add first real bios/portraits and confirm live publication. Security advisor's existing password-protection warning remediation: https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection . Intentional private no-policy RLS denies nonservice access; do not weaken it to silence INFO notices.

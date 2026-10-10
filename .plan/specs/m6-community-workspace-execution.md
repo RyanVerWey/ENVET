@@ -2,8 +2,11 @@
 canonical: https://github.com/RyanVerWey/ENVET/issues/41
 status: approved
 title: M6 community and team workspace execution mirror
+type: ""
 updated: "2026-10-09T20:57:14Z"
+updated_at: "2026-10-10T03:43:55Z"
 ---
+
 # M6 community and team workspace
 
 Execution mirror for existing GitHub M6 #38, #41–#44. This does not create a new milestone or supersede GitHub ownership. User authorized implementation and settled requirements October 9, 2026. Plan adoption updated #41 then failed on its existing parent relation; do not repeat an uncertain promotion.
@@ -44,3 +47,10 @@ States: visitor → Google redirect → callback → member; unavailable/error r
 ## Verification
 
 Use synthetic fixtures only. Test malicious redirects, spoofed roles/authors, text/XSS validation, consent/contact checks, duplicate likes, missing config and access denied. Migration review and negative SQL checks precede real collection. Real Google OAuth requires owner-created Google client and Supabase provider activation. Owner review, final privacy/media acceptance, tested backup recovery, production environment and live auth/browser checks precede production collection.
+
+
+## Additive animal roster scope, October 9, 2026
+
+Later owner instructions authorize production releases and live identity/signing; original nondeployment constraints above are historical. Add /staff and /team/animals under AC4/AC7: only Horses (Horse Heroes), Dogs, Cats; portrait-led personal cards and deeper stories; draft/publish/archive, complete CRUD with recoverable trash/restore and live preview. Manager-only upper-right Management navigation requires fresh verified membership. Existing designated Google accounts, no automatic promotion. No fabricated farm profiles or credentials. Photo rights confirmation, private draft assets, stripped location/camera metadata, explicit accessible descriptions and audited/versioned changes. Preserve six milestones.
+
+Acceptance evidence:109 unit/API/isolated-Postgres tests, exact-component CRUD/conflict/filter/accordion/accessibility browser checks,29-route production-build preview smoke and hosted rollback-only authorization/CRUD checks pass; no synthetic cloud records retained. Applied migration20261010034008. Real first portrait/profile publication, second verified Google staff bootstrap and broader existing M6 operational acceptance remain open; do not close41/46 from synthetic checks.

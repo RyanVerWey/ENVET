@@ -65,15 +65,19 @@ describe("member display, private preparation and public sharing", () => {
       user_metadata: { given_name: "Sam", role: "admin" },
     } as never);
     const response = await session();
-    expect(await response.json()).toEqual({ signedIn: true, firstName: "Sam" });
+    expect(await response.json()).toEqual({
+      signedIn: true,
+      firstName: "Sam",
+      manager: false,
+    });
     expect(response.headers.get("cache-control")).toContain(
       "private, no-store",
     );
-    expect(serviceClient).not.toHaveBeenCalled();
     vi.mocked(currentUser).mockResolvedValue(null);
     expect(await (await session()).json()).toEqual({
       signedIn: false,
       firstName: null,
+      manager: false,
     });
   });
   it("denies cross-origin and signed-out checklist access before database use", async () => {
@@ -85,6 +89,24 @@ describe("member display, private preparation and public sharing", () => {
     expect((await read()).status).toBe(401);
     expect((await save(request())).status).toBe(401);
     expect(serviceClient).not.toHaveBeenCalled();
+  });
+  it("shows management only after a fresh database grant, never from profile metadata", async () => {
+    vi.mocked(currentUser).mockResolvedValue({
+      id: actor,
+      user_metadata: { given_name: "Sam", manager: true },
+    } as never);
+    const rpc = vi.fn().mockResolvedValue({ data: true, error: null });
+    vi.mocked(serviceClient).mockReturnValue({ rpc } as never);
+    expect(await (await session()).json()).toEqual({
+      signedIn: true,
+      firstName: "Sam",
+      manager: true,
+    });
+    expect(rpc).toHaveBeenCalledWith("staff_access", { p_actor: actor });
+    rpc.mockResolvedValue({ data: false, error: null });
+    expect((await (await session()).json()).manager).toBe(false);
+    rpc.mockResolvedValue({ data: true, error: { code: "42501" } });
+    expect((await (await session()).json()).manager).toBe(false);
   });
   it("uses the verified account, rejects bad input and surfaces conflicts without false success", async () => {
     vi.mocked(currentUser).mockResolvedValue({ id: actor } as never);
