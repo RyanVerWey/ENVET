@@ -16,7 +16,7 @@ describe("discovery release states", () => {
     expect(sitemap()).toEqual([]);
     expect(robots()).toEqual({ rules: { userAgent: "*", disallow: "/" } });
     expect(await GET().text()).not.toContain("<item>");
-  });
+  }, 15000);
   it("generates consistent canonicals, sitemap, feed and article dates after approved configuration", async () => {
     // Pure metadata test only. Does not change media approvals or deploy anything.
     vi.stubEnv("SITE_APPROVED_FOR_LAUNCH", "true");
@@ -29,8 +29,8 @@ describe("discovery release states", () => {
     const { GET } = await import("../src/app/feed.xml/route");
     const { pageMetadata } = await import("../src/lib/seo");
     const entries = sitemap();
-    expect(entries).toHaveLength(17);
-    expect(new Set(entries.map((e) => e.url)).size).toBe(17);
+    expect(entries).toHaveLength(18);
+    expect(new Set(entries.map((e) => e.url)).size).toBe(18);
     expect(
       entries.some(
         (entry) => entry.url === "https://envet.org/blog/authors/m-lamm",

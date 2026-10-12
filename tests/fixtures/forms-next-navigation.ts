@@ -12,3 +12,7 @@ export function useRouter() {
     },
   };
 }
+// Header-only pathname double for local content-layout checks.
+export function usePathname() {
+  return "/programs";
+}

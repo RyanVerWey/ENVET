@@ -10,6 +10,7 @@ import { MemberLink } from "./member-link";
 
 const nav = [
   ["About ENVET", "/about"],
+  ["Programs", "/programs"],
   ["Plan a visit", "/visit"],
   ["Meet the Staff", "/staff"],
   ["Resources", "/blog"],

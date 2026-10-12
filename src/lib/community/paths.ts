@@ -6,6 +6,7 @@ const fixed = new Set([
   "/about",
   "/visit",
   "/staff",
+  "/programs",
   "/contact",
   "/blog",
   "/gallery",

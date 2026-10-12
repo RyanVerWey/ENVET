@@ -2,13 +2,15 @@
 title: "Coming alongside a Veteran, one question at a time"
 description: "A practical starting point for family members who want to learn about ENVET without making assumptions for someone else."
 date: "2026-09-06"
-updated: "2026-09-06"
+updated: "2026-10-12"
 category: "For families"
 author: "M. Lamm"
 image: "/images/connection.jpg"
 imageAlt: "A helmeted rider leaning toward a paint horse, with a handler nearby at ENVET"
 published: true
 sources:
+  - title: "ENVET’s programs and participation information"
+    url: "https://envet.info/programs"
   - title: "Eagle’s Nest Veterans’ Equine Therapy: official program information"
     url: "https://www.facebook.com/profile.php?id=100068209587248"
 ---
@@ -16,7 +18,9 @@ sources:
 
 **Yes. Family members can reach out to learn about ENVET and ask about current participation arrangements.** The team confirms eligibility, available activities, and whether a family member or support person can join a particular visit.
 
-Eagle’s Nest Veterans’ Equine Therapy is a nonprofit providing equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families in Lovettsville, Virginia. This guide is a starting point for a conversation, not confirmation of a booking or a specific service.
+Eagle’s Nest Veterans’ Equine Therapy serves United States and partner-nation Veterans, Active Duty service members, Reserve Service Members, their families and loved ones, and Families of Fallen Heroes in Lovettsville, Virginia. Equine-assisted programs are completely free of charge to those we serve. This guide is a starting point for a conversation, not confirmation of a booking or a specific session.
+
+Our Horse Heroes help create opportunities to work on communication and family connection. [Pre- and Post-Deployment Support and Family Support During Deployment](/programs) offer focused ways to participate; the team will help you discuss which opportunity fits.
 
 ## Start by asking what would be useful
 

@@ -25,9 +25,11 @@ export default async function Visit() {
           <p className="eyebrow">FOR VETERANS & FAMILIES</p>
           <h2>Let’s plan your first visit.</h2>
           <p>
-            ENVET offers equine therapy options with rescued or donated horses.
-            Veterans and family members can contact the team to discuss current
-            participation opportunities.
+            Our Horse Heroes help participants work on communication, coping
+            skills and connection. Equine-assisted programs are free of charge
+            to those we serve.{" "}
+            <Link href="/programs">Explore our programs</Link>
+            and speak with ENVET about the opportunity that fits your goals.
           </p>
           <p>
             Activities, availability, eligibility, and access arrangements are

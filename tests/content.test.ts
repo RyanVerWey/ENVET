@@ -39,17 +39,21 @@ describe("Veteran capitalization", () => {
 describe("participation scope", () => {
   it("includes partner nations across public descriptions and published articles", () => {
     const copy = [
-      organization.description,
+      organization.audience,
       ...getPosts().map((post) => post.body),
-      ...["src/app/page.tsx", "src/app/about/page.tsx"].map((file) =>
-        fs.readFileSync(file, "utf8").replace(/\s+/g, " "),
-      ),
     ];
     for (const text of copy) {
       expect(text).toMatch(/United States and partner-nation Veterans/);
-      expect(text).toContain("Active Duty service members");
+      expect(text).toMatch(
+        /Active Duty (service members|and Reserve Service Members)/,
+      );
       expect(text).toContain("their families");
     }
+    expect(organization.description).toContain(
+      "United States and partner-nation Veterans",
+    );
+    for (const file of ["src/app/page.tsx", "src/app/about/page.tsx"])
+      expect(fs.readFileSync(file, "utf8")).toContain("{org.audience}");
   });
 
   it("keeps private confirmation and document-safety guidance in the checklist", () => {

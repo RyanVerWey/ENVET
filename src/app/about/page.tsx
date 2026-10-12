@@ -1,5 +1,7 @@
 import { Action, PageIntro, Photo } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
+import { organization as org } from "@/lib/site";
+import { ContributingOrganizations } from "@/components/contributing-organizations";
 export const metadata = pageMetadata(
   "Our story",
   "Meet Eagle’s Nest Veterans’ Equine Therapy, a nonprofit connecting Veterans, families, and horses in Lovettsville, Virginia.",
@@ -10,8 +12,8 @@ export default function About() {
     <>
       <PageIntro
         eyebrow="Our story"
-        title="A shared purpose. A place to connect."
-        intro="Eagle’s Nest Veterans’ Equine Therapy brings Veterans, families, and horses together in Lovettsville, Virginia."
+        title="A peaceful haven. A shared purpose."
+        intro="Eagle’s Nest Veterans’ Equine Therapy brings our military community together with Horse Heroes in Lovettsville, Virginia."
         path="/about"
       />
       <section className="wrap story-split">
@@ -27,15 +29,14 @@ export default function About() {
             <br />a place of support.
           </h2>
           <p>
-            ENVET provides equine therapy options for United States and
-            partner-nation Veterans, Active Duty service members, and their
-            families. Based in Lovettsville, Virginia, the nonprofit brings
-            people together with rescued or donated horses.
+            ENVET was founded to support {org.audience} through equine-assisted
+            activities and therapies. Our Horse Heroes help make space for
+            learning, communication and connection.
           </p>
           <p>
-            Our official Facebook page describes free access to horses for
-            Veterans. The team can explain current opportunities, eligibility,
-            and how family members can take part.
+            We provide a calm and peaceful haven, completely free of charge to
+            those we serve. Public and private contributions make our programs
+            possible and help care for rescued and donated horses.
           </p>
           <p>
             We believe the first step should feel simple: a conversation with a
@@ -44,6 +45,7 @@ export default function About() {
           <Action href="/visit">Plan your visit</Action>
         </div>
       </section>
+      <ContributingOrganizations />
       <section className="wrap values-section">
         <p className="eyebrow">WHAT GUIDES THIS PLACE</p>
         <div className="value-row">

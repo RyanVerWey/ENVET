@@ -12,8 +12,8 @@ export default function Donate() {
     <>
       <PageIntro
         eyebrow="Support ENVET"
-        title="Your generosity makes connection possible."
-        intro="Support equine therapy options for Veterans and their families. Help sustain the horses, the place, and the program at Eagle’s Nest."
+        title="Thank you for standing with us."
+        intro="We share a passion for caring for our Horse Heroes and serving our military community. Your generosity helps keep ENVET’s programs completely free of charge."
         path="/donate"
       />
       <section className="wrap donation-feature">
@@ -30,8 +30,9 @@ export default function Donate() {
             Sustain the mission.
           </h2>
           <p>
-            Support equine therapy options for Veterans and their families
-            through ENVET’s official donation page.
+            ENVET deeply values your generosity and support. Public and private
+            contributions sustain our Horse Heroes, our facility and our
+            equine-assisted activities and therapies.
           </p>
           <Action href={org.donate} external>
             Donate securely with PayPal
@@ -77,9 +78,43 @@ export default function Donate() {
           <p>
             Before purchasing or dropping off supplies, check what ENVET can use
             and accept. Thoughtful coordination makes your generosity go
-            further.
+            further. To donate services, equipment or vehicles, contact ENVET
+            directly to discuss how you can help.
           </p>
         </div>
+        <div className="value-row">
+          <span>04</span>
+          <h3>Give in honor or in memory</h3>
+          <p>
+            Make a tribute gift for a Veteran, Service Member or Horse Hero.
+            Contact ENVET to arrange your tribute and discuss recognition on the
+            facility’s Tribute Wall.
+          </p>
+        </div>
+        <div className="value-row">
+          <span>05</span>
+          <h3>Contribute as an organization</h3>
+          <p>
+            Knowledge, time, resources and practical help can matter as much as
+            financial gifts.{" "}
+            <Link href="/about#contributing-organizations">
+              Meet our Contributing Organizations.
+            </Link>{" "}
+            <Link href="/contact">Talk with ENVET about contributing.</Link>
+          </p>
+        </div>
+      </section>
+      <section className="wrap closing-cta">
+        <div>
+          <p className="eyebrow">STAY CONNECTED TO THE WORK</p>
+          <h2>See the place your gift supports.</h2>
+          <p>
+            Follow our Horse Heroes, activities and facility updates on ENVET’s{" "}
+            <a href={org.facebook}>official Facebook page</a>. We warmly invite
+            you to arrange a visit and experience Eagle’s Nest firsthand.
+          </p>
+        </div>
+        <Action href="/contact">Arrange a visit</Action>
       </section>
       <section className="wrap faq-section">
         <div>

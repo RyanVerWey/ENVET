@@ -24,9 +24,10 @@ export default function Home() {
           </div>
           <div className="hero-introduction">
             <p className="lead">
-              Connection with horses. Support from a community. ENVET brings
-              Veterans and their families together with rescued and donated
-              horses in the Virginia countryside.
+              A calm and peaceful haven in the Virginia countryside. Connect
+              with our Horse Heroes, learn new skills and find support in a
+              family-friendly community. Our programs are free of charge to
+              those we serve.
             </p>
             <div className="actions">
               <Action href="/visit">Plan a visit</Action>
@@ -66,14 +67,13 @@ export default function Home() {
         </div>
         <div className="mission-copy">
           <p>
-            ENVET is a nonprofit providing equine therapy options for United
-            States Veterans and their families. Here in Lovettsville, rescued
-            and donated horses are at the center of our work.
+            Eagle’s Nest Veterans’ Equine Therapy supports {org.audience}
+            through equine-assisted activities and therapies.
           </p>
           <p>
-            Whether you are exploring a visit, reaching out for a loved one, or
-            looking for a way to give back, our team is here to help you take
-            the next step.
+            Our Horse Heroes are at the heart of this work. As a donor-supported
+            nonprofit, we rely on public and private contributions to keep our
+            programs completely free of charge.
           </p>
           <Link href="/about" className="text-link">
             Learn about ENVET <ArrowRight size={18} aria-hidden="true" />
@@ -139,11 +139,11 @@ export default function Home() {
           <p className="eyebrow">A community-supported mission</p>
           <h2>Help keep equine therapy accessible to Veterans.</h2>
           <p>
-            ENVET’s mission includes free access to rescued and donated horses
-            for Veterans. Your generosity helps keep the program going for
-            Veterans and their families.
+            Your generosity helps care for our Horse Heroes and sustain a
+            peaceful place for our military community. Public and private
+            contributions keep ENVET’s programs free of charge.
           </p>
-          <Action href="/donate">Make a donation</Action>
+          <Action href="/donate">Support our Horse Heroes</Action>
           <Link href="/contact" className="text-link">
             Ask about volunteering or in-kind support{" "}
             <ArrowRight size={18} aria-hidden="true" />
@@ -184,8 +184,7 @@ export default function Home() {
                 <p>
                   Eagle’s Nest Veterans’ Equine Therapy is a nonprofit in
                   Lovettsville, Virginia, providing equine therapy options for
-                  United States and partner-nation Veterans, Active Duty service
-                  members, and their families.
+                  {org.audience}.
                 </p>
               ),
             },
@@ -203,9 +202,9 @@ export default function Home() {
               question: "Is there a cost to take part?",
               answer: (
                 <p>
-                  ENVET’s official page describes free access to rescued or
-                  donated horses for Veterans. Ask the team about your specific
-                  visit and any arrangements before attending.
+                  ENVET’s equine-assisted programs are completely free of charge
+                  to those we serve. Donations make that possible. Contact the
+                  team to arrange participation before attending.
                 </p>
               ),
             },

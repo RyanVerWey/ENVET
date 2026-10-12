@@ -8,6 +8,7 @@ const publicRoutes = [
   "/about",
   "/visit",
   "/staff",
+  "/programs",
   "/donate",
   "/contact",
   "/gallery",
@@ -98,7 +99,7 @@ const robots = await (await fetch(origin + "/robots.txt")).text();
 assert.match(robots, /Allow: \//);
 assert.ok(robots.includes(`Sitemap: ${origin}/sitemap.xml`));
 const sitemap = await (await fetch(origin + "/sitemap.xml")).text();
-assert.equal((sitemap.match(/<loc>/g) || []).length, 17);
+assert.equal((sitemap.match(/<loc>/g) || []).length, 18);
 assert.ok(sitemap.includes(`${origin}/blog/authors/m-lamm`));
 assert.doesNotMatch(sitemap, /localhost|envet\.org|\/forms|\/team|\/account/);
 const feed = await (await fetch(origin + "/feed.xml")).text();

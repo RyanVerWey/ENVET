@@ -5,7 +5,7 @@ slug: m2-messaging-and-experience-architecture
 status: active
 title: M2 Messaging and experience architecture
 type: brainstorm
-updated_at: "2026-09-06T02:56:59Z"
+updated_at: "2026-10-12T16:37:37Z"
 ---
 
 # Brainstorm: M2 Messaging and experience architecture
@@ -45,6 +45,8 @@ Every visitor knows within seconds whether ENVET is for them and whether to requ
 - Keep intake human and low-risk before database funding.
 
 - Blog now belongs to the first release: three practical, source-grounded guides for first visits, families, and supporting the mission. No clinical advice or fabricated impact; transparent shared editorial byline and review policy.
+
+- Owner supplied ENVET content brief October12,2026 and confirms all five programs available with described professional teams/schedules. Integrate mission calm/peaceful haven, free donor-supported programs, Horse Heroes, Veterans/Active Duty/Reserve/Families of Fallen Heroes plus prior partner-nation eligibility. Build /programs from existing published services, import approved real descriptions through versioned audited staff content RPC; keep manager edits/archive authoritative, no static resurrection. Add Contributing Organizations on About linked from Donate, use owner-requested generic nonmonetary label for eight supplied organizations, verified official HTTPS links, no invented monetary gifts/relationships or accreditation badges/logos. Preserve phone/PayPal/social/source legal wording and private records. Reserve indoor arena, newsletter, memorial profiles, board/testimonials/calendar for separate facts/consent/workflow scope. No seventh milestone.
 ## Raw Notes
 
 ## Refinement

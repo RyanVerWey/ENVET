@@ -2,23 +2,13 @@ import "server-only";
 import { createClient } from "@supabase/supabase-js";
 import { communityConfig } from "./config";
 
-export async function publishedContent() {
+export type PublishedContent = {
+  horses: { slug: string; name: string; summary: string; details: string }[];
+  services: { slug: string; title: string; summary: string; details: string }[];
+};
+export async function publishedContent(): Promise<PublishedContent> {
   const config = communityConfig();
-  if (!config)
-    return { horses: [], services: [] } as {
-      horses: {
-        slug: string;
-        name: string;
-        summary: string;
-        details: string;
-      }[];
-      services: {
-        slug: string;
-        title: string;
-        summary: string;
-        details: string;
-      }[];
-    };
+  if (!config) return { horses: [], services: [] };
   const client = createClient(config.url, config.publishableKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });

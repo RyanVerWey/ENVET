@@ -1,6 +1,6 @@
 ---
 title: ENVET editorial and discovery workflow
-updated: "2026-09-06T03:03:36Z"
+updated: "2026-10-12T16:51:47Z"
 ---
 # ENVET editorial and discovery workflow
 
@@ -34,3 +34,17 @@ Google says its existing search fundamentals apply to AI features; it does not r
 ## After owner-approved launch
 
 Verify the owned domain in Search Console, submit the sitemap, inspect the canonical/robots and representative article URLs, and monitor real query impressions before expanding content. Owner should confirm any business-profile information and service area. Analytics remains off until privacy and measurement choices are approved. Human review is needed for every new medical/legal/financial statement; this blog deliberately avoids that advice.
+
+## Owner language and Contributing Organizations, October 12, 2026
+
+Source: owner-supplied Pasted text.txt, attachment98679355-d362-4110-be40-a74f0f689a34; SHA2566d42e465f4ad2712f3e78e542fa1d3e82581a8382aefee83520f15dbf647b555. User requests their language where it fits. Direct follow-up confirms all five programs, professional teams and schedules are available, and requests generic Contributing Organizations for all eight names without specifying monetary contributions. This is owner-supplied content, not independent evidence of funding, certification or institutional endorsement.
+
+Copy mapping: Home/About mission becomes calm/peaceful haven, Horse Heroes, free-of-charge donor-supported activities and therapies. Central audience preserves United States/partner-nation Veterans and adds Reserve Service Members, Families of Fallen Heroes, families/loved ones. /programs explains EFP, therapeutic horsemanship, pre/post deployment, family support during deployment and specialty workshops; community time/food is conditional on time permitting. Give page uses Thank you for standing with us, Horse Hero care, in-kind services/equipment/vehicles and contact-arranged tributes, not automated public tribute collection. All three journal guides updated2026-10-12 with current programs source/internal links and real original publication dates preserved.
+
+Published five source-grounded service entries through existing versioned/audited staff_save_content after checking empty services and existing designated Google-confirmed staff. Atomic import refuses existing content; no overwrite, new schema/permissions/accounts or private record mutation. /programs reads only current published services, never falls back to the JSON import snapshot; managers can edit/archive and public pages respect it. content/programs.json is import provenance, not runtime fallback. Source clinical physiological/evidence-based claims are not adopted as outcome promises. EAGALA is described as a ground-based team model, not ENVET accreditation; professional-team availability is based on owner's direct confirmation. Primary model reference: https://www.eagala.org/about-us/what-is-the-eagala-model/ . No mounted EAGALA claim.
+
+About has eight name/link entries under exact Contributing Organizations; Donate/footer link to the section. No fabricated grant amounts, contribution types, organizational biographies, logo rights, sponsorship tiers, accreditation badges or relationship structured data. Official destinations checked; WVU supplied degree-detail path unavailable, replaced by its official majors listing. GFAS uses working non-www standards URL; Corro uses official homepage rather than broken product search. SAFE official name is Save a Forgotten Equine, not the brief's Save a Forgotten Horse. Directory skill inspected but no vendor/provider selection, purchase or provisioning was performed; these are existing owner-supplied public reference links.
+
+Preserved verified+1 540-504-8401, all social destinations, PayPal recipient, legal wording/versions and protected records. Do not replace phone with malformed501.54038401, use unverified DonorPerfect recipient, publish unverified EIN/tax-deductibility/registration claims, promise newsletters or assign the unnamed approved horse photo to Jellybean. Proposed arena fundraising, calendar, newsletter, board profiles/testimonials and retired/memorial profiles need separate source/workflow/rights detail; not silently built as placeholders. Existing staff-screening affiliation codes/version remain unchanged in this editorial scope; expanding Reserve-specific operational classifications is a separately versioned follow-up, not an inferred eligibility decision.
+
+Corva/Source Sans identity preserved under Impeccable preflight; new numbered program rows/single-open disclosures and generous text-only contributor links, no generic sponsor-card grid. /programs included in nav/footer, sitemap and allowlisted page counts; visible ItemList follows current published services with no unsupported medical rich-result claims. Publication/deployment evidence recorded in verification/current-state notes.

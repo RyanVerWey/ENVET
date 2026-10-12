@@ -16,6 +16,119 @@
   --glass-edge: oklch(99% 0.006 164 / 0.75);
   color-scheme: light;
 }
+
+.contributing-organizations,
+.program-catalog {
+  padding-block: clamp(48px, 6vw, 88px);
+  scroll-margin-top: 180px;
+}
+.contributing-organizations .section-heading > p,
+.program-catalog .section-heading > p {
+  max-width: 44ch;
+  color: var(--muted);
+}
+.contributor-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 48px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.contributor-list li {
+  border-bottom: 1px solid var(--line);
+}
+.contributor-list a {
+  min-height: 76px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  text-decoration: none;
+  font-weight: 650;
+  line-height: 1.4;
+}
+.contributor-list a span:first-child {
+  overflow-wrap: anywhere;
+}
+.contributor-list svg {
+  flex-shrink: 0;
+  transition: transform 180ms ease-out;
+}
+.contributor-list a:hover svg {
+  transform: translate(2px, -2px);
+}
+.contributor-list a:hover {
+  color: var(--accent);
+}
+.program-row {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 24px;
+  padding-block: 36px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 180px;
+}
+.program-number {
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 650;
+}
+.program-row p {
+  max-width: 70ch;
+}
+.program-row h3 {
+  font-size: clamp(24px, 3vw, 32px);
+}
+.program-details {
+  margin-block: 24px;
+  max-width: 70ch;
+}
+.program-details summary {
+  padding-block: 12px;
+  cursor: pointer;
+  font-weight: 650;
+}
+.program-details div {
+  padding: 16px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.program-details div p:first-child {
+  margin-top: 0;
+}
+.program-details div p:last-child {
+  margin-bottom: 0;
+}
+.programs-community {
+  padding-block: 64px;
+  max-width: 900px;
+}
+.programs-community p {
+  max-width: 65ch;
+}
+.program-contact {
+  padding-block: 32px;
+}
+@media (max-width: 760px) {
+  .contributor-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .program-row {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .program-details div {
+    padding: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contributor-list a:hover svg {
+    transform: none;
+  }
+}
 .member-actions {
   display: flex;
   align-items: center;

@@ -12,6 +12,8 @@ const server = await createServer({
   root,
   configFile: false,
   logLevel: "error",
+  // No environment or credentials in isolated browser fixtures.
+  define: { "process.env": "{}" },
   resolve: {
     alias: {
       "@": join(root, "../../src"),
@@ -833,8 +835,46 @@ try {
     fullPage: true,
   });
   assert.deepEqual(failures, []);
+  for (const dark of [false, true])
+    for (const width of [320, 768, 1280]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(`${base}owner-content.html${dark ? "?theme=dark" : ""}`);
+      await page
+        .getByRole("heading", {
+          name: "Contributing Organizations",
+          exact: true,
+        })
+        .waitFor();
+      assert.equal(await page.locator(".program-row").count(), 5);
+      assert.equal(await page.locator(".contributor-list a").count(), 8);
+      await page.locator(".program-details summary").nth(0).press("Enter");
+      await page.locator(".program-details summary").nth(1).press("Space");
+      assert.equal(await page.locator("details[open]").count(), 1);
+      assert.equal(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+        true,
+        `owner copy ${width} ${dark}`,
+      );
+      await page.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
+      assert.deepEqual(
+        await page.evaluate(async () =>
+          (await window.axe.run()).violations.map((v) => v.id),
+        ),
+        [],
+        `owner copy axe ${width} ${dark}`,
+      );
+    }
+  await page.screenshot({
+    path: "output/playwright/envet-owner-content-components.png",
+    fullPage: true,
+  });
+  assert.deepEqual(failures, []);
   console.log(
-    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, filled review/receipts, unchanged signing retry, separate guardian signatures; member task navigation, checklist conflict/retry states, share links; animal CRUD/trash/restore/conflicts, manager-only navigation, filters and single-open stories; 320/768/1280 mint light/dark layouts and axe accessibility.",
+    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, filled review/receipts, unchanged signing retry, separate guardian signatures; member task navigation, checklist conflict/retry states, share links; animal CRUD/trash/restore/conflicts, manager-only navigation, filters and single-open stories; owner program/contributor/header layouts and keyboard accordions; 320/768/1280 mint light/dark layouts and axe accessibility.",
   );
 } finally {
   await browser?.close();

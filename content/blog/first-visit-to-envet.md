@@ -2,13 +2,15 @@
 title: "Your first visit starts before the farm gate"
 description: "A simple guide to contacting ENVET, asking the right questions, and planning a first visit without the guesswork."
 date: "2026-09-06"
-updated: "2026-09-06"
+updated: "2026-10-12"
 category: "Getting started"
 author: "M. Lamm"
 image: "/images/farm.jpg"
 imageAlt: "The outdoor setting at Eagle’s Nest in Lovettsville, Virginia"
 published: true
 sources:
+  - title: "ENVET’s programs and participation information"
+    url: "https://envet.info/programs"
   - title: "Eagle’s Nest Veterans’ Equine Therapy: official Facebook page"
     url: "https://www.facebook.com/profile.php?id=100068209587248"
 ---
@@ -20,9 +22,9 @@ You do not have to arrive at that conversation knowing exactly what you want to 
 
 ## What is ENVET, and where is it?
 
-Eagle’s Nest Veterans’ Equine Therapy is a nonprofit providing equine therapy options for United States and partner-nation Veterans, Active Duty service members, and their families. It is based at **37958 Long Lane, Lovettsville, Virginia 20180**.
+Eagle’s Nest Veterans’ Equine Therapy is a donor-supported nonprofit providing equine-assisted activities and therapies for United States and partner-nation Veterans, Active Duty service members, Reserve Service Members, their families and loved ones, and Families of Fallen Heroes. It is based at **37958 Long Lane, Lovettsville, Virginia 20180**.
 
-The organization’s official Facebook page describes free access to rescued or donated horses for Veterans. Confirm the arrangements for your particular visit directly with the team. This website does not reserve a place or confirm an appointment.
+Our programs are completely free of charge to those we serve. Our Horse Heroes are at the heart of a calm and peaceful haven for learning and connection. Explore [ENVET’s programs](/programs), then confirm the arrangements for your visit directly with the team. This website does not reserve a place or confirm an appointment.
 
 ## What should I ask before visiting?
 
