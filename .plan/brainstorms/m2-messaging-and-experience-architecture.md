@@ -5,7 +5,7 @@ slug: m2-messaging-and-experience-architecture
 status: active
 title: M2 Messaging and experience architecture
 type: brainstorm
-updated_at: "2026-10-12T16:37:37Z"
+updated_at: "2026-10-12T17:06:32Z"
 ---
 
 # Brainstorm: M2 Messaging and experience architecture
@@ -47,6 +47,8 @@ Every visitor knows within seconds whether ENVET is for them and whether to requ
 - Blog now belongs to the first release: three practical, source-grounded guides for first visits, families, and supporting the mission. No clinical advice or fabricated impact; transparent shared editorial byline and review policy.
 
 - Owner supplied ENVET content brief October12,2026 and confirms all five programs available with described professional teams/schedules. Integrate mission calm/peaceful haven, free donor-supported programs, Horse Heroes, Veterans/Active Duty/Reserve/Families of Fallen Heroes plus prior partner-nation eligibility. Build /programs from existing published services, import approved real descriptions through versioned audited staff content RPC; keep manager edits/archive authoritative, no static resurrection. Add Contributing Organizations on About linked from Donate, use owner-requested generic nonmonetary label for eight supplied organizations, verified official HTTPS links, no invented monetary gifts/relationships or accreditation badges/logos. Preserve phone/PayPal/social/source legal wording and private records. Reserve indoor arena, newsletter, memorial profiles, board/testimonials/calendar for separate facts/consent/workflow scope. No seventh milestone.
+
+- Completed owner-language increment b3bd28d Production dpl_DPJb1vWUFme9chXEHMNedqw1CAN3 envet.info: /programs reads five owner-approved public service entries, manager edits/archive authoritative; About recognizes eight Contributing Organizations without specific monetary claims; mission/donation/journal language aligned.114tests, corrected browser matrix, exact CI and18public/12private production smoke pass. Fixture-only follow-up9495f08 CI passes, application unchanged. Source/claims/deferrals in docs/editorial-workflow.md. Preserve six milestones; no premature closure of broader operational acceptance.
 ## Raw Notes
 
 ## Refinement
