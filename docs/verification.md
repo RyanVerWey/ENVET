@@ -1,7 +1,13 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-12T18:01:30Z"
+updated: "2026-10-12T18:06:46Z"
 ---
+## Organization icons live (October 12, 2026)
+
+Released16c8ed3434dad0c033b536c2cd3824f6d09985b5 after exact-source CI38288148200/38288143255 success. Vercel dpl_9m34VRYFbPyUaE4vB1CJvugmkATq Ready32s is Production with envet.info assigned; immutable envet-m1171ck2q-ryanverweys-projects.vercel.app. Fresh18public/13private production, metadata/redirect/media and protected API/signing-denial checks pass.124tests plus lint/build/types/format and browser regression pass.
+
+Actual existing owner manager page refreshed after verifying unchanged saved-field values; all eight rows have icon-only44x44 Edit/Trash controls, same top coordinate per pair and identical right edge across rows. Keyboard Enter on Edit EQUUS Foundation opens the saved editor without writing. Geometry proof at default live width;320/576/768/1280 both themes, long-name layout, CRUD/recovery and axe proof comes from isolated actual-component tests. No database/organization/private-record/auth/secret/DNS changes. Impeccable narrowed actions to familiar icons and stable columns; no broad redesign. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-organization-icons-live.png; release status envet-organization-icons-release.png. Prior healthy a253a79/dpl_4YQYUMAEek43Rz5eUf6SELafiEDj is same-schema/data rollback candidate, not exercised. Documentation-only closeout does not require another application release.
+
 ## Compact organization row actions (October 12, 2026)
 
 Owner rejected oversized name-repeating Edit/Remove buttons in screenshot. Narrow presentation correction: icon-only Lucide Pencil/Trash2 and restore controls, fixed44x44 targets with per-entry aria labels/native tooltips, theme-aware hover/keyboard focus. Scoped row grid reserves a nonwrapping action column; names wrap in their own column, inline removal confirmation spans both columns. CRUD endpoints, database, approved content, authorization and recoverable removal unchanged. Impeccable directed reduced row noise and consistent task affordances.
