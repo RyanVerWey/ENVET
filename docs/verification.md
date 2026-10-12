@@ -1,7 +1,15 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-12T18:06:46Z"
+updated: "2026-10-12T18:15:58Z"
 ---
+## Second designated manager and requested release (October 12, 2026)
+
+Owner explicitly authorized manager access for the second designated organization Google account after sign-in. Read-only identity checks found exactly one confirmed, verified Google identity matching that account; not deleted, banned or anonymous. Atomic operator bootstrap inserted its verified UUID into private.staff_members and recorded one operator_grant_manager audit entry under the existing authorized manager. Both designated managers pass public.staff_access and private.assert_staff under service_role; existing owner access preserved and member self-promotion remains denied. Account identifiers remain only in the private database audit, not these public notes. No automatic email/metadata promotion rule, schema, RLS, provider, secrets, customer records or DNS changes. The new manager's own browser session was not exercised; refresh its already-signed-in organization account to reveal Management.
+
+Deployed exact pushed fd055865e8b670c5594decb833c7e93c875c481f after successful CI runs38288733519/38288727783. Vercel dpl_B1qiiWE5cvTZE2eRGmeTGq8eHtrT is Ready26s, Production/Current with envet.info assigned; immutable envet-az0bqpx29-ryanverweys-projects.vercel.app. Runtime matches healthy16c8ed3; this request required no code changes. Fresh124tests/21files, lint/types and read-only18public/13private production route/discovery/media/redirect and Google-only/private-API denial checks pass. No form or interaction submitted. Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-manager-bootstrap-release.png.
+
+Previous healthy16c8ed3/dpl_9m34VRYFbPyUaE4vB1CJvugmkATq is a code rollback candidate, not manager-membership revocation; neither rollback nor revocation exercised. Six milestones and existing operational acceptance work remain unchanged. This documentation-only closeout needs no further runtime release.
+
 ## Organization icons live (October 12, 2026)
 
 Released16c8ed3434dad0c033b536c2cd3824f6d09985b5 after exact-source CI38288148200/38288143255 success. Vercel dpl_9m34VRYFbPyUaE4vB1CJvugmkATq Ready32s is Production with envet.info assigned; immutable envet-m1171ck2q-ryanverweys-projects.vercel.app. Fresh18public/13private production, metadata/redirect/media and protected API/signing-denial checks pass.124tests plus lint/build/types/format and browser regression pass.

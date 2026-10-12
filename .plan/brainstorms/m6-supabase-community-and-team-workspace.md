@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-12T18:00:57Z"
+updated_at: "2026-10-12T18:15:58Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -64,6 +64,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Contributing Organizations management released a253a79, Vercel dpl_4YQYUMAEek43Rz5eUf6SELafiEDj Ready28s/envet.info after exact-source CI. Eight owner-approved entries imported through audited RPCs, hosted rollback-only CRUD/RLS negatives pass;124 tests, responsive/axe component matrix and18public/13private production probes pass. Actual owner session verifies dashboard navigation/load/Edit without changing entries. Six milestones retained; no automatic staff grant or private legal-record change. Brain verification/current-state records release proof.
 
 - Owner rejects oversized organization row buttons. Narrow UI correction only: icon-only Pencil/Trash2 actions, aligned nonwrapping fixed44px targets, per-entry aria labels/tooltips, optional icon-only restore, full-row inline confirmation and original CRUD/error recovery unchanged. Scoped two-column row grid allows long names to wrap without moving action columns. Verify exact-component geometry at320/576/768/1280 mint light/dark, keyboard/axe and existing CRUD; no backend/data/config change or new milestone.
+
+- Owner-requested release is live on envet.info and the second owner-designated verified Google account now has audited manager membership. Both designated managers pass existing staff checks; no automatic email promotion or authorization policy changes. Six milestones retained; real-form operational acceptance remains separate. See docs/google-auth-setup.md and docs/verification.md for non-identifying release evidence.
 ## Raw Notes
 
 ## Refinement
