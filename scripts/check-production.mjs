@@ -62,6 +62,7 @@ for (const path of [
   "/team/forms",
   "/team/impact",
   "/team/animals",
+  "/team/organizations",
   "/account",
   "/account/forms",
   "/account/pre-visit",
@@ -144,6 +145,7 @@ for (const path of [
   "/api/forms?id=44444444-4444-4444-8444-444444444444",
   "/api/team/forms",
   "/api/team/animals",
+  "/api/team/organizations",
 ]) {
   const response = await fetch(origin + path);
   assert.ok(

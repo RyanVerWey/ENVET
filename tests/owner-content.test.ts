@@ -5,19 +5,25 @@ vi.mock("server-only", () => ({}));
 vi.mock("@/lib/community/public-content", () => ({
   publishedContent: vi.fn(),
 }));
+vi.mock("@/lib/community/public-organizations", () => ({
+  publishedOrganizations: vi.fn().mockResolvedValue([]),
+}));
 import { publishedContent } from "@/lib/community/public-content";
 import Programs from "@/app/programs/page";
 import { ContributingOrganizations } from "@/components/contributing-organizations";
-import { contributingOrganizations } from "@/lib/contributors";
+import {
+  initialContributingOrganizations as contributingOrganizations,
+  organizationImport,
+} from "@/lib/contributors";
 import { parseContent } from "@/lib/community/validation";
 import programs from "../content/programs.json";
 import Home from "@/app/page";
 import About from "@/app/about/page";
 vi.stubGlobal("React", React);
 describe("owner-supplied program and contributor content", () => {
-  it("renders the expanded military audience and free donor-supported care on mission pages", () => {
-    for (const Page of [Home, About]) {
-      const html = renderToStaticMarkup(React.createElement(Page));
+  it("renders the expanded military audience and free donor-supported care on mission pages", async () => {
+    for (const element of [React.createElement(Home), await About()]) {
+      const html = renderToStaticMarkup(element);
       expect(html).toContain("United States and partner-nation Veterans");
       expect(html).toContain("Active Duty and Reserve Service Members");
       expect(html).toContain("Families of Fallen Heroes");
@@ -41,7 +47,9 @@ describe("owner-supplied program and contributor content", () => {
   });
   it("uses the owner-requested nonfinancial label and eight safe official links, not badges", () => {
     const html = renderToStaticMarkup(
-      React.createElement(ContributingOrganizations),
+      React.createElement(ContributingOrganizations, {
+        organizations: organizationImport,
+      }),
     );
     expect(html).toContain("Contributing Organizations");
     expect(html).toContain("not only financial gifts");

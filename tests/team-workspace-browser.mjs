@@ -889,8 +889,208 @@ try {
     fullPage: true,
   });
   assert.deepEqual(failures, []);
+  async function openOrganizations(
+    mode = "success",
+    width = 1280,
+    dark = false,
+  ) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(
+      `${base}organization-workspace.html?mode=${mode}${dark ? "&theme=dark" : ""}`,
+    );
+    await page
+      .getByRole("button", { name: "Edit Test Organization", exact: true })
+      .waitFor();
+  }
+  await openOrganizations();
+  await page
+    .getByRole("button", { name: "Edit Test Organization", exact: true })
+    .press("Enter");
+  assert.equal(
+    await page.getByLabel("Entry ID", { exact: true }).isDisabled(),
+    true,
+  );
+  assert.equal(
+    await page
+      .getByLabel("Organization name", { exact: true })
+      .evaluate((el) => document.activeElement === el),
+    true,
+  );
+  await page
+    .getByLabel("Description (optional)")
+    .fill("Updated synthetic description.");
+  await page
+    .getByRole("button", { name: "Save organization", exact: true })
+    .click();
+  await page.getByText("Organization saved.", { exact: true }).waitFor();
+  assert.equal(
+    (await page.evaluate(() => window.organizationFixture)).writes,
+    1,
+  );
+  await page
+    .getByRole("button", { name: "Remove Test Organization", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Keep organization", exact: true })
+    .click();
+  assert.equal(
+    (await page.evaluate(() => window.organizationFixture)).writes,
+    1,
+  );
+  await page
+    .getByRole("button", { name: "Remove Test Organization", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Confirm removal", exact: true })
+    .press("Space");
+  await page
+    .getByText(
+      "Organization removed from the website. You can restore it as a draft.",
+      { exact: true },
+    )
+    .waitFor();
+  assert.equal(
+    await page
+      .getByRole("button", { name: "Edit Test Organization", exact: true })
+      .count(),
+    0,
+  );
+  await page.getByRole("button", { name: "Removed", exact: true }).click();
+  await page
+    .getByRole("button", {
+      name: "Restore Test Organization as draft",
+      exact: true,
+    })
+    .click();
+  await page
+    .getByText("Restored as a draft. Review before publishing.", {
+      exact: true,
+    })
+    .waitFor();
+  await page
+    .getByRole("button", { name: "Organizations", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "Edit Test Organization", exact: true })
+    .click();
+  assert.equal(
+    await page.getByLabel("Visibility", { exact: true }).inputValue(),
+    "draft",
+  );
+  await page
+    .getByRole("button", { name: "Add organization", exact: true })
+    .click();
+  await page
+    .getByLabel("Organization name", { exact: true })
+    .fill("Another Test Organization");
+  await page
+    .getByLabel("Entry ID", { exact: true })
+    .fill("another-test-organization");
+  await page
+    .getByRole("button", { name: "Save organization", exact: true })
+    .click();
+  await page
+    .getByRole("button", {
+      name: "Edit Another Test Organization",
+      exact: true,
+    })
+    .waitFor();
+  assert.equal(
+    (await page.evaluate(() => window.organizationFixture)).records.length,
+    2,
+  );
+
+  for (const mode of ["conflict", "uncertain", "refresh-error"]) {
+    await openOrganizations(mode);
+    await page
+      .getByRole("button", { name: "Edit Test Organization", exact: true })
+      .click();
+    await page
+      .getByLabel("Description (optional)")
+      .fill("Retain unsaved content.");
+    await page
+      .getByRole("button", { name: "Save organization", exact: true })
+      .click();
+    await page
+      .getByText(
+        mode === "refresh-error"
+          ? "Change confirmed, but organizations could not refresh."
+          : mode === "conflict"
+            ? "Refresh organizations and open the latest entry before saving again."
+            : "Could not confirm whether the change saved.",
+        { exact: false },
+      )
+      .waitFor();
+    assert.equal(
+      await page
+        .getByRole("button", { name: "Edit Test Organization", exact: true })
+        .count(),
+      0,
+    );
+    assert.equal(
+      (await page.evaluate(() => window.organizationFixture)).writes,
+      1,
+    );
+    await page
+      .getByRole("button", { name: "Refresh organizations", exact: true })
+      .click();
+    await page
+      .getByRole("button", { name: "Edit Test Organization", exact: true })
+      .waitFor();
+    assert.equal(
+      await page
+        .getByRole("button", { name: "Save organization", exact: true })
+        .isDisabled(),
+      true,
+    );
+    assert.equal(
+      await page.getByLabel("Description (optional)").inputValue(),
+      "Retain unsaved content.",
+    );
+    if (mode !== "refresh-error")
+      page.once("dialog", (dialog) => dialog.accept());
+    await page
+      .getByRole("button", { name: "Edit Test Organization", exact: true })
+      .click();
+    assert.equal(
+      await page
+        .getByRole("button", { name: "Save organization", exact: true })
+        .isEnabled(),
+      true,
+    );
+    assert.equal(
+      (await page.evaluate(() => window.organizationFixture)).writes,
+      1,
+    );
+  }
+  for (const dark of [false, true])
+    for (const width of [320, 768, 1280]) {
+      await openOrganizations("layout", width, dark);
+      assert.equal(
+        await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
+        ),
+        true,
+        `organization manager ${width} ${dark}`,
+      );
+      await page.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
+      assert.deepEqual(
+        await page.evaluate(async () =>
+          (await window.axe.run()).violations.map((v) => v.id),
+        ),
+        [],
+        `organization axe ${width} ${dark}`,
+      );
+    }
+  await page.screenshot({
+    path: "output/playwright/envet-organization-manager.png",
+    fullPage: true,
+  });
+  assert.deepEqual(failures, []);
   console.log(
-    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, filled review/receipts, unchanged signing retry, separate guardian signatures; member task navigation, checklist conflict/retry states, share links; animal CRUD/trash/restore/conflicts, manager-only navigation, filters and single-open stories; owner program/contributor/header layouts and keyboard accordions; 320/768/1280 mint light/dark layouts and axe accessibility.",
+    "Browser regressions passed: team refresh/errors, independent autofill, drawn and keyboard-applied initials, filled review/receipts, unchanged signing retry, separate guardian signatures; member task navigation, checklist conflict/retry states, share links; animal CRUD/trash/restore/conflicts, manager-only navigation, filters and single-open stories; owner program/contributor/header layouts and keyboard accordions; organization add/edit/remove/restore, stale/network/refresh recovery; 320/768/1280 mint light/dark layouts and axe accessibility.",
   );
 } finally {
   await browser?.close();

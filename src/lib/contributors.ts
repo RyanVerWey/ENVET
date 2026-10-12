@@ -1,6 +1,7 @@
 // Names supplied by ENVET. Links identify organizations, not a payment destination,
 // an accreditation badge, or evidence of any specific financial contribution.
-export const contributingOrganizations = [
+// Import provenance only. Public pages read the database, never this snapshot.
+export const initialContributingOrganizations = [
   {
     name: "EQUUS Foundation",
     href: "https://www.equusfoundation.org/guardians/guardians.php",
@@ -25,3 +26,21 @@ export const contributingOrganizations = [
   { name: "Equine Rescue League", href: "https://www.equinerescueleague.org/" },
   { name: "Corro", href: "https://corroshop.com/" },
 ] as const;
+export const organizationImport = initialContributingOrganizations.map(
+  (entry, index) => ({
+    slug: [
+      "equus-foundation",
+      "path-international",
+      "west-virginia-university",
+      "healing-through-horses",
+      "gfas",
+      "safe",
+      "equine-rescue-league",
+      "corro",
+    ][index],
+    ...entry,
+    description: "",
+    sort_order: (index + 1) * 10,
+    state: "published" as const,
+  }),
+);

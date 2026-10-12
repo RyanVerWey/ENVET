@@ -1,7 +1,16 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-12T17:28:03Z"
+updated: "2026-10-12T17:50:19Z"
 ---
+## Manager-controlled Contributing Organizations (October 12, 2026)
+
+Owner requested add/edit/remove through Management. New /team/organizations is linked from the existing manager workspace. Name, optional HTTPS website and plain-text description, numeric display order and draft/published visibility; removed entries can be restored only as draft. Inline single-target removal confirmation, unsaved-change warning, current-version writes, duplicate-click lock, read-generation protection, and explicit conflict/unknown-write/failed-refresh recovery. No permanent-delete API or manager grant changes.
+
+Migration20261012174212_contributing_organizations matches the applied hosted catalog. Table RLS permits anonymous/member SELECT of published nonremoved rows only; reset inherited server ALL grants to SELECT/INSERT/UPDATE, no hard DELETE/TRUNCATE. Invoker RPCs require current private staff membership, empty search_path, durable120/hour actor write limit and existing private staff audit. API checks fresh verified Google staff, same origin, bounded JSON and strict HTTPS/noncredential website validation. Private page/API remain noindex/no-store. Public About is now dynamic, with uncached published-only reads and deterministic paginated order; no static fallback can resurrect removed content. src/lib/contributors.ts is import provenance only.
+
+Preserved all eight previously approved names/official links in the empty hosted table using audited staff RPCs under existing verified manager identity. All version1/published; descriptions intentionally empty, no new contribution/credential claims. Hosted rollback-only create/publish/stale/remove/restore/public/member-denial tests pass with zero retained synthetic rows/audit. Catalog confirms server hard DELETE and member RPC EXECUTE false. Existing security advisor WARN is [password protection disabled](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection); app remains Google-only. Existing INFO deny-by-default private tables and unused indexes remain; no new security/error notice on the organization table.
+
+124tests/21files, lint without warnings, build/types/format and Plan check pass. Actual-component browser regression covers add/edit/remove/cancel/restore, draft restoration, current-version refresh, uncertain writes and refresh403 with no repeated mutation;320/768/1280 both mint themes no overflow/axe violations. A150-character unbroken name stress case exposed mobile overflow; scoped grid-child/button min-width and wrapping fixes pass the full matrix. Isolated fixture uses synthetic content and Arial substitute; actual Source Sans/live owner-session UI still requires release verification. Built loopback31routes/28targets pass. No private legal record/inquiry/interaction created, secret/provider/DNS changes or broad permission expansion. Existing six milestones/PR45 retained. Production deployment and actual populated UI verification follow the exact-source CI gate; previous healthy2cd2559 is code rollback candidate only, not a rollback of schema/import.
 
 ## Requested deployment verified (October 12, 2026)
 

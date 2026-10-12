@@ -27,6 +27,7 @@ const routes = [
   "/team/forms",
   "/team/impact",
   "/team/animals",
+  "/team/organizations",
   "/blog/first-visit-to-envet",
   "/blog/questions-families-can-ask",
   "/blog/support-envet-beyond-a-donation",

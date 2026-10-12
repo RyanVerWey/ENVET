@@ -2,12 +2,15 @@ import { Action, PageIntro, Photo } from "@/components/ui";
 import { pageMetadata } from "@/lib/seo";
 import { organization as org } from "@/lib/site";
 import { ContributingOrganizations } from "@/components/contributing-organizations";
+import { publishedOrganizations } from "@/lib/community/public-organizations";
+export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
   "Our story",
   "Meet Eagle’s Nest Veterans’ Equine Therapy, a nonprofit connecting Veterans, families, and horses in Lovettsville, Virginia.",
   "/about",
 );
-export default function About() {
+export default async function About() {
+  const organizations = await publishedOrganizations();
   return (
     <>
       <PageIntro
@@ -45,7 +48,7 @@ export default function About() {
           <Action href="/visit">Plan your visit</Action>
         </div>
       </section>
-      <ContributingOrganizations />
+      <ContributingOrganizations organizations={organizations} />
       <section className="wrap values-section">
         <p className="eyebrow">WHAT GUIDES THIS PLACE</p>
         <div className="value-row">

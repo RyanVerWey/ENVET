@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-10T03:26:35Z"
+updated_at: "2026-10-12T17:34:04Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -58,6 +58,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Release590ca42 deployed Production dpl_ELrb7DPJr9DvGd4ePTZ3A4C8cfRD to envet.info; exact CI and100tests pass. Live owner-session member task hub, empty personal history/preparation, protected review/zero activity and signed-in blog controls verified. Google-only form collection enabled with approved versions, owner-entered service key, anti-spam and Desktop DPAPI recovery tested against actual crypto. No real legal record or personal safety acknowledgement submitted by agent. Keep41/46 operational acceptance open for first genuine signed receipt/review, second staff bootstrap and broader recovery; no new milestone. Web traffic analytics still not enabled; no claim of traffic metrics.
 
 - Owner extends existing content workspace to public /staff animal profiles: Horses (Horse Heroes), Dogs, Cats. Manager-only full CRUD with recoverable trash/restore, draft/publish, personal bios/story/traits/visit tips, protected portrait upload and live card preview. Add upper-right Management link from fresh verified private membership, never email metadata. Existing designated owner already staff; second designated Google account has no identity yet, must sign in before operator bootstrap. No invented animal seed profiles. Preserve six milestones and existing M6 spec.
+
+- Owner requests Contributing Organizations add/edit/remove in Management. Add dedicated /team/organizations with name, optional HTTPS website and plain-text description, display order, draft/published status, recoverable remove/restore and optimistic versions. Preserve eight owner-approved entries exactly during audited import. Database becomes authoritative public source with no static fallback that resurrects removed entries. Existing verified manager authorization, same-origin API, least-privilege published-only RLS, server-only audited/rate-limited writes. Corva mint light/dark, keyboard/status/error/retry and responsive checks. Additive AC4/AC7 scope, six milestones retained; no secrets/account grants/private forms changes.
 ## Raw Notes
 
 ## Refinement

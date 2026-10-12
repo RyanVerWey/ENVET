@@ -169,6 +169,7 @@ export function TeamWorkspace() {
     <div className="wrap team-workspace">
       <nav className="team-nav" aria-label="Workspace sections">
         <a href="/team/animals">Animal staff & bios</a>
+        <a href="/team/organizations">Contributing Organizations</a>
         <a href="/team/forms">Forms review</a>
         <a href="/team/impact">Program activity</a>
         <a href="#team-inquiries">Inquiries</a>

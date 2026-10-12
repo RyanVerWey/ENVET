@@ -1,6 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
-import { contributingOrganizations } from "@/lib/contributors";
-export function ContributingOrganizations() {
+import type { PublicOrganization } from "@/lib/community/organizations";
+export function ContributingOrganizations({
+  organizations,
+}: {
+  organizations: PublicOrganization[];
+}) {
   return (
     <section
       className="wrap contributing-organizations"
@@ -18,13 +22,20 @@ export function ContributingOrganizations() {
         </p>
       </div>
       <ul className="contributor-list">
-        {contributingOrganizations.map((org) => (
-          <li key={org.name}>
-            <a href={org.href} target="_blank" rel="noopener noreferrer">
-              <span>{org.name}</span>
-              <ArrowUpRight size={20} aria-hidden="true" />
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
+        {organizations.map((org) => (
+          <li key={org.slug}>
+            {org.href ? (
+              <a href={org.href} target="_blank" rel="noopener noreferrer">
+                <span>{org.name}</span>
+                <ArrowUpRight size={20} aria-hidden="true" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            ) : (
+              <span className="contributor-name">{org.name}</span>
+            )}
+            {org.description && (
+              <p className="contributor-description">{org.description}</p>
+            )}
           </li>
         ))}
       </ul>
