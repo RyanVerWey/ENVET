@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-12T17:57:03Z"
+updated_at: "2026-10-12T18:00:57Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -62,6 +62,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Owner requests Contributing Organizations add/edit/remove in Management. Add dedicated /team/organizations with name, optional HTTPS website and plain-text description, display order, draft/published status, recoverable remove/restore and optimistic versions. Preserve eight owner-approved entries exactly during audited import. Database becomes authoritative public source with no static fallback that resurrects removed entries. Existing verified manager authorization, same-origin API, least-privilege published-only RLS, server-only audited/rate-limited writes. Corva mint light/dark, keyboard/status/error/retry and responsive checks. Additive AC4/AC7 scope, six milestones retained; no secrets/account grants/private forms changes.
 
 - Contributing Organizations management released a253a79, Vercel dpl_4YQYUMAEek43Rz5eUf6SELafiEDj Ready28s/envet.info after exact-source CI. Eight owner-approved entries imported through audited RPCs, hosted rollback-only CRUD/RLS negatives pass;124 tests, responsive/axe component matrix and18public/13private production probes pass. Actual owner session verifies dashboard navigation/load/Edit without changing entries. Six milestones retained; no automatic staff grant or private legal-record change. Brain verification/current-state records release proof.
+
+- Owner rejects oversized organization row buttons. Narrow UI correction only: icon-only Pencil/Trash2 actions, aligned nonwrapping fixed44px targets, per-entry aria labels/tooltips, optional icon-only restore, full-row inline confirmation and original CRUD/error recovery unchanged. Scoped two-column row grid allows long names to wrap without moving action columns. Verify exact-component geometry at320/576/768/1280 mint light/dark, keyboard/axe and existing CRUD; no backend/data/config change or new milestone.
 ## Raw Notes
 
 ## Refinement

@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Plus, RotateCcw, Trash2 } from "lucide-react";
+import { ArrowUpRight, Pencil, Plus, RotateCcw, Trash2 } from "lucide-react";
 import {
   blankOrganization,
   type OrganizationInput,
@@ -261,7 +261,7 @@ export function OrganizationManager() {
                     : "No organizations on this page. Add one to start recognizing your contributors."}
                 </p>
               )}
-              <ul className="animal-admin-list">
+              <ul className="animal-admin-list organization-admin-list">
                 {records.map((item) => (
                   <li key={item.slug}>
                     <div>
@@ -275,13 +275,14 @@ export function OrganizationManager() {
                         · Order {item.sort_order}
                       </span>
                     </div>
-                    <div className="actions">
+                    <div className="organization-row-actions">
                       {item.deleted_at ? (
                         <button
-                          className="quiet-button"
+                          className="organization-icon-button"
                           type="button"
                           disabled={busy || loading}
                           aria-label={`Restore ${item.name} as draft`}
+                          title={`Restore ${item.name} as draft`}
                           onClick={() =>
                             void mutate("PATCH", {
                               slug: item.slug,
@@ -289,28 +290,29 @@ export function OrganizationManager() {
                             })
                           }
                         >
-                          <RotateCcw size={16} aria-hidden="true" />
-                          Restore as draft
+                          <RotateCcw size={18} aria-hidden="true" />
                         </button>
                       ) : (
                         <>
                           <button
-                            className="quiet-button"
+                            className="organization-icon-button"
                             type="button"
                             disabled={busy || loading}
+                            aria-label={`Edit ${item.name}`}
+                            title={`Edit ${item.name}`}
                             onClick={() => edit(item)}
                           >
-                            Edit {item.name}
+                            <Pencil size={18} aria-hidden="true" />
                           </button>
                           <button
-                            className="quiet-button"
+                            className="organization-icon-button"
                             type="button"
                             disabled={busy || loading}
                             aria-label={`Remove ${item.name}`}
+                            title={`Trash ${item.name}`}
                             onClick={() => setConfirm(item.slug)}
                           >
-                            <Trash2 size={16} aria-hidden="true" />
-                            Remove
+                            <Trash2 size={18} aria-hidden="true" />
                           </button>
                         </>
                       )}

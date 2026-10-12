@@ -1,7 +1,13 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-12T17:57:03Z"
+updated: "2026-10-12T18:01:30Z"
 ---
+## Compact organization row actions (October 12, 2026)
+
+Owner rejected oversized name-repeating Edit/Remove buttons in screenshot. Narrow presentation correction: icon-only Lucide Pencil/Trash2 and restore controls, fixed44x44 targets with per-entry aria labels/native tooltips, theme-aware hover/keyboard focus. Scoped row grid reserves a nonwrapping action column; names wrap in their own column, inline removal confirmation spans both columns. CRUD endpoints, database, approved content, authorization and recoverable removal unchanged. Impeccable directed reduced row noise and consistent task affordances.
+
+124tests/21files, lint/build/types/format pass. Existing browser CRUD/keyboard/error recovery and axe checks pass; new exact-component geometry verifies icon-only text, unique accessible names,44px targets, equal edit/trash top coordinates and consistent right edge at320/576/768/1280 in mint light/dark, including150-character unbroken-name stress. No full WCAG certification. Preparation screenshot is synthetic fixture only; live visual verification follows exact-source CI/release. No real organization or participant record modified. Six milestones and existing PR45 retained.
+
 ## Organizations management live release (October 12, 2026)
 
 Application a253a79a1c01f4d68ae1b5b5ce0eae65d7293fd3 passes exact-source CI38286884124/38286876615. Vercel dpl_4YQYUMAEek43Rz5eUf6SELafiEDj is Ready28s, Production with envet.info assigned; immutable envet-qpe9jdr22-ryanverweys-projects.vercel.app. Read-only18public/13private production probes, redirects/discovery/media and configured signing/API denials pass; no participant record or interaction submitted.

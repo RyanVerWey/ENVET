@@ -1064,8 +1064,48 @@ try {
     );
   }
   for (const dark of [false, true])
-    for (const width of [320, 768, 1280]) {
+    for (const width of [320, 576, 768, 1280]) {
       await openOrganizations("layout", width, dark);
+      const iconGeometry = await page
+        .locator(".organization-admin-list > li")
+        .evaluateAll((rows) =>
+          rows.map((row) => {
+            const actions = row.querySelector(".organization-row-actions");
+            const buttons = [...actions.querySelectorAll("button")];
+            return {
+              right: actions.getBoundingClientRect().right,
+              buttons: buttons.map((button) => {
+                const rect = button.getBoundingClientRect();
+                return {
+                  width: rect.width,
+                  height: rect.height,
+                  top: rect.top,
+                  text: button.textContent.trim(),
+                  label: button.getAttribute("aria-label"),
+                  icons: button.querySelectorAll('svg[aria-hidden="true"]')
+                    .length,
+                };
+              }),
+            };
+          }),
+        );
+      assert.equal(iconGeometry.length, 2);
+      assert.equal(
+        iconGeometry[0].right,
+        iconGeometry[1].right,
+        `organization action alignment ${width} ${dark}`,
+      );
+      for (const row of iconGeometry) {
+        assert.equal(row.buttons.length, 2);
+        assert.equal(row.buttons[0].top, row.buttons[1].top);
+        for (const button of row.buttons) {
+          assert.equal(button.width, 44);
+          assert.equal(button.height, 44);
+          assert.equal(button.text, "");
+          assert.ok(button.label);
+          assert.equal(button.icons, 1);
+        }
+      }
       assert.equal(
         await page.evaluate(
           () =>

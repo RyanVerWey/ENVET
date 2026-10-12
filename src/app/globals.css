@@ -86,6 +86,48 @@
   white-space: normal;
   overflow-wrap: anywhere;
 }
+.organization-manager .organization-admin-list > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.organization-row-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.organization-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease-out,
+    border-color 180ms ease-out;
+}
+.organization-icon-button:hover:not(:disabled) {
+  background: var(--hero-mint);
+  border-color: var(--line);
+}
+.organization-icon-button:disabled {
+  cursor: not-allowed;
+}
+.organization-manager .organization-admin-list .animal-trash-confirm {
+  grid-column: 1 / -1;
+  max-width: 100%;
+}
 .contributor-list a span:first-child {
   overflow-wrap: anywhere;
 }
