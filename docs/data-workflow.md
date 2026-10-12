@@ -1,6 +1,6 @@
 ---
 title: M6 funded community and follow-up workflow
-updated: "2026-10-12T17:50:18Z"
+updated: "2026-10-12T17:57:45Z"
 ---
 ## Manager-controlled Contributing Organizations (October 12, 2026)
 
@@ -10,7 +10,7 @@ Migration20261012174212_contributing_organizations matches the applied hosted ca
 
 Preserved all eight previously approved names/official links in the empty hosted table using audited staff RPCs under existing verified manager identity. All version1/published; descriptions intentionally empty, no new contribution/credential claims. Hosted rollback-only create/publish/stale/remove/restore/public/member-denial tests pass with zero retained synthetic rows/audit. Catalog confirms server hard DELETE and member RPC EXECUTE false. Existing security advisor WARN is [password protection disabled](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection); app remains Google-only. Existing INFO deny-by-default private tables and unused indexes remain; no new security/error notice on the organization table.
 
-124tests/21files, lint without warnings, build/types/format and Plan check pass. Actual-component browser regression covers add/edit/remove/cancel/restore, draft restoration, current-version refresh, uncertain writes and refresh403 with no repeated mutation;320/768/1280 both mint themes no overflow/axe violations. A150-character unbroken name stress case exposed mobile overflow; scoped grid-child/button min-width and wrapping fixes pass the full matrix. Isolated fixture uses synthetic content and Arial substitute; actual Source Sans/live owner-session UI still requires release verification. Built loopback31routes/28targets pass. No private legal record/inquiry/interaction created, secret/provider/DNS changes or broad permission expansion. Existing six milestones/PR45 retained. Production deployment and actual populated UI verification follow the exact-source CI gate; previous healthy2cd2559 is code rollback candidate only, not a rollback of schema/import.
+124tests/21files, lint without warnings, build/types/format and Plan check pass. Actual-component browser regression covers add/edit/remove/cancel/restore, draft restoration, current-version refresh, uncertain writes and refresh403 with no repeated mutation;320/768/1280 both mint themes no overflow/axe violations. A150-character unbroken name stress case exposed mobile overflow; scoped grid-child/button min-width and wrapping fixes pass the full matrix. Isolated fixture uses synthetic content and Arial substitute; actual Source Sans/live owner-session UI still requires release verification. Built loopback31routes/28targets pass. No private legal record/inquiry/interaction created, secret/provider/DNS changes or broad permission expansion. Existing six milestones/PR45 retained. Released a253a79 to envet.info as Ready28s/dpl_4YQYUMAEek43Rz5eUf6SELafiEDj after both exact-source CI checks. Actual owner session verifies manager navigation, eight loaded published entries and keyboard Edit without saving changes; public About lists the same eight. Read-only18public/13private production checks pass. Previous healthy2cd2559 is code rollback candidate only, not a rollback of schema/import. Full release proofs in docs/verification.md.
 
 # M6: funded community and follow-up workflow
 

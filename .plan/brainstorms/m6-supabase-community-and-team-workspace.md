@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-12T17:34:04Z"
+updated_at: "2026-10-12T17:57:03Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -60,6 +60,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Owner extends existing content workspace to public /staff animal profiles: Horses (Horse Heroes), Dogs, Cats. Manager-only full CRUD with recoverable trash/restore, draft/publish, personal bios/story/traits/visit tips, protected portrait upload and live card preview. Add upper-right Management link from fresh verified private membership, never email metadata. Existing designated owner already staff; second designated Google account has no identity yet, must sign in before operator bootstrap. No invented animal seed profiles. Preserve six milestones and existing M6 spec.
 
 - Owner requests Contributing Organizations add/edit/remove in Management. Add dedicated /team/organizations with name, optional HTTPS website and plain-text description, display order, draft/published status, recoverable remove/restore and optimistic versions. Preserve eight owner-approved entries exactly during audited import. Database becomes authoritative public source with no static fallback that resurrects removed entries. Existing verified manager authorization, same-origin API, least-privilege published-only RLS, server-only audited/rate-limited writes. Corva mint light/dark, keyboard/status/error/retry and responsive checks. Additive AC4/AC7 scope, six milestones retained; no secrets/account grants/private forms changes.
+
+- Contributing Organizations management released a253a79, Vercel dpl_4YQYUMAEek43Rz5eUf6SELafiEDj Ready28s/envet.info after exact-source CI. Eight owner-approved entries imported through audited RPCs, hosted rollback-only CRUD/RLS negatives pass;124 tests, responsive/axe component matrix and18public/13private production probes pass. Actual owner session verifies dashboard navigation/load/Edit without changing entries. Six milestones retained; no automatic staff grant or private legal-record change. Brain verification/current-state records release proof.
 ## Raw Notes
 
 ## Refinement

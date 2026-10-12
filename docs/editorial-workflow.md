@@ -1,6 +1,6 @@
 ---
 title: ENVET editorial and discovery workflow
-updated: "2026-10-12T16:51:47Z"
+updated: "2026-10-12T17:57:03Z"
 ---
 # ENVET editorial and discovery workflow
 
@@ -48,3 +48,6 @@ About has eight name/link entries under exact Contributing Organizations; Donate
 Preserved verified+1 540-504-8401, all social destinations, PayPal recipient, legal wording/versions and protected records. Do not replace phone with malformed501.54038401, use unverified DonorPerfect recipient, publish unverified EIN/tax-deductibility/registration claims, promise newsletters or assign the unnamed approved horse photo to Jellybean. Proposed arena fundraising, calendar, newsletter, board profiles/testimonials and retired/memorial profiles need separate source/workflow/rights detail; not silently built as placeholders. Existing staff-screening affiliation codes/version remain unchanged in this editorial scope; expanding Reserve-specific operational classifications is a separately versioned follow-up, not an inferred eligibility decision.
 
 Corva/Source Sans identity preserved under Impeccable preflight; new numbered program rows/single-open disclosures and generous text-only contributor links, no generic sponsor-card grid. /programs included in nav/footer, sitemap and allowlisted page counts; visible ItemList follows current published services with no unsupported medical rich-result claims. Publication/deployment evidence recorded in verification/current-state notes.
+## Managing acknowledgements
+
+In the authorized Management dashboard, choose Contributing Organizations (/team/organizations). Add/edit the name, optional HTTPS website and factual plain-text description; set display order and Draft or Published, then Save organization. Only Published, nonremoved rows appear on Our story. Remove hides an entry with confirmation; Removed lists allow Restore as draft, followed by explicit review/publication. Entry IDs stay fixed and current versions prevent conflicting edits. Refresh and reopen the latest entry after any conflict or uncertain save; do not blindly repeat writes. Initial eight names/links are preserved as import provenance in src/lib/contributors.ts, not a runtime fallback. Do not add unsupported financial/credential/endorsement claims or unlicensed logos. See docs/data-workflow.md for authorization and retention boundaries.

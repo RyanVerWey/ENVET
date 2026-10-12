@@ -1,6 +1,14 @@
 ---
-updated: "2026-10-12T17:50:19Z"
+updated: "2026-10-12T17:57:03Z"
 ---
+## Organizations management live release (October 12, 2026)
+
+Application a253a79a1c01f4d68ae1b5b5ce0eae65d7293fd3 passes exact-source CI38286884124/38286876615. Vercel dpl_4YQYUMAEek43Rz5eUf6SELafiEDj is Ready28s, Production with envet.info assigned; immutable envet-qpe9jdr22-ryanverweys-projects.vercel.app. Read-only18public/13private production probes, redirects/discovery/media and configured signing/API denials pass; no participant record or interaction submitted.
+
+Actual existing owner Google session shows Hello Ryan/Management, dashboard Contributing Organizations link opens /team/organizations, all eight preserved published entries load and keyboard Edit opens EQUUS Foundation with its saved name/link/order/visibility and immutable ID. No manager form save/remove/restore performed on real entries. Public About renders the same eight database-backed official links; no default-width horizontal overflow. Actual Source Sans3 verified; isolated component matrix covers320/768/1280 both themes. Proofs: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-organizations-manager-live.png and envet-organizations-release.png (public list proof separately captured). Impeccable kept familiar mint form/list vocabulary, inline recoverable removal and task-focused states, not new decorative assets.
+
+Applied organizations migration20261012174212 and audited import8 remain. Table RLS/public predicate and hosted catalog confirm anonymous INSERT/member UPDATE/server TRUNCATE false; eight approved-import audit actions, no retained synthetic cloud records. Existing unrelated password-protection warning unchanged; Google-only app. No secret/provider/DNS/staff grants/legal collection changes. Previous healthy2cd2559/dpl_DvZ6ZJs5BDdPBXJJvwqZ2geKNqBA is code rollback candidate only, not a schema/data rollback; not exercised. Agent-owned3002 preview stopped; no user-owned server touched. Six milestones/41 operational acceptance retained; release-note follow-up is docs only.
+
 ## Manager-controlled Contributing Organizations (October 12, 2026)
 
 Owner requested add/edit/remove through Management. New /team/organizations is linked from the existing manager workspace. Name, optional HTTPS website and plain-text description, numeric display order and draft/published visibility; removed entries can be restored only as draft. Inline single-target removal confirmation, unsaved-change warning, current-version writes, duplicate-click lock, read-generation protection, and explicit conflict/unknown-write/failed-refresh recovery. No permanent-delete API or manager grant changes.
