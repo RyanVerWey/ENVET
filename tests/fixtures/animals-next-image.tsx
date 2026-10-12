@@ -11,8 +11,9 @@ export default function TestImage({
   height?: number;
   unoptimized?: boolean;
   sizes?: string;
+  className?: string;
+  priority?: boolean;
 }) {
-  void props;
   void src;
   // Local synthetic portraits only; fixture never reaches hosted private storage.
   // Test double uses a local synthetic image, not a production image pipeline.
@@ -21,13 +22,20 @@ export default function TestImage({
     <img
       src="/synthetic-portrait.svg"
       alt={alt}
-      style={{
-        position: "absolute",
-        inset: 0,
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-      }}
+      className={props.className}
+      width={props.width}
+      height={props.height}
+      style={
+        props.fill
+          ? {
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }
+          : undefined
+      }
     />
   );
 }

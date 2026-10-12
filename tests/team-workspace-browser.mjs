@@ -847,6 +847,22 @@ try {
         .waitFor();
       assert.equal(await page.locator(".program-row").count(), 5);
       assert.equal(await page.locator(".contributor-list a").count(), 8);
+      if (width < 1150) {
+        await page
+          .getByRole("button", { name: "Open navigation", exact: true })
+          .click();
+        const menuProgram = page
+          .getByRole("navigation", { name: "Mobile navigation", exact: true })
+          .getByRole("link", { name: "Programs", exact: true });
+        await menuProgram.waitFor();
+        await menuProgram.press("Escape");
+        assert.equal(
+          await page
+            .getByRole("button", { name: "Open navigation", exact: true })
+            .getAttribute("aria-expanded"),
+          "false",
+        );
+      }
       await page.locator(".program-details summary").nth(0).press("Enter");
       await page.locator(".program-details summary").nth(1).press("Space");
       assert.equal(await page.locator("details[open]").count(), 1);
