@@ -1,6 +1,12 @@
 ---
-updated: "2026-10-12T17:06:32Z"
+updated: "2026-10-12T17:28:22Z"
 ---
+## Requested deployment verified (October 12, 2026)
+
+User requested deploy. Exact pushed source `2cd2559539b1320e2d522f6f5a406140bf838810` passes both GitHub checks (runs 38282038219 and 38282028805). Manual Production deployment `dpl_DvZ6ZJs5BDdPBXJJvwqZ2geKNqBA` is Ready in 37s with `envet.info` assigned; immutable hostname `envet-qw9e0rvbr-ryanverweys-projects.vercel.app`. Runtime application/content matches previously deployed b3bd28d; intervening commits contain tests/documentation only. No DNS, secrets, authentication, schema, permissions or customer records changed.
+
+Fresh verification: 114 tests/19 files, lint and types pass; read-only production checks pass for 18 public and 12 private routes, redirects, canonical/index rules, sitemap/RSS, media/optimization/OG/404s, configured Google-only signing gates and protected API denials. No records submitted. Screenshot: `C:/Users/verwe/.codex/artifacts/envet-deployment/envet-latest-production-release.png`. Previous healthy `dpl_DPJb1vWUFme9chXEHMNedqw1CAN3` remains code rollback candidate; rollback not exercised. This release note is a documentation-only follow-up, not another application release.
+
 ## Owner language and contributing organizations live (October 12, 2026)
 
 Released application sourceb3bd28d68d56c5a70684f8e29bdfc47d0017e92e after successful exact-source CI38280771094 and38280764097. Vercel dpl_DPJb1vWUFme9chXEHMNedqw1CAN3 Ready25s is Production with envet.info assigned; immutable envet-1nw0u12a7-ryanverweys-projects.vercel.app. Read-only production18public/12private route probes, canonical/index rules, redirects, sitemap18/RSS3, images/optimization/OG/404s, minimal anonymous session and protected API/form denials pass. No legal record, inquiry, blog interaction or donation submitted.

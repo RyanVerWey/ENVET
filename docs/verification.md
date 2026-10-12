@@ -1,7 +1,14 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-12T17:06:32Z"
+updated: "2026-10-12T17:28:03Z"
 ---
+
+## Requested deployment verified (October 12, 2026)
+
+User requested deploy. Exact pushed source `2cd2559539b1320e2d522f6f5a406140bf838810` passes both GitHub checks (runs 38282038219 and 38282028805). Manual Production deployment `dpl_DvZ6ZJs5BDdPBXJJvwqZ2geKNqBA` is Ready in 37s with `envet.info` assigned; immutable hostname `envet-qw9e0rvbr-ryanverweys-projects.vercel.app`. Runtime application/content matches previously deployed b3bd28d; intervening commits contain tests/documentation only. No DNS, secrets, authentication, schema, permissions or customer records changed.
+
+Fresh verification: 114 tests/19 files, lint and types pass; read-only production checks pass for 18 public and 12 private routes, redirects, canonical/index rules, sitemap/RSS, media/optimization/OG/404s, configured Google-only signing gates and protected API denials. No records submitted. Screenshot: `C:/Users/verwe/.codex/artifacts/envet-deployment/envet-latest-production-release.png`. Previous healthy `dpl_DPJb1vWUFme9chXEHMNedqw1CAN3` remains code rollback candidate; rollback not exercised. This release note is a documentation-only follow-up, not another application release.
+
 ## Owner language and contributing organizations live (October 12, 2026)
 
 Released application sourceb3bd28d68d56c5a70684f8e29bdfc47d0017e92e after successful exact-source CI38280771094 and38280764097. Vercel dpl_DPJb1vWUFme9chXEHMNedqw1CAN3 Ready25s is Production with envet.info assigned; immutable envet-1nw0u12a7-ryanverweys-projects.vercel.app. Read-only production18public/12private route probes, canonical/index rules, redirects, sitemap18/RSS3, images/optimization/OG/404s, minimal anonymous session and protected API/form denials pass. No legal record, inquiry, blog interaction or donation submitted.
@@ -51,6 +58,7 @@ Production server secret owner-entered; anti-spam pepper, exact approved form ve
 100 unit/API/local-Postgres tests, lint/build/types/format pass. Synthetic browser acceptance covers task selection, global welcome, checklist explicit save/retry/conflict, article sharing, 320/768/1280 mint light/dark and axe zero violations; existing guided initials/guardian/autofill/filled receipt checks pass. Production-build loopback smoke27 routes/26 internal targets passes. Hosted migration catalog plus rollback-only own/other history/receipt and conflict checks pass, zero retained synthetic rows. Synthetic checks are not actual Google signed submissions or proof of full disaster recovery. Browser proof outside repository: envet-member-dashboard-live.png and envet-member-signing-production-release.png under C:/Users/verwe/.codex/artifacts/envet-deployment/. Later smoke/documentation-only follow-up does not change deployed application source.
 
 Six milestones intact. Plan41/46 remain open for remaining operational acceptance; second designated staff account still needs actual Google login and verified UUID bootstrap. Vercel Web Analytics/Speed Insights show Not Enabled; program activity is available but must not be described as web traffic analytics. PR45 remains attached; no merge or destructive reset performed. Previous source1fcfc2319b8bdb856573bdb960dd4473d54fc10a is a rollback code candidate only; release rollback not exercised and would not reverse additive migrations or restore records.
+
 ## Guided forms production release (October 9, 2026)
 
 Source fdab66b7f9903d8e64eaf46c64aef2b3e0bea65c passed exact-source CI38008985172 and38008989530, then released to Vercel dpl_G9RJuDGNEJwiaewwx74xnVVJv3CM Ready24s with envet.info assigned. Immutable: envet-fy7zoiiqv-ryanverweys-projects.vercel.app. Live15-public/9-private smoke plus redirects/discovery/media pass, including new guided-room/progress/form visibility assertions on both signing routes. Browser confirms liability four-step and donation six-step signing UI, offline notice, real editable fields and no dead Google link. Live proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-guided-liability-live.png and envet-guided-donation-live.png. Prior healthy source7d07c89/dpl_CmfN7DhHhNcguHDh6tZk1DJQxnyD is rollback candidate, not exercised.
@@ -116,6 +124,7 @@ Verification: 65 Vitest tests/11 files; lint, optimized build, TypeScript, Prett
 Actual built-page DOM audit covers 25 views: all 15 public content routes, nine form/account/team unauthenticated routes, and a 404. One H1/main per view; no heading skips, duplicate IDs, dangling ARIA references, unlabeled visible controls, missing image alt attributes, positive tabindex values or targeted copy leaks. 150 route/viewport/theme combinations (25 x 320/768/1280 nominal widths x mint light/dark) pass these checks. Additional strict scrollWidth/clientWidth comparison passes all 25 routes at each width. Keyboard skip link focuses main; Enter opens mobile navigation; Escape closes it and returns focus. Social targets measure 44x44px.
 
 Reduced-motion emulation confirms no heading animation or action transition. Computed solid-background text colors sampled across 25 views in both themes: 3,044 samples meet the tested 4.5:1 normal/3:1 large-text contrast thresholds using CSS Lab D50-to-sRGB conversion and alpha compositing. This is a scoped text-color diagnostic, not a complete automated axe scan; photo/backdrop layering needs visual review. No WCAG conformance certification is claimed. Screen readers, physical devices, Safari/Firefox, authenticated record screens and real form submissions remain untested in this pass. No sensitive records opened or test submissions sent.
+
 # ENVET owner-review verification
 
 Date: September 6, 2026. This report describes a local review candidate, not an approved or deployed website.
@@ -198,6 +207,7 @@ Actual anonymous PostgREST checks with the public publishable key: horses/servic
 Three uncovered user foreign-key indexes were added; the follow-up performance advisor no longer reports them. Remaining notices are INFO: [eight intentional deny-by-default no-policy tables](https://supabase.com/docs/guides/database/database-linter?lint=0008_rls_enabled_no_policy), [unused indexes on an empty new schema](https://supabase.com/docs/guides/database/database-linter?lint=0005_unused_index), and [Auth fixed connection allocation](https://supabase.com/docs/guides/deployment/going-into-prod). Do not weaken grants/RLS or remove needed indexes merely to silence notices. Review Auth allocation when sizing production. No security ERROR/WARN was returned at this inspection.
 
 GitHub CI now runs isolated browser regressions in addition to the existing tests/build/types/HTTP smoke. CI results for the new push must be reported separately; local passes do not prove a remote run. Echo final integration review covers exact migration/history alignment, additive indexes, CI step and this handoff boundary.
+
 ## Protected forms / honest attendance increment, October 9, 2026
 
 Plan #46 and docs/forms-workflow.md define scope. Both supplied DOCX originals unchanged; independent structural/hash/body/header/footer parity passes via scripts/check-form-sources.ps1. Digital layout adapted; original source visual rendering could not run because bundled LibreOffice absent. Preserve wording pending owner/legal approval, particularly legacy liability language/minors/photo release/electronic intent.
