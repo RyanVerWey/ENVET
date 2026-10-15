@@ -1,17 +1,20 @@
 ---
-updated: "2026-10-15T14:58:09Z"
+updated: "2026-10-15T15:03:22Z"
 ---
+
+## Non-visual audit release verified live (October 15, 2026)
+
+Exact application source7668894ed7401d73d6419cfe5428f58688d25f44 is live on envet.org. Both GitHub verify jobs passed: runs38756190514/38756173878, checks116495135570/116495074411. Inspected first job's two annotations: hosted action-runtime deprecation warning and upcoming ubuntu-latest migration notice, not application failures. Vercel dpl_BGS4FA2pUwWnzSnFJt4hAtYeLeVm shows Ready28s, Production/Current and envet.org after refresh; immutable envet-gti55h74x-ryanverweys-projects.vercel.app. Dashboard https://vercel.com/ryanverweys-projects/envet/BGS4FA2pUwWnzSnFJt4hAtYeLeVm. Prepared exact-source dialog, then detected existing build before submission; no duplicate deployment created. Initial domain listing was stale; refresh confirmed Current/custom domain. No claim about who initiated that build.
+
+All156tests/24files, lint/build/types/format, Plan, isolated component browser regressions and built31route/28internal-target preview pass. Full live production script passes18public/16private routes, new nonvisual assertions, allnineconsumeraliases, canonical/robots/sitemap/RSS/media/404, portal routing and OAuth/private API negatives. Live sharing probe passes18pages x5crawleridentities and allfour1200x630PNG endpoints. Additional read-only live inspection found5published Service nodes matching program names and ENVET provider. No identity sign-in completed and no participant, form, comment, inquiry or donation submitted. No DNS, environment, auth/provider, permission or database changes. Agent-owned3002 preview stopped after checks. Prior healthy same-config647f2d9 / dpl_F5u5wnB4eC2eCsLAwMzwkhpsTFvM remains rollback candidate, not exercised.
+
+Screenshot: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-nonvisual-audit-release.png. Final capture after dashboard refresh includes Current/envet.org. Complete report dispositions below; unknown dynamic lastmod and manual accessibility checks are intentionally not claimed resolved. No styling/theme/image work or full WCAG/ADA, rich-result, indexing, score or social-cache guarantees. Brain/Plan retained original spec lineage; docs-only closeout needs no second application release.
 
 ## Non-visual audit fixes prepared (October 15, 2026)
 
 Owner-supplied Optimize audit predates latest social release. Fixed natural brand accessible name, exposed/named article-cover links without redundant Tab stops, current privacy description, direct contact/gallery intros, connected named page/breadcrumb/article/profile graph and published Service entities. Policies and journal/category sitemap dates use existing editorial dates only. No CSS/theme/layout/image or signed/legal wording changes. Keep forms/accounts/management private/noindex and out of sitemap; feed.xml remains RSS, not HTML. Generic NGO/schema, word-count, question/table quotas and missing unknown dates are not automatic defects. Full finding dispositions/manual-review limitations in docs/verification.md.
 
 Local156tests/24files, lint/build/types/format, Plan, browser regressions including exact brand/cover accessible names and focus/Tab sequence in both mint themes at320/768/1280, built31route/28target smoke pass. First smoke exposed missing schema on independent staff hero, corrected; browser test whitespace expectation corrected. New HTML assertions cover18publicpages and run in preview/production probes. No participant submissions, auth/DNS/environment/database/permission changes. Exact-source CI and live verification pending; do not claim complete WCAG/ADA conformance, indexing, platform social display or score improvements.
-
----
-
-updated: "2026-10-15T14:46:35Z"
----
 
 ## Social sharing repair live (October 15, 2026)
 
