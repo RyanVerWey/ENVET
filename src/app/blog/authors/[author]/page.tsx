@@ -51,6 +51,15 @@ export default async function AuthorPage({ params }: Props) {
           __html: jsonLd({
             "@context": "https://schema.org",
             "@type": "ProfilePage",
+            "@id": absoluteUrl(`/blog/authors/${slug}#webpage`),
+            url: absoluteUrl(`/blog/authors/${slug}`),
+            name: `${author.name} | ENVET`,
+            description: author.bio,
+            isPartOf: { "@id": absoluteUrl("/#website") },
+            about: { "@id": absoluteUrl("/#organization") },
+            breadcrumb: {
+              "@id": absoluteUrl(`/blog/authors/${slug}#breadcrumbs`),
+            },
             mainEntity: {
               "@type": author.type,
               "@id": absoluteUrl(`/blog/authors/${slug}#author`),

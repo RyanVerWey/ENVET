@@ -1,4 +1,15 @@
 ---
+updated: "2026-10-15T14:58:09Z"
+---
+
+## Non-visual audit fixes prepared (October 15, 2026)
+
+Owner-supplied Optimize audit predates latest social release. Fixed natural brand accessible name, exposed/named article-cover links without redundant Tab stops, current privacy description, direct contact/gallery intros, connected named page/breadcrumb/article/profile graph and published Service entities. Policies and journal/category sitemap dates use existing editorial dates only. No CSS/theme/layout/image or signed/legal wording changes. Keep forms/accounts/management private/noindex and out of sitemap; feed.xml remains RSS, not HTML. Generic NGO/schema, word-count, question/table quotas and missing unknown dates are not automatic defects. Full finding dispositions/manual-review limitations in docs/verification.md.
+
+Local156tests/24files, lint/build/types/format, Plan, browser regressions including exact brand/cover accessible names and focus/Tab sequence in both mint themes at320/768/1280, built31route/28target smoke pass. First smoke exposed missing schema on independent staff hero, corrected; browser test whitespace expectation corrected. New HTML assertions cover18publicpages and run in preview/production probes. No participant submissions, auth/DNS/environment/database/permission changes. Exact-source CI and live verification pending; do not claim complete WCAG/ADA conformance, indexing, platform social display or score improvements.
+
+---
+
 updated: "2026-10-15T14:46:35Z"
 ---
 

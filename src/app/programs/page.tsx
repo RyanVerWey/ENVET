@@ -3,6 +3,7 @@ import { Action, PageIntro, Photo } from "@/components/ui";
 import { publishedContent } from "@/lib/community/public-content";
 import { ProgramCatalog } from "@/components/program-catalog";
 import { pageMetadata } from "@/lib/seo";
+import { programServiceSchema } from "@/lib/page-schema";
 import {
   organization as org,
   absoluteUrl,
@@ -100,12 +101,15 @@ export default async function Programs() {
             __html: jsonLd({
               "@context": "https://schema.org",
               "@type": "ItemList",
+              "@id": absoluteUrl("/programs#program-list"),
               name: "ENVET programs",
+              mainEntityOfPage: { "@id": absoluteUrl("/programs#webpage") },
               itemListElement: services.map((service, index) => ({
                 "@type": "ListItem",
                 position: index + 1,
                 name: service.title,
                 url: absoluteUrl(`/programs#${service.slug}`),
+                item: programServiceSchema(service),
               })),
             }),
           }}

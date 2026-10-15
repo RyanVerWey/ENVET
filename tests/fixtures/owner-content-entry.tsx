@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { ProgramCatalog } from "../../src/components/program-catalog";
 import { ContributingOrganizations } from "../../src/components/contributing-organizations";
 import { Header } from "../../src/components/header";
+import { PostList } from "../../src/components/ui";
 import programs from "../../content/programs.json";
 import { organizationImport } from "../../src/lib/contributors";
 import "@corvaui/tokens/css";
@@ -31,6 +32,32 @@ createRoot(document.getElementById("root")!).render(
       </div>
       <ProgramCatalog services={programs} />
       <ContributingOrganizations organizations={organizationImport} />
+      <section
+        className="wrap reading-section"
+        aria-labelledby="fixture-journal"
+      >
+        <h2 id="fixture-journal">Journal guides</h2>
+        <PostList
+          posts={[
+            {
+              slug: "first-visit-to-envet",
+              title: "Your first visit starts before the farm gate",
+              description: "Prepare for a conversation with ENVET.",
+              date: "2026-09-06",
+              updated: "2026-09-06",
+              category: "Getting started",
+              categorySlug: "getting-started",
+              author: "M. Lamm",
+              image: "/images/farm.jpg",
+              imageAlt: "",
+              published: true,
+              body: "",
+              readingMinutes: 3,
+              sources: [],
+            },
+          ]}
+        />
+      </section>
     </main>
   </>,
 );

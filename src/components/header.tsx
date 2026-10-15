@@ -55,7 +55,7 @@ export function Header() {
         </div>
       </div>
       <div className="header-inner wrap">
-        <Link className="brand" href="/" aria-label="ENVET home">
+        <Link className="brand" href="/">
           <Image
             className="brand-logo"
             src="/images/envet-logo.jpg"
@@ -65,7 +65,7 @@ export function Header() {
             priority
           />
           <span>
-            <strong>Eagle’s Nest</strong>
+            <strong>Eagle’s Nest</strong>{" "}
             <small>Veterans’ Equine Therapy</small>
           </span>
         </Link>

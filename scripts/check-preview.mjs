@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { assertPolishedPage } from "./check-page-ui.mjs";
 import { assertShareMetadata, shareRoutes } from "./check-sharing.mjs";
+import { assertNonvisualAudit } from "./check-nonvisual-audit.mjs";
 const origin = process.env.PREVIEW_ORIGIN || "http://127.0.0.1:3000";
 if (!/^http:\/\/(127\.0\.0\.1|localhost):\d+$/.test(origin))
   throw new Error("This smoke test only targets a local review server.");
@@ -58,7 +59,10 @@ for (const route of routes) {
   assert.equal(response.status, 200, route);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/, route);
   const html = await response.text();
-  if (shareRoutes.includes(route)) assertShareMetadata(html, route);
+  if (shareRoutes.includes(route)) {
+    assertShareMetadata(html, route);
+    assertNonvisualAudit(html, route);
+  }
   assertPolishedPage(html, route);
   assert.equal(
     (html.match(/<h1(?:\s|>)/g) || []).length,

@@ -15,7 +15,7 @@ export default function Contact() {
       <PageIntro
         eyebrow="Contact"
         title="We look forward to hearing from you."
-        intro="A question about visiting, a way to help, or just an introduction. Reach the ENVET team in the way that works for you."
+        intro="Contact ENVET by phone, email, Messenger or WhatsApp to discuss a visit, volunteering or giving. Visits to Eagle’s Nest in Lovettsville, Virginia are by arrangement; speak with the team before traveling."
         path="/contact"
       />
       <section className="wrap contact-layout">

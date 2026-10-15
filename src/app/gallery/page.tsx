@@ -12,7 +12,7 @@ export default function Gallery() {
       <PageIntro
         eyebrow="Life at the farm"
         title="The horses. The people. The place."
-        intro="A glimpse of the horses and the place behind the mission. Photographs from ENVET’s own community page."
+        intro="These photographs show ENVET’s horses and outdoor farm in Lovettsville, Virginia, shared from our official community page. To meet the Horse Heroes yourself, contact the team and arrange a visit before traveling."
         path="/gallery"
       />
       <section className="wrap gallery-grid" aria-labelledby="farm-photographs">

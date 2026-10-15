@@ -4,6 +4,7 @@ import { Action, FAQ, Photo, PostList } from "@/components/ui";
 import { getPosts } from "@/lib/blog";
 import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
+import { PageStructuredData } from "@/components/page-structured-data";
 
 export const metadata = pageMetadata(
   "Equine therapy for Veterans & families",
@@ -14,6 +15,11 @@ export const metadata = pageMetadata(
 export default function Home() {
   return (
     <>
+      <PageStructuredData
+        path="/"
+        name="Equine therapy for Veterans & families"
+        description={org.description}
+      />
       <section className="home-hero">
         <div className="wrap hero-heading">
           <div>

@@ -847,6 +847,36 @@ try {
         .waitFor();
       assert.equal(await page.locator(".program-row").count(), 5);
       assert.equal(await page.locator(".contributor-list a").count(), 8);
+      const brand = page.getByRole("link", {
+        name: "Eagle’s Nest Veterans’ Equine Therapy",
+        exact: true,
+      });
+      assert.equal(await brand.count(), 1);
+      await brand.focus();
+      assert.equal(
+        await brand.evaluate((element) => element === document.activeElement),
+        true,
+      );
+      const cover = page.getByRole("link", {
+        name: "Read Your first visit starts before the farm gate",
+        exact: true,
+      });
+      assert.equal(await cover.count(), 1);
+      await cover.focus();
+      assert.equal(
+        await cover.evaluate((element) => element === document.activeElement),
+        true,
+      );
+      await page.locator(".post-card h3 a").focus();
+      await page.keyboard.press("Tab");
+      assert.equal(
+        await page
+          .getByRole("link", {
+            name: /^Read the guide\s*:\s*Your first visit starts before the farm gate$/,
+          })
+          .evaluate((element) => element === document.activeElement),
+        true,
+      );
       if (width < 1150) {
         await page
           .getByRole("button", { name: "Open navigation", exact: true })

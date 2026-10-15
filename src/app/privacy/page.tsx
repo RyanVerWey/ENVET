@@ -5,7 +5,7 @@ import { dataConfig } from "@/lib/community/config";
 import { collectionEnabled } from "@/lib/forms/server";
 export const metadata = pageMetadata(
   "Privacy & accessibility",
-  "How the ENVET website handles privacy, external services, theme preferences, and accessibility feedback.",
+  "Learn how ENVET protects signed forms, handles Google sign-in, inquiries and journal comments, and supports accessibility. Contact us about your information.",
   "/privacy",
 );
 export default function Privacy() {

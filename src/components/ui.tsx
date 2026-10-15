@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { absoluteUrl, jsonLd } from "@/lib/site";
 import type { Post } from "@/lib/blog";
+import { PageStructuredData } from "./page-structured-data";
 
 export function Action({
   href,
@@ -83,6 +84,7 @@ export function Breadcrumbs({
           __html: jsonLd({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
+            "@id": absoluteUrl(`${items.at(-1)?.href ?? "/"}#breadcrumbs`),
             itemListElement: all.map((item, i) => ({
               "@type": "ListItem",
               position: i + 1,
@@ -108,6 +110,12 @@ export function PageIntro({
 }) {
   return (
     <section className="page-intro wrap">
+      <PageStructuredData
+        path={path}
+        name={eyebrow}
+        headline={title}
+        description={intro}
+      />
       <Breadcrumbs items={[{ label: eyebrow, href: path }]} />
       <p className="eyebrow">{eyebrow}</p>
       <h1>{title}</h1>
@@ -120,7 +128,11 @@ export function PostList({ posts }: { posts: Post[] }) {
     <div className="post-list">
       {posts.map((post) => (
         <article className="post-card" key={post.slug}>
-          <Link href={`/blog/${post.slug}`} tabIndex={-1} aria-hidden="true">
+          <Link
+            href={`/blog/${post.slug}`}
+            tabIndex={-1}
+            aria-label={`Read ${post.title}`}
+          >
             <Photo
               src={post.image}
               alt=""

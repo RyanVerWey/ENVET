@@ -3,6 +3,7 @@ import { Breadcrumbs, Photo, Action } from "@/components/ui";
 import { AnimalRoster } from "@/components/animal-roster";
 import { publishedAnimals } from "@/lib/community/public-animals";
 import { pageMetadata } from "@/lib/seo";
+import { PageStructuredData } from "@/components/page-structured-data";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = pageMetadata(
   "Meet the Staff: Horse Heroes, Dogs & Cats",
@@ -13,6 +14,11 @@ export default async function StaffPage() {
   const { animals, unavailable } = await publishedAnimals();
   return (
     <>
+      <PageStructuredData
+        path="/staff"
+        name="Meet the Staff: Horse Heroes, Dogs & Cats"
+        description="Horse Heroes, dogs and cats. Get to know the personalities that make Eagle’s Nest feel like Eagle’s Nest."
+      />
       <section className="wrap animal-hero">
         <div>
           <Breadcrumbs items={[{ label: "Meet the Staff", href: "/staff" }]} />

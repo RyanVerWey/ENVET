@@ -8,6 +8,7 @@ import { CommunityPanel } from "@/components/community-panel";
 import { dataConfig } from "@/lib/community/config";
 import { getAuthor } from "@/lib/authors";
 import { ArticleShare } from "@/components/article-share";
+import { PageStructuredData } from "@/components/page-structured-data";
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -54,6 +55,11 @@ export default async function Article({ params }: Props) {
   const author = getAuthor(post.author);
   return (
     <>
+      <PageStructuredData
+        path={`/blog/${slug}`}
+        name={post.title}
+        description={post.description}
+      />
       <article>
         <header className="wrap article-header">
           <Breadcrumbs
@@ -197,7 +203,7 @@ export default async function Article({ params }: Props) {
               ),
             },
             publisher: { "@id": absoluteUrl("/#organization") },
-            mainEntityOfPage: absoluteUrl(`/blog/${slug}`),
+            mainEntityOfPage: { "@id": absoluteUrl(`/blog/${slug}#webpage`) },
             inLanguage: "en-US",
             articleSection: post.category,
             citation: post.sources.map((s) => s.url),
