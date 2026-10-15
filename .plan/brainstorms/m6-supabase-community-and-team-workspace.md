@@ -5,7 +5,7 @@ slug: m6-supabase-community-and-team-workspace
 status: active
 title: M6 Funded data and growth platform
 type: brainstorm
-updated_at: "2026-10-15T05:22:20Z"
+updated_at: "2026-10-15T06:38:04Z"
 ---
 
 # Brainstorm: M6 Funded data and growth platform
@@ -68,6 +68,8 @@ Visitors can like, share, and comment immediately. Two named initial admins mana
 - Owner-requested release is live on envet.info and the second owner-designated verified Google account now has audited manager membership. Both designated managers pass existing staff checks; no automatic email promotion or authorization policy changes. Six milestones retained; real-form operational acceptance remains separate. See docs/google-auth-setup.md and docs/verification.md for non-identifying release evidence.
 
 - Owner authorizes primary envet.org migration and management at portal.envet.org on October 15, 2026. Confirmed delegated GoDaddy portfolio: envet.org/info/net/store/xyz; redirect four aliases plus all www variants preserving normal page paths/query. Single existing Vercel project; same manager permissions and private staff checks, host-only cookies and exact callbacks, no wildcard redirects/shared cookie Domain or secret changes. Preserve unrelated DNS/mail records and retain current info service until org TLS/auth/source checks succeed. Registrar transfer left org DNS on Wix; nameserver change awaits service-preservation confirmation/export. Acceptance: primary canonical/discovery, portal private/noindex/CSRF denial, exact-origin PKCE and loopback tests, alias TLS redirect matrix and owner real-login handoff.
+
+- Owner explicitly confirms envet.org has no email or other services and authorizes replacing Wix DNS. Proceed with web-only GoDaddy zone replacement, exact org/portal auth configuration and checked-source deployment; retain existing info service until target acceptance. GoDaddy requires its own identity verification for nameserver changes; do not bypass it or request codes in chat.
 ## Raw Notes
 
 ## Refinement

@@ -1,7 +1,15 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-10-15T05:28:02Z"
+updated: "2026-10-15T06:39:24Z"
 ---
+## Web-only DNS replacement authorized; GoDaddy identity gate (October 15, 2026)
+
+Owner answered: no email or other services; replace Wix DNS. Attempted the authorized GoDaddy nameserver switch from ns12/ns13.wixdns.net to GoDaddy's recommended defaults. Save requires Continue & Verify and SMS identity verification under existing account protections. The embedded panel stalled; opening its exact observed verification URL in a separate Chrome tab rendered Verify it's you with a blank code field. Owner must complete the SMS step directly in Chrome; no code requested in chat, no protection bypass or resend. No completed NS/DNS change is claimed. Original GoDaddy modal and standalone verification tab retained for handoff; after user completion reread actual saved nameservers before retrying anything.
+
+Prepared the next Production deployment by saving only non-secret Config values: SITE_URL=https://envet.org; AUTH_REDIRECT_ORIGIN=https://envet.org; NEXT_PUBLIC_PORTAL_URL=https://portal.envet.org. Both prior values were https://envet.info; portal variable did not previously exist. Vercel confirms each save and states a new deployment is required. Existing served info deployment is unchanged; do NOT redeploy until org/portal DNS/TLS is configured. Supabase Site URL remains info; five exact callbacks from previous preparation remain. No secrets, Google client/scopes, database, permissions or participant records changed. Existing info/www.info redirects not changed yet.
+
+Exact f019be931d53e96e809ea31c797e5f4cb49ed727 CI: runs38686974511/38686971127 both verify SUCCESS, checks116263956709/116263945583. Annotations are runner maintenance notices only. Fresh136tests/22files and Plan check pass. New source still not deployed; complete production probe and real manager sign-in remain pending after DNS. Resume from latest org/portal runbook instructions, using f019be9 runtime source (subsequent docs-only commits do not alter it). Proofs: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-org-godaddy-sms-handoff.png and envet-org-portal-env-saved.png. Do not claim ready for testing until DNS, release and live checks complete.
+
 ## .org and portal migration prepared, DNS cutover pending (October 15, 2026)
 
 Owner requested envet.org primary, portal.envet.org management, and all other owned ENVET domains forwarded. Authenticated delegated GoDaddy portfolio confirms exactly envet.org, envet.info, envet.net, envet.store and envet.xyz. Registrar transfer is complete, but authoritative .org DNS still uses ns12.wixdns.net/ns13.wixdns.net with three Wix apex A records and www CNAME cdn3.wixdns.net; portal is absent. GoDaddy explicitly says DNS Provider: Wix and cannot edit that zone. No apex MX/TXT found in read-only probes, but those cannot enumerate a complete zone. Asked owner whether email/other services exist, or to provide/open Wix DNS for preservation. No answer yet. Nameserver dialog was inspected and cancelled; no .org NS, zone, DS or DNSSEC change. Do not claim ready for testing.
