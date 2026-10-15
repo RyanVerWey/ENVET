@@ -5,7 +5,7 @@ slug: m4-static-build-and-private-owner-review
 status: active
 title: M4 Static build and private owner review
 type: brainstorm
-updated_at: "2026-09-06T02:24:24Z"
+updated_at: "2026-09-06T02:56:59Z"
 ---
 
 # Brainstorm: M4 Static build and private owner review
@@ -43,6 +43,8 @@ Owner can review every page, interaction, image, claim, and outbound link in a c
 
 - Implement social, WhatsApp, Messenger, phone, email, and PayPal links.
 - Run accessibility, responsive, content, and performance QA.
+
+- User authorized implementation across milestones and first-release blog on September 5, 2026. GitHub #27 amended with concrete acceptance, source-controlled Markdown articles, category pages, RSS, Article/NGO/Breadcrumb metadata, canonical launch gates, local owner review, and automated verification. Production connection remains owner-gated; database remains funding-gated.
 ## Raw Notes
 
 ## Refinement

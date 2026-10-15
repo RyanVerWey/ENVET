@@ -1,0 +1,1240 @@
+.pre-visit-page,
+.forms-home,
+.receipt-page,
+.form-review-workspace,
+.program-dashboard {
+  padding-block: 64px 88px;
+}
+.pre-visit-page {
+  max-width: 1060px;
+}
+.pre-visit-page h1 {
+  font-size: 2.6rem;
+}
+.pre-visit-checklist {
+  max-width: 960px;
+}
+.pre-visit-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  justify-content: space-between;
+}
+.pre-visit-heading > div {
+  max-width: 70ch;
+}
+.pre-visit-heading > svg {
+  flex-shrink: 0;
+  color: var(--heading);
+  margin-top: 8px;
+}
+.pre-visit-heading h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+.pre-visit-heading p:not(.eyebrow) {
+  color: var(--muted);
+}
+.pre-visit-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  padding-block: 20px;
+  border-block: 1px solid var(--line);
+  margin-top: 24px;
+}
+.pre-visit-toolbar p {
+  margin: 0 auto 0 0;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.pre-visit-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.pre-visit-sections {
+  list-style: none;
+  margin: 32px 0;
+  padding: 0;
+}
+.pre-visit-sections > li {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.8fr) minmax(0, 2fr);
+  gap: 36px;
+  padding-block: 28px 36px;
+  border-bottom: 1px solid var(--line);
+}
+.pre-visit-section-heading {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+.pre-visit-section-heading > span {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.pre-visit-section-heading h3 {
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.pre-visit-items {
+  min-width: 0;
+  display: grid;
+  gap: 22px;
+}
+.pre-visit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 8px;
+  margin: -8px;
+}
+.pre-visit-item:hover {
+  background: var(--surface);
+}
+.pre-visit-item:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.pre-visit-item input {
+  flex-shrink: 0;
+  margin: 4px 0 0;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
+.pre-visit-item > span {
+  display: grid;
+  gap: 6px;
+  max-width: 70ch;
+}
+.pre-visit-item strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.pre-visit-item span span {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.pre-visit-weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  margin-left: 34px;
+}
+.pre-visit-footer {
+  max-width: 70ch;
+  font-size: 0.95rem;
+}
+.pre-visit-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 40px;
+  justify-content: space-between;
+  align-items: center;
+  border-block: 1px solid var(--line);
+  padding-block: 28px;
+  margin-block: 32px;
+}
+.pre-visit-link > div {
+  max-width: 62ch;
+}
+.pre-visit-link h2 {
+  font-size: 1.45rem;
+  margin-bottom: 10px;
+}
+.pre-visit-link p {
+  font-size: 0.95rem;
+}
+.pre-visit-link p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+.sign-pre-visit {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+.sign-pre-visit .field-hint {
+  font-size: 0.8rem;
+}
+.pre-visit-on-visit {
+  display: block;
+}
+.pre-visit-screening {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 20px;
+  margin-block: 28px;
+  min-width: 0;
+}
+.pre-visit-screening > legend {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-inline: 8px;
+}
+.pre-visit-goals {
+  padding: 0;
+  border: 0;
+  margin: 26px 0;
+}
+.pre-visit-goals > legend {
+  font-weight: 600;
+}
+.pre-visit-topic {
+  padding-block: 16px;
+  border-top: 1px solid var(--line);
+}
+.pre-visit-topic .check-line {
+  margin-top: 0;
+}
+.pre-visit-topic p {
+  max-width: 70ch;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.pre-visit-topic summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.pre-visit-call-guide {
+  padding-block: 26px;
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  font-size: 0.95rem;
+}
+.pre-visit-call-guide summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.pre-visit-call-guide ol {
+  padding-left: 22px;
+  max-width: 70ch;
+}
+.pre-visit-call-guide li {
+  margin-top: 20px;
+}
+.forms-home {
+  max-width: 1100px;
+}
+.forms-home h1 {
+  max-width: 700px;
+}
+.forms-lead {
+  max-width: 710px;
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+.form-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 38px 0 26px;
+}
+.form-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  transition:
+    border-color 180ms,
+    background 180ms;
+}
+.form-option:hover {
+  border-color: var(--accent);
+  background: var(--hero-mint);
+}
+.form-option svg {
+  color: var(--heading);
+  margin-bottom: 20px;
+}
+.form-option-type {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+.form-option h2 {
+  font-size: 1.65rem;
+  margin: 0 0 16px;
+}
+.form-option p {
+  color: var(--muted);
+}
+.form-option-action {
+  margin-top: auto;
+  font-weight: 600;
+}
+.forms-assurance {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.forms-assurance p {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.95rem;
+}
+.signing-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: start;
+  gap: 44px;
+  padding-block: 48px 80px;
+}
+.signing-sidebar {
+  position: sticky;
+  top: 140px;
+}
+.sign-back {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+.sign-document-icon {
+  display: inline-flex;
+  padding: 14px;
+  background: var(--hero-mint);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.signing-sidebar h2 {
+  font-size: 1.55rem;
+  line-height: 1.25;
+}
+.sign-steps {
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin: 28px 0;
+  font-size: 0.9rem;
+}
+.sign-steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+.sign-steps li[aria-current] {
+  color: var(--ink);
+  font-weight: 600;
+}
+.sign-steps li > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+}
+.sign-steps li[aria-current] > span {
+  border-color: var(--accent);
+  background: var(--hero-mint);
+}
+.sign-private {
+  display: flex;
+  gap: 9px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.sign-private svg {
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.signing-sheet {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 34px 40px;
+  box-shadow: 0 10px 34px oklch(20% 0.02 164 / 0.045);
+  min-width: 0;
+}
+.signing-sheet h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.signing-sheet h2,
+.review-detail h2,
+.impact-chart h2 {
+  font-size: 1.5rem;
+}
+.signing-sheet h3,
+.review-detail h3,
+.impact-chart h3 {
+  font-size: 1.15rem;
+}
+.sign-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--hero-mint);
+  border-radius: 6px;
+  margin-bottom: 26px;
+  font-size: 0.9rem;
+}
+.sign-banner svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.sign-banner p {
+  margin: 3px 0 0;
+}
+.sign-progress {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 4px 0 24px;
+}
+.sign-progress progress {
+  grid-column: 1/-1;
+  width: 100%;
+  height: 5px;
+  accent-color: var(--accent);
+  border: 0;
+}
+.sign-progress progress::-webkit-progress-bar {
+  background: var(--line);
+  border-radius: 4px;
+}
+.sign-progress progress::-webkit-progress-value {
+  background: var(--accent);
+  border-radius: 4px;
+}
+.sign-step-intro {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin-bottom: 26px;
+}
+.sign-step-intro svg {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.sign-field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+  margin-bottom: 28px;
+}
+.sign-field-wide {
+  grid-column: 1/-1;
+}
+.signing-sheet label,
+.review-detail label,
+.queue-toolbar label,
+.program-heading label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.signing-sheet input:not([type="checkbox"]),
+.signing-sheet textarea,
+.review-detail input:not([type="checkbox"]),
+.review-detail textarea,
+.review-detail select,
+.queue-toolbar select,
+.program-heading select {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: var(--page);
+  color: var(--ink);
+  font: inherit;
+  min-height: 44px;
+  margin-top: 7px;
+}
+.signing-sheet input:focus,
+.signing-sheet textarea:focus,
+.review-detail input:focus,
+.review-detail textarea:focus {
+  border-color: var(--accent);
+}
+.signing-sheet textarea,
+.review-detail textarea {
+  resize: vertical;
+}
+.signing-sheet fieldset {
+  margin: 0 0 28px;
+  padding: 22px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+.signing-sheet legend {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-right: 14px;
+}
+.check-line {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 20px 0;
+}
+.check-line input,
+.sign-choices input {
+  height: 18px;
+  width: 18px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+  margin: 5px 0 0;
+}
+.sign-choices > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+.sign-choices label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.field-hint,
+.sign-footnote {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.field-hint {
+  display: block;
+  margin-top: 8px;
+}
+.sign-footnote {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin: 18px 0 0;
+}
+.document-disclosure {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-block: 24px;
+}
+.document-disclosure summary {
+  padding: 16px 18px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.source-document {
+  padding: 22px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  border-top: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.source-document p {
+  white-space: pre-wrap;
+}
+.source-header {
+  font-weight: 600;
+}
+.document-provenance {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.initial-sections section {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.source-clause {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+.initial-sections input {
+  max-width: 150px;
+}
+.parent-initial {
+  margin-top: 24px;
+}
+.applied-initials {
+  display: inline-block;
+  min-width: 4rem;
+  margin: 0.25rem 0.5rem;
+  vertical-align: middle;
+  font-family: "Segoe Script", "Bradley Hand", cursive;
+  font-size: 1.2rem;
+  color: var(--heading);
+  border-bottom: 1px solid var(--line);
+}
+.applied-initials .signature-preview {
+  width: 7.5rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.initial-sections section h2 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.initial-sections section > button {
+  margin: 0.5rem;
+}
+.sign-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.sign-mode button {
+  color: var(--ink);
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 0.9rem;
+}
+.sign-mode button[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--hero-mint);
+  font-weight: 600;
+}
+.typed-signature {
+  font-family: "Segoe Script", "Bradley Hand", cursive;
+  font-size: 2rem;
+  line-height: 1.4;
+  padding: 28px 18px;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.signature-pad,
+.signature-preview {
+  display: block;
+  width: 100%;
+  height: 160px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--page);
+  color: var(--ink);
+}
+.signature-pad {
+  touch-action: none;
+  cursor: crosshair;
+  margin: 12px 0;
+}
+.consent-line {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+.sign-actions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  margin-top: 30px;
+}
+.sign-actions .corva-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.review-summary {
+  padding: 24px;
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.review-summary dl,
+.record-fields {
+  margin: 0 0 24px;
+}
+.review-summary dl > div,
+.record-fields > div {
+  padding-block: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.review-summary dt,
+.record-fields dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.review-summary dd,
+.record-fields dd {
+  margin: 3px 0 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.receipt-page {
+  max-width: 960px;
+}
+.receipt-confirmation {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 36px;
+  margin-bottom: 36px;
+}
+.receipt-confirmation > svg {
+  color: var(--heading);
+  margin-bottom: 22px;
+}
+.receipt-confirmation h1 {
+  font-size: 2.6rem;
+}
+.receipt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-block: 24px;
+}
+.receipt-actions button {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+.signed-record {
+  overflow-wrap: anywhere;
+}
+.signed-record h2 {
+  font-size: 1.8rem;
+}
+.signed-record h3 {
+  font-size: 1.25rem;
+  margin-top: 30px;
+}
+.program-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 28px;
+  margin-block: 36px 24px;
+}
+.program-heading h1 {
+  font-size: 2.7rem;
+  margin-bottom: 16px;
+}
+.program-heading p {
+  max-width: 710px;
+  color: var(--muted);
+}
+.program-heading label {
+  min-width: 170px;
+  margin-bottom: 24px;
+}
+.impact-period {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
+}
+.impact-period span {
+  margin-left: auto;
+}
+.impact-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0 0 32px;
+  padding-block: 30px;
+  border-bottom: 1px solid var(--line);
+}
+.impact-kpis > div {
+  padding-inline: 24px;
+  border-right: 1px solid var(--line);
+}
+.impact-kpis > div:first-child {
+  padding-left: 0;
+}
+.impact-kpis > div:last-child {
+  border-right: 0;
+}
+.impact-kpis dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+.impact-kpis dd {
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 14px 0;
+  font-variant-numeric: tabular-nums;
+  color: var(--heading);
+}
+.impact-kpis p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.impact-chart-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 22px;
+}
+.impact-chart {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.impact-chart-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.impact-chart-heading > span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.impact-chart .eyebrow {
+  font-size: 0.7rem;
+}
+.impact-chart h2 {
+  margin-bottom: 24px;
+}
+.chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 230px;
+  padding: 26px;
+  background: var(--page);
+  border-radius: 6px;
+  color: var(--muted);
+}
+.chart-empty svg {
+  margin-bottom: 20px;
+}
+.chart-empty p {
+  font-size: 0.95rem;
+  max-width: 520px;
+}
+.chart-empty a {
+  color: var(--ink);
+}
+.impact-review-time {
+  background: var(--hero-mint);
+}
+.review-time-value {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--heading);
+  padding-block: 12px;
+}
+.review-time-value span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 16px;
+  font-weight: 400;
+}
+.impact-review-time > p:not(.eyebrow):not(.review-time-value) {
+  font-size: 0.94rem;
+}
+.kpi-definitions {
+  padding-block: 26px;
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.kpi-definitions summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.kpi-definitions p {
+  max-width: 85ch;
+  font-size: 0.95rem;
+  margin-top: 18px;
+}
+.report-skeleton {
+  padding: 90px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+}
+.queue-toolbar {
+  display: flex;
+  align-items: end;
+  gap: 20px;
+  margin-block: 24px;
+}
+.queue-toolbar label {
+  min-width: 220px;
+}
+.queue-table-wrap {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  overflow: auto;
+}
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.queue-table caption {
+  text-align: left;
+  padding: 16px 20px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.queue-table th,
+.queue-table td {
+  text-align: left;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+.queue-table th {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.queue-table td code {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.queue-table tr:last-child td {
+  border-bottom: 0;
+}
+.record-status {
+  display: inline-block;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  background: var(--hero-mint);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.queue-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-block: 24px;
+  font-size: 0.9rem;
+}
+.review-detail {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 10px;
+  margin-top: 30px;
+  scroll-margin-top: 140px;
+}
+.review-detail-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.review-detail form {
+  padding-block: 24px;
+  border-top: 1px solid var(--line);
+}
+.review-detail form > label {
+  margin-block: 20px;
+}
+.review-detail label select {
+  max-width: 360px;
+}
+.review-detail code {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+.visit-log {
+  padding: 0;
+  list-style: none;
+}
+.visit-log li {
+  padding-block: 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+.visit-log li form {
+  display: flex;
+  align-items: end;
+  gap: 16px;
+  border: 0;
+  padding: 0;
+}
+.visit-log li form label {
+  flex: 1;
+}
+@media (max-width: 960px) {
+  .signing-layout {
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 24px;
+  }
+  .signing-sheet {
+    padding: 28px;
+  }
+  .impact-kpis {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 0;
+  }
+  .impact-kpis > div:nth-child(2) {
+    border-right: 0;
+  }
+  .impact-kpis > div:nth-child(3) {
+    padding-left: 0;
+  }
+  .impact-chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .pre-visit-page {
+    padding-block: 36px 56px;
+  }
+  .pre-visit-page h1 {
+    font-size: 2rem;
+  }
+  .pre-visit-heading h2 {
+    font-size: 1.5rem;
+  }
+  .pre-visit-heading > svg {
+    display: none;
+  }
+  .pre-visit-sections > li {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-block: 24px;
+  }
+  .pre-visit-screening {
+    padding: 16px;
+  }
+  .forms-home,
+  .receipt-page,
+  .form-review-workspace,
+  .program-dashboard {
+    padding-block: 36px 56px;
+  }
+  .form-options {
+    grid-template-columns: 1fr;
+  }
+  .signing-layout {
+    display: block;
+    padding-block: 24px 48px;
+  }
+  .signing-sidebar {
+    position: static;
+  }
+  .signing-sidebar h2 {
+    font-size: 1.3rem;
+  }
+  .sign-document-icon,
+  .sign-private,
+  .signing-sidebar > .field-hint {
+    display: none;
+  }
+  .sign-back {
+    margin-bottom: 20px;
+  }
+  .sign-steps {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    gap: 10px 14px;
+    margin: 18px 0 24px;
+  }
+  .sign-steps li {
+    gap: 6px;
+  }
+  .sign-steps li > span {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+  .signing-sheet {
+    padding: 22px 18px;
+  }
+  .signing-sheet h1 {
+    font-size: 1.6rem;
+  }
+  .sign-field-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .sign-choices > div {
+    grid-template-columns: 1fr;
+  }
+  .review-summary,
+  .source-document {
+    padding: 18px;
+  }
+  .program-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .program-heading h1 {
+    font-size: 2.1rem;
+  }
+  .program-heading label {
+    margin-bottom: 0;
+    width: 100%;
+  }
+  .impact-period span {
+    margin-left: 0;
+    width: 100%;
+  }
+  .impact-kpis > div {
+    padding-right: 14px;
+  }
+  .impact-kpis > div:nth-child(2n) {
+    padding-left: 14px;
+  }
+  .impact-kpis dt {
+    font-size: 0.82rem;
+    gap: 5px;
+  }
+  .impact-kpis dt svg {
+    display: none;
+  }
+  .impact-kpis dd {
+    font-size: 2.2rem;
+  }
+  .impact-chart {
+    padding: 20px;
+  }
+  .queue-toolbar {
+    flex-wrap: wrap;
+  }
+  .queue-toolbar label {
+    flex: 1;
+  }
+  .queue-table {
+    min-width: 660px;
+  }
+  .review-detail {
+    padding: 20px;
+  }
+  .review-detail-header {
+    flex-wrap: wrap;
+  }
+  .receipt-confirmation h1 {
+    font-size: 2rem;
+  }
+  .visit-log li form {
+    align-items: start;
+    flex-direction: column;
+    gap: 0;
+  }
+  .sign-actions {
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-option {
+    transition: none;
+  }
+}
+@media print {
+  .pre-visit-toolbar,
+  .pre-visit-page > .sign-back,
+  .pre-visit-call-guide,
+  .pre-visit-page > p {
+    display: none !important;
+  }
+  .pre-visit-page {
+    padding: 0;
+    width: auto;
+    max-width: none;
+  }
+  .pre-visit-checklist {
+    color: oklch(20% 0.005 164);
+    background: oklch(99% 0.005 164);
+  }
+  .pre-visit-sections > li {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-block: 18px;
+    break-inside: avoid;
+  }
+  .pre-visit-checklist h2,
+  .pre-visit-checklist h3,
+  .pre-visit-item span span,
+  .pre-visit-checklist p {
+    color: oklch(20% 0.005 164);
+  }
+  .pre-visit-weather::after {
+    content: " forecast.weather.gov · Lovettsville, VA";
+  }
+  header,
+  footer,
+  .review-banner,
+  .skip-link,
+  .receipt-actions,
+  .receipt-confirmation .eyebrow {
+    display: none !important;
+  }
+  .receipt-page {
+    padding: 0;
+    max-width: none;
+    width: auto;
+    margin: 0;
+    color: #111;
+    background: #fff;
+  }
+  .receipt-page h1,
+  .receipt-page h2,
+  .receipt-page h3 {
+    color: #111;
+  }
+  .receipt-page .source-document {
+    border: 0;
+    padding: 0;
+  }
+  .signature-preview {
+    color: #111;
+    background: #fff;
+  }
+  .signed-record {
+    font-size: 11pt;
+  }
+  .signed-record h3 {
+    break-after: avoid;
+  }
+  .receipt-confirmation {
+    break-after: page;
+  }
+}
+.form-overview {
+  max-width: 960px;
+  padding-bottom: 90px;
+}
+.form-overview-intro {
+  margin-bottom: 48px;
+}
