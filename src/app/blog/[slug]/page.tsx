@@ -17,16 +17,32 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
-  const base = pageMetadata(post.title, post.description, `/blog/${slug}`);
+  const author = getAuthor(post.author);
+  const base = pageMetadata(post.title, post.description, `/blog/${slug}`, {
+    url: `/blog/${slug}/opengraph-image?v=2`,
+    alt: `${post.title} — an ENVET journal guide by ${post.author}, with a photograph from Eagle’s Nest.`,
+  });
   return {
     ...base,
+    authors: [
+      {
+        name: post.author,
+        url: absoluteUrl(
+          author ? `/blog/authors/${author.slug}` : "/editorial-policy",
+        ),
+      },
+    ],
     openGraph: {
       ...base.openGraph,
       type: "article",
-      publishedTime: post.date,
-      modifiedTime: post.updated,
-      authors: [post.author],
-      images: [{ url: post.image, alt: post.imageAlt }],
+      publishedTime: `${post.date}T12:00:00Z`,
+      modifiedTime: `${post.updated}T12:00:00Z`,
+      authors: [
+        absoluteUrl(
+          author ? `/blog/authors/${author.slug}` : "/editorial-policy",
+        ),
+      ],
+      section: post.category,
     },
   };
 }

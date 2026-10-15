@@ -6,7 +6,7 @@ import { publishedContent } from "@/lib/community/public-content";
 import { PreVisitChecklist } from "@/components/forms/pre-visit-checklist";
 export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
-  "Plan a visit",
+  "Plan your visit to Eagle’s Nest",
   "Contact ENVET about equine therapy options for Veterans and families in Lovettsville, Virginia. Learn what to ask before your first visit.",
   "/visit",
 );

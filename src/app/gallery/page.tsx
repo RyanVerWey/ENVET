@@ -2,8 +2,8 @@ import { Action, PageIntro, Photo } from "@/components/ui";
 import { organization } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
-  "Life at the farm",
-  "A look at Eagle’s Nest in Lovettsville, Virginia, through photographs shared by ENVET’s official Facebook page.",
+  "Life at Eagle’s Nest — horses, people & the farm",
+  "Explore photographs of ENVET’s Horse Heroes, community and peaceful farm in Lovettsville, Virginia. See the place behind our Veteran-focused mission.",
   "/gallery",
 );
 export default function Gallery() {

@@ -13,7 +13,11 @@ export async function generateMetadata({ params }: Props) {
   const { author: slug } = await params;
   const author = authors.find((profile) => profile.slug === slug);
   if (!author) notFound();
-  return pageMetadata(author.name, author.bio, `/blog/authors/${slug}`);
+  return pageMetadata(
+    `${author.name} — ${author.role}`,
+    `${author.name}: ${author.role}. Read guides about visiting Eagle’s Nest, family participation and supporting the mission in Lovettsville, Virginia.`,
+    `/blog/authors/${slug}`,
+  );
 }
 export default async function AuthorPage({ params }: Props) {
   const { author: slug } = await params;

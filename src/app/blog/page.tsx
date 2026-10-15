@@ -3,7 +3,7 @@ import { PageIntro, PostList } from "@/components/ui";
 import { getPosts } from "@/lib/blog";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
-  "The journal",
+  "The ENVET journal — guides for Veterans & families",
   "Practical guides for Veterans, families, and supporters: planning a visit to ENVET, understanding the program, and supporting the mission.",
   "/blog",
 );

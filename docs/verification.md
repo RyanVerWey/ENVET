@@ -1,7 +1,17 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-15T14:13:30Z"
+updated: "2026-10-15T14:41:38Z"
 ---
+
+## Social metadata repair prepared (October 15, 2026)
+
+Owner reported poor sharing after org migration. Raw unauthenticated Facebook-user-agent audit of all18 sitemap pages found descriptions present18/18, but Open Graph and Twitter images missing14/18 (all except home and three articles). Shared pageMetadata omitted explicit images; nested metadata is shallow-merged, so root image fallback was not reliable. No Search Console/indexed evidence or actual platform preview rendering was claimed.
+
+Shared helper now supplies explicit absolute PNG image/alt/1200x630/type to both Open Graph and large-image Twitter cards, consistent branded titles without duplicate ENVET, and existing approved canonical rules. New code-native social card uses only owner-cleared local logo/farm assets; no new image rights, external fetch or AI imagery. Three published articles generate build-time title/category/author/photo cards. Article metadata uses linked author profiles, section and ISO dates; original content/JSON-LD facts and dates unchanged. Purposeful category descriptions fix awkward about-for-families text; selected public titles/descriptions and author summaries improved without invented claims. Existing private noindex/no-store, preview gates, portal routing and data/auth settings unchanged.
+
+147tests/23files, lint/build/types/format, existing browser regression and Plan check pass. New check-sharing script validates18public pages x5 crawler headers (Facebook/LinkedIn/X/WhatsApp/Slack), metadata in head, unique title/descriptions, author tags, four1200x630PNG image endpoints under5MiB and unpublished image404s. Shared assertions also run inside existing preview/production smoke commands, so CI covers missing-image regression. Built local31-route/28-target preview passes. First sharing probe ran before local server ready and failed connection; rerun after Ready passed. Images visually inspected. Local proof C:/Users/verwe/.codex/artifacts/envet-deployment/envet-share-home.png and envet-share-article.png. These are generated assets, not platform screenshot/display guarantees. Exact-source CI/release/live checks still pending. No posts or participant records submitted.
+
+Reference check: local Next16.3.8 metadata/image-response docs; https://ogp.me/ image/URL/description requirements; https://developers.google.com/search/docs/appearance/snippet describes page-specific summaries without search-display guarantees. AEO limited work to supported visible author/program facts; no new rich-result types, rankings or citation claims. Existing six milestones/PR45 and #27 metadata scope retained. Complete exact-source release and rerun full production + sharing probes before reporting live.
 
 ## envet.org and portal production cutover completed (October 15, 2026)
 

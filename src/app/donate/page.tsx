@@ -3,8 +3,8 @@ import { Action, FAQ, PageIntro, Photo } from "@/components/ui";
 import { organization as org } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata(
-  "Support the mission",
-  "Help keep ENVET’s equine therapy program going for Veterans and their families. Donate through the organization’s official PayPal page.",
+  "Donate to support Veterans & our Horse Heroes",
+  "Help keep ENVET’s equine-assisted programs free for Veterans and families. Support Horse Heroes, volunteer or give through our official PayPal page.",
   "/donate",
 );
 export default function Donate() {

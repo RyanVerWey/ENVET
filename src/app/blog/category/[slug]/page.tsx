@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { PageIntro, PostList } from "@/components/ui";
 import { getPosts } from "@/lib/blog";
 import { pageMetadata } from "@/lib/seo";
+import { categoryDescriptions } from "@/lib/blog-categories";
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -16,7 +17,8 @@ export async function generateMetadata({ params }: Props) {
   if (!post) notFound();
   return pageMetadata(
     post.category,
-    `ENVET journal guides about ${post.category.toLowerCase()} for Veterans, families, and supporters.`,
+    categoryDescriptions[slug] ??
+      `Read ${post.category.toLowerCase()} guides from the ENVET journal for Veterans, families and supporters.`,
     `/blog/category/${slug}`,
   );
 }

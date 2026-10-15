@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { assertPolishedPage } from "./check-page-ui.mjs";
+import { assertShareMetadata } from "./check-sharing.mjs";
 
 // Read-only acceptance probes. Never submit participant records or reuse a
 // browser session. OAuth starts below inspect headers only; no login completes.
@@ -57,6 +58,7 @@ for (const path of publicRoutes) {
     path,
   );
   const html = await response.text();
+  assertShareMetadata(html, path);
   assertPolishedPage(html, path);
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, path);
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/);

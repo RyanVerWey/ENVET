@@ -5,7 +5,7 @@ import { ContributingOrganizations } from "@/components/contributing-organizatio
 import { publishedOrganizations } from "@/lib/community/public-organizations";
 export const dynamic = "force-dynamic";
 export const metadata = pageMetadata(
-  "Our story",
+  "About Eagle’s Nest Veterans’ Equine Therapy",
   "Meet Eagle’s Nest Veterans’ Equine Therapy, a nonprofit connecting Veterans, families, and horses in Lovettsville, Virginia.",
   "/about",
 );

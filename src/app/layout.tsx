@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: "ENVET | A place to reconnect", template: "%s | ENVET" },
   description: organization.description,
+  applicationName: "ENVET",
   robots: launchEnabled
     ? {
         index: true,
