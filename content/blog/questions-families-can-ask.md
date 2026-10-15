@@ -10,7 +10,7 @@ imageAlt: "A helmeted rider leaning toward a paint horse, with a handler nearby 
 published: true
 sources:
   - title: "ENVET’s programs and participation information"
-    url: "https://envet.info/programs"
+    url: "https://envet.org/programs"
   - title: "Eagle’s Nest Veterans’ Equine Therapy: official program information"
     url: "https://www.facebook.com/profile.php?id=100068209587248"
 ---

@@ -1,3 +1,5 @@
+import { portalOrigin, primaryOrigin } from "@/lib/domains";
+
 export type CommunityConfig = {
   url: string;
   publishableKey: string;
@@ -65,7 +67,11 @@ export function oauthRequestOrigin(
   configuredOrigin: string,
 ): string | null {
   const requestOrigin = new URL(requestUrl).origin;
-  if (!originMatchesConfig(requestOrigin, configuredOrigin)) return null;
+  const portal = portalOrigin();
+  const approvedPortal =
+    configuredOrigin === primaryOrigin && requestOrigin === portal;
+  if (!approvedPortal && !originMatchesConfig(requestOrigin, configuredOrigin))
+    return null;
   if (!configuredOrigin.startsWith("http:")) return requestOrigin;
   // NextRequest normalizes loopback URLs. Host preserves the browser's cookie
   // hostname; accept only the configured port and the two local aliases.

@@ -1,7 +1,13 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-12T18:15:58Z"
+updated: "2026-10-15T05:28:02Z"
 ---
+## .org cutover pending Wix DNS preservation (October 15, 2026)
+
+Owner-authorized org/portal code is prepared, not deployed: exact primary and management origins, host-only PKCE sessions, private noindex/no-store, safe navigation, manager links and expanded production probe.136tests/22files plus lint/build/types/format, browser regression, local31-route smoke and org-config build pass. Independent routing review passes. Existing six milestones/PR45 retained.
+
+GoDaddy owns five ENVET domains but org still delegates DNS to Wix; portal absent. Owner must confirm no email/other services or provide/open full Wix zone before NS replacement. Nameserver dialog cancelled. Vercel org/portal and seven new alias bindings prepared. net/store/xyz only parked apex A replaced with actual Vercel216.198.79.1, TTL600; all other records retained. Six aliases Valid Configuration; targetorg remains Wix, so not ready to test. Existing info remains HTTP200 and its redirects/env stay unchanged. Supabase exactorg+portal callbacks added, oldinfo+both loopback3001 retained; Site URL stillinfo. No credentials/scopes/permissions/schema/private records changed. Source not deployed, no fake live OAuth claim. Detailed resume, rollback coordination and three screenshots: docs/launch-runbook.md latest section.
+
 ## Second designated manager and requested release (October 12, 2026)
 
 Owner explicitly authorized manager access for the second designated organization Google account after sign-in. Read-only identity checks found exactly one confirmed, verified Google identity matching that account; not deleted, banned or anonymous. Atomic operator bootstrap inserted its verified UUID into private.staff_members and recorded one operator_grant_manager audit entry under the existing authorized manager. Both designated managers pass public.staff_access and private.assert_staff under service_role; existing owner access preserved and member self-promotion remains denied. Account identifiers remain only in the private database audit, not these public notes. No automatic email/metadata promotion rule, schema, RLS, provider, secrets, customer records or DNS changes. The new manager's own browser session was not exercised; refresh its already-signed-in organization account to reveal Management.

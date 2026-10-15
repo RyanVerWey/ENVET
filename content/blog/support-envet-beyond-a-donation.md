@@ -10,7 +10,7 @@ imageAlt: "A horse at Eagle’s Nest Veterans’ Equine Therapy"
 published: true
 sources:
   - title: "ENVET’s programs and participation information"
-    url: "https://envet.info/programs"
+    url: "https://envet.org/programs"
   - title: "ENVET’s official Facebook page and donation destination"
     url: "https://www.facebook.com/profile.php?id=100068209587248"
 ---

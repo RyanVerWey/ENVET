@@ -5,6 +5,7 @@ import { communityConfig } from "@/lib/community/config";
 import { currentUser, staffUser } from "@/lib/community/supabase";
 import { memberFirstName } from "@/lib/community/member";
 import { MemberTasks } from "@/components/member-tasks";
+import { managementUrl } from "@/lib/domains";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -53,7 +54,11 @@ export default async function Account({ searchParams }: Props) {
             <MemberTasks />
             <div className="actions">
               {staff && (
-                <Link className="action action-secondary" href="/team">
+                <Link
+                  className="action action-secondary"
+                  href={managementUrl()}
+                  prefetch={false}
+                >
                   Open team workspace
                 </Link>
               )}

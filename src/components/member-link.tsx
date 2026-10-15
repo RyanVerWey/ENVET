@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { UserRound, Settings2 } from "lucide-react";
+import { managementUrl } from "@/lib/domains";
 
 export function MemberLink({ pathname }: { pathname: string }) {
   const [member, setMember] = useState<{
@@ -27,7 +28,7 @@ export function MemberLink({ pathname }: { pathname: string }) {
   return (
     <div className="member-actions">
       {member?.manager && (
-        <Link className="manager-link" href="/team" prefetch={false}>
+        <Link className="manager-link" href={managementUrl()} prefetch={false}>
           <Settings2 size={16} aria-hidden="true" /> Management
         </Link>
       )}

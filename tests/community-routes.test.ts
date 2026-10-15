@@ -166,6 +166,63 @@ describe("HTTP route fail-closed states", () => {
     },
   );
 
+  it.each(["https://envet.org", "https://portal.envet.org"])(
+    "keeps production PKCE callback and return cookie on its starting host %s",
+    async (origin) => {
+      vi.stubEnv("NEXT_PUBLIC_PORTAL_URL", "https://portal.envet.org");
+      vi.mocked(communityConfig).mockReturnValue({
+        url: "https://example.supabase.co",
+        publishableKey: "public",
+        origin: "https://envet.org",
+      });
+      const signInWithOAuth = vi.fn().mockResolvedValue({
+        data: { url: "https://example.supabase.co/auth/v1/authorize" },
+        error: null,
+      });
+      const exchangeCodeForSession = vi.fn().mockResolvedValue({ error: null });
+      vi.mocked(userClient).mockResolvedValue({
+        auth: { signInWithOAuth, exchangeCodeForSession },
+      } as never);
+      try {
+        const start = await startGoogle(
+          new NextRequest(`${origin}/auth/sign-in?next=/team/forms`, {
+            headers: {
+              host: "evil.example",
+              "x-forwarded-host": "evil.example",
+            },
+          }),
+        );
+        expect(signInWithOAuth).toHaveBeenCalledWith({
+          provider: "google",
+          options: { redirectTo: `${origin}/auth/callback` },
+        });
+        expect(start.cookies.get("envet-auth-next")).toMatchObject({
+          value: "/team/forms",
+          secure: true,
+          httpOnly: true,
+        });
+        expect(start.cookies.get("envet-auth-next")).not.toHaveProperty(
+          "domain",
+        );
+        const finish = await finishGoogle(
+          new NextRequest(`${origin}/auth/callback?code=synthetic`, {
+            headers: { cookie: "envet-auth-next=%2Fteam%2Fforms" },
+          }),
+        );
+        expect(finish.headers.get("location")).toBe(`${origin}/team/forms`);
+        expect(exchangeCodeForSession).toHaveBeenCalledWith("synthetic");
+        const missingCode = await finishGoogle(
+          new NextRequest(`${origin}/auth/callback`),
+        );
+        expect(missingCode.headers.get("location")).toBe(
+          `${origin}/account?error=callback`,
+        );
+      } finally {
+        vi.unstubAllEnvs();
+      }
+    },
+  );
+
   it.each([
     "http://localhost:3001",
     "https://other.example",

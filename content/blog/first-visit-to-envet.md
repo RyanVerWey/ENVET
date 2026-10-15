@@ -10,7 +10,7 @@ imageAlt: "The outdoor setting at Eagle’s Nest in Lovettsville, Virginia"
 published: true
 sources:
   - title: "ENVET’s programs and participation information"
-    url: "https://envet.info/programs"
+    url: "https://envet.org/programs"
   - title: "Eagle’s Nest Veterans’ Equine Therapy: official Facebook page"
     url: "https://www.facebook.com/profile.php?id=100068209587248"
 ---
