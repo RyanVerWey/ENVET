@@ -1,6 +1,16 @@
 ---
-updated: "2026-10-15T14:41:38Z"
+updated: "2026-10-15T14:46:35Z"
 ---
+
+## Social sharing repair live (October 15, 2026)
+
+Released exact647f2d982c2a7907e97b6388128db453f4f35218 after both verify checks passed: runs38753683570/38753675727, checks116486381289/116486356039. Vercel dpl_F5u5wnB4eC2eCsLAwMzwkhpsTFvM Ready30s, Production/Current with envet.org; immutable envet-mjnz3e8f6-ryanverweys-projects.vercel.app. Dashboard https://vercel.com/ryanverweys-projects/envet/F5u5wnB4eC2eCsLAwMzwkhpsTFvM. No environment, DNS, auth/provider, database, permission or participant-record changes; Git auto-deploy stays disabled.
+
+Full production probe passes18public/16private pages, allninealiases, HTTPS/canonical/robots/discovery/media, portal routing and OAuth/private API negatives. Dedicated live sharing probe passes18pages x5useragents: complete metadata in head, unique descriptions/titles, explicit image/alt/type/size, matching OG/X images and article author/section/ISOdates. All four share images return actual1200x630PNG under5MiB; independent20image fetches across allfiveuseragents pass. Unknown/draft image routes404. 147tests/23files, lint/build/types/format, browser regressions, built local31route/28target smoke and Plan pass. Agent-owned3002 preview stopped; no unrelated server touched.
+
+Live image opened in Chrome at https://envet.org/opengraph-image?v=2. Its cropped browser screenshot timed out once; switched to successful release-details screenshot, C:/Users/verwe/.codex/artifacts/envet-deployment/envet-share-release.png. Generated cards were visually inspected locally at envet-share-home.png and envet-share-article.png in the same artifact directory. Metadata/image fetch checks are not actual Facebook/LinkedIn/X post-display, cache refresh, indexing, ranking or rich-result guarantees; no social post, account changes or customer submission made. Exact URL/platform needed if a previously cached preview remains wrong.
+
+Prior healthy same-config/schema org release dpl_Hs5jUpWMexxAEqHCH63KjdpR7cmv/source24083e5 is rollback candidate, not exercised. This repair changes metadata/generated images only, not visible body layout or signed wording. No milestone or unrelated operational issue closed. Documentation-only closeout needs no additional application release.
 
 ## Social metadata repair prepared (October 15, 2026)
 
