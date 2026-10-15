@@ -1,7 +1,20 @@
 ---
 title: Owner review, Vercel launch, and rollback
-updated: "2026-10-15T06:39:24Z"
+updated: "2026-10-15T14:13:29Z"
 ---
+
+## envet.org and portal production cutover completed (October 15, 2026)
+
+Owner completed GoDaddy protected verification. Saved portal CNAME d4611faaf83cdc6e.vercel-dns-017.com resolves on authoritative ns47 and Cloudflare with3600-second TTL. Saved org apex A216.198.79.1 TTL600; nameservers ns47/ns48.domaincontrol.com. GoDaddy success notice and Vercel Valid Configuration for org/portal verified; ordinary HTTPS certificate validation passes. Other default records preserved. No email/other services existed per owner.
+
+Manually deployed exact24083e571ee6571d4b5eebd9f6a546c11f8db9ae after both CI verify checks succeeded (runs38693742827/38693737126). Vercel dpl_Hs5jUpWMexxAEqHCH63KjdpR7cmv Ready34s Production, envet.org assigned; immutable envet-7diaqz3r3-ryanverweys-projects.vercel.app. Release dashboard https://vercel.com/ryanverweys-projects/envet/Hs5jUpWMexxAEqHCH63KjdpR7cmv. Existing Git auto-deploy remains disabled. Production SITE_URL and AUTH_REDIRECT_ORIGIN=https://envet.org, NEXT_PUBLIC_PORTAL_URL=https://portal.envet.org. Supabase URL config reread: saved Site URLorg, five exact callbacks includingorg/portal/info and localhost/127.0.0.1:3001. No Google credentials/scopes, secrets, staff grants, schema/RLS or participant records changed.
+
+Existing info/www.info now both direct308 toorg. Vercel refused apex redirect whilewww still pointed toinfo; cancel apex edit, updatewww directtoorg first, then apex saves successfully. All nine consumeraliases (www.org plusinfo/net/store/xyz apex+www) pass real HTTPS and permanent path/query redirect checks. Technical Vercel hostnames remain unchanged. Management primary/team redirects toportal; portal root/team, public-page routing, robots and private headers pass.
+
+Fresh136tests/22files and lint/Plan check pass. Full brain-session production probe passes18public and16private routes, ninealiases/HTTPupgrades, canonical/structured data, robots/sitemap/RSS, images/optimization/OG/404s, credential-query stripping and safe-method boundaries, anonymous/private and sibling-origin denials, configured Google-only signing gates and public discussion reads. Both OAuthstarts preserve exact callback with secure HttpOnly host-only SameSiteLax PKCEcookies. No identity sign-in completed on new domains, no participant form/comment/inquiry submitted. Actual primary homepage browser renders correctly. Ready for owner testing, not a claim of completed real manager-login/signature acceptance. Both previously granted managers must sign in again onportal because cookies stayhost-only. Chrome became unavailable after final browser opening; no security bypass or broad retry attempted. Proof saved before disconnect: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-org-portal-release.png.
+
+Owner test: open https://envet.org and https://portal.envet.org, sign in with designated Google manager account, confirm Management and intended dashboard access, then exercise approved operational workflows. Keep private real records out of screenshots/issues. Prior healthy info deployment dpl_B1qiiWE5cvTZE2eRGmeTGq8eHtrT/sourcefd055865 remains rollback candidate. Restoring oldartifact alone does not roll back DNS/env/redirect/Supabase Site URL; coordinate those explicitly and rerun probes. No rollback exercised. Six milestones and PR45 retained; no operational issue closed solely from read-only checks. This docs-only closeout does not need another application release.
+
 ## Web-only DNS replacement authorized; GoDaddy identity gate (October 15, 2026)
 
 Owner answered: no email or other services; replace Wix DNS. Attempted the authorized GoDaddy nameserver switch from ns12/ns13.wixdns.net to GoDaddy's recommended defaults. Save requires Continue & Verify and SMS identity verification under existing account protections. The embedded panel stalled; opening its exact observed verification URL in a separate Chrome tab rendered Verify it's you with a blank code field. Owner must complete the SMS step directly in Chrome; no code requested in chat, no protection bypass or resend. No completed NS/DNS change is claimed. Original GoDaddy modal and standalone verification tab retained for handoff; after user completion reread actual saved nameservers before retrying anything.
@@ -31,6 +44,7 @@ October 9, 2026: manual exact-SHA 510d84cb2a924e689c13f6eb272e1ce5ddb272b9 produ
 ## Latest release: full-page copy and accessibility polish
 
 October9,2026: manual exact-SHA8041d13d9304e4bd2e20456505e3796a3f36ca62 production deployment dpl_3dbwKM4HkejjE57Rv32eYYJoC7QR Ready in32s. https://envet.info assigned; immutable https://envet-i3a7fxj4x-ryanverweys-projects.vercel.app. Both GitHub checks success for exact source; Node22.x/Standard Protection unchanged. Expanded production smoke verifies clean public copy, H1/main/skip target, labeled SVG social anchors, natural tab order, 15public+9private routes, no-store/noindex boundaries, canonical/discovery/media/HTTPS redirects. Actual live editorial cleanup, read-only forms and keyboard-focused social footer verified. No collection/auth/encryption/schema/permissions/DNS changes. Rollback candidate is prior healthy dpl_BVWKQe7gj2AVLrLL52naKkCphuf5/source d7e1e0ef532ada1894382fb75b7824b7296c5aa5. Restore it through Vercel's authorized rollback workflow only if needed; rollback not exercised.
+
 # Owner review, Vercel launch, and rollback
 
 ## Current state
@@ -84,6 +98,7 @@ M6 begins implementation only after funding and approval of the minimum-data wor
 User explicitly authorized DNS configuration through Margaret Lamm's delegated GoDaddy account. Delegated browser access was verified and the editable envet.info zone inspected. This supersedes the earlier restriction on preparing/connecting DNS for this task; it does not supply a hosting destination or approve unrelated content changes.
 
 Current zone before changes:
+
 - A @: GoDaddy Parked, TTL 600 seconds. Public A answers: 15.197.148.33 and 3.33.130.190.
 - CNAME www: envet.info., TTL 1 hour.
 - NS @: ns07.domaincontrol.com. and ns08.domaincontrol.com., TTL 1 hour.
@@ -112,7 +127,6 @@ Existing Supabase project is verified: rpkxpsnqlhcepyxclgau, us-east-1, Postgres
 
 Before activation, follow docs/google-auth-setup.md; confirm the already-applied migration history, test real-account negative permissions and real Google callback, grant verified UUID staff membership manually, configure server-only keys, verify backups/recovery and expiry, and accept final privacy text. Google client secrets stay in Supabase; no privileged secrets enter public variables. Keep real data out of previews. No public deployment is authorized by database availability; all existing owner/media/content gates still apply. Review dependency advisories before release, not only build success.
 
-
 Hosted M6 migrations are applied (20261009210844 and 20261009210926); grants/RLS/catalog and anonymous REST negatives pass. No Google provider credentials, initial staff grants, real inquiry collection or deployment were activated. The local increment passed independent review; its live-user, backup, privacy/media and launch gates remain open. See docs/verification.md and docs/google-auth-setup.md.
 
 ## Explicit deployment authority, October 9, 2026
@@ -120,7 +134,6 @@ Hosted M6 migrations are applied (20261009210844 and 20261009210926); grants/RLS
 User authorized connecting and deploying the current website to envet.info. This supersedes the earlier no-public-launch instruction for that domain. Candidate commit is 0975e6d on codex/envet-owner-preview (PR #45), with both GitHub checks passing. A future .org is reportedly transferring from Wix to GoDaddy; its exact hostname was not supplied. Do not modify or guess it; envet.info remains the requested launch domain.
 
 Deployment authority is not a factual assertion of copyright ownership or pictured-person consent. All four current entries in docs/media-manifest.json still have publicApproved false: logo, horse, farm and connection images. Obtain explicit owner clearance for these entries before changing the media manifest or CONTENT_AND_MEDIA_APPROVED. No flags or hosting settings were changed in response to the authorization alone. Google login, inquiry collection and analytics remain unconfigured/disabled until their credential and real-account/backup activation checks pass; website publication does not require silently activating them.
-
 
 ## Deployment preparation, October 9, 2026 (before clearance)
 
@@ -149,6 +162,7 @@ Live browser evidence: desktop home and 390px home/visit have no horizontal over
 Previous verified healthy deployment: dpl_2UAKZx2zvr32oB13W1u1Rx7YWSFt from c3e5113969448aedd65d0e57baa9105ff7d1bb7b, immutable hostname envet-bfcfukn7i-ryanverweys-projects.vercel.app (Node24). It passed the public/private/redirect/SEO/image live checks before Node22 pinning. Both releases share the same content/schema/collection-disabled configuration; no data migration or irreversible writes occurred. For failed public routes, broken canonical/redirects, or exposed private content, pause releases and use the owner Vercel account to promote this known-good deployment; then rerun production probes. For an exposure, restrict/unpublish first and investigate rather than relying on noindex. Actual rollback was not exercised. Check deployment retention before relying on older releases (project currently shows30-day retention).
 
 Git remains connected but automatic Git deployments are intentionally disabled in vercel.json. Manual release procedure:verify the exact pushed commit's CI checks, choose Create Deployment with its full SHA, confirm Production target, wait for Ready, verify source/runtime/domain, then run the production probe. Do not deploy the obsolete main branch. Real data stays disabled until its separate activation workflow is accepted. Search Console ownership/sitemap submission and long-term monitoring are not completed by this publication; no search ranking/indexing/AI citation guarantee is made.
+
 ## Accordion and donation-image production update, October 9, 2026
 
 Owner requested all expandable sections behave as single-open accordions and an image beneath Know where you are giving. Native details name envet-accordion is shared by public FAQs and all document/staff disclosures; browser owns temporary open state without extra client JavaScript. [MDN details name documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details#name). Donation section reuses the explicitly approved farm.jpg, responsive 3:2 framing and descriptive alt text. Corva mint styles and existing motion stay unchanged.
