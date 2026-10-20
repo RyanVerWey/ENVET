@@ -1,7 +1,17 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-20T01:17:48Z"
+updated: "2026-10-20T01:21:20Z"
 ---
+
+## Optimized portrait release live (October 19, 2026)
+
+Application source e823adbd028b387332b24be43dc25805fe9a6196 is live: Vercel dpl_Ev4u1rD2vGrzQFD9kgbqb4RNzjp3 Ready25s, Production/Current, envet.org; immutable envet-7fjj2in4t-ryanverweys-projects.vercel.app. Dashboard https://vercel.com/ryanverweys-projects/envet/Ev4u1rD2vGrzQFD9kgbqb4RNzjp3. Prepared exact-source selection; dialog disappeared and an existing build appeared before any agent Deploy submission. Inspected it rather than create duplicate; initiator is not established. No Git deployment setting changed (vercel.json still deploymentEnabled:false).
+
+Both exact-source verify checks passed: runs39352654471/39352649627, checks118400189017/118400173907. First check's two annotations are hosted action-runtime deprecation and ubuntu-latest migration notices, not application failures. Local165tests/25files, lint/build/types/format, Plan, full isolated browser and31route/28target built preview pass. Live production script passes18public/16private routes, ninealiases, portal/OAuth/public-private boundaries and existing metadata/nonvisual assertions. Sharing probe passes18pages x5crawleridentities and four1200x630PNGs. Browser regressions include the new WebP actual-byte budget, real locally intercepted XHR, accurate progress, retry/cancel/late responses and narrow/ultrawide both-theme layouts. Font-aware fixture uses Arial fallback because Vite does not generate Next's SourceSans variable; actual live page uses configured SourceSans3.
+
+Existing Chrome manager session successfully loaded portal.envet.org/team/animals as Ryan, with upload enabled and the new20MB/type/three-step instructions visible. Only focused the empty photo-description input to reveal instructions; no files selected, real animal profiles edited, Storage objects uploaded, or records submitted. Public staff had no published portrait URLs, so no real live-photo speed comparison was possible.11MB→287KB/97.4% reduction is synthetic test evidence, not field load-time/Core Web Vitals guarantee. User can now test their own photo preview/upload/save workflow. HEIC/HEIF requires JPEG export. No credentials, auth, DNS, database schema or permission changes. All draft-photo publication/revocation guards retained.
+
+Proof: C:/Users/verwe/.codex/artifacts/envet-deployment/envet-portrait-release.png and envet-portrait-live-instructions.png; isolated preview output/playwright/envet-portrait-upload.png. Portal tab retained as deliverable. Previous healthy app7668894 / dpl_BGS4FA2pUwWnzSnFJt4hAtYeLeVm is rollback candidate, not exercised. Agent-owned3002 server confirmed stopped. Docs-only closeout follows; no further application changes needed.
 
 ## Portrait upload optimization prepared (October 19, 2026)
 
