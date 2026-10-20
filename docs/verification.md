@@ -1,7 +1,17 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-20T01:21:20Z"
+updated: "2026-10-20T01:32:27Z"
 ---
+
+## Existing uploaded photos optimized in place (October 19, 2026)
+
+User explicitly requested all existing uploads too. Inspected the authenticated Supabase project's Storage UI: exactly one bucket, private animal-portraits, containing six UUID-named WebP files. The Supabase MCP SQL connector denied project access; no permission/credential changes attempted. Used existing authorized Chrome dashboard instead. Downloaded and retained all six originals before replacing any. Initial two-file local trial was not uploaded; added an independently verified expected-count guard so incomplete backups cannot be processed as a full batch.
+
+Offline maintenance script scripts/optimize-uploaded-portraits.mjs validates actual still-WebP decode,3MB/30MP bounds,1280px long-edge/300000byte budget, strips metadata, retains originals separately, refuses existing output folders, and produces SHA256 before/after hashes. Already optimized images are copied unchanged. It has no credentials, network access, automatic upload/delete or database actions. Three new tests cover originals, complete-backup count, overwrite refusal, hashes/metadata and idempotence. Full168tests/26files, lint/build/types/format and Plan checks pass.
+
+Five existing Storage files were replaced via their exact Replace file menus with smaller optimized bytes; one already met limits and was untouched. Original filenames, profile references, original consent/manifest entries, species, author fields and draft/published states unchanged. No database record/schema, role, auth, DNS or environment changes. All six freshly downloaded from Storage match the optimized SHA256 hashes exactly. Total1244578→647470bytes (597108bytes/48.0% saved). Current files32126–208128bytes; all<=1280px long edge, still WebP, no EXIF/XMP/IPTC. Visually compared all six original/optimized pairs with unchanged orientation/content. Reprocessing verified copies reports zero changes. Signed-out GETs to all six actual media URLs remain404/no-store. Full live production probe passes public/private pages, aliases, OAuth and API negatives, without participant submissions. No application redeployment needed; existing responsive/lazy/private media pipeline remains live.
+
+Recoverable original backups: C:/Users/verwe/.codex/artifacts/envet-portraits-20261019/originals. Complete optimized set/report: optimized-complete/optimization-report.json in the same archive; verified-from-storage/ holds the six independently downloaded final objects; idempotence-check/ records zero-change check. Restore through Supabase Replace file using corresponding original UUID filename if needed; no originals deleted. Screenshot storage-verified.png shows current six-file list and203.25KiB example (208128bytes); before-after.png is private local visual QA. Artifacts/photos not committed. Dashboard menus must be scoped to exact file name and waited hidden after Download: overlapping closing menus otherwise cause duplicate prior-file downloads. Native download event waiter timed out although first download succeeded; filesystem receipt verified actual completion before proceeding. CUA reset recovered existing tab, no credential access.
 
 ## Optimized portrait release live (October 19, 2026)
 
