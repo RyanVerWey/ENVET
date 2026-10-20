@@ -1,6 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
-import { Plus, ArrowUpRight, ImagePlus, RotateCcw, Trash2 } from "lucide-react";
+import { Plus, ArrowUpRight, RotateCcw, Trash2 } from "lucide-react";
 import {
   animalTypes,
   blankAnimal,
@@ -8,6 +8,7 @@ import {
   type AnimalRecord,
 } from "@/lib/community/animals";
 import { AnimalCard } from "./animal-card";
+import { PortraitUpload } from "./portrait-upload";
 
 export function AnimalManager() {
   const [animals, setAnimals] = useState<AnimalRecord[] | null>(null);
@@ -17,7 +18,9 @@ export function AnimalManager() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
   const [dirty, setDirty] = useState(false);
-  const [rights, setRights] = useState(false);
+  const [photoPending, setPhotoPending] = useState(false);
+  const [portraitSession, setPortraitSession] = useState(0);
+  const locked = busy || photoPending;
   const [trash, setTrash] = useState(false);
   const [confirm, setConfirm] = useState<string | null>(null);
   const [page, setPage] = useState(0);
@@ -49,17 +52,18 @@ export function AnimalManager() {
     return () => clearTimeout(timer);
   }, [reload]);
   useEffect(() => {
-    if (!dirty) return;
+    if (!dirty && !photoPending) return;
     const warn = (event: BeforeUnloadEvent) => event.preventDefault();
     window.addEventListener("beforeunload", warn);
     return () => window.removeEventListener("beforeunload", warn);
-  }, [dirty]);
+  }, [dirty, photoPending]);
   function edit(item?: AnimalRecord) {
+    if (photoPending) return;
     if (dirty && !window.confirm("Discard your unsaved bio changes?")) return;
     setDraft(item ? { ...item } : { ...blankAnimal });
     setVersion(item?.version ?? null);
     setDirty(false);
-    setRights(false);
+    setPortraitSession((old) => old + 1);
     setMessage("");
     document.getElementById("animal-name")?.focus();
   }
@@ -68,6 +72,7 @@ export function AnimalManager() {
     setDirty(true);
   }
   async function mutate(method: string, payload: unknown) {
+    if (locked) return;
     if (
       method !== "POST" &&
       dirty &&
@@ -101,6 +106,7 @@ export function AnimalManager() {
         setVersion(null);
         setDirty(false);
       }
+      setPortraitSession((old) => old + 1);
       if (await reload())
         setMessage(
           method === "DELETE"
@@ -117,43 +123,6 @@ export function AnimalManager() {
       setAnimals(null);
       setMessage(
         "Could not confirm whether the change saved. Refresh profiles and open the latest record before trying again. Your unsaved bio is still here.",
-      );
-    } finally {
-      setBusy(false);
-    }
-  }
-  async function upload(file: File | undefined) {
-    if (!file) return;
-    if (!rights) {
-      setMessage("Confirm permission to publish this portrait first.");
-      return;
-    }
-    if (file.size > 3_000_000) {
-      setMessage("Use a portrait smaller than 3 MB.");
-      return;
-    }
-    setBusy(true);
-    setMessage("");
-    try {
-      const data = new FormData();
-      data.append("photo", file);
-      data.append("rights", "confirmed");
-      const response = await fetch("/api/team/animals/photo", {
-        method: "POST",
-        body: data,
-      });
-      const result = await response.json();
-      if (!response.ok)
-        throw new Error(result.error || "Photo did not upload.");
-      update("photo", result.photo);
-      setMessage(
-        "Portrait uploaded privately. Save the bio to attach it; only a published profile makes it public.",
-      );
-    } catch (error) {
-      setMessage(
-        error instanceof Error
-          ? error.message
-          : "Photo upload could not be confirmed. Choose the file again; your bio has not been saved.",
       );
     } finally {
       setBusy(false);
@@ -230,7 +199,7 @@ export function AnimalManager() {
         <button
           type="button"
           className="action"
-          disabled={busy || loading || !animals}
+          disabled={locked || loading || !animals}
           onClick={() => edit()}
         >
           <Plus size={18} aria-hidden="true" />
@@ -246,7 +215,7 @@ export function AnimalManager() {
       <button
         className="quiet-button"
         type="button"
-        disabled={busy || loading}
+        disabled={locked || loading}
         onClick={() => void reload()}
       >
         Refresh profiles
@@ -296,7 +265,7 @@ export function AnimalManager() {
                       <button
                         className="quiet-button"
                         type="button"
-                        disabled={busy}
+                        disabled={locked}
                         onClick={() =>
                           void mutate("PATCH", {
                             slug: item.slug,
@@ -312,7 +281,7 @@ export function AnimalManager() {
                         <button
                           className="quiet-button"
                           type="button"
-                          disabled={busy}
+                          disabled={locked}
                           onClick={() => edit(item)}
                         >
                           Edit {item.name}
@@ -320,7 +289,7 @@ export function AnimalManager() {
                         <button
                           className="quiet-button"
                           type="button"
-                          disabled={busy}
+                          disabled={locked}
                           onClick={() => setConfirm(item.slug)}
                           aria-label={`Move ${item.name} to trash`}
                         >
@@ -339,7 +308,7 @@ export function AnimalManager() {
                       <button
                         className="quiet-button"
                         type="button"
-                        disabled={busy}
+                        disabled={locked}
                         onClick={() => setConfirm(null)}
                       >
                         Keep profile
@@ -347,7 +316,7 @@ export function AnimalManager() {
                       <button
                         className="action"
                         type="button"
-                        disabled={busy}
+                        disabled={locked}
                         onClick={() =>
                           void mutate("DELETE", {
                             slug: item.slug,
@@ -373,7 +342,7 @@ export function AnimalManager() {
             <button
               className="quiet-button"
               type="button"
-              disabled={busy || page === 0}
+              disabled={locked || page === 0}
               onClick={() => {
                 if (
                   !dirty ||
@@ -382,6 +351,7 @@ export function AnimalManager() {
                   setDirty(false);
                   setDraft({ ...blankAnimal });
                   setVersion(null);
+                  setPortraitSession((old) => old + 1);
                   setPage(page - 1);
                 }
               }}
@@ -392,7 +362,7 @@ export function AnimalManager() {
             <button
               className="quiet-button"
               type="button"
-              disabled={busy || !more}
+              disabled={locked || !more}
               onClick={() => {
                 if (
                   !dirty ||
@@ -401,6 +371,7 @@ export function AnimalManager() {
                   setDirty(false);
                   setDraft({ ...blankAnimal });
                   setVersion(null);
+                  setPortraitSession((old) => old + 1);
                   setPage(page + 1);
                 }
               }}
@@ -501,41 +472,25 @@ export function AnimalManager() {
               Unique lowercase ID. Stays fixed after the first save.
             </p>
             <div className="animal-upload">
-              <h3>
-                <ImagePlus size={20} aria-hidden="true" />
-                Portrait
-              </h3>
-              <label className="animal-rights">
-                <input
-                  type="checkbox"
-                  checked={rights}
-                  onChange={(e) => setRights(e.target.checked)}
-                />
-                I have permission to publish this photo, including consent for
-                any identifiable people shown.
-              </label>
-              <label htmlFor="animal-photo">
-                Upload photo, JPEG / PNG / WebP, under 3 MB
-              </label>
-              <input
-                id="animal-photo"
-                type="file"
-                accept="image/jpeg,image/png,image/webp"
-                disabled={!rights}
-                onChange={(e) => {
-                  void upload(e.target.files?.[0]);
-                  e.target.value = "";
+              <PortraitUpload
+                key={portraitSession}
+                onPendingChange={setPhotoPending}
+                onUploaded={(photo) => {
+                  update("photo", photo);
+                  setMessage(
+                    "Portrait uploaded privately. Add its description and save the bio to attach it. Only a published bio makes it public.",
+                  );
                 }}
               />
-              <p className="small">
-                Photos are resized and location/camera metadata removed. Draft
-                portraits stay private.
-              </p>
               {draft.photo && (
                 <button
                   className="quiet-button"
                   type="button"
-                  onClick={() => update("photo", "")}
+                  disabled={photoPending}
+                  onClick={() => {
+                    update("photo", "");
+                    setPortraitSession((old) => old + 1);
+                  }}
                 >
                   Remove portrait from bio
                 </button>
@@ -566,7 +521,7 @@ export function AnimalManager() {
               accuracy and photo permission before saving.
             </p>
             <div className="actions">
-              <button className="action" type="submit">
+              <button className="action" type="submit" disabled={photoPending}>
                 {busy
                   ? "Saving…"
                   : draft.state === "published"
@@ -576,11 +531,18 @@ export function AnimalManager() {
               <button
                 className="quiet-button"
                 type="button"
+                disabled={photoPending}
                 onClick={() => edit()}
               >
                 Clear editor
               </button>
             </div>
+            {photoPending && (
+              <p className="small">
+                Finish uploading or cancel the selected photo before saving this
+                bio or opening another profile.
+              </p>
+            )}
             <p className="small" role="status">
               {dirty
                 ? "Unsaved bio changes. Preview is not published."

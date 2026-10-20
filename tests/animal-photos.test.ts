@@ -69,7 +69,7 @@ describe("private animal portrait boundary", () => {
     expect(from).toHaveBeenCalledWith("animal-portraits");
     const info = await sharp(upload.mock.calls[0][1]).metadata();
     expect(info.format).toBe("webp");
-    expect(info.width).toBe(1600);
+    expect(info.width).toBe(1280);
     expect(info.exif).toBeUndefined();
     expect(info.xmp).toBeUndefined();
     expect(upload.mock.calls[0][2]).toEqual({
@@ -91,15 +91,21 @@ describe("private animal portrait boundary", () => {
     expect((await POST(uploadRequest(bytes))).status).toBe(503);
   });
   it("denies draft portraits to visitors, serves published portraits without reusable public caching", async () => {
+    const image = await sharp({
+      create: { width: 400, height: 300, channels: 3, background: "green" },
+    })
+      .webp()
+      .toBuffer();
     const query = {
       select: vi.fn().mockReturnThis(),
       eq: vi.fn().mockReturnThis(),
       is: vi.fn().mockReturnThis(),
       limit: vi.fn().mockResolvedValue({ data: [], error: null }),
     };
-    const download = vi
-      .fn()
-      .mockResolvedValue({ data: new Blob(["synthetic"]), error: null });
+    const download = vi.fn().mockResolvedValue({
+      data: new Blob([new Uint8Array(image)]),
+      error: null,
+    });
     vi.mocked(serviceClient).mockReturnValue({
       from: () => query,
       storage: { from: () => ({ download }) },

@@ -6,6 +6,7 @@ import { createRequire } from "node:module";
 import { readFile } from "node:fs/promises";
 import { chromium } from "playwright";
 import { createServer } from "vite";
+import { checkPortraitUploads } from "./portrait-upload-browser.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "fixtures");
 const server = await createServer({
@@ -834,6 +835,7 @@ try {
     path: "output/playwright/envet-animal-manager.png",
     fullPage: true,
   });
+  await checkPortraitUploads(page, base, require);
   assert.deepEqual(failures, []);
   for (const dark of [false, true])
     for (const width of [320, 768, 1280]) {

@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { Cat, Dog, Heart, ArrowDownRight } from "lucide-react";
 import { animalTypes, type AnimalBio } from "@/lib/community/animals";
+import { portraitWidths } from "@/lib/portrait-image";
 export function AnimalCard({
   animal,
   preview = false,
@@ -16,12 +16,27 @@ export function AnimalCard({
     >
       <div className="animal-portrait">
         {animal.photo ? (
-          <Image
-            src={`/api/animals/photo/${animal.photo}`}
+          // Native responsive images keep all requests on the revocable media
+          // route; Next's public optimizer must not cache private draft bytes.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={`/api/animals/photo/${animal.photo}?w=640`}
+            srcSet={portraitWidths
+              .map(
+                (width) =>
+                  `/api/animals/photo/${animal.photo}?w=${width} ${width}w`,
+              )
+              .join(", ")}
             alt={animal.photoAlt}
-            fill
-            unoptimized
-            sizes="(max-width: 760px) 100vw, 33vw"
+            width={1280}
+            height={960}
+            loading="lazy"
+            decoding="async"
+            sizes={
+              preview
+                ? "(max-width: 960px) calc(100vw - 48px), 440px"
+                : "(max-width: 760px) calc(100vw - 48px), (max-width: 1100px) 45vw, 400px"
+            }
           />
         ) : (
           <div className="animal-portrait-empty">

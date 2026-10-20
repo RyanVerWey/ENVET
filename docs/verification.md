@@ -1,7 +1,15 @@
 ---
 title: ENVET owner-review verification
-updated: "2026-10-15T15:03:22Z"
+updated: "2026-10-20T01:17:48Z"
 ---
+
+## Portrait upload optimization prepared (October 19, 2026)
+
+Owner requested easy uploads for an older manager and very fast web portraits. GitHub #41 / M6 remains the workflow lineage; no milestone closure, new provider, schema or permission change. Original JPG/JPEG/PNG/WebP up to20MB converts locally to metadata-free WebP <=300KB and <=1280px long edge (adaptive size/quality). HEIC/HEIF is explicitly unsupported, with export-to-JPEG guidance; no extension-renaming workaround. Three readable steps, actual preview and before/after size/dimensions, separate permission and Upload photo action, native indeterminate conversion/security progress and actual XHR byte percentage. Cancel/retry/session/network/timeout/malformed/late-response paths preserve existing portrait and unsaved bio; pending selection blocks saving/switching until upload or cancel. Save bio is still required. No real animal record changed or photo uploaded in verification.
+
+Server still checks same-origin, current manager identity, permission, bounded multipart input, magic bytes, actual still-image decode,30MP limit, metadata stripping and unique audited private WebP storage. The internal upload API retains its3MB/4MB-stream guard;20MB originals never cross it. All new stored masters are <=300KB; source conversion is repeated server-side, not trusted. Public cards use native responsive320/640/960/1280 WebP URLs, lazy loading, asynchronous decoding and stable4:3 geometry; existing portraits also get optimized on read. Every size retains current publication/manager authorization before Storage download and private/no-store headers, so unpublish/trash revocation isn't defeated by a public optimizer/CDN cache. Already-small clean stored WebPs bypass repeat lossy encoding. No public URL, signing, auth, DNS or credentials changed.
+
+Synthetic4096x3072 noise JPEG11012011bytes became286554bytes1024x768WebP (97.4% smaller). This measures file size, not actual production loading speed or field Core Web Vitals. Tests cover actual browser conversion of >3MB sources, JPEG/PNG/WebP, oversize/empty/corrupt/HEIC rejection, local preview, no upload before consent/action, real intercepted multipart WebP upload, progress, bio save/reattach, retry, cancel/decode and late ACK, both mint themes at320/568/768/1024/1280/3440, keyboard, reduced motion/text spacing and axe.165unit/API/database tests in25files pass. Full lint/build/types, Plan check and31route/28target built preview pass. Formatting and final font-aware browser rerun pass; recovery assertions wait for committed parent state rather than racing effects. Screenshot: output/playwright/envet-portrait-upload.png. Agent-owned3002 server stopped after preview; no participant or remote Storage writes. Previous tests updated1600→1280 budget and valid synthetic stored bytes; first browser run exposed canceled-input focus before re-enable, fixed by post-render focus. Supabase Oct12TLS1.2CBC deprecation reviewed: current Node22+SDK transport unaffected; no TLS/security downgrade. Exact-source CI/deployment/live checks still pending.
 
 ## Non-visual audit release verified live (October 15, 2026)
 

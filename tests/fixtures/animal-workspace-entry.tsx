@@ -11,6 +11,8 @@ import "@corvaui/tokens/css";
 import "@corvaui/react/styles.css";
 import "../../src/app/globals.css";
 const params = new URLSearchParams(location.search);
+// Isolated Vite fixtures do not load Next's generated font variable.
+document.documentElement.style.setProperty("--font-body", "Arial");
 document.documentElement.dataset.corvaTheme =
   params.get("theme") === "dark" ? "mint-dark" : "mint-light";
 const photo = "44444444-4444-4444-8444-444444444444.webp";
@@ -32,7 +34,9 @@ let records: AnimalRecord[] = ["horse", "dog", "cat"].map((species, i) => ({
 const reply = (value: unknown, status = 200) =>
   new Response(JSON.stringify(value), { status });
 let writes = 0;
+const localFetch = window.fetch.bind(window);
 window.fetch = async (url, options) => {
+  if (String(url).startsWith("blob:")) return localFetch(url, options);
   if (String(url).endsWith("session"))
     return reply({
       signedIn: true,

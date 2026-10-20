@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import sharp from "sharp";
+import { optimizedPortrait } from "@/lib/portrait-server";
 import { apiJson, dbError, sameOrigin } from "@/lib/community/security";
 import { serviceClient, staffUser } from "@/lib/community/supabase";
 export const runtime = "nodejs";
@@ -55,21 +55,8 @@ export async function POST(request: Request) {
       source.toString("ascii", 8, 12) === "WEBP";
     if (!jpeg && !png && !webp)
       return apiJson({ error: "Use a still JPEG, PNG or WebP portrait." }, 400);
-    const processor = sharp(source, {
-      limitInputPixels: 30_000_000,
-      animated: false,
-    });
-    const info = await processor.metadata();
-    if (
-      !["jpeg", "png", "webp"].includes(info.format ?? "") ||
-      (info.pages ?? 1) > 1
-    )
-      return apiJson({ error: "Use a still JPEG, PNG or WebP portrait." }, 400);
-    const bytes = await processor
-      .rotate()
-      .resize(1600, 1600, { fit: "inside", withoutEnlargement: true })
-      .webp({ quality: 85 })
-      .toBuffer();
+    // Revalidate/re-encode on the server: browser conversion is not a trust boundary.
+    const { data: bytes } = await optimizedPortrait(source);
     const path = `${randomUUID()}.webp`;
     const registered = await service.rpc("staff_register_animal_photo", {
       p_actor: user.id,
