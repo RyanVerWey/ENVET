@@ -1,7 +1,7 @@
 ---
 title: Facebook Source Audit
 type: research
-updated: "2026-09-06T02:27:19Z"
+updated: "2026-09-06T03:12:22Z"
 ---
 # Facebook Source Audit
 
@@ -36,8 +36,12 @@ Source: https://www.facebook.com/profile.php?id=100068209587248
 ## Rights and Safety Rules
 
 - Facebook publication does not establish permission to republish on a separate website.
-- Obtain owner confirmation of rights and subject releases before copying any media.
+- User authorized copying official-page media for the review build. Owner confirmation of copyright and subject releases remains required before public website publication.
 - Require explicit approval for identifiable visitors, veterans, testimonials, and every image containing a child.
 - Prefer horses, facilities, farm details, landscape, and non-identifying activity images for the low-risk first shortlist.
 - Store approved copies locally with source URL, Facebook ID, capture date, alt text, crop guidance, credit, consent state, and owner approval date.
 - Never expose signed Facebook CDN URLs or depend on Facebook image delivery at runtime.
+
+## Implemented review shortlist
+
+The official logo and three photographs are bundled locally. See docs/media-manifest.json for exact URLs, descriptions, excluded child imagery, and pending public-approval flags. Automatic Facebook image labels were checked visually; one image labelled horse actually showed a child and was excluded. No third-party shared-post media is used.

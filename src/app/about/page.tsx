@@ -1,0 +1,88 @@
+import { Action, PageIntro, Photo } from "@/components/ui";
+import { pageMetadata } from "@/lib/seo";
+import { organization as org } from "@/lib/site";
+import { ContributingOrganizations } from "@/components/contributing-organizations";
+import { publishedOrganizations } from "@/lib/community/public-organizations";
+export const dynamic = "force-dynamic";
+export const metadata = pageMetadata(
+  "About Eagle’s Nest Veterans’ Equine Therapy",
+  "Meet Eagle’s Nest Veterans’ Equine Therapy, a nonprofit connecting Veterans, families, and horses in Lovettsville, Virginia.",
+  "/about",
+);
+export default async function About() {
+  const organizations = await publishedOrganizations();
+  return (
+    <>
+      <PageIntro
+        eyebrow="Our story"
+        title="A peaceful haven. A shared purpose."
+        intro="Eagle’s Nest Veterans’ Equine Therapy brings our military community together with Horse Heroes in Lovettsville, Virginia."
+        path="/about"
+      />
+      <section className="wrap story-split">
+        <Photo
+          src="/images/horse.jpg"
+          alt="A horse at Eagle’s Nest Veterans’ Equine Therapy"
+          priority
+        />
+        <div>
+          <p className="eyebrow">OUR PURPOSE</p>
+          <h2>
+            Service deserves
+            <br />a place of support.
+          </h2>
+          <p>
+            ENVET was founded to support {org.audience} through equine-assisted
+            activities and therapies. Our Horse Heroes help make space for
+            learning, communication and connection.
+          </p>
+          <p>
+            We provide a calm and peaceful haven, completely free of charge to
+            those we serve. Public and private contributions make our programs
+            possible and help care for rescued and donated horses.
+          </p>
+          <p>
+            We believe the first step should feel simple: a conversation with a
+            person who can help you understand what comes next.
+          </p>
+          <Action href="/visit">Plan your visit</Action>
+        </div>
+      </section>
+      <ContributingOrganizations organizations={organizations} />
+      <section className="wrap values-section">
+        <p className="eyebrow">WHAT GUIDES THIS PLACE</p>
+        <div className="value-row">
+          <span>01</span>
+          <h2>A personal introduction</h2>
+          <p>
+            Ask questions at your own pace. There is no online medical intake or
+            document upload here.
+          </p>
+        </div>
+        <div className="value-row">
+          <span>02</span>
+          <h2>Respect for the horses</h2>
+          <p>
+            Rescued and donated horses are central to ENVET’s work. Contact the
+            team to learn about the horses and appropriate ways to interact.
+          </p>
+        </div>
+        <div className="value-row">
+          <span>03</span>
+          <h2>Community support</h2>
+          <p>
+            Donations, shared stories, and people willing to help support the
+            program. Ask what the team needs most right now.
+          </p>
+        </div>
+      </section>
+      <section className="wrap closing-cta">
+        <div>
+          <p className="eyebrow">THERE’S ROOM FOR YOU HERE</p>
+          <h2>Be part of the next chapter.</h2>
+        </div>
+        <Action href="/contact">Talk with ENVET</Action>
+      </section>
+    </>
+  );
+}
